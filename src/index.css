@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pacaembu — Solvefy brand typeface */
+@font-face {
+  font-family: 'Pacaembu';
+  src: url('/fonts/Pacaembu-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacaembu';
+  src: url('/fonts/Pacaembu-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacaembu';
+  src: url('/fonts/Pacaembu-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacaembu';
+  src: url('/fonts/Pacaembu-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacaembu';
+  src: url('/fonts/Pacaembu-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacaembu';
+  src: url('/fonts/Pacaembu-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacaembu';
+  src: url('/fonts/Pacaembu-Ultra.ttf') format('truetype');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Solvefy Design System — All colors HSL */
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 210 40% 98%;        /* #f8fafc off-white */
+    --foreground: 222 47% 11%;        /* #0f172a deep slate */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Brand: vibrant conversion green */
+    --primary: 142 76% 56%;           /* #4ade80-ish */
+    --primary-foreground: 222 47% 11%;
+    --primary-glow: 142 84% 65%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 142 76% 56%;
+
+    --radius: 0.875rem;
+
+    /* Solvefy Solution colors (exact HEX → HSL) */
+    --cpaas: 258 100% 74%;            /* #9c7bff */
+    --ads: 60 100% 50%;               /* #fff200 */
+    --marketing: 326 78% 59%;         /* #e64499 */
+    --crm: 25 100% 50%;               /* #ff6b00 */
+    --cloud: 192 100% 50%;            /* #00cbff */
+
+    /* Dark surface */
+    --dark: 222 47% 11%;              /* #0f172a */
+    --dark-foreground: 210 40% 98%;
+    --dark-muted: 217 33% 17%;
+    --dark-border: 217 33% 22%;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(60% 60% at 50% 0%, hsl(142 76% 56% / 0.12) 0%, transparent 70%);
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+
+    /* Shadows */
+    --shadow-soft: 0 1px 2px hsl(222 47% 11% / 0.04), 0 4px 16px hsl(222 47% 11% / 0.04);
+    --shadow-elegant: 0 10px 40px -10px hsl(222 47% 11% / 0.12);
+    --shadow-glow: 0 10px 40px -10px hsl(var(--primary) / 0.45);
+
+    /* Sidebar (kept for shadcn compat) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142 76% 56%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 142 76% 56%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Pacaembu', 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    letter-spacing: -0.025em;
+  }
+}
+
+@layer utilities {
+  .marquee {
+    animation: marquee 35s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .text-balance { text-wrap: balance; }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 30%, transparent 80%);
+  }
+}
