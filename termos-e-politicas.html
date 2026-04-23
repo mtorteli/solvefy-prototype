@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Termos e Políticas | Solvefy</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Fonts for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "solve-green": "#70FC70",
+              "solve-border": "#EFE6D8",
+              "solve-sand": "#F7F5F2",
+              "solve-black": "#000000",
+            },
+            fontFamily: {
+              pacaembu: ["Pacaembu", "sans-serif"],
+              "dm-sans": ['"DM Sans"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html { scroll-behavior: smooth; }
+      .policy-content h3 {
+        font-family: "Pacaembu", sans-serif;
+        font-weight: 900;
+        font-size: 22px;
+        line-height: 1.3;
+        margin-top: 40px;
+        margin-bottom: 16px;
+        color: #000;
+      }
+      .policy-content h4 {
+        font-family: "Pacaembu", sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.4;
+        margin-top: 28px;
+        margin-bottom: 12px;
+        color: #000;
+      }
+      .policy-content p,
+      .policy-content li {
+        font-family: "DM Sans", sans-serif;
+        font-size: 16px;
+        line-height: 1.7;
+        color: #1a1a1a;
+        margin-bottom: 14px;
+      }
+      .policy-content ul,
+      .policy-content ol {
+        padding-left: 22px;
+        margin-bottom: 14px;
+      }
+      .policy-content ul { list-style: disc; }
+      .policy-content ol { list-style: decimal; }
+      .policy-content strong { font-weight: 700; color: #000; }
+      .policy-content a { color: #000; text-decoration: underline; }
+      .policy-content a:hover { color: #3aa83a; }
+      .tab-link.active {
+        background-color: #000;
+        color: #70FC70;
+      }
+    </style>
+  </head>
+  <body class="bg-solve-sand text-solve-black antialiased font-dm-sans">
+
+    <!-- Header -->
+    <header class="w-full bg-solve-black border-b border-black/10 sticky top-0 z-50">
+      <div class="max-w-[1240px] mx-auto px-4 md:px-8 h-[72px] md:h-[88px] flex items-center justify-between">
+        <a href="index.html" class="flex items-center" aria-label="Solvefy - Página inicial">
+          <span class="font-pacaembu font-black text-[32px] md:text-[40px] leading-none tracking-tight select-none">
+            <span class="text-solve-sand">sol</span><span class="text-solve-green">v</span><span class="text-solve-sand">efy</span>
+          </span>
+        </a>
+        <a
+          href="index.html"
+          class="hidden md:inline-flex items-center gap-2 font-dm-sans text-sm font-semibold text-solve-sand hover:text-solve-green transition-colors"
+        >
+          ← Voltar ao site
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="w-full bg-solve-black text-solve-sand pb-16 md:pb-24 pt-10 md:pt-16">
+      <div class="max-w-[1240px] mx-auto px-4 md:px-8">
+        <p class="font-dm-sans uppercase tracking-[0.2em] text-xs md:text-sm text-solve-green font-bold mb-4">
+          Centro de Transparência
+        </p>
+        <h1 class="font-pacaembu font-black text-[40px] leading-[1.1] md:text-[72px] md:leading-[1.05] max-w-[900px]">
+          Termos e <span class="text-solve-green">Políticas</span>
+        </h1>
+        <p class="font-dm-sans text-[16px] md:text-[18px] leading-[1.6] max-w-[780px] mt-6 text-white/80">
+          Reunimos aqui os documentos que regem o uso da plataforma Solvefy, a proteção dos seus dados
+          e as diretrizes de conduta aplicáveis a todos os Usuários.
+        </p>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="w-full bg-solve-sand border-b border-solve-border sticky top-[72px] md:top-[88px] z-40">
+      <div class="max-w-[1240px] mx-auto px-4 md:px-8">
+        <div class="flex gap-2 md:gap-3 overflow-x-auto py-4 md:py-5 no-scrollbar">
+          <a href="#termos-de-uso" class="tab-link active shrink-0 font-dm-sans font-semibold text-sm md:text-base px-4 md:px-5 py-2.5 rounded-full border border-black/10 transition-colors hover:bg-black hover:text-solve-green">
+            Termos de Uso
+          </a>
+          <a href="#politica-de-privacidade" class="tab-link shrink-0 font-dm-sans font-semibold text-sm md:text-base px-4 md:px-5 py-2.5 rounded-full border border-black/10 transition-colors hover:bg-black hover:text-solve-green">
+            Política de Privacidade
+          </a>
+          <a href="#politica-de-cookies" class="tab-link shrink-0 font-dm-sans font-semibold text-sm md:text-base px-4 md:px-5 py-2.5 rounded-full border border-black/10 transition-colors hover:bg-black hover:text-solve-green">
+            Política de Cookies
+          </a>
+          <a href="#politica-de-moderacao" class="tab-link shrink-0 font-dm-sans font-semibold text-sm md:text-base px-4 md:px-5 py-2.5 rounded-full border border-black/10 transition-colors hover:bg-black hover:text-solve-green">
+            Política de Moderação
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="w-full max-w-[900px] mx-auto px-4 md:px-8 py-12 md:py-20 policy-content">
+
+      <!-- ================= TERMOS DE USO ================= -->
+      <article id="termos-de-uso" class="scroll-mt-[180px]">
+        <div class="mb-10 pb-6 border-b border-solve-border">
+          <h2 class="font-pacaembu font-black text-[28px] md:text-[40px] leading-[1.15] text-solve-black">
+            Termos de Uso da Plataforma Solvefy
+          </h2>
+          <p class="mt-3 text-sm text-black/60">Última atualização em: 05 de agosto de 2025</p>
+        </div>
+
+        <p>
+          Estes Termos de Uso disciplinam as condições aplicáveis ao acesso e à utilização da plataforma de
+          comunicação multicanal disponibilizada pela <strong>SOLVEFY</strong>, sociedade empresária inscrita
+          no CNPJ nº [CNPJ], com sede em [ENDEREÇO COMPLETO], doravante denominada <strong>"SOLVEFY"</strong>,
+          a qual compreende os serviços de envio de mensagens por meio de SMS (Short Message Service), chamadas
+          de voz automatizadas, mensagens via WhatsApp Business API e RCS (Rich Communication Services).
+        </p>
+        <p>
+          Ao se cadastrar e utilizar os serviços, o cliente (doravante denominado <strong>"CONTRATANTE"</strong>)
+          declara ter lido, compreendido e aceitado integralmente os termos e condições abaixo.
+        </p>
+
+        <p><strong>CONSIDERANDO QUE:</strong></p>
+        <p>
+          a) Os presentes Termos foram livremente pactuados, regendo-se pelos princípios da autonomia privada
+          e da boa-fé objetiva;
+        </p>
+        <p>
+          b) Inexiste qualquer relação de hipossuficiência entre as PARTES (USUÁRIO e SOLVEFY), sendo certo
+          que ambas tiveram amplo acesso às informações pertinentes, inclusive com possibilidade de assessoria
+          jurídica, e aderem de forma consciente e inequívoca às disposições ora pactuadas;
+        </p>
+        <p>
+          c) Toda cláusula de natureza processual aqui inserida possui contraprestação material ou jurídica
+          correspondente, refletindo equilíbrio contratual entre as PARTES;
+        </p>
+        <p>
+          d) A SOLVEFY é sociedade especializada no desenvolvimento e licenciamento de programas de computador,
+          bem como na prestação de serviços de suporte, manutenção e soluções tecnológicas voltadas à gestão e
+          análise de dados de consumidores, atividades estas que constituem seu objeto social;
+        </p>
+        <p>
+          e) A SOLVEFY detém, com exclusividade, todos os direitos de propriedade intelectual sobre o software
+          denominado Plataforma Solvefy, ferramenta de comunicação multicanal voltada a serviços de envio de
+          mensagens por meio de SMS (Short Message Service), chamadas de voz automatizadas, mensagens via
+          WhatsApp Business API e RCS (Rich Communication Services).
+        </p>
+
+        <h3>1. Objeto</h3>
+        <p>
+          1.1. Os presentes Termos de Uso têm por objeto disciplinar as condições para acesso e utilização,
+          pela CONTRATANTE, da plataforma tecnológica disponibilizada pela SOLVEFY, destinada ao envio,
+          gerenciamento, monitoramento e controle de campanhas de comunicação multicanal, por meio de mensagens
+          de texto (SMS), chamadas de voz, mensagens via WhatsApp e RCS, mediante aquisição e utilização de
+          créditos, nos termos das especificações técnicas e comerciais vigentes.
+        </p>
+        <p>
+          1.2. O acesso à plataforma será realizado por meio de credenciais individuais de autenticação (login
+          e senha), vinculadas à conta da CONTRATANTE e atribuídas aos USUÁRIOS previamente autorizados, sob
+          sua exclusiva responsabilidade.
+        </p>
+
+        <h3>2. Definições</h3>
+        <p>2.1. Para fins de interpretação e aplicação destes Termos de Uso, adotam-se as seguintes definições:</p>
+        <p>
+          2.1.1. <strong>SISTEMA</strong>: ambiente digital de titularidade da SOLVEFY, acessível via internet,
+          por meio do qual são disponibilizadas funcionalidades destinadas à criação, configuração, envio, controle
+          e gestão de campanhas de comunicação multicanal, abrangendo os meios de SMS, chamadas de VOZ, WhatsApp
+          Business API e RCS, bem como ao gerenciamento de créditos e relatórios operacionais.
+        </p>
+        <p>
+          2.1.2. <strong>CRÉDITOS</strong>: unidades de medida adquiridas pela CONTRATANTE, utilizadas como
+          contrapartida financeira para envio de comunicações por meio dos canais disponibilizados na plataforma.
+          Os critérios de tarifação, equivalência e consumo de créditos variam conforme o canal e são definidos
+          na Cláusula 6 destes Termos e/ou na Proposta Comercial vigente.
+        </p>
+        <p>
+          2.1.3. <strong>USUÁRIO</strong>: pessoa física previamente cadastrada e autorizada pela CONTRATANTE
+          a acessar e utilizar o SISTEMA, mediante credenciais individuais (login e senha), sendo seu uso
+          realizado sob a exclusiva responsabilidade da CONTRATANTE.
+        </p>
+        <p>
+          2.1.4. <strong>SMS (Short Message Service)</strong>: canal de envio de mensagens curtas de texto,
+          com até 160 caracteres em codificação padrão (7 bits) ou 70 caracteres em codificação Unicode (16 bits),
+          transmitidas por meio de operadoras de telefonia móvel para terminais celulares.
+        </p>
+        <p>
+          2.1.5. <strong>VOZ</strong>: canal de comunicação automatizada via chamadas telefônicas (voice broadcast),
+          por meio do qual mensagens gravadas, digitadas ou sintetizadas são transmitidas aos destinatários
+          indicados pela CONTRATANTE, mediante tarifação por tempo ou evento.
+        </p>
+        <p>
+          2.1.6. <strong>WHATSAPP</strong>: canal de mensagens corporativas disponibilizado por meio da WhatsApp
+          Business API, com base em número validado e previamente autorizado, utilizado exclusivamente para envio
+          de comunicações comerciais e transacionais em conformidade com as políticas de uso da Meta (WhatsApp
+          Inc.) e demais exigências técnicas.
+        </p>
+        <p>
+          2.1.7. <strong>RCS (Rich Communication Services)</strong>: canal de mensagens enriquecidas, com suporte
+          a multimídia, botões de ação, leitura em tempo real e interação com o usuário, disponibilizado conforme
+          compatibilidade entre operadoras, dispositivos móveis e aplicações nativas de mensagens.
+        </p>
+
+        <h3>3. Condições de Uso e Licença</h3>
+        <p>
+          3.1. A SOLVEFY concede à CONTRATANTE uma licença de uso não exclusiva, intransferível, revogável e por
+          prazo indeterminado, para acesso e utilização do SISTEMA, restrita às funcionalidades contratadas e
+          condicionada à:
+        </p>
+        <ol>
+          <li>leitura, compreensão e aceitação integral destes Termos de Uso, da Política de Privacidade, da
+            Política de Moderação de Conteúdo e de quaisquer outros documentos aplicáveis disponibilizados pela
+            LICENCIANTE;</li>
+          <li>conformidade legal da atuação da CONTRATANTE;</li>
+          <li>aquisição de créditos válidos, ativos e suficientes à utilização dos serviços.</li>
+        </ol>
+        <p>
+          3.2. A CONTRATANTE poderá cadastrar múltiplos USUÁRIOS vinculados à sua conta principal, sendo
+          exclusivamente responsável por sua criação, gerenciamento, supervisão, exclusão e uso adequado,
+          assumindo integral responsabilidade por todos os atos praticados por tais USUÁRIOS no âmbito do SISTEMA,
+          inclusive perante terceiros, órgãos reguladores e autoridades públicas.
+        </p>
+        <p>
+          3.3. O USUÁRIO reconhece que o SISTEMA poderá ser submetido a atualizações, melhorias, manutenções
+          técnicas e/ou alterações periódicas, as quais poderão afetar temporariamente sua estabilidade,
+          disponibilidade ou funcionalidades, sem que disso decorra qualquer responsabilidade da SOLVEFY por
+          eventuais interrupções temporárias.
+        </p>
+        <p>
+          3.4. A SOLVEFY poderá exigir, a seu critério, a utilização de mecanismos adicionais de segurança, como
+          autenticação em duas etapas (2FA), sendo de responsabilidade exclusiva do USUÁRIO manter a
+          confidencialidade, integridade e segurança de suas credenciais de acesso, respondendo por qualquer uso
+          indevido, ainda que por terceiros.
+        </p>
+        <p>
+          3.5. O aceite eletrônico destes Termos de Uso, realizado por meio da interface da Plataforma, possui
+          plena validade jurídica, nos termos da Medida Provisória nº 2.200-2/2001, que institui a Infraestrutura
+          de Chaves Públicas Brasileira – ICP-Brasil.
+        </p>
+        <p>
+          3.6. A CONTRATANTE se obriga a utilizar o SISTEMA exclusivamente para finalidades lícitas, legítimas e
+          compatíveis com sua destinação comercial, abstendo-se de:
+        </p>
+        <ol>
+          <li>praticar ou permitir a prática de atos que violem a legislação vigente, incluindo, mas não se
+            limitando, à Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 – LGPD), ao Código de Defesa
+            do Consumidor, ao Marco Civil da Internet e às normas da ANATEL;</li>
+          <li>utilizar o SISTEMA para o envio de conteúdos ilegais, abusivos, difamatórios, ofensivos,
+            discriminatórios, obscenos, pornográficos, fraudulentos, enganosos, que incitem à violência ou a
+            comportamentos ilícitos;</li>
+          <li>promover, divulgar ou operar, direta ou indiretamente, jogos de azar, cassinos online, apostas
+            ilegais, sorteios não autorizados, "bingos" ou quaisquer outras práticas vedadas pela legislação
+            brasileira, ainda que por meio de terceiros.</li>
+        </ol>
+        <p>
+          3.7. A utilização dos canais de comunicação integrados à Plataforma, tais como WhatsApp Business API,
+          Voz e RCS, está condicionada ao atendimento dos respectivos requisitos técnicos, operacionais,
+          regulatórios e contratuais, conforme previsto na documentação técnica da SOLVEFY e/ou exigido por
+          terceiros responsáveis (operadoras de telecomunicação, integradores de API, provedores de software,
+          entre outros).
+        </p>
+        <p>
+          3.8. A CONTRATANTE compromete-se a observar integralmente os termos de uso, políticas de privacidade,
+          manuais técnicos, restrições operacionais e boas práticas definidas pelas plataformas parceiras
+          integradas ao SISTEMA, incluindo, mas não se limitando, às políticas da Meta (WhatsApp Inc.), sob pena
+          de suspensão, restrição ou bloqueio do canal envolvido, sem prejuízo da aplicação das demais medidas
+          contratuais e legais cabíveis.
+        </p>
+
+        <h3>4. Responsabilidades da Contratante</h3>
+        <p>
+          4.1. São de responsabilidade exclusiva, integral e irrevogável da CONTRATANTE, sem prejuízo de outras
+          obrigações previstas nestes Termos ou na legislação aplicável:
+        </p>
+        <ol>
+          <li>Garantir a veracidade, licitude e conformidade legal do conteúdo das mensagens transmitidas por
+            meio do SISTEMA, inclusive quanto à titularidade de listas de contatos e bases de dados utilizadas;</li>
+          <li>Obter e manter registrados os consentimentos prévios, livres, informados e inequívocos dos
+            destinatários das mensagens, sempre que exigido pela legislação, especialmente pela Lei Geral de
+            Proteção de Dados (LGPD);</li>
+          <li>Zelar pela confidencialidade, integridade e uso adequado das credenciais de acesso ao SISTEMA,
+            responsabilizando-se por qualquer uso indevido, ainda que por terceiros;</li>
+          <li>Manter atualizadas e corretas as informações cadastrais fornecidas à SOLVEFY;</li>
+          <li>Implementar medidas internas de controle e governança para prevenir usos indevidos, ilícitos,
+            abusivos ou fraudulentos por parte dos USUÁRIOS vinculados à sua conta;</li>
+          <li>Responder por quaisquer danos diretos ou indiretos, prejuízos, perdas, sanções ou autuações
+            decorrentes do conteúdo, da forma de envio ou da frequência das mensagens, incluindo os casos de:
+            envio não autorizado ou sem consentimento válido; infração a direitos de terceiros; prática de SPAM
+            ou violação de regras de opt-out; tratamento indevido ou irregular de dados pessoais.</li>
+        </ol>
+        <p>
+          4.2. A CONTRATANTE reconhece e concorda que responderá integralmente nas esferas civil, administrativa
+          e criminal por qualquer violação legal, contratual ou regulatória decorrente do uso do SISTEMA, direta
+          ou indiretamente, inclusive quando decorrente de condutas praticadas por seus USUÁRIOS, prepostos ou
+          terceiros sob sua responsabilidade.
+        </p>
+
+        <h3>5. Responsabilidades da Solvefy</h3>
+        <p>
+          5.1. A SOLVEFY se compromete a envidar seus melhores esforços, dentro de padrões razoáveis de diligência
+          e tecnologia, para:
+        </p>
+        <ol>
+          <li>Disponibilizar o acesso ao SISTEMA de forma estável, contínua e segura, nos limites da
+            infraestrutura tecnológica e dos serviços de terceiros envolvidos, ressalvadas as hipóteses de
+            manutenção programada, eventos de força maior, falhas externas ou motivos técnicos justificados;</li>
+          <li>Prestar suporte técnico aos USUÁRIOS nos níveis de serviço (SLA) definidos na Proposta Comercial
+            ou em documentação operacional vigente;</li>
+          <li>Adotar medidas técnicas e administrativas compatíveis com os riscos do tratamento de dados pessoais,
+            conforme exigido pela Lei Geral de Proteção de Dados (Lei nº 13.709/2018 – LGPD), bem como pelas
+            boas práticas de segurança da informação.</li>
+        </ol>
+        <p>
+          5.2. A SOLVEFY não garante a entrega final das mensagens aos destinatários e não se responsabiliza por
+          falhas, atrasos, indisponibilidades ou perdas de dados decorrentes, entre outras hipóteses, de:
+        </p>
+        <ol>
+          <li>Interrupções, instabilidades ou falhas técnicas nos serviços prestados pelas operadoras de
+            telecomunicação;</li>
+          <li>Problemas na rede móvel, nos dispositivos dos destinatários, em configurações de bloqueio,
+            indisponibilidade de sinal ou recusa de recebimento;</li>
+          <li>Erros, inconsistências ou falhas de configuração, digitação, cadastro ou envio originados pela
+            própria CONTRATANTE ou por seus USUÁRIOS;</li>
+          <li>Ocorrência de caso fortuito, força maior ou quaisquer outros fatores externos, imprevisíveis ou
+            alheios ao controle direto da SOLVEFY.</li>
+        </ol>
+
+        <h3>6. Critérios Técnicos e Tarifação</h3>
+        <p>
+          6.1. Para fins de tarifação, considera-se uma unidade técnica de SMS a mensagem com até 160 (cento e
+          sessenta) caracteres, quando utilizada codificação padrão de 7 bits (alfabeto romano básico).
+        </p>
+        <p>
+          6.2. Caso a mensagem contenha caracteres especiais ou acentuados fora do padrão GSM (como emojis,
+          símbolos gráficos ou letras de alfabetos alternativos), será aplicada automaticamente a codificação
+          Unicode (16 bits), limitando o tamanho da mensagem a 70 (setenta) caracteres por unidade.
+        </p>
+        <p>
+          6.3. A presença de apenas um caractere especial é suficiente para acionar a codificação Unicode,
+          aplicando-se, nesse caso, as regras de tarifação correspondentes.
+        </p>
+        <p>
+          6.4. Mensagens que ultrapassarem os limites descritos nos itens 6.1 ou 6.2 serão automaticamente
+          concatenadas, ou seja, divididas em múltiplas unidades de SMS técnicas, que são individualmente
+          tarifadas. Nesses casos, parte dos caracteres será reservada ao cabeçalho técnico de concatenação,
+          resultando nos seguintes limites efetivos por mensagem:
+        </p>
+        <ol>
+          <li>Até 152 caracteres por unidade SMS (7 bits);</li>
+          <li>Até 66 caracteres por unidade SMS (16 bits).</li>
+        </ol>
+        <p>
+          6.5. Os créditos adquiridos são pessoais, intransferíveis, não reembolsáveis e têm validade de 12 (doze)
+          meses, contados da data de sua efetiva disponibilização na conta da CONTRATANTE, independentemente de
+          utilização.
+        </p>
+        <p>
+          6.6. A CONTRATANTE declara estar ciente de que, enquanto não for concluída a formalização do cadastro
+          e ativação da conta na plataforma, as mensagens SMS enviadas poderão conter um texto padrão inserido
+          automaticamente no início do corpo da mensagem, conforme política técnica vigente.
+        </p>
+        <p>
+          6.7. A tarifação dos canais de Voz, WhatsApp e RCS será realizada com base na quantidade de interações,
+          minutos, sessões, templates ou entregas válidas, conforme previsto na Proposta Comercial aceita pela
+          CONTRATANTE, podendo variar por operadora, canal, conteúdo, horário, volume ou formato da mensagem.
+        </p>
+        <p>
+          6.8. Cada canal pode possuir regras específicas de tarifação, contabilização e restrições técnicas,
+          as quais a CONTRATANTE declara conhecer e aceitar ao iniciar seu uso.
+        </p>
+        <p>6.9. A contratação dos serviços poderá ser realizada por meio de:</p>
+        <ol>
+          <li>Planos pré-configurados, com condições comerciais, limites de uso e canais disponibilizados
+            conforme as ofertas públicas da SOLVEFY no momento da adesão, ou</li>
+          <li>Modelos personalizados de contratação ("Enterprise"), ajustados sob demanda da CONTRATANTE, com
+            condições técnicas e comerciais específicas, mediante negociação individual formalizada em Proposta
+            Comercial específica, a qual integrará estes Termos para todos os fins.</li>
+        </ol>
+
+        <h3>7. Preços, Pagamentos e Contestações</h3>
+        <p>
+          7.1. O valor dos créditos, os critérios de tarifação, bem como as demais condições comerciais aplicáveis
+          à contratação dos serviços, constam da Proposta Comercial previamente aceita pela CONTRATANTE, que
+          passa a integrar estes Termos para todos os fins.
+        </p>
+        <p>
+          7.2. A SOLVEFY poderá promover ajustes nos preços praticados mediante comunicação prévia por escrito,
+          com antecedência mínima de 10 (dez) dias corridos, ressalvadas as hipóteses de previsão expressa
+          diversa na Proposta Comercial ou por força de norma legal.
+        </p>
+        <p>
+          7.3. Eventuais contestações de valores cobrados deverão ser formalizadas pela CONTRATANTE no prazo
+          máximo de 90 (noventa) dias contados da data de recebimento da respectiva fatura ou documento fiscal,
+          sob pena de aceitação tácita e definitiva dos valores ali apresentados.
+        </p>
+
+        <h3>8. Proteção de Dados Pessoais</h3>
+        <p>
+          8.1. As partes reconhecem que, para os fins da Lei nº 13.709/2018 (Lei Geral de Proteção de Dados –
+          LGPD), a CONTRATANTE atuará na qualidade de Controladora dos dados pessoais inseridos, armazenados ou
+          tratados por meio do SISTEMA, enquanto a SOLVEFY atuará como Operadora, limitada à execução das
+          atividades necessárias ao cumprimento destes Termos.
+        </p>
+        <p>
+          8.2. A SOLVEFY compromete-se a adotar medidas técnicas e administrativas adequadas à proteção dos
+          dados pessoais tratados, compatíveis com os riscos envolvidos e com o estado da técnica, incluindo,
+          mas não se limitando, a controles de acesso, registro de logs, criptografia, segregação de ambientes
+          e políticas internas de segurança da informação.
+        </p>
+        <p>
+          8.3. Em caso de incidente de segurança que possa acarretar risco ou dano relevante aos titulares dos
+          dados pessoais, a SOLVEFY se compromete a notificar a CONTRATANTE com razoável brevidade, fornecendo
+          informações suficientes para análise do evento, e a prestar o devido suporte para comunicação à
+          Autoridade Nacional de Proteção de Dados (ANPD), quando aplicável.
+        </p>
+        <p>
+          8.4. A CONTRATANTE declara estar ciente de que o uso da plataforma envolve o tratamento de dados
+          pessoais estritamente necessários à execução dos serviços contratados, à manutenção do relacionamento
+          comercial, ao atendimento ao cliente, à prevenção de fraudes e ao cumprimento de obrigações legais e
+          regulatórias.
+        </p>
+
+        <h3>9. Suporte, Bloqueios e Suspensões</h3>
+        <p>
+          9.1. A SOLVEFY poderá suspender, temporária ou definitivamente, o acesso da CONTRATANTE à plataforma,
+          mediante comunicação prévia ou imediata (conforme o caso), nos seguintes cenários:
+        </p>
+        <ol>
+          <li>Descumprimento de quaisquer cláusulas destes Termos de Uso ou de obrigações contratuais ou legais
+            aplicáveis;</li>
+          <li>Indícios de utilização da plataforma para fins ilegais, abusivos, fraudulentos ou incompatíveis
+            com sua finalidade;</li>
+          <li>Determinação judicial, administrativa ou de órgão regulador competente;</li>
+          <li>Risco comprovado à integridade da plataforma, à segurança da informação ou à proteção de dados
+            pessoais tratados no ambiente do SISTEMA.</li>
+        </ol>
+        <p>
+          9.2. O suporte técnico ao uso da plataforma será prestado pela SOLVEFY por meio dos canais oficiais
+          de atendimento, nos horários e níveis de serviço (SLA) informados na documentação comercial ou
+          operacional vigente, podendo variar conforme o plano contratado pela CONTRATANTE.
+        </p>
+
+        <h3>10. Rescisão e Cancelamento</h3>
+        <p>
+          10.1. Estes Termos poderão ser rescindidos unilateralmente por qualquer das partes, a qualquer tempo,
+          mediante comunicação expressa, por escrito, com antecedência mínima de 30 (trinta) dias corridos,
+          sem que tal denúncia gere qualquer direito à indenização.
+        </p>
+        <p>
+          10.2. A SOLVEFY poderá rescindir estes Termos de forma imediata e motivada, independentemente de aviso
+          prévio, nos seguintes casos:
+        </p>
+        <ol>
+          <li>Violação de cláusulas contratuais ou obrigações legais pela CONTRATANTE;</li>
+          <li>Indício ou constatação de fraude, uso indevido da plataforma ou envio de mensagens em
+            desconformidade com a legislação vigente;</li>
+          <li>Decisão judicial, administrativa ou regulatória que inviabilize a continuidade da prestação dos
+            serviços.</li>
+        </ol>
+        <p>
+          10.3. Em nenhuma hipótese haverá restituição, compensação ou conversão em espécie dos créditos
+          adquiridos e não utilizados, independentemente do motivo da rescisão, cancelamento, suspensão, falha
+          técnica ou erro operacional imputável à CONTRATANTE. A eventual perda dos créditos, seja por expiração
+          do prazo de validade ou por encerramento da conta, não gerará qualquer direito à devolução parcial ou
+          integral de valores pagos.
+        </p>
+
+        <h3>11. Limitações e Restrições</h3>
+        <p>
+          11.1. É expressamente vedado ao USUÁRIO, sob pena de responsabilização civil, administrativa e penal,
+          conforme aplicável:
+        </p>
+        <ol>
+          <li>Compartilhar, ceder, divulgar, comercializar ou permitir o uso de suas credenciais de acesso,
+            senhas ou quaisquer mecanismos de autenticação a terceiros, responsabilizando-se integralmente por
+            quaisquer atos praticados sob seu login;</li>
+          <li>Realizar engenharia reversa, descompilar, desmontar, modificar, copiar, distribuir, tentar obter
+            ou acessar indevidamente o código-fonte, estrutura, arquitetura, banco de dados ou quaisquer
+            componentes da Plataforma, assim como utilizar quaisquer meios para violar sua segurança ou
+            integridade;</li>
+          <li>Integrar, conectar, vincular ou utilizar a Plataforma em ambientes, sistemas, dispositivos, redes
+            ou contextos não autorizados expressamente pela LICENCIANTE, bem como executar quaisquer intervenções
+            técnicas ou comerciais não autorizadas;</li>
+          <li>Utilizar a Plataforma para fins ilícitos, fraudulentos, abusivos, discriminatórios, ou em
+            desconformidade com a legislação vigente, normas regulatórias, princípios éticos, de boa-fé, ordem
+            pública e segurança da informação;</li>
+          <li>Praticar qualquer ato que possa comprometer a segurança, a disponibilidade, a estabilidade ou o
+            desempenho da Plataforma, incluindo, mas não se limitando a ataques cibernéticos, disseminação de
+            vírus, envio de spam ou sobrecarga de sistemas;</li>
+          <li>Violar direitos de propriedade intelectual, confidencialidade, privacidade ou quaisquer direitos
+            de terceiros mediante o uso da Plataforma.</li>
+        </ol>
+        <p>
+          11.2. O descumprimento de qualquer das proibições previstas nesta cláusula poderá acarretar a suspensão,
+          bloqueio ou rescisão imediata do acesso do USUÁRIO à Plataforma, sem prejuízo das demais sanções legais
+          cabíveis e da reparação por eventuais danos causados à LICENCIANTE.
+        </p>
+
+        <h3>12. Disposições Finais</h3>
+        <p>
+          12.1. Estes Termos revogam e substituem integralmente qualquer outro acordo, contrato ou instrumento
+          anterior que regule o uso da plataforma da SOLVEFY pela CONTRATANTE.
+        </p>
+        <p>
+          12.2. A utilização continuada do SISTEMA após a publicação de nova versão destes Termos será
+          interpretada como aceitação tácita e integral das condições atualizadas, obrigando a CONTRATANTE a
+          cumpri-las em sua totalidade.
+        </p>
+        <p>
+          12.3. A SOLVEFY poderá promover atualizações nestes Termos a qualquer tempo, mediante aviso prévio
+          realizado por meio eletrônico (e-mail, notificação em plataforma ou outro meio eficaz), com entrada em
+          vigor a partir da data informada na comunicação.
+        </p>
+        <p>
+          12.4. A CONTRATANTE se compromete a manter seus dados cadastrais atualizados e válidos, sendo
+          responsável por garantir que as comunicações da SOLVEFY cheguem ao seu conhecimento. Também se
+          compromete a não ceder, sublicenciar ou compartilhar sua conta com terceiros, salvo mediante autorização
+          expressa e formal da SOLVEFY.
+        </p>
+        <p>
+          12.5. Para dirimir quaisquer controvérsias oriundas destes Termos, fica eleito o foro da Comarca de
+          [COMARCA], com renúncia expressa de qualquer outro, por mais privilegiado que seja.
+        </p>
+      </article>
+
+      <!-- ================= POLÍTICA DE PRIVACIDADE ================= -->
+      <article id="politica-de-privacidade" class="scroll-mt-[180px] mt-24">
+        <div class="mb-10 pb-6 border-b border-solve-border">
+          <h2 class="font-pacaembu font-black text-[28px] md:text-[40px] leading-[1.15] text-solve-black">
+            Política de Privacidade da Plataforma Solvefy
+          </h2>
+          <p class="mt-3 text-sm text-black/60">Última atualização em: 25 de julho de 2025</p>
+        </div>
+
+        <p>
+          A presente Política de Privacidade tem por finalidade informar os usuários da plataforma <strong>SOLVEFY</strong>,
+          sociedade empresária inscrita no CNPJ nº [CNPJ], com sede em [ENDEREÇO COMPLETO], doravante denominada
+          "SOLVEFY" ou "Controladora", no que se refere à coleta, tratamento, armazenamento, compartilhamento e
+          proteção de dados pessoais no contexto da utilização da plataforma.
+        </p>
+
+        <h3>1. Controladoria e Âmbito de Aplicação</h3>
+        <p>
+          A SOLVEFY atua como Controladora exclusivamente em relação aos dados pessoais coletados para gestão da
+          própria Plataforma, como os dados de Usuários administradores, contatos comerciais, dados de suporte,
+          faturamento e demais informações necessárias à prestação e manutenção dos serviços.
+        </p>
+        <p>
+          No tocante aos dados pessoais inseridos, tratados ou integrados na Plataforma pelo CLIENTE, a SOLVEFY
+          atua como Operadora, processando tais dados conforme instruções e sob responsabilidade do CLIENTE, nos
+          termos da Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018) e do Contrato firmado entre as
+          partes.
+        </p>
+        <p>
+          Esta Política aplica-se a todas as funcionalidades da SOLVEFY, incluindo integrações com sistemas de
+          terceiros, módulos de automação, análise de dados e demais recursos disponíveis na plataforma.
+        </p>
+
+        <h3>2. Dados Pessoais Tratados</h3>
+        <p>
+          A SOLVEFY poderá coletar e tratar as seguintes categorias de dados pessoais, para fins de prestação,
+          manutenção e aprimoramento dos serviços da Plataforma:
+        </p>
+        <p>
+          <strong>Dados de cadastro:</strong> nome, e-mail corporativo, cargo, empresa, dados de login e
+          autenticação vinculados ao uso administrativo da conta.
+        </p>
+        <p>
+          <strong>Dados de navegação:</strong> endereço IP, geolocalização aproximada, tipo e versão do navegador,
+          sistema operacional, registros de acesso, cliques, páginas visitadas, tempo de permanência, logs e
+          interações com funcionalidades da Plataforma.
+        </p>
+        <p>
+          <strong>Dados de terceiros importados:</strong> informações de contatos, leads e demais titulares
+          inseridas ou importadas pelos Usuários, incluindo nome, e-mail, telefone, histórico de interações, dados
+          de navegação nos canais integrados e eventos vinculados a campanhas automatizadas ou segmentações
+          comportamentais.
+        </p>
+
+        <h3>3. Tratamento de Dados de Terceiros</h3>
+        <p>
+          A SOLVEFY poderá tratar dados pessoais de terceiros (como clientes, leads, usuários finais ou
+          destinatários de comunicações), na medida em que forem inseridos, coletados, processados ou integrados
+          à Plataforma pelos próprios Usuários. Nesse contexto:
+        </p>
+        <p>
+          A SOLVEFY atuará como Operadora, realizando o tratamento técnico e operacional dos dados pessoais de
+          terceiros exclusivamente por conta e ordem dos Usuários, que atuarão como Controladores nos termos da
+          Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 – LGPD).
+        </p>
+        <p>
+          Os Usuários assumem integral responsabilidade pela conformidade do tratamento de tais dados com a
+          legislação vigente, incluindo, quando exigido, a obtenção de consentimento livre, informado, inequívoco
+          e específico dos respectivos titulares, bem como pela disponibilização de avisos de privacidade,
+          políticas, contratos e demais instrumentos que assegurem a transparência e a licitude da operação de
+          tratamento.
+        </p>
+        <p>
+          A SOLVEFY não se responsabiliza por dados inseridos ou tratados em desacordo com as normas legais ou
+          com as finalidades autorizadas pelo titular, cabendo ao Usuário garantir a legalidade, adequação e
+          pertinência dos dados tratados na Plataforma.
+        </p>
+
+        <h3>4. Finalidades do Tratamento</h3>
+        <p>Os dados pessoais poderão ser utilizados para as seguintes finalidades:</p>
+        <ul>
+          <li>Criar e manter contas de acesso;</li>
+          <li>Disponibilizar as funcionalidades contratadas;</li>
+          <li>Executar campanhas e fluxos de automação conforme parametrização dos Usuários;</li>
+          <li>Fornecer suporte técnico e atendimento ao cliente;</li>
+          <li>Monitorar o desempenho, estabilidade e segurança da plataforma;</li>
+          <li>Aprimorar funcionalidades com base na análise de dados de uso;</li>
+          <li>Cumprir obrigações legais, regulatórias ou contratuais.</li>
+        </ul>
+
+        <h3>5. Bases Legais para o Tratamento</h3>
+        <p>O tratamento dos dados pessoais será fundamentado, conforme o caso:</p>
+        <ul>
+          <li>Na execução de contrato firmado com o Usuário ou com a organização que o representa;</li>
+          <li>No legítimo interesse da SOLVEFY na operação, manutenção e aperfeiçoamento da plataforma;</li>
+          <li>No cumprimento de obrigação legal ou regulatória;</li>
+          <li>No consentimento do titular, quando exigido por lei para finalidades específicas.</li>
+        </ul>
+
+        <h3>6. Compartilhamento de Dados Pessoais</h3>
+        <p>A SOLVEFY poderá compartilhar dados pessoais:</p>
+        <ul>
+          <li>Com fornecedores de tecnologia e prestadores de serviços essenciais à operação da plataforma
+            (ex.: hospedagem em nuvem, autenticação, envio de mensagens, análise de performance);</li>
+          <li>Com autoridades administrativas, policiais ou judiciais, mediante ordem legal ou judicial;</li>
+          <li>Com parceiros comerciais, desde que previamente autorizado pelo Usuário ou pela organização
+            contratante.</li>
+        </ul>
+        <p>
+          Em nenhuma hipótese os dados pessoais serão vendidos ou cedidos para fins comerciais alheios à
+          finalidade da plataforma.
+        </p>
+
+        <h3>7. Armazenamento e Retenção de Dados</h3>
+        <p>
+          Os dados pessoais serão armazenados pelo período necessário para o cumprimento das finalidades previstas
+          nesta Política, ou conforme exigência legal, contratual ou regulatória.
+        </p>
+        <p>Ao término da relação com o Usuário, os dados poderão ser:</p>
+        <ul>
+          <li>Eliminados de forma segura;</li>
+          <li>Anonimizados, para fins estatísticos ou de desenvolvimento da plataforma; ou</li>
+          <li>Retidos pelo prazo legalmente exigido, quando aplicável.</li>
+        </ul>
+
+        <h3>8. Segurança da Informação</h3>
+        <p>
+          A SOLVEFY adota medidas técnicas e administrativas de segurança compatíveis com os padrões do setor,
+          incluindo:
+        </p>
+        <ul>
+          <li>Criptografia de dados sensíveis;</li>
+          <li>Controle de acesso baseado em autenticação e níveis de permissão;</li>
+          <li>Monitoramento contínuo de incidentes e vulnerabilidades;</li>
+          <li>Backups regulares e armazenamento seguro em datacenters com certificações reconhecidas.</li>
+        </ul>
+        <p>
+          Ainda assim, a SOLVEFY não pode garantir a eliminação total de riscos, sendo essencial a colaboração
+          dos Usuários para o uso seguro da solução.
+        </p>
+
+        <h3>9. Responsabilidade dos Usuários</h3>
+        <p>Os Usuários são integralmente responsáveis por:</p>
+        <ul>
+          <li>Assegurar que os dados pessoais inseridos, importados ou tratados por meio da Plataforma tenham
+            sido coletados e utilizados de forma legítima, lícita e transparente, em conformidade com as
+            finalidades autorizadas pelos respectivos titulares;</li>
+          <li>Observar e cumprir integralmente as disposições da Lei Geral de Proteção de Dados Pessoais
+            (Lei nº 13.709/2018 – LGPD) no tratamento de dados de terceiros, incluindo a obtenção de
+            consentimento válido, quando exigido, e a adoção de medidas para garantir os direitos dos titulares;</li>
+          <li>Manter em sigilo e sob sua guarda exclusiva as credenciais de acesso à Plataforma, respondendo por
+            qualquer uso indevido decorrente de negligência, compartilhamento não autorizado ou falhas de
+            segurança sob sua responsabilidade.</li>
+        </ul>
+
+        <h3>10. Direitos dos Titulares</h3>
+        <p>
+          Os titulares dos dados pessoais tratados pela SOLVEFY poderão exercer seus direitos previstos na LGPD,
+          incluindo:
+        </p>
+        <ul>
+          <li>Confirmação da existência de tratamento;</li>
+          <li>Acesso aos dados;</li>
+          <li>Correção de dados incompletos ou desatualizados;</li>
+          <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos;</li>
+          <li>Portabilidade;</li>
+          <li>Revogação do consentimento, quando aplicável;</li>
+          <li>Oposição ao tratamento em casos permitidos por lei.</li>
+        </ul>
+        <p>
+          As solicitações deverão ser feitas por meio do canal de atendimento indicado abaixo, e serão respondidas
+          dentro dos prazos legais.
+        </p>
+
+        <h3>11. Canal de Contato do Encarregado (DPO)</h3>
+        <p>
+          Dúvidas, solicitações e comunicações relativas ao tratamento de dados pessoais poderão ser direcionadas
+          ao Encarregado pelo Tratamento de Dados Pessoais (DPO) da SOLVEFY, por meio do e-mail:
+          <a href="mailto:privacidade@solvefy.com.br">privacidade@solvefy.com.br</a>.
+        </p>
+
+        <h3>12. Atualizações da Política</h3>
+        <p>
+          Esta Política poderá ser modificada a qualquer tempo, por motivos legais, operacionais ou decorrentes
+          da evolução da plataforma. A nova versão será publicada em canal oficial da SOLVEFY, com destaque para
+          alterações relevantes que exijam novo consentimento ou ciência dos Usuários.
+        </p>
+
+        <h3>13. Legislação Aplicável e Foro</h3>
+        <p>
+          Esta Política será regida e interpretada de acordo com as leis da República Federativa do Brasil, em
+          especial a Lei nº 13.709/2018 – LGPD.
+        </p>
+        <p>
+          Fica eleito o foro da Comarca de [COMARCA] para dirimir quaisquer controvérsias relativas ao seu
+          conteúdo, com renúncia expressa a qualquer outro, por mais privilegiado que seja.
+        </p>
+      </article>
+
+      <!-- ================= POLÍTICA DE COOKIES ================= -->
+      <article id="politica-de-cookies" class="scroll-mt-[180px] mt-24">
+        <div class="mb-10 pb-6 border-b border-solve-border">
+          <h2 class="font-pacaembu font-black text-[28px] md:text-[40px] leading-[1.15] text-solve-black">
+            Política de Cookies da Plataforma Solvefy
+          </h2>
+          <p class="mt-3 text-sm text-black/60">Última atualização em: 25 de julho de 2025</p>
+        </div>
+
+        <p>
+          A presente Política de Cookies tem como finalidade informar os Usuários da plataforma SOLVEFY
+          ("Usuários") sobre a utilização de cookies e tecnologias similares no ambiente digital disponibilizado
+          pela <strong>SOLVEFY</strong>, sociedade empresária inscrita no CNPJ nº [CNPJ], com sede em
+          [ENDEREÇO COMPLETO].
+        </p>
+
+        <h3>1. Definição de Cookies e Tecnologias Correlatas</h3>
+        <p>
+          Cookies são pequenos arquivos de texto que um site ou aplicação insere no navegador ou dispositivo do
+          Usuário quando este acessa conteúdos digitais. Tais arquivos permitem o reconhecimento do dispositivo,
+          o registro de preferências e de interações de navegação, viabilizando o funcionamento de funcionalidades,
+          a melhoria da experiência do Usuário e a segurança das operações.
+        </p>
+        <p>
+          Outras tecnologias similares também podem ser empregadas com finalidades análogas, incluindo pixels,
+          tags, beacons, local storage e scripts de rastreamento.
+        </p>
+
+        <h3>2. Finalidade do Uso de Cookies</h3>
+        <p>A SOLVEFY utiliza cookies e tecnologias correlatas para os seguintes propósitos:</p>
+        <ul>
+          <li>Assegurar o correto funcionamento da plataforma e de suas funcionalidades;</li>
+          <li>Permitir a autenticação de Usuários e a manutenção de sessões seguras;</li>
+          <li>Memorizar preferências de configuração e personalização da interface;</li>
+          <li>Monitorar e analisar o desempenho, a estabilidade e a experiência de uso;</li>
+          <li>Identificar e registrar falhas de sistema;</li>
+          <li>Coletar dados estatísticos anonimizados para fins de melhoria contínua;</li>
+          <li>Apoiar ações de comunicação, remarketing e segmentação de conteúdo, quando autorizado pelo Usuário.</li>
+        </ul>
+
+        <h3>3. Categorias de Cookies Utilizados</h3>
+        <p>Os cookies utilizados pela SOLVEFY podem ser classificados da seguinte forma:</p>
+        <ul>
+          <li><strong>Cookies estritamente necessários:</strong> essenciais para a navegação e o funcionamento
+            básico da plataforma. Não podem ser desativados nos sistemas da SOLVEFY.</li>
+          <li><strong>Cookies de desempenho e análise:</strong> coletam informações sobre o uso da plataforma,
+            permitindo avaliar sua eficiência, identificar erros e otimizar funcionalidades.</li>
+          <li><strong>Cookies funcionais:</strong> armazenam preferências do Usuário, como idioma, layout e
+            configurações de exibição.</li>
+          <li><strong>Cookies de marketing e rastreamento:</strong> utilizados, mediante consentimento prévio,
+            para fins de personalização de campanhas, remarketing e mensuração de engajamento com conteúdos
+            externos.</li>
+        </ul>
+
+        <h3>4. Duração e Armazenamento dos Cookies</h3>
+        <p>Os cookies podem ser classificados quanto à duração:</p>
+        <ul>
+          <li><strong>Cookies de sessão:</strong> são temporários e permanecem ativos apenas enquanto o navegador
+            estiver aberto, sendo excluídos automaticamente ao encerramento da sessão.</li>
+          <li><strong>Cookies persistentes:</strong> permanecem armazenados no dispositivo do Usuário por um
+            período definido, mesmo após o fechamento do navegador, conforme parametrização específica de cada
+            cookie.</li>
+        </ul>
+        <p>
+          A SOLVEFY adota práticas de retenção restritivas, limitando o tempo de armazenamento ao necessário para
+          alcançar as finalidades descritas nesta Política.
+        </p>
+
+        <h3>5. Gerenciamento de Cookies pelo Usuário</h3>
+        <p>O Usuário poderá, a qualquer tempo, configurar seu navegador para:</p>
+        <ul>
+          <li>Recusar automaticamente o uso de cookies;</li>
+          <li>Ser alertado antes que cookies sejam armazenados;</li>
+          <li>Excluir cookies já instalados.</li>
+        </ul>
+        <p>
+          A desativação de cookies estritamente necessários poderá comprometer a usabilidade e o correto
+          funcionamento da plataforma. A SOLVEFY não se responsabiliza por eventuais limitações decorrentes
+          dessa escolha.
+        </p>
+
+        <h3>6. Compartilhamento de Dados Coletados por Cookies</h3>
+        <p>
+          As informações coletadas por meio de cookies poderão ser compartilhadas com prestadores de serviços
+          contratados pela SOLVEFY para viabilizar funcionalidades técnicas e analíticas da plataforma, tais como
+          provedores de infraestrutura, autenticação, monitoramento e análise de tráfego.
+        </p>
+        <p>
+          Tais terceiros são contratualmente obrigados a adotar medidas de segurança e confidencialidade
+          compatíveis com esta Política e com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 –
+          LGPD).
+        </p>
+
+        <h3>7. Segurança das Informações</h3>
+        <p>
+          A SOLVEFY adota medidas técnicas e administrativas para proteger os dados coletados por meio de cookies,
+          incluindo:
+        </p>
+        <ul>
+          <li>Transmissão segura por meio de conexões criptografadas;</li>
+          <li>Monitoramento contínuo de acessos e anomalias;</li>
+          <li>Limitação de acesso interno com base em níveis de autorização;</li>
+          <li>Armazenamento em datacenters certificados e aderentes às melhores práticas de segurança da
+            informação.</li>
+        </ul>
+
+        <h3>8. Relação com a Política de Privacidade</h3>
+        <p>
+          Esta Política de Cookies integra e complementa a Política de Privacidade da Plataforma SOLVEFY, devendo
+          ser interpretada de forma harmônica. Em caso de divergência entre as disposições, prevalecerá a
+          interpretação mais protetiva aos direitos do titular dos dados pessoais, conforme disposto na legislação
+          aplicável.
+        </p>
+
+        <h3>9. Atualizações desta Política</h3>
+        <p>
+          A SOLVEFY poderá modificar esta Política de Cookies a qualquer tempo, visando refletir mudanças nas
+          práticas de tratamento de dados, em requisitos legais ou na própria tecnologia utilizada.
+        </p>
+        <p>
+          Atualizações relevantes serão comunicadas pelos canais oficiais e o uso continuado da plataforma será
+          interpretado como aceite da nova versão.
+        </p>
+
+        <h3>10. Contato para Esclarecimentos</h3>
+        <p>
+          Dúvidas, solicitações ou comunicações relativas a esta Política poderão ser encaminhadas ao Encarregado
+          pelo Tratamento de Dados Pessoais (DPO) da SOLVEFY, por meio do seguinte canal:
+          <a href="mailto:privacidade@solvefy.com.br">privacidade@solvefy.com.br</a>.
+        </p>
+      </article>
+
+      <!-- ================= POLÍTICA DE MODERAÇÃO ================= -->
+      <article id="politica-de-moderacao" class="scroll-mt-[180px] mt-24">
+        <div class="mb-10 pb-6 border-b border-solve-border">
+          <h2 class="font-pacaembu font-black text-[28px] md:text-[40px] leading-[1.15] text-solve-black">
+            Política de Moderação de Conteúdo da Plataforma Solvefy
+          </h2>
+          <p class="mt-3 text-sm text-black/60">Última atualização em: 25 de junho de 2025</p>
+        </div>
+
+        <p>
+          Esta Política estabelece as diretrizes e limites aplicáveis ao conteúdo inserido, transmitido, armazenado
+          ou, de qualquer forma, gerado pelo USUÁRIO no uso da plataforma <strong>SOLVEFY</strong>, sociedade
+          empresária inscrita no CNPJ nº [CNPJ], com sede em [ENDEREÇO COMPLETO], doravante denominada
+          "LICENCIANTE".
+        </p>
+
+        <h3>1. Finalidade da Política</h3>
+        <p>
+          1.1. Esta Política tem como objetivo estabelecer padrões de conduta para assegurar o uso responsável,
+          lícito e ético da plataforma SOLVEFY, prevenindo abusos e protegendo a integridade técnica, jurídica e
+          reputacional do ambiente digital.
+        </p>
+        <p>
+          1.2. As disposições aqui previstas aplicam-se a todo e qualquer conteúdo submetido, transmitido,
+          importado, armazenado ou gerado pelo USUÁRIO na plataforma, incluindo, mas não se limitando a: textos,
+          imagens, links, arquivos, bases de dados, códigos, campanhas automatizadas, mensagens e demais materiais
+          processados por meio da solução.
+        </p>
+
+        <h3>2. Conteúdos Proibidos</h3>
+        <p>
+          2.1. É expressamente vedado ao USUÁRIO inserir, processar, armazenar, transmitir ou compartilhar, por
+          meio da plataforma SOLVEFY, qualquer conteúdo que:
+        </p>
+        <ul>
+          <li>Infrinja a legislação brasileira vigente, tratados internacionais ratificados ou regulamentos
+            aplicáveis;</li>
+          <li>Contenha dados pessoais sensíveis sem base legal adequada ou sem o consentimento válido do titular,
+            nos termos da LGPD;</li>
+          <li>Promova, incentive ou legitime violência, discriminação, discurso de ódio, racismo, xenofobia,
+            homofobia, misoginia ou qualquer forma de intolerância;</li>
+          <li>Veicule material pornográfico, obsceno, sexualmente explícito ou relacionado à exploração de
+            crianças e adolescentes;</li>
+          <li>Infrinja direitos autorais, de propriedade intelectual ou segredos comerciais de terceiros, sem
+            autorização expressa do titular;</li>
+          <li>Seja fraudulento, difamatório, injurioso, calunioso, abusivo ou capaz de causar danos à imagem,
+            honra, reputação ou segurança de terceiros;</li>
+          <li>Consista em spam, phishing, disseminação de malware, vírus ou qualquer outro código malicioso;</li>
+          <li>Envolva promoção de jogos de azar, apostas ilegais, pirâmides financeiras, marketing multinível
+            não autorizado ou práticas comerciais vedadas por lei;</li>
+          <li>Contrarie os objetivos legítimos, a finalidade técnica ou a estabilidade operacional da plataforma
+            SOLVEFY.</li>
+        </ul>
+
+        <h3>3. Moderação de Conteúdo</h3>
+        <p>
+          3.1. A LICENCIANTE reserva-se o direito de monitorar, revisar, moderar, restringir, suspender ou remover,
+          a qualquer tempo e independentemente de aviso prévio, qualquer conteúdo que viole esta Política, os
+          Termos de Uso da plataforma ou a legislação vigente.
+        </p>
+        <p>
+          3.2. A moderação poderá ocorrer por meio de sistemas automatizados, procedimentos manuais ou métodos
+          híbridos, conforme critérios técnicos e operacionais definidos pela LICENCIANTE.
+        </p>
+        <p>
+          3.3. O USUÁRIO deve assegurar que todo o conteúdo de suas mensagens (incluindo SMS, e-mails, notificações
+          e interações via WhatsApp ou demais canais integrados) esteja em conformidade com esta Política, os
+          Termos de Uso, a legislação aplicável e as boas práticas de comunicação.
+        </p>
+        <p>3.4. A violação das regras previstas poderá acarretar:</p>
+        <ul>
+          <li>Advertência formal;</li>
+          <li>Suspensão temporária da conta;</li>
+          <li>Bloqueio ou exclusão definitiva de acesso à plataforma;</li>
+          <li>Adoção de medidas legais cabíveis, administrativas, cíveis e/ou criminais, conforme o caso.</li>
+        </ul>
+        <p>
+          3.5. A LICENCIANTE poderá monitorar o envio e o desempenho de campanhas para identificar indícios de
+          abuso, fraude ou uso indevido, podendo restringir ou suspender o acesso do USUÁRIO sempre que houver
+          constatação fundamentada de irregularidade.
+        </p>
+
+        <h3>4. Responsabilidade pelo Conteúdo</h3>
+        <p>
+          4.1. O USUÁRIO é inteiramente responsável pelo conteúdo que insere, processa ou compartilha na
+          plataforma, respondendo civil, administrativa e criminalmente por quaisquer danos, infrações legais ou
+          violações de direitos de terceiros.
+        </p>
+        <p>
+          4.2. A LICENCIANTE não se responsabiliza por conteúdos gerados por terceiros, tampouco por danos,
+          prejuízos ou litígios decorrentes da sua exibição, armazenamento ou tratamento na plataforma.
+        </p>
+
+        <h3>5. Canal para Denúncias e Comunicação de Abusos</h3>
+        <p>
+          5.1. Violações a esta Política poderão ser comunicadas ao canal oficial da LICENCIANTE:
+          <a href="mailto:privacidade@solvefy.com.br">privacidade@solvefy.com.br</a>.
+        </p>
+        <p>
+          5.2. As denúncias recebidas serão analisadas de forma sigilosa e imparcial. Quando confirmadas, ensejarão
+          a adoção das providências cabíveis, conforme a gravidade do caso.
+        </p>
+
+        <h3>6. Disposições Finais</h3>
+        <p>
+          6.1. Esta Política poderá ser atualizada a qualquer tempo, com publicação da nova versão na plataforma
+          ou em seus canais oficiais.
+        </p>
+        <p>
+          6.2. Casos omissos serão resolvidos pela LICENCIANTE com base nos princípios da boa-fé, razoabilidade
+          e finalidade legítima da solução tecnológica.
+        </p>
+        <p>
+          6.3. Esta Política integra os Termos de Uso e a Política de Privacidade da Solvefy. Em caso de conflito,
+          prevalecerá a interpretação mais protetiva aos direitos do titular dos dados e aos objetivos legítimos
+          da plataforma.
+        </p>
+      </article>
+
+    </main>
+
+    <!-- Bottom Alternating Bar -->
+    <div class="flex w-full h-[11px] md:h-[15px] shrink-0">
+      <div class="w-[16.666%] h-full bg-solve-green"></div>
+      <div class="w-[16.666%] h-full bg-solve-border"></div>
+      <div class="w-[16.666%] h-full bg-solve-green"></div>
+      <div class="w-[16.666%] h-full bg-solve-border"></div>
+      <div class="w-[16.666%] h-full bg-solve-green"></div>
+      <div class="w-[16.666%] h-full bg-solve-border flex-1"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full bg-solve-black text-solve-sand py-10">
+      <div class="max-w-[1240px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <span class="font-pacaembu font-black text-[24px] leading-none">
+          <span class="text-solve-sand">sol</span><span class="text-solve-green">v</span><span class="text-solve-sand">efy</span>
+        </span>
+        <p class="font-dm-sans text-sm text-white/60">
+          © <span id="year"></span> Solvefy. Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Active tab highlighting based on scroll position
+      const sections = document.querySelectorAll('main article[id]');
+      const tabs = document.querySelectorAll('.tab-link');
+      const setActive = (id) => {
+        tabs.forEach((t) => t.classList.toggle('active', t.getAttribute('href') === '#' + id));
+      };
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        },
+        { rootMargin: '-200px 0px -60% 0px', threshold: 0 }
+      );
+      sections.forEach((s) => observer.observe(s));
+
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
