@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import augustoPhoto from "@/assets/testimonial-augusto.jpg";
-import deivePhoto from "@/assets/deive-leonardo.jpg";
+import augustoPhoto from "@/assets/photo-augusto.webp";
+import deivePhoto from "@/assets/photo-deive.webp";
 
 const tabs = [
   {
@@ -30,50 +30,37 @@ export const Testimonial = () => {
 
   return (
     <section className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="grid md:grid-cols-12 gap-10 md:gap-16 items-center max-w-6xl mx-auto"
+          className="grid md:grid-cols-12 gap-10 md:gap-16 items-center"
         >
-          {/* Left Column — Image with decorative stacked shapes */}
-          <div className="md:col-span-4">
-            <div className="relative w-full max-w-xs mx-auto md:mx-0">
-              {/* Beige decorative card (back) */}
-              <div
-                className="absolute -left-8 -bottom-8 w-full h-full rounded-2xl bg-[hsl(35_40%_82%)]"
-                aria-hidden="true"
-              />
-              {/* Green decorative card (middle) */}
-              <div
-                className="absolute -left-4 -bottom-4 w-full h-full rounded-2xl bg-primary"
-                aria-hidden="true"
-              />
-              {/* Photo (front) — fade between tabs */}
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-muted">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={current.id}
-                    src={current.image}
-                    alt={current.author}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 h-full w-full object-cover"
-                    loading="lazy"
-                    width={800}
-                    height={1000}
-                  />
-                </AnimatePresence>
-              </div>
+          {/* Left Column — Photo */}
+          <div className="md:col-span-4 flex justify-center">
+            <div className="w-full max-w-xs">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={current.id}
+                  src={current.image}
+                  alt={current.author}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                  width={800}
+                  height={1000}
+                />
+              </AnimatePresence>
             </div>
           </div>
 
           {/* Right Column — Tabs + Quote + Author */}
-          <div className="md:col-span-8 min-h-[360px] flex flex-col">
+          <div className="md:col-span-8 flex flex-col">
             {/* Tabs */}
             <div
               role="tablist"

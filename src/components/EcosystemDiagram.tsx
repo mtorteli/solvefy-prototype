@@ -1,6 +1,6 @@
 import iconAds from "@/assets/icons/ads-yellow.png";
 import iconMarketing from "@/assets/icons/marketing-pink.png";
-import iconCrm from "@/assets/icons/crm-orange.png";
+import iconCrm from "@/assets/icons/crm-dark.png";
 import iconCpaas from "@/assets/icons/cpaas-purple.png";
 import iconCloud from "@/assets/icons/cloud-blue.png";
 import logoSolvefyWhite from "@/assets/logo-solvefy-white.png";
@@ -215,8 +215,8 @@ export const EcosystemDiagram = ({
 }: EcosystemDiagramProps) => {
   return (
     <section className={`pt-16 md:pt-24 pb-6 md:pb-10 ${className}`}>
-      <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-14">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-left mb-14">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter leading-[1.1] text-balance">
             <span className="text-black">Tecnologia</span> que{" "}
             <span style={{ color: accent }}>simplifica</span>,
@@ -226,7 +226,7 @@ export const EcosystemDiagram = ({
           </h2>
         </div>
 
-        <div className="relative w-full max-w-6xl mx-auto px-4">
+        <div className="relative w-full">
           {/* DESKTOP — 5 cols grid */}
           <div className="hidden md:grid grid-cols-5 grid-rows-[auto_auto_auto] gap-x-5 gap-y-2 items-center">
             <div className="col-start-1 row-start-1 flex justify-center">
@@ -242,17 +242,17 @@ export const EcosystemDiagram = ({
 
             <div className="col-start-2 row-start-1 relative flex justify-center">
               <ArrowConnector />
-              <EcoCard title="Solvefy/Ads" subtitle="Aquisição" color="#eab308" icon={iconAds} />
+              <EcoCard title="Solvefy/Ads" subtitle="Aquisição" color="hsl(var(--ads))" icon={iconAds} />
             </div>
 
             <div className="col-start-3 row-start-1 relative flex justify-center">
               <ArrowConnector />
-              <EcoCard title="Solvefy/Marketing" subtitle="Nutrição" color="#e64499" icon={iconMarketing} />
+              <EcoCard title="Solvefy/Marketing" subtitle="Nutrição" color="hsl(var(--marketing))" icon={iconMarketing} />
             </div>
 
             <div className="col-start-4 row-start-1 relative flex justify-center">
               <ArrowConnector />
-              <EcoCard title="Solvefy/CRM" subtitle="Venda" color="#ff6b00" icon={iconCrm} />
+              <EcoCard title="Solvefy/CRM" subtitle="Venda" color="hsl(var(--crm))" icon={iconCrm} />
             </div>
 
             <div className="col-start-1 row-start-2 flex items-center justify-center py-1">
@@ -273,7 +273,7 @@ export const EcosystemDiagram = ({
                 <div className="flex items-center gap-4 pr-6 border-r border-gray-200">
                   <div
                     className="p-3 rounded-lg flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: "#9c7bff1a" }}
+                    style={{ backgroundColor: "hsl(var(--cpaas))1a" }}
                   >
                     <img src={iconCpaas} alt="Solvefy/CPaaS" className="h-7 w-7 object-contain" />
                   </div>
@@ -296,7 +296,7 @@ export const EcosystemDiagram = ({
             </div>
 
             <div className="col-start-5 row-start-1 row-span-3 flex items-center justify-center">
-              <EcoCard title="Solvefy/Cloud" subtitle="Infraestrutura" color="#00cbff" icon={iconCloud} />
+              <EcoCard title="Solvefy/Cloud" subtitle="Infraestrutura" color="hsl(var(--cloud))" icon={iconCloud} />
             </div>
           </div>
 
@@ -306,12 +306,12 @@ export const EcosystemDiagram = ({
               <img src={logoSolvefyWhite} alt="Solvefy" className="h-7 w-auto object-contain" />
               <p className="text-xs text-gray-400 mt-1">Ecossistema</p>
             </div>
-            <EcoCard title="Solvefy/Ads" subtitle="Aquisição" color="#eab308" icon={iconAds} />
-            <EcoCard title="Solvefy/Marketing" subtitle="Nutrição" color="#e64499" icon={iconMarketing} />
-            <EcoCard title="Solvefy/CRM" subtitle="Venda" color="#ff6b00" icon={iconCrm} />
+            <EcoCard title="Solvefy/Ads" subtitle="Aquisição" color="hsl(var(--ads))" icon={iconAds} />
+            <EcoCard title="Solvefy/Marketing" subtitle="Nutrição" color="hsl(var(--marketing))" icon={iconMarketing} />
+            <EcoCard title="Solvefy/CRM" subtitle="Venda" color="hsl(var(--crm))" icon={iconCrm} />
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 w-full flex flex-col items-center gap-5">
               <div className="flex items-center gap-3">
-                <div className="p-3 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: "#9c7bff1a" }}>
+                <div className="p-3 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: "hsl(var(--cpaas))1a" }}>
                   <img src={iconCpaas} alt="Solvefy/CPaaS" className="h-7 w-7 object-contain" />
                 </div>
                 <div className="text-left">
@@ -327,7 +327,7 @@ export const EcosystemDiagram = ({
                 <ChannelDot label="WhatsApp" accent={accent}><WhatsappIcon /></ChannelDot>
               </div>
             </div>
-            <EcoCard title="Solvefy/Cloud" subtitle="Infraestrutura" color="#00cbff" icon={iconCloud} />
+            <EcoCard title="Solvefy/Cloud" subtitle="Infraestrutura" color="hsl(var(--cloud))" icon={iconCloud} />
           </div>
         </div>
       </div>

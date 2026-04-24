@@ -33,7 +33,7 @@ import cloudUseCase3 from "@/assets/cloud-hero/usecase-3.png";
 import { StackedCardsCarousel, type StackedSlide } from "@/components/StackedCardsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 
-const ACCENT = "#00cbff";
+const ACCENT = "hsl(var(--cloud))";
 
 const features = [
   {
@@ -164,44 +164,44 @@ const Cloud = () => {
       <Header />
       <main className="flex-1">
         {/* ============ HERO ============ */}
-        <section className="relative overflow-hidden bg-gray-950">
+        <section className="relative overflow-hidden" style={{ background: "#f6f5ef" }}>
           <div
             className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-25"
             style={{ background: ACCENT }}
           />
           <div
-            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-20"
+            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
 
           <div className="container relative mx-auto px-4 py-20 md:py-28">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[#00cbff]/10 text-[#00cbff]">
+                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[hsl(var(--cloud))]/10 text-[hsl(var(--cloud))]">
                   <img src={iconCloud} alt="Solvefy/Cloud" className="w-4 h-4 object-contain" />
                   Solvefy/Cloud
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-gray-900">
                   Transforme sua infraestrutura ociosa em produto com{" "}
-                  <span className="text-[#00cbff]">segurança e automação total.</span>
+                  <span className="text-[hsl(var(--cloud))]">segurança e automação total.</span>
                 </h1>
-                <p className="text-sm md:text-base font-light text-gray-300 leading-relaxed text-balance mb-8">
+                <p className="text-sm md:text-base font-light text-gray-600 leading-relaxed text-balance mb-8">
                   Infraestrutura em nuvem de alta performance (VMS/VPS) com total segurança e
                   autonomia operacional. Provisionamento imediato, gestão simplificada e
                   escalabilidade real.
                 </p>
                 <Button
                   size="lg"
-                  className="group bg-[#00cbff] hover:bg-[#00cbff]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  className="group bg-[hsl(var(--cloud))] hover:bg-[hsl(var(--cloud))]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
                   Comprar Agora
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
 
-                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-400">
+                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
                   {["Provisionamento Imediato", "Portal White-Label", "Alta Performance VMS/VPS"].map((item) => (
                     <li key={item} className="inline-flex items-center gap-1.5">
-                      <Check className="h-3.5 w-3.5 text-[#00cbff]" />
+                      <Check className="h-3.5 w-3.5 text-[hsl(var(--cloud))]" />
                       {item}
                     </li>
                   ))}
@@ -226,8 +226,8 @@ const Cloud = () => {
         </section>
 
         {/* ============ 1. PLATAFORMA PIONEIRA (White-Label) ============ */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="relative max-w-6xl mx-auto rounded-3xl overflow-hidden border border-border">
               <div
                 className="absolute inset-0"
@@ -271,7 +271,7 @@ const Cloud = () => {
                   </ul>
                   <Button
                     size="lg"
-                    className="group bg-[#00cbff] hover:bg-[#00cbff]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                    className="group bg-[hsl(var(--cloud))] hover:bg-[hsl(var(--cloud))]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                   >
                     Quero ser parceiro White-Label
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -340,13 +340,13 @@ const Cloud = () => {
         </section>
 
         {/* ============ 2. DORES E MERCADO (3 cards) ============ */}
-        <section className="relative py-16 md:py-20 overflow-hidden">
+        <section className="relative py-16 md:py-20 overflow-hidden bg-[#f6f5ef]">
           <div
             className="pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
-          <div className="container relative mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-12 md:mb-14">
+          <div className="max-w-6xl mx-auto px-6 relative">
+            <div className="max-w-4xl text-left mb-12 md:mb-14">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -360,7 +360,7 @@ const Cloud = () => {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {opportunityCards.map(({ icon: Icon, title, desc }, i) => (
                 <motion.article
                   key={title}
@@ -378,7 +378,7 @@ const Cloud = () => {
                   }}
                 >
                   <div
-                    className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity"
+                    className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity"
                     style={{ background: ACCENT }}
                   />
                   <div
@@ -399,9 +399,9 @@ const Cloud = () => {
         <EcosystemDiagram accent={ACCENT} />
 
         {/* ============ 3.1 IaaS DE CLASSE MUNDIAL (features) ============ */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-12">
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-12">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -439,8 +439,8 @@ const Cloud = () => {
         </section>
 
         {/* ============ 4. CASOS DE USO — Stacked Cards ============ */}
-        <section className="py-20" style={{ backgroundColor: "#F5F8FB" }}>
-          <div className="container mx-auto px-4">
+        <section className="py-20 bg-[#f6f5ef]">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
               <div className="max-w-xl">
                 <div
@@ -526,11 +526,11 @@ const Cloud = () => {
           />
           {/* Glows */}
           <div
-            className="pointer-events-none absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-3xl opacity-30"
+            className="pointer-events-none absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
           <div
-            className="pointer-events-none absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full blur-3xl opacity-20"
+            className="pointer-events-none absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full blur-3xl opacity-10"
             style={{ background: "#0094bf" }}
           />
 
@@ -546,10 +546,10 @@ const Cloud = () => {
                 boxShadow: `0 30px 90px -30px ${ACCENT}80`,
               }}
             >
-              <div className="relative rounded-[2rem] bg-[#0a0a0f]/95 p-10 md:p-14 backdrop-blur-xl">
+              <div className="relative rounded-[2rem] bg-[#0a0a0f]/95 p-10 md:p-14 backdrop-blur-xl text-white">
                 <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 border border-white/10 bg-white/5 text-white/80">
                   <Wallet className="h-3.5 w-3.5" style={{ color: ACCENT }} />
-                  ✦ Gestão Financeira Integrada
+                  ? Gestão Financeira Integrada
                 </div>
 
                 <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-white mb-6">
@@ -585,7 +585,7 @@ const Cloud = () => {
 
                 <Button
                   size="lg"
-                  className="group bg-[#00cbff] hover:bg-[#00cbff]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  className="group bg-[hsl(var(--cloud))] hover:bg-[hsl(var(--cloud))]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
                   Comprar Agora
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -596,9 +596,9 @@ const Cloud = () => {
         </section>
 
         {/* ============ 6. PRICING ============ */}
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-14">
+        <section className="py-20 md:py-28 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-14">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -614,7 +614,7 @@ const Cloud = () => {
             </div>
 
             {/* 3 main plans */}
-            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+            <div className="grid md:grid-cols-3 gap-6 items-stretch">
               {plans.map((plan) => (
                 <div
                   key={plan.name}
@@ -675,7 +675,7 @@ const Cloud = () => {
                     size="lg"
                     className={`w-full font-semibold ${
                       plan.highlight
-                        ? "bg-[#00cbff] hover:bg-[#00cbff]/90 text-gray-950"
+                        ? "bg-[hsl(var(--cloud))] hover:bg-[hsl(var(--cloud))]/90 text-gray-950"
                         : "bg-foreground/90 hover:bg-foreground text-background"
                     }`}
                   >
@@ -697,7 +697,7 @@ const Cloud = () => {
                 }}
               >
                 <div
-                  className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full blur-3xl opacity-30"
+                  className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full blur-3xl opacity-10"
                   style={{ background: ACCENT }}
                 />
                 <div className="relative grid md:grid-cols-3 gap-8 items-center">
@@ -743,7 +743,7 @@ const Cloud = () => {
                     </div>
                     <Button
                       size="lg"
-                      className="group bg-[#00cbff] hover:bg-[#00cbff]/90 text-gray-950 font-semibold w-full md:w-auto"
+                      className="group bg-[hsl(var(--cloud))] hover:bg-[hsl(var(--cloud))]/90 text-gray-950 font-semibold w-full md:w-auto"
                     >
                       {apiPlan.cta}
                       <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -761,3 +761,4 @@ const Cloud = () => {
 };
 
 export default Cloud;
+

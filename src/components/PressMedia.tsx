@@ -20,8 +20,8 @@ const articles = [
 
 export const PressMedia = () => {
   return (
-    <section className="bg-[#00de71] py-20 md:py-24">
-      <div className="container mx-auto">
+    <section className="bg-[hsl(var(--solve-green))] py-20 md:py-24">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="mb-12 md:mb-14">
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black">
             O que a mídia fala sobre nós?
@@ -38,7 +38,7 @@ export const PressMedia = () => {
               className="group relative flex flex-col justify-between rounded-2xl bg-black p-6 md:p-7 min-h-[200px] transition-colors duration-300 hover:bg-black/90"
             >
               <div>
-                <span className="text-xs font-normal uppercase tracking-[0.18em] text-[#00de71]">
+                <span className="text-xs font-normal uppercase tracking-[0.18em] text-[hsl(var(--solve-green))]">
                   {a.portal}
                 </span>
                 <h3 className="mt-4 text-base md:text-lg font-normal leading-snug text-white text-balance">
@@ -48,7 +48,7 @@ export const PressMedia = () => {
 
               <div className="mt-6 flex items-center justify-end">
                 <ArrowUpRight
-                  className="h-5 w-5 text-[#00de71] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  className="h-5 w-5 text-[hsl(var(--solve-green))] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
               </div>
             </a>

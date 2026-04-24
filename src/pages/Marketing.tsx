@@ -41,7 +41,7 @@ import logoPipedrive from "@/assets/integrations/pipedrive.svg";
 import logoSpg from "@/assets/integrations/spg.svg";
 import logoZapier from "@/assets/integrations/zapier.svg";
 
-const ACCENT = "#e64499";
+const ACCENT = "hsl(var(--marketing))";
 
 const marketingSlides: StackedSlide[] = [
   { src: marketingWhatsapp, alt: "WhatsApp Oficial" },
@@ -161,28 +161,28 @@ const Marketing = () => {
       <Header />
       <main className="flex-1">
         {/* ============ HERO ============ */}
-        <section className="relative overflow-hidden bg-gray-950">
+        <section className="relative overflow-hidden" style={{ background: "#f6f5ef" }}>
           <div
-            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-30"
+            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
           <div
-            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-20"
+            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
 
           <div className="container relative mx-auto px-4 py-20 md:py-28">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[#e64499]/10 text-[#e64499]">
+                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[hsl(var(--marketing))]/10 text-[hsl(var(--marketing))]">
                   <img src={iconMarketing} alt="Solvefy/Marketing" className="w-4 h-4 object-contain" />
                   Solvefy/Marketing
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-gray-900">
                   Impulsione suas vendas com{" "}
-                  <span className="text-[#e64499]">jornadas completas e personalizadas.</span>
+                  <span className="text-[hsl(var(--marketing))]">jornadas completas e personalizadas.</span>
                 </h1>
-                <p className="text-sm md:text-base font-light text-gray-300 leading-relaxed text-balance mb-8">
+                <p className="text-sm md:text-base font-light text-gray-600 leading-relaxed text-balance mb-8">
                   Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você
                   cria jornadas de relacionamento automatizadas e transforma contatos em vendas. Use
                   nossos templates de disparo rápido, acompanhe métricas em tempo real e integre
@@ -190,16 +190,16 @@ const Marketing = () => {
                 </p>
                 <Button
                   size="lg"
-                  className="group bg-[#e64499] hover:bg-[#e64499]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  className="group bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
                   Teste Grátis
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
 
-                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-400">
+                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
                   {["Todos os Canais", "Construtor Visual de Jornadas", "EasyIA"].map((item) => (
                     <li key={item} className="inline-flex items-center gap-1.5">
-                      <Check className="h-3.5 w-3.5 text-[#e64499]" />
+                      <Check className="h-3.5 w-3.5 text-[hsl(var(--marketing))]" />
                       {item}
                     </li>
                   ))}
@@ -212,7 +212,7 @@ const Marketing = () => {
                 badge={{ iconSrc: iconMarketing, label: "Solvefy/Marketing" }}
                 notifications={[
                   { title: "Carrinho recuperado", description: "Jornada multicanal disparada", icon: "message" },
-                  { title: "Enviar WhatsApp", description: "Olá {nome}, finalize com 10% OFF 🛒", icon: "whatsapp" },
+                  { title: "Enviar WhatsApp", description: "Olá {nome}, finalize com 10% OFF ??", icon: "whatsapp" },
                 ]}
                 metrics={[
                   { label: "Conversão", value: "+27%", icon: <Send className="h-4 w-4" />, position: "bottom-left" },
@@ -224,14 +224,14 @@ const Marketing = () => {
         </section>
 
         {/* ============ DORES & POSICIONAMENTO ============ */}
-        <section className="relative py-16 md:py-20 overflow-hidden">
+        <section className="relative py-16 md:py-20 overflow-hidden bg-white">
           <div
             className="pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
-          <div className="container relative mx-auto px-4">
+          <div className="max-w-6xl mx-auto px-6">
             {/* Centered header */}
-            <div className="max-w-3xl mx-auto text-center mb-12 md:mb-14">
+            <div className="max-w-4xl text-left mb-12 md:mb-14">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -246,7 +246,7 @@ const Marketing = () => {
             </div>
 
             {/* Balanced 3-column grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {painCards.map(({ icon: Icon, title, desc }, i) => (
                 <motion.article
                   key={title}
@@ -266,7 +266,7 @@ const Marketing = () => {
                   }}
                 >
                   <div
-                    className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity"
+                    className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity"
                     style={{ background: ACCENT }}
                   />
                   <div
@@ -291,7 +291,7 @@ const Marketing = () => {
         <EcosystemDiagram accent={ACCENT} />
 
         {/* ============ INTEGRAÇÕES VIA API ============ */}
-        <section className="py-12 md:py-16 bg-muted/30 border-y border-border/60">
+        <section className="py-12 md:py-16 bg-white border-y border-border/60">
           <div className="container mx-auto px-4">
             <p className="text-center text-sm md:text-base font-semibold tracking-wider uppercase text-muted-foreground mb-8">
               Integrações via API
@@ -336,8 +336,8 @@ const Marketing = () => {
         </section>
 
         {/* ============ CANAIS — Stacked Cards ============ */}
-        <section className="py-20" style={{ backgroundColor: "#F5F8FB" }}>
-          <div className="container mx-auto px-4">
+        <section className="py-20 bg-[#f6f5ef]">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
               <div className="max-w-xl">
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance text-gray-900">
@@ -378,11 +378,11 @@ const Marketing = () => {
           />
           {/* Glows */}
           <div
-            className="pointer-events-none absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-3xl opacity-30"
+            className="pointer-events-none absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
           <div
-            className="pointer-events-none absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full blur-3xl opacity-20"
+            className="pointer-events-none absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full blur-3xl opacity-10"
             style={{ background: "#7c3aed" }}
           />
 
@@ -398,7 +398,7 @@ const Marketing = () => {
                 boxShadow: `0 30px 90px -30px ${ACCENT}80`,
               }}
             >
-              <div className="relative rounded-[2rem] bg-[#0a0a0f]/95 p-10 md:p-14 backdrop-blur-xl">
+              <div className="relative rounded-[2rem] bg-[#0a0a0f]/95 p-10 md:p-14 backdrop-blur-xl text-white">
                 <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 border border-white/10 bg-white/5 text-white/80">
                   <Bot className="h-3.5 w-3.5" style={{ color: ACCENT }} />
                   Inteligência Artificial Exclusiva
@@ -436,7 +436,7 @@ const Marketing = () => {
 
                 <Button
                   size="lg"
-                  className="group bg-[#e64499] hover:bg-[#e64499]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  className="group bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
                   Conhecer a EasyIA
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -447,9 +447,9 @@ const Marketing = () => {
         </section>
 
         {/* ============ PRICING ============ */}
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-14">
+        <section className="py-20 md:py-28 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-14">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -465,7 +465,7 @@ const Marketing = () => {
             </div>
 
             {/* 3 main plans */}
-            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+            <div className="grid md:grid-cols-3 gap-6 items-stretch">
               {plans.map((plan) => (
                 <div
                   key={plan.name}
@@ -488,7 +488,7 @@ const Marketing = () => {
                 >
                   {plan.highlight && plan.badge && (
                     <span
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg"
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-900 shadow-lg"
                       style={{ background: ACCENT }}
                     >
                       {plan.badge}
@@ -526,7 +526,7 @@ const Marketing = () => {
                     size="lg"
                     className={`w-full font-semibold ${
                       plan.highlight
-                        ? "bg-[#e64499] hover:bg-[#e64499]/90 text-white"
+                        ? "bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white"
                         : "bg-foreground/90 hover:bg-foreground text-background"
                     }`}
                   >
@@ -538,7 +538,7 @@ const Marketing = () => {
             </div>
 
             {/* API plan — wide row */}
-            <div className="max-w-6xl mx-auto mt-8">
+            <div className="max-w-6xl mt-8">
               <div
                 className="relative rounded-3xl p-8 md:p-10 overflow-hidden border"
                 style={{
@@ -548,7 +548,7 @@ const Marketing = () => {
                 }}
               >
                 <div
-                  className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full blur-3xl opacity-30"
+                  className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full blur-3xl opacity-10"
                   style={{ background: ACCENT }}
                 />
                 <div className="relative grid md:grid-cols-3 gap-8 items-center">
@@ -594,7 +594,7 @@ const Marketing = () => {
                     </div>
                     <Button
                       size="lg"
-                      className="group bg-[#e64499] hover:bg-[#e64499]/90 text-white font-semibold w-full md:w-auto"
+                      className="group bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white font-semibold w-full md:w-auto"
                     >
                       {apiPlan.cta}
                       <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -612,3 +612,4 @@ const Marketing = () => {
 };
 
 export default Marketing;
+

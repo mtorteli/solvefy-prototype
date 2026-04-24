@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import whatsappImg from "@/assets/channels/whatsapp.png";
 import rcsImg from "@/assets/channels/rcs.png";
@@ -6,7 +6,7 @@ import smsImg from "@/assets/channels/sms.png";
 import vozImg from "@/assets/channels/voz.png";
 import emailImg from "@/assets/channels/email.png";
 
-const ACCENT = "#9c7bff";
+const ACCENT = "hsl(var(--cpaas))";
 
 type Slide = { src: string; alt: string };
 

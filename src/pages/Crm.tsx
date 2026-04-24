@@ -18,7 +18,7 @@ import {
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import iconCrm from "@/assets/icons/crm-orange.png";
+import iconCrm from "@/assets/icons/crm-dark.png";
 import {
   WhatsappChannelIcon,
 } from "@/components/icons/ChannelIcons";
@@ -40,7 +40,7 @@ const heroSlides: StackedSlide[] = [
   { src: crmHero3, alt: "Dashboard CRM em notebook" },
 ];
 
-const ACCENT = "#ff6b00";
+const ACCENT = "hsl(var(--crm))";
 
 const features = [
   {
@@ -126,13 +126,13 @@ const Crm = () => {
       <Header />
       <main className="flex-1 overflow-x-hidden">
         {/* ============ HERO ============ */}
-        <section className="relative overflow-hidden bg-gray-950">
+        <section className="relative overflow-hidden" style={{ background: "#f6f5ef" }}>
           <div
-            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-30"
+            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
           <div
-            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-20"
+            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
 
@@ -140,15 +140,15 @@ const Crm = () => {
             <div className="grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
               {/* LEFT — Content */}
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4 md:mb-6 bg-[#ff6b00]/10 text-[#ff6b00]">
+                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4 md:mb-6 bg-[hsl(var(--crm))]/10 text-[hsl(var(--crm))]">
                   <img src={iconCrm} alt="Solvefy/CRM" className="w-4 h-4 object-contain" />
                   Solvefy/CRM
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-4 md:mb-6 text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-4 md:mb-6 text-black">
                   Pare de perder vendas no funil.{" "}
-                  <span className="text-[#ff6b00]">Assuma o controle absoluto do seu pipeline.</span>
+                  <span className="text-[hsl(var(--crm))]">Assuma o controle absoluto do seu pipeline.</span>
                 </h1>
-                <p className="text-sm md:text-base font-light text-gray-300 leading-relaxed text-balance mb-6 md:mb-8">
+                <p className="text-sm md:text-base font-normal text-black/75 leading-relaxed text-balance mb-6 md:mb-8">
                   Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de
                   vendas definitiva para equipes de alta performance. Elimine o vazamento de leads,
                   automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios
@@ -156,21 +156,21 @@ const Crm = () => {
                 </p>
                 <Button
                   size="lg"
-                  className="group w-full sm:w-auto bg-[#ff6b00] hover:bg-[#ff6b00]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  className="group w-full sm:w-auto bg-[hsl(var(--crm))] hover:bg-[hsl(var(--crm))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
                   Teste Grátis
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
 
                 {/* Trust checklist */}
-                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-400">
+                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
                   {[
                     "Migração gratuita de dados",
                     "20% mais barato que o RD CRM",
                     "Implementação em 24h",
                   ].map((item) => (
                     <li key={item} className="inline-flex items-center gap-1.5">
-                      <Check className="h-3.5 w-3.5 text-[#ff6b00]" />
+                      <Check className="h-3.5 w-3.5 text-[hsl(var(--crm))]" />
                       {item}
                     </li>
                   ))}
@@ -196,15 +196,16 @@ const Crm = () => {
         </section>
 
         {/* ============ Problem vs Solution ============ */}
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-28">
-          <div className="max-w-3xl mb-10 md:mb-12">
-            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4 bg-[#ff6b00]/10 text-[#ff6b00]">
+        <section className="py-16 md:py-28 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl mb-10 md:mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4 bg-[hsl(var(--crm))]/10 text-[hsl(var(--crm))]">
               <Sparkles className="h-3.5 w-3.5" />
               O fim da colcha de retalhos
             </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-balance mb-4">
               Um lead, uma jornada,{" "}
-              <span className="text-[#ff6b00]">um único histórico de fechamento.</span>
+              <span className="text-[hsl(var(--crm))]">um único histórico de fechamento.</span>
             </h2>
             <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed text-balance">
               Chega de juntar planilhas, integrações instáveis e silos entre marketing e vendas.
@@ -227,7 +228,7 @@ const Crm = () => {
                   "Mensagens enviadas por fora, sem registro",
                 ].map((item) => (
                   <li key={item} className="flex gap-2 text-sm text-muted-foreground">
-                    <span className="text-destructive">✕</span>
+                    <span className="text-destructive">?</span>
                     {item}
                   </li>
                 ))}
@@ -262,15 +263,16 @@ const Crm = () => {
               </ul>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* ============ Features ============ */}
-        <section className="bg-muted/30 py-16 md:py-28">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-10 md:mb-12">
+        <section className="bg-[#f6f5ef] py-16 md:py-28">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl mb-10 md:mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-balance mb-4">
                 Funcionalidades criadas para{" "}
-                <span className="text-[#ff6b00]">esmagar metas</span>.
+                <span className="text-[hsl(var(--crm))]">esmagar metas</span>.
               </h2>
               <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed text-balance">
                 Cada recurso do Solvefy/CRM existe para fazer o vendedor fechar mais rápido, sem
@@ -301,15 +303,15 @@ const Crm = () => {
         </section>
 
         {/* ============ CHANNELS — Stacked Cards 3D (CPaaS-style) ============ */}
-        <section className="py-16 md:py-20" style={{ backgroundColor: "#F5F8FB" }}>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-20 items-center">
               <div className="max-w-xl">
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance text-gray-900 mb-4 md:mb-6">
                   Seus canais de venda,{" "}
                   <span style={{ color: ACCENT }}>unificados em um só lugar</span>.
                 </h2>
-                <p className="text-sm md:text-lg text-gray-500 leading-snug text-balance">
+                <p className="text-sm md:text-lg text-gray-600 leading-snug text-balance">
                   WhatsApp, SMS, E-mail e Voz dentro do card do cliente. Toda interação registrada,
                   todo histórico preservado, todo follow-up no canal que o lead realmente responde.
                 </p>
@@ -329,23 +331,23 @@ const Crm = () => {
         {/* ============ TRIAL PRO BANNER ============ */}
         <section className="relative py-16 md:py-24 overflow-hidden bg-[#0a0a0f]">
           <div
-            className="pointer-events-none absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-3xl opacity-30"
+            className="pointer-events-none absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
           <div
-            className="pointer-events-none absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full blur-3xl opacity-20"
+            className="pointer-events-none absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
 
-          <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto px-6 relative">
             <div
-              className="relative max-w-5xl mx-auto rounded-[2rem] p-[1.5px]"
+              className="relative max-w-5xl rounded-[2rem] p-[1.5px]"
               style={{
                 background: `linear-gradient(135deg, ${ACCENT} 0%, transparent 40%, transparent 60%, ${ACCENT} 100%)`,
                 boxShadow: `0 30px 90px -30px ${ACCENT}80`,
               }}
             >
-              <div className="relative rounded-[2rem] bg-[#0a0a0f]/95 p-6 sm:p-8 md:p-14 backdrop-blur-xl">
+              <div className="relative rounded-[2rem] bg-[#0a0a0f]/95 p-6 sm:p-8 md:p-14 backdrop-blur-xl text-white">
                 <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4 md:mb-6 border border-white/10 bg-white/5 text-white/80">
                   <Rocket className="h-3.5 w-3.5" style={{ color: ACCENT }} />
                   Acesso irrestrito · Sem cartão de crédito
@@ -372,7 +374,7 @@ const Crm = () => {
 
                 <Button
                   size="lg"
-                  className="group w-full sm:w-auto bg-[#ff6b00] hover:bg-[#ff6b00]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  className="group w-full sm:w-auto bg-[hsl(var(--crm))] hover:bg-[hsl(var(--crm))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
                   Testar Grátis
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -383,12 +385,12 @@ const Crm = () => {
         </section>
 
         {/* ============ Ecossistema ============ */}
-        <EcosystemDiagram accent="#ff6b00" />
+        <EcosystemDiagram accent="hsl(var(--crm))" />
 
         {/* ============ PRICING (Marketing-style) ============ */}
-        <section className="py-16 md:py-28">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-10 md:mb-14">
+        <section className="py-16 md:py-28 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-10 md:mb-14">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -404,7 +406,7 @@ const Crm = () => {
             </div>
 
             {/* 2 main plans */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
               {plans.map((plan) => (
                 <div
                   key={plan.name}
@@ -427,7 +429,7 @@ const Crm = () => {
                 >
                   {plan.highlight && plan.badge && (
                     <span
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg"
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-900 shadow-lg"
                       style={{ background: ACCENT }}
                     >
                       {plan.badge}
@@ -465,7 +467,7 @@ const Crm = () => {
                     size="lg"
                     className={`w-full font-semibold ${
                       plan.highlight
-                        ? "bg-[#ff6b00] hover:bg-[#ff6b00]/90 text-white"
+                        ? "bg-[hsl(var(--crm))] hover:bg-[hsl(var(--crm))]/90 text-white"
                         : "bg-foreground/90 hover:bg-foreground text-background"
                     }`}
                   >
@@ -477,7 +479,7 @@ const Crm = () => {
             </div>
 
             {/* Custom plan — wide row */}
-            <div className="max-w-6xl mx-auto mt-8">
+            <div className="max-w-6xl mt-8">
               <div
                 className="relative rounded-3xl p-6 sm:p-8 md:p-10 overflow-hidden border"
                 style={{
@@ -487,7 +489,7 @@ const Crm = () => {
                 }}
               >
                 <div
-                  className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full blur-3xl opacity-30"
+                  className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full blur-3xl opacity-10"
                   style={{ background: ACCENT }}
                 />
                 <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
@@ -533,7 +535,7 @@ const Crm = () => {
                     </div>
                     <Button
                       size="lg"
-                      className="group bg-[#ff6b00] hover:bg-[#ff6b00]/90 text-white font-semibold w-full md:w-auto"
+                      className="group bg-[hsl(var(--crm))] hover:bg-[hsl(var(--crm))]/90 text-white font-semibold w-full md:w-auto"
                     >
                       {apiPlan.cta}
                       <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -582,3 +584,4 @@ const Crm = () => {
 };
 
 export default Crm;
+

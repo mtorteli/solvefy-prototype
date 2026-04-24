@@ -29,7 +29,7 @@ export const Blog = () => {
 
   return (
     <section className="py-16 md:py-24 bg-card/40 border-y border-border">
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.1]">
             Acompanhe nossos conteúdos!

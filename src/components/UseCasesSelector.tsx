@@ -28,8 +28,8 @@ type Segment = {
   cases: UseCase[];
 };
 
-const ACCENT = "#9c7bff";
-const BRAND_GREEN = "#00de71";
+const ACCENT = "hsl(var(--cpaas))";
+const BRAND_GREEN = "hsl(var(--solve-green))";
 
 const segments: Segment[] = [
   {

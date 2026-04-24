@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+﻿import { useEffect, useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 import showcase1 from "@/assets/showcase/showcase-1.jpg";
@@ -32,7 +32,7 @@ type Notification = {
 };
 
 type Props = {
-  /** Hex color for accent (e.g. "#9c7bff") */
+  /** Hex color for accent (e.g. "hsl(var(--cpaas))") */
   accent: string;
   slides?: StackedSlide[];
   /** Pill badge shown in the bottom-right notification hub. */

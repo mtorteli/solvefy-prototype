@@ -37,7 +37,7 @@ import { UseCasesSelector } from "@/components/UseCasesSelector";
 import { ChannelsCarousel } from "@/components/ChannelsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 
-const ACCENT = "#9c7bff";
+const ACCENT = "hsl(var(--cpaas))";
 
 const useCases = [
   {
@@ -138,14 +138,14 @@ const Cpaas = () => {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-gray-950">
+        <section className="relative overflow-hidden" style={{ background: "#f6f5ef" }}>
           {/* Ambient glow */}
           <div
-            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-30"
+            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-20"
             style={{ background: ACCENT }}
           />
           <div
-            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-20"
+            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
 
@@ -153,15 +153,15 @@ const Cpaas = () => {
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* LEFT — Content */}
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[#9c7bff]/10 text-[#9c7bff]">
+                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[hsl(var(--cpaas))]/10 text-[hsl(var(--cpaas))]">
                   <img src={iconCpaas} alt="Solvefy/CPaaS" className="w-4 h-4 object-contain" />
                   Solvefy/CPaaS
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-gray-900">
                   Se comunique em alta escala e crie{" "}
-                  <span className="text-[#9c7bff]">conexões em tempo real</span>
+                  <span className="text-[hsl(var(--cpaas))]">conexões em tempo real</span>
                 </h1>
-                <p className="text-sm md:text-base font-light text-gray-300 leading-relaxed text-balance mb-8">
+                <p className="text-sm md:text-base font-normal text-gray-600 leading-relaxed text-balance mb-8">
                   O coração transacional do ecossistema. É uma plataforma robusta de comunicação via
                   API desenvolvida para empresas que demandam alto volume de disparos. Atua como a
                   engrenagem invisível que também potencializa as outras soluções (como o Solvefy
@@ -169,17 +169,17 @@ const Cpaas = () => {
                 </p>
                 <Button
                   size="lg"
-                  className="group bg-[#9c7bff] hover:bg-[#9c7bff]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  className="group bg-[hsl(var(--cpaas))] hover:bg-[hsl(var(--cpaas))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
                   Fale com um Especialista
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
 
                 {/* Trust checklist */}
-                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-400">
+                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
                   {["Integração via API", "Sem taxa de setup", "Cobrança por volume"].map((item) => (
                     <li key={item} className="inline-flex items-center gap-1.5">
-                      <Check className="h-3.5 w-3.5 text-[#9c7bff]" />
+                      <Check className="h-3.5 w-3.5 text-[hsl(var(--cpaas))]" />
                       {item}
                     </li>
                   ))}
@@ -205,8 +205,8 @@ const Cpaas = () => {
         </section>
 
         {/* 20 Anos de Infraestrutura */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <div
@@ -279,8 +279,8 @@ const Cpaas = () => {
         </section>
 
         {/* Channels — Infinite Carousel */}
-        <section className="py-20" style={{ backgroundColor: "#F5F8FB" }}>
-          <div className="container mx-auto px-4">
+        <section className="py-20 bg-[#f6f5ef]">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
               {/* LEFT — Heading & description */}
               <div className="max-w-xl">
@@ -302,12 +302,12 @@ const Cpaas = () => {
           </div>
         </section>
 
-        <EcosystemDiagram accent="#9c7bff" />
+        <EcosystemDiagram accent="hsl(var(--cpaas))" />
 
 
         <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-12">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
                 Casos de uso que <span style={{ color: ACCENT }}>movem o seu negócio</span>
               </h2>
@@ -318,9 +318,9 @@ const Cpaas = () => {
         </section>
 
         {/* Segurança e Compliance */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-12">
+        <section className="py-16 bg-[#f6f5ef]">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-12">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -357,9 +357,9 @@ const Cpaas = () => {
         </section>
 
         {/* Precificação */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-12">
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-12">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -374,7 +374,7 @@ const Cpaas = () => {
               </p>
             </div>
 
-            <div className="max-w-6xl mx-auto">
+            <div>
               <div
                 className="relative rounded-3xl p-8 md:p-10 overflow-hidden border"
                 style={{
@@ -430,7 +430,7 @@ const Cpaas = () => {
                     </div>
                     <Button
                       size="lg"
-                      className="group bg-[#9c7bff] hover:bg-[#9c7bff]/90 text-white font-semibold w-full md:w-auto"
+                      className="group bg-[hsl(var(--cpaas))] hover:bg-[hsl(var(--cpaas))]/90 text-white font-semibold w-full md:w-auto"
                     >
                       {enterprisePlan.cta}
                       <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />

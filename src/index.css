@@ -91,11 +91,19 @@
     --radius: 0.875rem;
 
     /* Solvefy Solution colors (exact HEX → HSL) */
-    --cpaas: 258 100% 74%; /* #9c7bff */
-    --ads: 60 100% 50%; /* #fff200 */
-    --marketing: 326 78% 59%; /* #e64499 */
-    --crm: 25 100% 50%; /* #ff6b00 */
-    --cloud: 192 100% 50%; /* #00cbff */
+    --cpaas: 258 100% 73%;   /* #9C73FF */
+    --ads: 40 100% 50%;      /* #FFAA00 */
+    --marketing: 330 81% 60%; /* #EC4899 */
+    --crm: 251 63% 27%;      /* #2D1B69 */
+    --cloud: 195 100% 50%;   /* #00C2FF */
+    --solve-green: 151 100% 44%; /* #00de71 */
+
+    /* Solution Panel Light Surfaces */
+    --cpaas-surface: 258 100% 97%;
+    --ads-surface: 40 100% 95%;
+    --marketing-surface: 330 100% 97%;
+    --crm-surface: 251 50% 96%;
+    --cloud-surface: 195 100% 95%;
 
     /* Dark surface */
     --dark: 222 47% 11%; /* #0f172a */

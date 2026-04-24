@@ -28,28 +28,58 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import iconAds from "@/assets/icons/ads-yellow.png";
-import { StackedCardsCarousel, type StackedSlide } from "@/components/StackedCardsCarousel";
+import {
+  StackedCardsCarousel,
+  type StackedSlide,
+} from "@/components/StackedCardsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 
 import adsHero1 from "@/assets/ads-hero/hero-1.png";
 import adsHero2 from "@/assets/ads-hero/hero-2.png";
 import adsHero3 from "@/assets/ads-hero/hero-3.png";
 
-const ACCENT = "#eab308";
+const ACCENT = "hsl(var(--ads))";
 
 const adsHeroSlides: StackedSlide[] = [
   { src: adsHero1, alt: "Análise de performance de campanhas em laptop" },
-  { src: adsHero2, alt: "Profissional revisando dashboard de business analytics" },
+  {
+    src: adsHero2,
+    alt: "Profissional revisando dashboard de business analytics",
+  },
   { src: adsHero3, alt: "Visão global de métricas de vendas em laptop" },
 ];
 
 const steps = [
-  { icon: Target, title: "Objetivo", desc: "Defina a meta e nossa IA sugere os criativos certos." },
-  { icon: Settings2, title: "Setup", desc: "Nome da campanha, período e segmento." },
-  { icon: Wallet, title: "Orçamento", desc: "Diário ou total, sem surpresas no fechamento." },
-  { icon: Layers, title: "Posicionamentos", desc: "Distribua sua verba em inventário premium e qualificado." },
-  { icon: Users, title: "Público", desc: "Segmente por tags e base própria (1st party)." },
-  { icon: ImageIcon, title: "Criativos", desc: "Texto, mídia e CTAs gerados com apoio de IA." },
+  {
+    icon: Target,
+    title: "Objetivo",
+    desc: "Defina a meta e nossa IA sugere os criativos certos.",
+  },
+  {
+    icon: Settings2,
+    title: "Setup",
+    desc: "Nome da campanha, período e segmento.",
+  },
+  {
+    icon: Wallet,
+    title: "Orçamento",
+    desc: "Diário ou total, sem surpresas no fechamento.",
+  },
+  {
+    icon: Layers,
+    title: "Posicionamentos",
+    desc: "Distribua sua verba em inventário premium e qualificado.",
+  },
+  {
+    icon: Users,
+    title: "Público",
+    desc: "Segmente por tags e base própria (1st party).",
+  },
+  {
+    icon: ImageIcon,
+    title: "Criativos",
+    desc: "Texto, mídia e CTAs gerados com apoio de IA.",
+  },
 ];
 
 const useCases = [
@@ -98,7 +128,11 @@ const pricing = [
     title: "Better Performance",
     subtitle: "Foco em CPA",
     desc: "Para operações que precisam de cada real otimizado. CPA até 20% menor e atribuição transparente em cada conversão.",
-    bullets: ["CPA até 20% menor", "Otimização contínua por IA", "Atribuição em tempo real"],
+    bullets: [
+      "CPA até 20% menor",
+      "Otimização contínua por IA",
+      "Atribuição em tempo real",
+    ],
     cta: "Quero performance",
   },
   {
@@ -106,7 +140,11 @@ const pricing = [
     title: "Alcance Quicker",
     subtitle: "Foco em escala",
     desc: "Para quem precisa escalar volume de impressões qualificadas rapidamente, sem competir por scroll de feed saturado.",
-    bullets: ["Inventário premium", "Escala em dias, não meses", "Previsibilidade total"],
+    bullets: [
+      "Inventário premium",
+      "Escala em dias, não meses",
+      "Previsibilidade total",
+    ],
     cta: "Quero alcance",
     highlight: true,
   },
@@ -127,13 +165,16 @@ const Ads = () => {
     novoCusto: number;
   }>(null);
 
-  const handleChange = (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm((f) => ({ ...f, [field]: e.target.value }));
-  };
+  const handleChange =
+    (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setForm((f) => ({ ...f, [field]: e.target.value }));
+    };
 
   const handleCalc = (e: FormEvent) => {
     e.preventDefault();
-    const investido = Number(form.investimento.replace(/[^\d.,]/g, "").replace(",", "."));
+    const investido = Number(
+      form.investimento.replace(/[^\d.,]/g, "").replace(",", "."),
+    );
     if (!investido || investido <= 0) return;
     const economia = investido * 0.2;
     const novoCusto = investido - economia;
@@ -141,55 +182,75 @@ const Ads = () => {
   };
 
   const formatBRL = (n: number) =>
-    n.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 2 });
+    n.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      maximumFractionDigits: 2,
+    });
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
       <main className="flex-1">
         {/* ============ HERO ============ */}
-        <section className="relative overflow-hidden bg-gray-950">
+        <section
+          className="relative overflow-hidden"
+          style={{ background: "#f6f5ef" }}
+        >
           <div
-            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-30"
+            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
           <div
-            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-20"
+            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
 
           <div className="container relative mx-auto px-4 py-20 md:py-28">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[#eab308]/10 text-[#eab308]">
-                  <img src={iconAds} alt="Solvefy/Ads" className="w-4 h-4 object-contain" />
+                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[hsl(var(--ads))]/10 text-[hsl(var(--ads))]">
+                  <img
+                    src={iconAds}
+                    alt="Solvefy/Ads"
+                    className="w-4 h-4 object-contain"
+                  />
                   Solvefy/Ads
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-gray-900">
                   Escale suas vendas com um{" "}
-                  <span className="text-[#eab308]">CPA até 20% menor</span> que nos outros Ads.
+                  <span className="text-[hsl(var(--ads))]">
+                    CPA até 20% menor
+                  </span>{" "}
+                  que nos outros Ads.
                 </h1>
-                <p className="text-sm md:text-base font-light text-gray-300 leading-relaxed text-balance mb-8">
-                  Pare de queimar orçamento em plataformas saturadas e leilões inflacionados. A
-                  Solvefy/Ads entrega tráfego qualificado de alta performance com total autonomia
-                  para sua operação. Sem bloqueios injustos, sem vínculo obrigatório com outras
-                  redes. Apenas resultados reais e escaláveis.
+                <p className="text-sm md:text-base font-light text-gray-600 leading-relaxed text-balance mb-8">
+                  Pare de queimar orçamento em plataformas saturadas e leilões
+                  inflacionados. A Solvefy/Ads entrega tráfego qualificado de
+                  alta performance com total autonomia para sua operação. Sem
+                  bloqueios injustos, sem vínculo obrigatório com outras redes.
+                  Apenas resultados reais e escaláveis.
                 </p>
                 <Button
                   size="lg"
-                  className="group bg-[#eab308] hover:bg-[#eab308]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  className="group bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
                   Comprar Agora
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
 
-                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-400">
-                  {["CPA até 20% menor", "CTR de até 35%", "Zero Vínculos"].map((item) => (
-                    <li key={item} className="inline-flex items-center gap-1.5">
-                      <Check className="h-3.5 w-3.5 text-[#eab308]" />
-                      {item}
-                    </li>
-                  ))}
+                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
+                  {["CPA até 20% menor", "CTR de até 35%", "Zero Vínculos"].map(
+                    (item) => (
+                      <li
+                        key={item}
+                        className="inline-flex items-center gap-1.5"
+                      >
+                        <Check className="h-3.5 w-3.5 text-[hsl(var(--ads))]" />
+                        {item}
+                      </li>
+                    ),
+                  )}
                 </ul>
               </div>
 
@@ -198,8 +259,18 @@ const Ads = () => {
                 slides={adsHeroSlides}
                 badge={{ iconSrc: iconAds, label: "Solvefy/Ads" }}
                 metrics={[
-                  { label: "CTR", value: "35%", icon: <MousePointerClick className="h-4 w-4" />, position: "top-right" },
-                  { label: "CPA", value: "-20%", icon: <BarChart3 className="h-4 w-4" />, position: "bottom-left" },
+                  {
+                    label: "CTR",
+                    value: "35%",
+                    icon: <MousePointerClick className="h-4 w-4" />,
+                    position: "top-right",
+                  },
+                  {
+                    label: "CPA",
+                    value: "-20%",
+                    icon: <BarChart3 className="h-4 w-4" />,
+                    position: "bottom-left",
+                  },
                 ]}
               />
             </div>
@@ -207,16 +278,17 @@ const Ads = () => {
         </section>
 
         {/* ============ DOR vs SOLUÇÃO ============ */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-12">
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-12">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
-                O fim do dinheiro <span style={{ color: ACCENT }}>evaporando</span>. Compare o que
+                O fim do dinheiro{" "}
+                <span style={{ color: ACCENT }}>evaporando</span>. Compare o que
                 você paga hoje com o que você poderia estar pagando.
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-5">
               {/* Card 1 — Problema */}
               <div className="relative rounded-2xl border border-border bg-card p-7 overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-destructive/70" />
@@ -234,11 +306,13 @@ const Ads = () => {
                 <ul className="space-y-3 text-sm text-foreground/80">
                   <li className="flex items-start gap-2">
                     <X className="h-4 w-4 mt-0.5 text-destructive shrink-0" />
-                    Custo por aquisição cresce ano após ano em leilões inflacionados.
+                    Custo por aquisição cresce ano após ano em leilões
+                    inflacionados.
                   </li>
                   <li className="flex items-start gap-2">
                     <X className="h-4 w-4 mt-0.5 text-destructive shrink-0" />
-                    Vínculo obrigatório com ecossistemas fechados e regras ocultas.
+                    Vínculo obrigatório com ecossistemas fechados e regras
+                    ocultas.
                   </li>
                   <li className="flex items-start gap-2">
                     <X className="h-4 w-4 mt-0.5 text-destructive shrink-0" />
@@ -278,21 +352,31 @@ const Ads = () => {
                   Você no comando. Sem vínculos, sem reféns.
                 </h3>
                 <p className="text-sm text-foreground/85 leading-relaxed mb-4">
-                  Não exigimos vínculo obrigatório com outras plataformas de anúncios. Mantenha o
-                  controle da sua operação, diversifique suas fontes de tráfego e blinde sua empresa
-                  contra bloqueios e regras ocultas do mercado tradicional.
+                  Não exigimos vínculo obrigatório com outras plataformas de
+                  anúncios. Mantenha o controle da sua operação, diversifique
+                  suas fontes de tráfego e blinde sua empresa contra bloqueios e
+                  regras ocultas do mercado tradicional.
                 </p>
                 <ul className="space-y-3 text-sm text-foreground/85">
                   <li className="flex items-start gap-2">
-                    <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                    <Check
+                      className="h-4 w-4 mt-0.5 shrink-0"
+                      style={{ color: ACCENT }}
+                    />
                     CPA até 20% menor que os leilões tradicionais.
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                    <Check
+                      className="h-4 w-4 mt-0.5 shrink-0"
+                      style={{ color: ACCENT }}
+                    />
                     CTR de até 35% em campanhas otimizadas.
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                    <Check
+                      className="h-4 w-4 mt-0.5 shrink-0"
+                      style={{ color: ACCENT }}
+                    />
                     Tráfego contínuo, estável e sem regras ocultas.
                   </li>
                 </ul>
@@ -302,9 +386,9 @@ const Ads = () => {
         </section>
 
         {/* ============ COMO FUNCIONA — 6 PASSOS ============ */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-12">
+        <section className="py-16 bg-[#f6f5ef]">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-12">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -312,10 +396,12 @@ const Ads = () => {
                 Como funciona
               </div>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
-                Da meta ao disparo em <span style={{ color: ACCENT }}>6 passos</span>.
+                Da meta ao disparo em{" "}
+                <span style={{ color: ACCENT }}>6 passos</span>.
               </h2>
               <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug text-balance">
-                Um fluxo guiado, com IA assistindo cada decisão crítica da campanha.
+                Um fluxo guiado, com IA assistindo cada decisão crítica da
+                campanha.
               </p>
             </div>
 
@@ -342,35 +428,41 @@ const Ads = () => {
                       <Icon className="h-6 w-6" />
                     </div>
                     <span
-                      className="text-3xl font-bold leading-none opacity-30"
+                      className="text-3xl font-bold leading-none opacity-10"
                       style={{ color: ACCENT }}
                     >
                       0{i + 1}
                     </span>
                   </div>
-                  <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                  <h3 className="text-lg font-semibold tracking-tight">
+                    {title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                    {desc}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <EcosystemDiagram accent="#eab308" />
+        <EcosystemDiagram accent="hsl(var(--ads))" />
 
         {/* ============ COMPARATIVO ============ */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-12">
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-12">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
-                Solvefy/Ads vs. <span style={{ color: ACCENT }}>o resto do mercado</span>.
+                Solvefy/Ads vs.{" "}
+                <span style={{ color: ACCENT }}>o resto do mercado</span>.
               </h2>
               <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug text-balance">
-                Comparativo direto com o que as plataformas tradicionais oferecem hoje.
+                Comparativo direto com o que as plataformas tradicionais
+                oferecem hoje.
               </p>
             </div>
 
-            <div className="max-w-5xl mx-auto overflow-hidden rounded-2xl border border-border bg-card">
+            <div className="overflow-hidden rounded-2xl border border-border bg-card">
               <div className="hidden md:grid grid-cols-4 gap-4 px-6 py-4 bg-muted/50 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 <div>Plataforma</div>
                 <div>Custo por Aquisição (CPA)</div>
@@ -384,7 +476,11 @@ const Ads = () => {
                   className={`grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 px-6 py-5 ${
                     i !== comparison.length - 1 ? "border-b border-border" : ""
                   }`}
-                  style={row.highlight ? { backgroundColor: `${ACCENT}10` } : undefined}
+                  style={
+                    row.highlight
+                      ? { backgroundColor: `${ACCENT}10` }
+                      : undefined
+                  }
                 >
                   <div className="flex items-center gap-2">
                     <span
@@ -406,31 +502,58 @@ const Ads = () => {
                   </div>
                   <div className="flex items-start gap-2 text-sm">
                     {row.highlight ? (
-                      <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                      <Check
+                        className="h-4 w-4 mt-0.5 shrink-0"
+                        style={{ color: ACCENT }}
+                      />
                     ) : (
                       <X className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground" />
                     )}
-                    <span className={row.highlight ? "text-foreground font-medium" : "text-muted-foreground"}>
+                    <span
+                      className={
+                        row.highlight
+                          ? "text-foreground font-medium"
+                          : "text-muted-foreground"
+                      }
+                    >
                       {row.cpa}
                     </span>
                   </div>
                   <div className="flex items-start gap-2 text-sm">
                     {row.highlight ? (
-                      <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                      <Check
+                        className="h-4 w-4 mt-0.5 shrink-0"
+                        style={{ color: ACCENT }}
+                      />
                     ) : (
                       <X className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground" />
                     )}
-                    <span className={row.highlight ? "text-foreground font-medium" : "text-muted-foreground"}>
+                    <span
+                      className={
+                        row.highlight
+                          ? "text-foreground font-medium"
+                          : "text-muted-foreground"
+                      }
+                    >
                       {row.autonomy}
                     </span>
                   </div>
                   <div className="flex items-start gap-2 text-sm">
                     {row.highlight ? (
-                      <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                      <Check
+                        className="h-4 w-4 mt-0.5 shrink-0"
+                        style={{ color: ACCENT }}
+                      />
                     ) : (
                       <X className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground" />
                     )}
-                    <span className={row.highlight ? "text-foreground font-medium" : "text-muted-foreground"}>
+                    <span
+                      className={
+                        row.highlight
+                          ? "text-foreground font-medium"
+                          : "text-muted-foreground"
+                      }
+                    >
                       {row.stability}
                     </span>
                   </div>
@@ -448,7 +571,7 @@ const Ads = () => {
             style={{ background: ACCENT }}
           />
           <div
-            className="pointer-events-none absolute -bottom-40 right-1/4 h-[420px] w-[420px] rounded-full blur-3xl opacity-20"
+            className="pointer-events-none absolute -bottom-40 right-1/4 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
           />
           {/* Grid background */}
@@ -461,7 +584,7 @@ const Ads = () => {
             }}
           />
 
-          <div className="container relative mx-auto px-4">
+          <div className="max-w-6xl mx-auto px-6 relative">
             <div className="max-w-3xl mx-auto text-center mb-12">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
@@ -471,11 +594,12 @@ const Ads = () => {
                 Calculadora de Performance
               </div>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance text-white">
-                Veja os resultados em <span style={{ color: ACCENT }}>números reais</span>.
+                Veja os resultados em{" "}
+                <span style={{ color: ACCENT }}>números reais</span>.
               </h2>
               <p className="mt-4 text-base md:text-lg text-white/60 leading-snug text-balance">
-                Informe seu investimento atual e descubra exatamente quanto sua operação economiza
-                com a Solvefy/Ads.
+                Informe seu investimento atual e descubra exatamente quanto sua
+                operação economiza com a Solvefy/Ads.
               </p>
             </div>
 
@@ -484,35 +608,45 @@ const Ads = () => {
                 className="relative rounded-3xl p-8 md:p-10 border"
                 style={{
                   borderColor: `${ACCENT}40`,
-                  background: "linear-gradient(120deg, #0d0d14 0%, #14101e 100%)",
+                  background:
+                    "linear-gradient(120deg, #0d0d14 0%, #14101e 100%)",
                   boxShadow: `0 24px 60px -30px ${ACCENT}80`,
                 }}
               >
-                <form onSubmit={handleCalc} className="grid md:grid-cols-2 gap-5">
+                <form
+                  onSubmit={handleCalc}
+                  className="grid md:grid-cols-2 gap-5"
+                >
                   <div className="space-y-2">
-                    <Label htmlFor="nome" className="text-white/80 text-sm">Nome</Label>
+                    <Label htmlFor="nome" className="text-white/80 text-sm">
+                      Nome
+                    </Label>
                     <Input
                       id="nome"
                       value={form.nome}
                       onChange={handleChange("nome")}
                       placeholder="Seu nome completo"
                       maxLength={100}
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[#eab308]"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[hsl(var(--ads))]"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="cnpj" className="text-white/80 text-sm">CNPJ</Label>
+                    <Label htmlFor="cnpj" className="text-white/80 text-sm">
+                      CNPJ
+                    </Label>
                     <Input
                       id="cnpj"
                       value={form.cnpj}
                       onChange={handleChange("cnpj")}
                       placeholder="00.000.000/0000-00"
                       maxLength={20}
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[#eab308]"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[hsl(var(--ads))]"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-white/80 text-sm">E-mail</Label>
+                    <Label htmlFor="email" className="text-white/80 text-sm">
+                      E-mail
+                    </Label>
                     <Input
                       id="email"
                       type="email"
@@ -520,33 +654,40 @@ const Ads = () => {
                       onChange={handleChange("email")}
                       placeholder="voce@empresa.com"
                       maxLength={120}
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[#eab308]"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[hsl(var(--ads))]"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="telefone" className="text-white/80 text-sm">Telefone</Label>
+                    <Label htmlFor="telefone" className="text-white/80 text-sm">
+                      Telefone
+                    </Label>
                     <Input
                       id="telefone"
                       value={form.telefone}
                       onChange={handleChange("telefone")}
                       placeholder="(11) 99999-9999"
                       maxLength={20}
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[#eab308]"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[hsl(var(--ads))]"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="segmento" className="text-white/80 text-sm">Segmento</Label>
+                    <Label htmlFor="segmento" className="text-white/80 text-sm">
+                      Segmento
+                    </Label>
                     <Input
                       id="segmento"
                       value={form.segmento}
                       onChange={handleChange("segmento")}
                       placeholder="Ex.: E-commerce, SaaS, iGaming"
                       maxLength={80}
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[#eab308]"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[hsl(var(--ads))]"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="investimento" className="text-white/80 text-sm">
+                    <Label
+                      htmlFor="investimento"
+                      className="text-white/80 text-sm"
+                    >
                       Investimento atual em Ads por campanha (R$)
                     </Label>
                     <Input
@@ -557,7 +698,7 @@ const Ads = () => {
                       value={form.investimento}
                       onChange={handleChange("investimento")}
                       placeholder="Ex.: 10000"
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[#eab308]"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-[hsl(var(--ads))]"
                     />
                   </div>
 
@@ -565,7 +706,7 @@ const Ads = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      className="group w-full md:w-auto bg-[#eab308] hover:bg-[#eab308]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                      className="group w-full md:w-auto bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                     >
                       Ver economia na Solvefy
                       <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -620,8 +761,9 @@ const Ads = () => {
                       </div>
                     </div>
                     <p className="mt-5 text-sm text-white/70 leading-relaxed">
-                      Com a Solvefy/Ads, sua operação reduz em <strong style={{ color: ACCENT }}>20%</strong>{" "}
-                      o custo por campanha sem abrir mão de alcance ou autonomia.
+                      Com a Solvefy/Ads, sua operação reduz em{" "}
+                      <strong style={{ color: ACCENT }}>20%</strong> o custo por
+                      campanha sem abrir mão de alcance ou autonomia.
                     </p>
                   </div>
                 )}
@@ -632,8 +774,8 @@ const Ads = () => {
 
         {/* ============ PARA QUEM É ============ */}
         <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-12">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -641,7 +783,8 @@ const Ads = () => {
                 Para quem é
               </div>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
-                Operações que vivem de <span style={{ color: ACCENT }}>conversão real</span>.
+                Operações que vivem de{" "}
+                <span style={{ color: ACCENT }}>conversão real</span>.
               </h2>
             </div>
 
@@ -666,8 +809,12 @@ const Ads = () => {
                   >
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                  <h3 className="text-lg font-semibold tracking-tight">
+                    {title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                    {desc}
+                  </p>
                 </article>
               ))}
             </div>
@@ -676,8 +823,8 @@ const Ads = () => {
 
         {/* ============ PRECIFICAÇÃO (estilo CPaaS) ============ */}
         <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-4xl text-left mb-12">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
@@ -685,91 +832,113 @@ const Ads = () => {
                 Transparência total
               </div>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
-                Precificação que <span style={{ color: ACCENT }}>cabe na sua operação</span>.
+                Precificação que{" "}
+                <span style={{ color: ACCENT }}>cabe na sua operação</span>.
               </h2>
               <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug text-balance">
-                Dois modelos para escolher como você quer escalar — sem letra miúda.
+                Dois modelos para escolher como você quer escalar — sem letra
+                miúda.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto items-stretch mb-8">
-              {pricing.map(({ eyebrow, title, subtitle, desc, bullets, cta, highlight }) => (
-                <div
-                  key={title}
-                  className={`relative rounded-2xl p-7 flex flex-col ${
-                    highlight ? "" : "border border-border bg-card"
-                  }`}
-                  style={
-                    highlight
-                      ? {
-                          background: `linear-gradient(160deg, ${ACCENT} 0%, #b8860b 100%)`,
-                          boxShadow: `0 20px 50px -20px ${ACCENT}99`,
-                          color: "#0a0a0a",
-                        }
-                      : { boxShadow: "var(--shadow-soft)" }
-                  }
-                >
-                  {highlight && (
-                    <span className="absolute -top-3 right-6 inline-flex items-center rounded-full bg-gray-950 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#eab308]">
-                      Mais escolhido
-                    </span>
-                  )}
+            <div className="grid md:grid-cols-2 gap-5 items-stretch mb-8">
+              {pricing.map(
+                ({
+                  eyebrow,
+                  title,
+                  subtitle,
+                  desc,
+                  bullets,
+                  cta,
+                  highlight,
+                }) => (
                   <div
-                    className={`text-xs font-semibold uppercase tracking-widest mb-2 ${
-                      highlight ? "text-gray-950/80" : ""
+                    key={title}
+                    className={`relative rounded-2xl p-7 flex flex-col ${
+                      highlight ? "" : "border border-border bg-card"
                     }`}
-                    style={highlight ? undefined : { color: ACCENT }}
+                    style={
+                      highlight
+                        ? {
+                            background: `linear-gradient(160deg, ${ACCENT} 0%, #b8860b 100%)`,
+                            boxShadow: `0 20px 50px -20px ${ACCENT}99`,
+                            color: "#0a0a0a",
+                          }
+                        : { boxShadow: "var(--shadow-soft)" }
+                    }
                   >
-                    {eyebrow}
-                  </div>
-                  <div className="flex items-baseline gap-2 mb-1 flex-wrap">
-                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight">{title}</h3>
-                    <span
-                      className={`text-sm font-medium ${
-                        highlight ? "text-gray-950/70" : "text-muted-foreground"
+                    {highlight && (
+                      <span className="absolute -top-3 right-6 inline-flex items-center rounded-full bg-background px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[hsl(var(--ads))]">
+                        Mais escolhido
+                      </span>
+                    )}
+                    <div
+                      className={`text-xs font-semibold uppercase tracking-widest mb-2 ${
+                        highlight ? "text-gray-950/80" : ""
                       }`}
+                      style={highlight ? undefined : { color: ACCENT }}
                     >
-                      {subtitle}
-                    </span>
-                  </div>
-                  <p
-                    className={`text-sm leading-relaxed mb-5 mt-2 ${
-                      highlight ? "text-gray-950/85" : "text-muted-foreground"
-                    }`}
-                  >
-                    {desc}
-                  </p>
-                  <ul className="space-y-2 mb-7">
-                    {bullets.map((b) => (
-                      <li
-                        key={b}
-                        className={`flex items-center gap-2 text-sm ${
-                          highlight ? "text-gray-950/90" : "text-foreground/80"
+                      {eyebrow}
+                    </div>
+                    <div className="flex items-baseline gap-2 mb-1 flex-wrap">
+                      <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
+                        {title}
+                      </h3>
+                      <span
+                        className={`text-sm font-medium ${
+                          highlight
+                            ? "text-gray-950/70"
+                            : "text-muted-foreground"
                         }`}
                       >
-                        <Check
-                          className="h-4 w-4"
-                          style={highlight ? { color: "#0a0a0a" } : { color: ACCENT }}
-                        />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-auto">
-                    <Button
-                      size="lg"
-                      className={`w-full group font-semibold transition-all duration-200 ${
-                        highlight
-                          ? "bg-gray-950 text-[#eab308] hover:bg-gray-950/90"
-                          : "bg-[#eab308] hover:bg-[#eab308]/90 text-gray-950"
+                        {subtitle}
+                      </span>
+                    </div>
+                    <p
+                      className={`text-sm leading-relaxed mb-5 mt-2 ${
+                        highlight ? "text-gray-950/85" : "text-muted-foreground"
                       }`}
                     >
-                      {cta}
-                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
+                      {desc}
+                    </p>
+                    <ul className="space-y-2 mb-7">
+                      {bullets.map((b) => (
+                        <li
+                          key={b}
+                          className={`flex items-center gap-2 text-sm ${
+                            highlight
+                              ? "text-gray-950/90"
+                              : "text-foreground/80"
+                          }`}
+                        >
+                          <Check
+                            className="h-4 w-4"
+                            style={
+                              highlight
+                                ? { color: "#0a0a0a" }
+                                : { color: ACCENT }
+                            }
+                          />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-auto">
+                      <Button
+                        size="lg"
+                        className={`w-full group font-semibold transition-all duration-200 ${
+                          highlight
+                            ? "bg-background text-[hsl(var(--ads))] hover:bg-background/90"
+                            : "bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950"
+                        }`}
+                      >
+                        {cta}
+                        <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ),
+              )}
             </div>
           </div>
         </section>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown, Globe, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
@@ -7,15 +7,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import iconCpaas from "@/assets/icons/cpaas-purple.png";
 import iconAds from "@/assets/icons/ads-yellow.png";
 import iconMarketing from "@/assets/icons/marketing-pink.png";
-import iconCrm from "@/assets/icons/crm-orange.png";
+import iconCrm from "@/assets/icons/crm-dark.png";
 import iconCloud from "@/assets/icons/cloud-blue.png";
 
 const solutions = [
-  { name: "Solvefy/CPaaS", icon: iconCpaas, hover: "hover:bg-[#9c7bff]/10", desc: "Comunicação em Escala", to: "/cpaas" },
-  { name: "Solvefy/Ads", icon: iconAds, hover: "hover:bg-[#fff200]/10", desc: "Tráfego Direto", to: "/ads" },
-  { name: "Solvefy/Marketing", icon: iconMarketing, hover: "hover:bg-[#e64499]/10", desc: "Jornadas Inteligentes", to: "/marketing" },
-  { name: "Solvefy/CRM", icon: iconCrm, hover: "hover:bg-[#ff6b00]/10", desc: "Gestão Comercial", to: "/crm" },
-  { name: "Solvefy/Cloud", icon: iconCloud, hover: "hover:bg-[#00cbff]/10", desc: "Automação Cloud", to: "/cloud" },
+  { name: "Solvefy/CPaaS", icon: iconCpaas, hover: "hover:bg-[hsl(var(--cpaas))]/10", desc: "Comunicação em Escala", to: "/cpaas" },
+  { name: "Solvefy/Ads", icon: iconAds, hover: "hover:bg-[hsl(var(--ads))]/10", desc: "Tráfego Direto", to: "/ads" },
+  { name: "Solvefy/Marketing", icon: iconMarketing, hover: "hover:bg-[hsl(var(--marketing))]/10", desc: "Jornadas Inteligentes", to: "/marketing" },
+  { name: "Solvefy/CRM", icon: iconCrm, hover: "hover:bg-[hsl(var(--crm))]/10", desc: "Gestão Comercial", to: "/crm" },
+  { name: "Solvefy/Cloud", icon: iconCloud, hover: "hover:bg-[hsl(var(--cloud))]/10", desc: "Automação Cloud", to: "/cloud" },
 ];
 
 const resources = [
