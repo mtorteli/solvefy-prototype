@@ -16,13 +16,18 @@ const linkGroups = [
   },
   {
     title: "Recursos",
-    links: ["Blog", "Central de Ajuda", "Documentação", "API Reference"],
+    links: [
+      { name: "Blog", to: "/blog" },
+      { name: "Central de Ajuda", to: "/" },
+      { name: "Documentação", to: "/" },
+      { name: "API Reference", to: "/" }
+    ],
   },
   {
     title: "Empresa",
     links: [
       { name: "Quem Somos", to: "/quem-somos" },
-      { name: "Seja um Solvers" },
+      { name: "Seja um Solvers", to: "/" },
     ],
   },
 ];
@@ -43,10 +48,12 @@ export const Footer = () => {
             <p className="mt-3 text-dark-foreground/60 max-w-md leading-relaxed">
               Tecnologia que simplifica, integração que gera resultado.
             </p>
-            <Button variant="hero" size="lg" className="mt-7 group">
-              Entre em Contato
-              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link to="/contato">
+              <Button variant="hero" size="lg" className="mt-7 group">
+                Entre em Contato
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
 
             <div className="mt-8 flex items-center gap-3">
               {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (

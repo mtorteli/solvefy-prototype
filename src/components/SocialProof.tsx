@@ -32,6 +32,8 @@ export const SocialProof = () => {
                 src={logo.src}
                 alt={logo.alt}
                 loading="lazy"
+                width="120"
+                height="40"
                 className="h-8 md:h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all"
               />
             ))}

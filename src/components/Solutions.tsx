@@ -105,7 +105,7 @@ export const Solutions = () => {
                     />
                     <div className="flex items-center gap-4 pl-2">
                       <div className="flex h-11 w-11 items-center justify-center shrink-0 transition-transform group-hover:scale-105">
-                        <img src={s.icon} alt={s.name} className="w-8 h-8 object-contain" />
+                        <img src={s.icon} alt={s.name} className="w-8 h-8 object-contain" width="32" height="32" loading="lazy" />
                       </div>
                       <div className="flex-1">
                         <div className="font-semibold text-foreground">{s.name}</div>
@@ -141,7 +141,7 @@ export const Solutions = () => {
                   className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6"
                   style={{ backgroundColor: `${current.color}26`, color: current.color }}
                 >
-                  <img src={current.icon} alt={current.name} className="h-4 w-4 object-contain" />
+                  <img src={current.icon} alt={current.name} className="h-4 w-4 object-contain" width="16" height="16" loading="lazy" />
                   {current.name}
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-4 text-balance">

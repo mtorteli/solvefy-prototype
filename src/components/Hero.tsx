@@ -4,14 +4,20 @@ import heroTeam from "@/assets/hero-team.jpg";
 
 export const Hero = () => {
   return (
-    <section
-      className="relative overflow-hidden bg-background bg-no-repeat bg-cover bg-center md:bg-right"
-      style={{ backgroundImage: `url(${heroTeam})` }}
-    >
+    <section className="relative overflow-hidden bg-background">
+      {/* Optimized Hero Image for LCP */}
+      <img 
+        src={heroTeam} 
+        alt="Equipe Solvefy" 
+        fetchPriority="high"
+        decoding="sync"
+        className="absolute inset-0 w-full h-full object-cover object-center md:object-right pointer-events-none"
+      />
+      
       {/* Left-to-right white wash for text legibility (does not affect right side) */}
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent pointer-events-none" />
 
-      <div className="container mx-auto relative px-6 py-16 md:py-24">
+      <div className="container mx-auto relative px-6 py-16 md:py-24 z-10">
         <div className="max-w-2xl text-left">
           <motion.div
             initial={{ opacity: 0, y: 14 }}

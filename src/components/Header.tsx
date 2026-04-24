@@ -18,10 +18,14 @@ const solutions = [
   { name: "Solvefy/Cloud", icon: iconCloud, hover: "hover:bg-[#00cbff]/10", desc: "Automação Cloud", to: "/cloud" },
 ];
 
-const resources = [{ name: "Blog" }, { name: "Central de Ajuda" }, { name: "Documentação" }];
+const resources = [
+  { name: "Blog", to: "/blog" }, 
+  { name: "Central de Ajuda", to: "/" }, 
+  { name: "Documentação", to: "/" }
+];
 const company = [
   { name: "Quem Somos", to: "/quem-somos" },
-  { name: "Seja um Solvers" },
+  { name: "Seja um Solvers", to: "/" },
 ];
 
 const NavDropdown = ({
@@ -115,21 +119,21 @@ export const Header = () => {
     >
       {/* Top bar */}
       <div className="bg-black text-white">
-        <div className="container mx-auto flex h-9 items-center justify-end gap-5 py-2 text-xs">
+        <div className="max-w-7xl mx-auto px-4 md:px-0 flex h-9 items-center justify-end gap-5 py-2 text-xs">
           <button className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
             <Globe className="h-3.5 w-3.5" />
             <span className="font-medium">PT</span>
             <ChevronDown className="h-3 w-3" />
           </button>
-          <a href="#" className="text-white hover:text-white/80 font-medium transition-colors">
+          <Link to="/contato" className="text-white hover:text-white/80 font-medium transition-colors">
             Fale Conosco
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/"
             className="rounded-md bg-white px-3 py-1 text-xs font-semibold text-black hover:bg-white/90 transition-colors"
           >
             Entrar
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -139,7 +143,7 @@ export const Header = () => {
           scrolled ? "border-b border-border" : ""
         }`}
       >
-        <div className="container mx-auto flex h-auto items-center justify-between gap-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-0 flex h-auto items-center justify-between gap-6 py-4">
           <Logo />
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -155,10 +159,12 @@ export const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center">
-            <Button variant="hero" size="lg" className="group">
-              Fale com um Especialista
-              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link to="/contato">
+              <Button variant="hero" size="lg" className="group">
+                Fale com um Especialista
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </div>
 
           <button
@@ -195,12 +201,12 @@ export const Header = () => {
                   <span className="text-sm font-medium">{s.name}</span>
                 </Link>
               ))}
-              <a href="#" className="block px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium">
+              <Link to="/blog" className="block px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium">
                 Recursos
-              </a>
-              <a href="#" className="block px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium">
+              </Link>
+              <Link to="/quem-somos" className="block px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium">
                 Empresa
-              </a>
+              </Link>
               <div className="px-3 pt-2">
                 <Button variant="hero" className="w-full group">
                   Conheça as Soluções
