@@ -6,6 +6,11 @@
   NODE_VERSION = "20"
 
 [[redirects]]
+  from = "/termos-e-politicas"
+  to = "/em-breve/termos-e-politicas.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

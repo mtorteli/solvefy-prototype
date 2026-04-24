@@ -107,9 +107,9 @@ export const Footer = () => {
           </p>
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-4 text-xs text-dark-foreground/50">
-              <a href="/em-breve/termos-e-politicas.html#politica-de-privacidade" className="hover:text-primary transition-colors">Privacidade</a>
-              <a href="/em-breve/termos-e-politicas.html#termos-de-uso" className="hover:text-primary transition-colors">Termos</a>
-              <a href="/em-breve/termos-e-politicas.html#politica-de-privacidade" className="hover:text-primary transition-colors">LGPD</a>
+              <a href="/termos-e-politicas#politica-de-privacidade" className="hover:text-primary transition-colors">Privacidade</a>
+              <a href="/termos-e-politicas#termos-de-uso" className="hover:text-primary transition-colors">Termos</a>
+              <a href="/termos-e-politicas#politica-de-privacidade" className="hover:text-primary transition-colors">LGPD</a>
             </div>
             {/* ACATE seal */}
             <div className="flex items-center gap-2 rounded-lg border border-dark-border bg-dark-muted px-4 py-2.5">
