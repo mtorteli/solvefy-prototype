@@ -181,11 +181,11 @@ const Cloud = () => {
                   <img src={iconCloud} alt="Solvefy/Cloud" className="w-4 h-4 object-contain" />
                   Solvefy/Cloud
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-gray-900">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6">
                   Transforme sua infraestrutura ociosa em produto com{" "}
                   <span className="text-[hsl(var(--cloud))]">segurança e automação total.</span>
                 </h1>
-                <p className="text-sm md:text-base font-light text-gray-600 leading-relaxed text-balance mb-8">
+                <p className="section-subtitle mb-8">
                   Infraestrutura em nuvem de alta performance (VMS/VPS) com total segurança e
                   autonomia operacional. Provisionamento imediato, gestão simplificada e
                   escalabilidade real.
@@ -244,11 +244,11 @@ const Cloud = () => {
                     <Sparkles className="h-3.5 w-3.5" />
                     Pioneirismo no Brasil
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-balance mb-4">
+                  <h2 className="tracking-tight leading-tight text-balance mb-4">
                     A 1ª plataforma do Brasil a{" "}
                     <span style={{ color: ACCENT }}>automatizar a venda de Cloud</span>.
                   </h2>
-                  <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                  <p className="section-subtitle mb-6">
                     Com o nosso Portal White-Label, parceiros e revendedores podem comercializar
                     VMS/VPS com a sua própria marca, identidade visual e faturamento automatizado.
                     Você foca no cliente, a Solvefy cuida da infraestrutura.
@@ -354,7 +354,7 @@ const Cloud = () => {
                 <Sparkles className="h-3.5 w-3.5" />
                 Oportunidade de Mercado
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance">
+              <h2 className="tracking-tight leading-tight text-balance">
                 A nuvem deixou de ser custo.{" "}
                 <span style={{ color: ACCENT }}>Virou produto.</span>
               </h2>
@@ -408,11 +408,11 @@ const Cloud = () => {
               >
                 Tecnologia que simplifica, automação que gera receita
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
+              <h2 className="tracking-tight leading-tight text-balance">
                 Tudo que você precisa para{" "}
                 <span style={{ color: ACCENT }}>operar com confiança</span>.
               </h2>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug text-balance">
+              <p className="section-subtitle mt-4">
                 Recursos pensados para times que precisam de agilidade sem abrir mão da estabilidade.
               </p>
             </div>
@@ -449,11 +449,11 @@ const Cloud = () => {
                 >
                   Casos de uso
                 </div>
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance text-gray-900">
+                <h2 className="tracking-tight leading-tight text-balance">
                   Feita para quem{" "}
                   <span style={{ color: ACCENT }}>vende infraestrutura</span>.
                 </h2>
-                <p className="mt-4 text-base md:text-lg text-gray-500 leading-snug text-balance mb-8">
+                <p className="section-subtitle mt-4 mb-8">
                   Provedores, Data Centers, MSPs e Revendedores: transforme capacidade ociosa em
                   receita recorrente.
                 </p>
@@ -552,7 +552,7 @@ const Cloud = () => {
                   ? Gestão Financeira Integrada
                 </div>
 
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-white mb-6">
+                <h2 className="tracking-tight leading-[1.05] text-white mb-6">
                   Faturamento e provisionamento em{" "}
                   <span
                     className="bg-clip-text text-transparent"
@@ -564,7 +564,7 @@ const Cloud = () => {
                   </span>
                 </h2>
 
-                <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mb-8">
+                <p className="section-subtitle mb-8">
                   Gerenciar a cobrança de recursos computacionais não precisa ser uma dor de cabeça.
                   A Solvefy/Cloud unifica o painel administrativo, o provisionamento de recursos, os
                   backups gerenciados e o sistema de assinaturas. Você define os pacotes, a
@@ -605,10 +605,10 @@ const Cloud = () => {
               >
                 Planos & Precificação
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
+              <h2 className="tracking-tight leading-tight text-balance">
                 Escolha o plano <span style={{ color: ACCENT }}>certo</span> para crescer.
               </h2>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug text-balance">
+              <p className="section-subtitle mt-4">
                 Faturamento em reais, sem oscilação cambial e sem letras miúdas.
               </p>
             </div>

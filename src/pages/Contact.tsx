@@ -122,12 +122,12 @@ const Contact = () => {
                 <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary mb-6">
                   Fale Conosco
                 </div>
-                <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-dark leading-tight">
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
                   Pronto para{" "}
                   <span className="text-primary text-glow">escalar</span> sua
                   comunicação?
                 </h1>
-                <p className="text-lg text-black/75 mb-8 max-w-lg leading-relaxed">
+                <p className="section-subtitle mb-8 max-w-lg">
                   Estamos prontos para ajudar sua empresa a se conectar melhor
                   com seus clientes. Preencha o formulário e receba um
                   diagnóstico personalizado.

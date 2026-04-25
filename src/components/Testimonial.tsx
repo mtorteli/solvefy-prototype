@@ -82,38 +82,43 @@ export const Testimonial = () => {
                     }`}
                   >
                     {t.label}
-                    <span
-                      className={`absolute left-0 right-0 -bottom-px h-0.5 rounded-full transition-colors ${
-                        isActive ? "bg-foreground" : "bg-transparent"
-                      }`}
-                    />
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute left-0 right-0 -bottom-px h-0.5 bg-primary rounded-full"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
                   </button>
                 );
               })}
             </div>
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current.id}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.3 }}
-              >
-                <blockquote className="mt-8 text-lg md:text-xl font-normal leading-snug text-foreground/80 text-balance">
-                  "{current.quote}"
-                </blockquote>
+            <div className="relative min-h-[320px] md:min-h-[280px]">
+              <AnimatePresence mode="popLayout">
+                <motion.div
+                  key={current.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="w-full"
+                >
+                  <blockquote className="mt-8 text-lg md:text-xl font-light leading-snug text-foreground/80 text-balance">
+                    "{current.quote}"
+                  </blockquote>
 
-                <div className="mt-8">
-                  <div className="text-base md:text-lg font-bold text-foreground">
-                    {current.author}
+                  <div className="mt-8">
+                    <div className="text-base md:text-lg font-bold text-foreground">
+                      {current.author}
+                    </div>
+                    <div className="text-sm md:text-base font-normal text-muted-foreground mt-1">
+                      {current.role}
+                    </div>
                   </div>
-                  <div className="text-sm md:text-base font-normal text-muted-foreground mt-1">
-                    {current.role}
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </motion.div>
       </div>

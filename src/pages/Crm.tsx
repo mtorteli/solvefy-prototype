@@ -24,6 +24,7 @@ import {
 } from "@/components/icons/ChannelIcons";
 import { StackedCardsCarousel, type StackedSlide } from "@/components/StackedCardsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
+import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 
 import channelWhatsapp from "@/assets/crm-channels/whatsapp.png";
 import channelSms from "@/assets/crm-channels/sms.png";
@@ -144,16 +145,16 @@ const Crm = () => {
                   <img src={iconCrm} alt="Solvefy/CRM" className="w-4 h-4 object-contain" />
                   Solvefy/CRM
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-4 md:mb-6 text-black">
+                <Heading variant="h1" className="text-balance mb-4 md:mb-6">
                   Pare de perder vendas no funil.{" "}
                   <span className="text-[hsl(var(--crm))]">Assuma o controle absoluto do seu pipeline.</span>
-                </h1>
-                <p className="text-sm md:text-base font-normal text-black/75 leading-relaxed text-balance mb-6 md:mb-8">
+                </Heading>
+                <SectionSubtitle className="mb-6 md:mb-8">
                   Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de
                   vendas definitiva para equipes de alta performance. Elimine o vazamento de leads,
                   automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios
                   em menos tempo.
-                </p>
+                </SectionSubtitle>
                 <Button
                   size="lg"
                   className="group w-full sm:w-auto bg-[hsl(var(--crm))] hover:bg-[hsl(var(--crm))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
@@ -203,11 +204,11 @@ const Crm = () => {
               <Sparkles className="h-3.5 w-3.5" />
               O fim da colcha de retalhos
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-balance mb-4">
+            <h2 className="tracking-tight text-balance mb-4">
               Um lead, uma jornada,{" "}
               <span className="text-[hsl(var(--crm))]">um único histórico de fechamento.</span>
             </h2>
-            <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed text-balance">
+            <p className="section-subtitle">
               Chega de juntar planilhas, integrações instáveis e silos entre marketing e vendas.
               No ecossistema Solvefy, o lead nasce no Ads, é aquecido no Marketing e cai no CRM
               com todo o histórico, clicks, conversas e comportamento; pronto para o vendedor
@@ -270,11 +271,11 @@ const Crm = () => {
         <section className="bg-[#f6f5ef] py-16 md:py-28">
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl mb-10 md:mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-balance mb-4">
+              <h2 className="tracking-tight text-balance mb-4">
                 Funcionalidades criadas para{" "}
                 <span className="text-[hsl(var(--crm))]">esmagar metas</span>.
               </h2>
-              <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed text-balance">
+              <p className="section-subtitle">
                 Cada recurso do Solvefy/CRM existe para fazer o vendedor fechar mais rápido, sem
                 fricção, sem trocar de tela, sem retrabalho.
               </p>
@@ -307,11 +308,11 @@ const Crm = () => {
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-20 items-center">
               <div className="max-w-xl">
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance text-gray-900 mb-4 md:mb-6">
+                <h2 className="tracking-tight leading-tight text-balance mb-4 md:mb-6">
                   Seus canais de venda,{" "}
                   <span style={{ color: ACCENT }}>unificados em um só lugar</span>.
                 </h2>
-                <p className="text-sm md:text-lg text-gray-600 leading-snug text-balance">
+                <p className="section-subtitle">
                   WhatsApp, SMS, E-mail e Voz dentro do card do cliente. Toda interação registrada,
                   todo histórico preservado, todo follow-up no canal que o lead realmente responde.
                 </p>
@@ -353,7 +354,7 @@ const Crm = () => {
                   Acesso irrestrito · Sem cartão de crédito
                 </div>
 
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] md:leading-[1.05] text-white mb-4 md:mb-6">
+                <h2 className="tracking-tight leading-[1.1] md:leading-[1.05] text-white mb-4 md:mb-6">
                   Experimente o poder total{" "}
                   <span
                     className="bg-clip-text text-transparent"
@@ -397,10 +398,10 @@ const Crm = () => {
               >
                 Planos & Precificação
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
+              <h2 className="tracking-tight leading-tight text-balance">
                 Escolha o plano <span style={{ color: ACCENT }}>certo</span> para acelerar suas vendas.
               </h2>
-              <p className="mt-4 text-sm md:text-lg text-muted-foreground leading-snug text-balance">
+              <p className="section-subtitle mt-4">
                 Faturamento em reais, sem oscilação cambial e sem letras miúdas.
               </p>
             </div>

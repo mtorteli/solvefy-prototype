@@ -4,9 +4,9 @@ import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { MOCK_POSTS, MOCK_CATEGORIES } from "@/lib/mock-data";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ArrowRight, Calendar, User, Search, ChevronLeft, ChevronRight } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { BlogCard } from "@/components/BlogCard";
 
 export default function BlogIndex() {
   const navigate = useNavigate();
@@ -74,8 +74,8 @@ export default function BlogIndex() {
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-12 mt-8">
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Blog</h1>
-            <p className="text-lg text-muted-foreground">Acompanhe nossos conteúdos e fique por dentro das novidades.</p>
+            <h1 className="text-4xl md:text-5xl tracking-tight mb-4">Blog</h1>
+            <p className="section-subtitle">Acompanhe nossos conteúdos e fique por dentro das novidades.</p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
@@ -120,53 +120,9 @@ export default function BlogIndex() {
               {postsData?.posts?.length === 0 ? (
                 <p className="text-muted-foreground col-span-3 text-center py-12">Nenhum post encontrado.</p>
               ) : (
-                postsData?.posts?.map((p, i) => {
-                  const category = p.post_categories?.[0]?.categories;
-                  const authorName = p.authors?.name || "Equipe Solvefy";
-                  
-                  return (
-                    <motion.article
-                      key={p.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: i * 0.1 }}
-                      className="group rounded-2xl bg-background border border-border overflow-hidden shadow-soft hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col"
-                    >
-                      <Link to={`/blog/${p.slug}`} className="relative aspect-video overflow-hidden rounded-t-2xl block">
-                        {p.og_image || p.cover_image ? (
-                          <img
-                            src={p.og_image || p.cover_image}
-                            alt={p.title}
-                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div className="h-full w-full bg-muted flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                            <span className="text-muted-foreground font-medium">Sem Imagem</span>
-                          </div>
-                        )}
-                        {category && (
-                          <div className="absolute top-4 left-4 z-10">
-                            <Link to={`/blog/categoria/${category.slug || category.name?.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center rounded-full bg-background/90 backdrop-blur px-3 py-1 text-xs font-semibold text-foreground hover:text-primary transition-colors">
-                              {category.name}
-                            </Link>
-                          </div>
-                        )}
-                      </Link>
-                      <div className="p-6 md:p-7 flex flex-col flex-1">
-                        <Link to={`/blog/${p.slug}`} className="block mb-3">
-                          <h3 className="text-lg md:text-xl font-bold tracking-tight leading-tight group-hover:text-primary transition-colors text-balance">
-                            {p.title}
-                          </h3>
-                        </Link>
-                        <div className="mt-auto pt-4 flex items-center gap-4 text-xs text-muted-foreground">
-                          <span className="flex items-center gap-1.5"><User className="h-3.5 w-3.5" />{authorName}</span>
-                          <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{new Date(p.created_at).toLocaleDateString('pt-BR')}</span>
-                        </div>
-                      </div>
-                    </motion.article>
-                  );
-                })
+                postsData?.posts?.map((p, i) => (
+                  <BlogCard key={p.id} post={p} index={i} />
+                ))
               )}
             </div>
 

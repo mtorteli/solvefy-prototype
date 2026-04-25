@@ -23,9 +23,7 @@ export const PressMedia = () => {
     <section className="bg-[hsl(var(--solve-green))] py-20 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-12 md:mb-14">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black">
-            O que a mídia fala sobre nós?
-          </h2>
+          <h2 className="tracking-tight">O que a mídia fala sobre nós?</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -38,7 +36,7 @@ export const PressMedia = () => {
               className="group relative flex flex-col justify-between rounded-2xl bg-black p-6 md:p-7 min-h-[200px] transition-colors duration-300 hover:bg-black/90"
             >
               <div>
-                <span className="text-xs font-normal uppercase tracking-[0.18em] text-[hsl(var(--solve-green))]">
+                <span className="text-xs font-normal uppercase tracking-[0.18em] text-[#f8fafc99]">
                   {a.portal}
                 </span>
                 <h3 className="mt-4 text-base md:text-lg font-normal leading-snug text-white text-balance">
@@ -47,9 +45,7 @@ export const PressMedia = () => {
               </div>
 
               <div className="mt-6 flex items-center justify-end">
-                <ArrowUpRight
-                  className="h-5 w-5 text-[hsl(var(--solve-green))] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                />
+                <ArrowUpRight className="h-5 w-5 text-[hsl(var(--solve-green))] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </div>
             </a>
           ))}

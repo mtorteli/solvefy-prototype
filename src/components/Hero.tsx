@@ -1,6 +1,7 @@
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import heroVideo from "@/assets/hero-video/hero-video-v2.mp4";
+import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 
 export const Hero = () => {
   return (
@@ -10,10 +11,10 @@ export const Hero = () => {
         background: "#f6f5ef",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Content (Expanded) */}
-          <div className="md:col-span-7 lg:col-span-8">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
+          {/* Left Column: Content */}
+          <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -24,39 +25,42 @@ export const Hero = () => {
               Junte-se a 20mil empresas
             </motion.div>
 
-            <motion.h1
+            <Heading
+              as={motion.h1}
+              variant="h1"
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance leading-[1.05] text-black"
+              className="mt-6 text-balance"
             >
               Mais <span className="text-primary">perto</span>
               <br />
               do seu cliente.
               <br />
-              Mais <span className="text-primary">rápido</span>
-              <br />
-              para o seu negócio.
-            </motion.h1>
+              Mais <span className="text-primary">rápido</span> para
+              <br />o seu negócio.
+            </Heading>
 
-            <motion.p
+            <SectionSubtitle
+              as={motion.p}
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.16 }}
-              className="mt-6 text-base md:text-lg font-normal text-black/75 text-balance leading-snug max-w-2xl"
+              className="mt-6 max-w-[460px] leading-snug"
             >
-              Esqueça isso de múltiplos softwares. Atraia, engaje e converta com
-              um ecossistema de comunicação nativamente integrado. Toda a
-              jornada do cliente em uma única plataforma, com um único login.
-            </motion.p>
+              Você não precisa de múltiplos softwares, você só precisa da
+              plataforma certa. Com nosso ecossistema de comunicação integrado,
+              você faz toda a jornada do cliente em um só lugar. Atrair, engajar
+              e converter nunca foi tão simples.
+            </SectionSubtitle>
           </div>
 
-          {/* Right Column: Video (Shrinked) */}
+          {/* Right Column: Video */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center lg:justify-end md:col-span-5 lg:col-span-4"
+            className="w-full max-w-[320px] lg:max-w-[380px]"
           >
             <video
               autoPlay

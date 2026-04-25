@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown, Globe, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
@@ -160,7 +160,7 @@ export const Header = () => {
 
           <div className="hidden lg:flex items-center">
             <Link to="/contato">
-              <Button variant="hero" size="lg" className="group">
+              <Button variant="hero" size="lg" className="group text-black font-semibold">
                 Fale com um Especialista
                 <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Play, X } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import somosOsSolvers from "@/assets/somos-os-solvers.png";
 import solversHero from "@/assets/solvers-hero.jpg";
@@ -67,11 +68,11 @@ const QuemSomos = () => {
               alt="Somos os Solvers"
               className="block h-12 md:h-16 lg:h-20 w-auto object-contain drop-shadow-lg"
             />
-            <p className="max-w-4xl mt-8 md:mt-10 text-base md:text-lg text-white/90 leading-snug drop-shadow-lg">
+            <SectionSubtitle as="p" className="max-w-4xl mt-8 md:mt-10 text-white/90 drop-shadow-lg">
               Existimos para acelerar resultados reais ao unir tecnologia, estratégia e clareza humana.
               Eliminamos a burocracia e a frieza para entregar execução ágil e parcerias próximas,
               transformando complexidade em vantagem competitiva e crescimento direto.
-            </p>
+            </SectionSubtitle>
           </div>
         </section>
 
@@ -155,9 +156,9 @@ const QuemSomos = () => {
         <section className="py-16 bg-muted/30">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-left w-full mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight leading-tight">
+              <Heading className="leading-tight">
                 Quais são os nossos valores?
-              </h2>
+              </Heading>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {values.map((v) => (
@@ -172,10 +173,10 @@ const QuemSomos = () => {
                   >
                     <img src={v.icon} alt="" className="h-6 w-6 object-contain" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold tracking-tight leading-tight">
+                  <Heading variant="h3">
                     {v.titleStart}
                     <span style={{ color: v.color }}>{v.titleAccent}</span>
-                  </h3>
+                  </Heading>
                   <p className="mt-3 text-muted-foreground leading-snug">{v.desc}</p>
                 </article>
               ))}

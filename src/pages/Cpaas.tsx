@@ -157,11 +157,11 @@ const Cpaas = () => {
                   <img src={iconCpaas} alt="Solvefy/CPaaS" className="w-4 h-4 object-contain" />
                   Solvefy/CPaaS
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-gray-900">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6">
                   Se comunique em alta escala e crie{" "}
                   <span className="text-[hsl(var(--cpaas))]">conexões em tempo real</span>
                 </h1>
-                <p className="text-sm md:text-base font-normal text-gray-600 leading-relaxed text-balance mb-8">
+                <p className="section-subtitle mb-8">
                   O coração transacional do ecossistema. É uma plataforma robusta de comunicação via
                   API desenvolvida para empresas que demandam alto volume de disparos. Atua como a
                   engrenagem invisível que também potencializa as outras soluções (como o Solvefy
@@ -215,11 +215,11 @@ const Cpaas = () => {
                 >
                   Mais de 20 anos de História
                 </div>
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance mb-5">
+                <h2 className="tracking-tight leading-tight text-balance mb-5">
                   Nascemos como telecom e evoluímos para{" "}
                   <span style={{ color: ACCENT }}>CPaaS</span>.
                 </h2>
-                <p className="text-base md:text-lg text-muted-foreground leading-snug text-balance mb-6">
+                <p className="section-subtitle mb-6">
                   Atuamos no mercado de comunicação há duas décadas; por isso, entregamos rotas
                   próprias, faturamento em reais e suporte humano em português e inglês, com a
                   estabilidade de quem viu o mercado mudar várias vezes.
@@ -284,11 +284,11 @@ const Cpaas = () => {
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
               {/* LEFT — Heading & description */}
               <div className="max-w-xl">
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance text-gray-900">
+                <h2 className="tracking-tight leading-tight text-balance">
                   Conecte o seu sistema aos{" "}
                   <span style={{ color: ACCENT }}>seus clientes</span>
                 </h2>
-                <p className="mt-4 text-base md:text-lg text-gray-500 leading-snug text-balance">
+                <p className="section-subtitle mt-4">
                   Via API ou interface web, envie e receba mensagens com um contrato só, uma fatura
                   só e um dashboard só.
                 </p>
@@ -308,7 +308,7 @@ const Cpaas = () => {
         <section className="py-16">
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl text-left mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
+              <h2 className="tracking-tight leading-tight text-balance">
                 Casos de uso que <span style={{ color: ACCENT }}>movem o seu negócio</span>
               </h2>
             </div>
@@ -327,10 +327,10 @@ const Cpaas = () => {
               >
                 Segurança & Compliance
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
+              <h2 className="tracking-tight leading-tight text-balance">
                 Conformidade <span style={{ color: ACCENT }}>do dado ao disparo</span>.
               </h2>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug text-balance">
+              <p className="section-subtitle mt-4">
                 Infraestrutura projetada para operar no Brasil, com a régua jurídica brasileira.
               </p>
             </div>
@@ -366,10 +366,10 @@ const Cpaas = () => {
               >
                 Transparência total
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
+              <h2 className="tracking-tight leading-tight text-balance">
                 Precificação que <span style={{ color: ACCENT }}>cabe na sua operação</span>.
               </h2>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug text-balance">
+              <p className="section-subtitle mt-4">
                 Do primeiro disparo ao volume Enterprise, sem letra miúda.
               </p>
             </div>

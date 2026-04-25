@@ -19,7 +19,7 @@ export const SocialProof = () => {
   return (
     <section className="py-16 md:py-24 border-y border-border bg-card/40">
       <div className="container mx-auto">
-        <p className="text-center text-sm text-muted-foreground mb-8">
+        <p className="text-center text-base md:text-lg text-muted-foreground mb-8">
           Mais de 20 mil empresas já aceleram seus resultados com a Solvefy:
         </p>
         <div className="relative overflow-hidden">

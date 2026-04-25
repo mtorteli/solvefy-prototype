@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 import iconCpaas from "@/assets/icons/cpaas-purple.png";
 import iconAds from "@/assets/icons/ads-yellow.png";
 import iconMarketing from "@/assets/icons/marketing-pink.png";
@@ -74,13 +75,13 @@ export const Solutions = () => {
     <section id="solucoes" className="py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl text-left mb-14">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-balance leading-[1.1]">
+          <Heading className="tracking-tighter text-balance leading-[1.1]">
             Closer. Quicker. <span className="text-primary">Better.</span>
-          </h2>
-          <p className="mt-5 text-base md:text-lg text-muted-foreground text-balance leading-snug">
+          </Heading>
+          <SectionSubtitle className="mt-5">
             Pare de dividir sua estratégia em várias ferramentas. Unifique sua comunicação,
             simplifique sua gestão e gere resultados mais rápidos.
-          </p>
+          </SectionSubtitle>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-6 items-stretch">
@@ -104,10 +105,6 @@ export const Solutions = () => {
                     }`}
                     style={isActive ? { borderColor: s.color, boxShadow: `0 12px 40px -12px ${s.color}66` } : undefined}
                   >
-                    <div
-                      className="absolute left-0 top-5 bottom-5 w-1 rounded-r-full transition-all"
-                      style={{ background: isActive ? s.color : "transparent" }}
-                    />
                     <div className="flex items-center gap-4 pl-2">
                       <div className="flex h-11 w-11 items-center justify-center shrink-0 transition-transform group-hover:scale-105">
                         <img src={s.icon} alt={s.name} className="w-8 h-8 object-contain" width="32" height="32" loading="lazy" />
@@ -150,9 +147,9 @@ export const Solutions = () => {
                   <img src={current.icon} alt={current.name} className="h-4 w-4 object-contain" width="16" height="16" loading="lazy" />
                   {current.name}
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-4 text-balance text-gray-900">
+                <Heading variant="h3" className="mb-4 text-balance">
                   {current.headline}
-                </h3>
+                </Heading>
                 <p className="text-gray-600 text-base md:text-lg leading-snug mb-8">
                   {current.desc}
                 </p>
@@ -172,10 +169,10 @@ export const Solutions = () => {
                 <div className="w-full flex justify-end mt-auto">
                   <Link
                     to={current.to}
-                    className="inline-flex items-center gap-2 text-sm font-semibold transition-transform hover:translate-x-1"
-                    style={{ color: current.color }}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-black transition-transform hover:translate-x-1"
                   >
-                    Veja os preços do {current.name} <ArrowRight className="h-4 w-4" />
+                    Veja os preços do {current.name}{" "}
+                    <ArrowRight className="h-4 w-4" style={{ color: current.color }} />
                   </Link>
                 </div>
               </motion.div>

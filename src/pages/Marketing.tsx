@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import iconMarketing from "@/assets/icons/marketing-pink.png";
 import { StackedCardsCarousel, type StackedSlide } from "@/components/StackedCardsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
+import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 
 import marketingWhatsapp from "@/assets/marketing-channels/whatsapp.png";
 import marketingRcs from "@/assets/marketing-channels/rcs.png";
@@ -178,16 +179,16 @@ const Marketing = () => {
                   <img src={iconMarketing} alt="Solvefy/Marketing" className="w-4 h-4 object-contain" />
                   Solvefy/Marketing
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6 text-gray-900">
+                <Heading variant="h1" className="text-balance mb-6">
                   Impulsione suas vendas com{" "}
                   <span className="text-[hsl(var(--marketing))]">jornadas completas e personalizadas.</span>
-                </h1>
-                <p className="text-sm md:text-base font-light text-gray-600 leading-relaxed text-balance mb-8">
+                </Heading>
+                <SectionSubtitle className="mb-8">
                   Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você
                   cria jornadas de relacionamento automatizadas e transforma contatos em vendas. Use
                   nossos templates de disparo rápido, acompanhe métricas em tempo real e integre
                   tudo facilmente via API.
-                </p>
+                </SectionSubtitle>
                 <Button
                   size="lg"
                   className="group bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
@@ -239,10 +240,10 @@ const Marketing = () => {
                 <Sparkles className="h-3.5 w-3.5" />
                 Por que Solvefy/Marketing
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance">
+              <Heading className="text-balance">
                 O marketing que <span style={{ color: ACCENT }}>vende sozinho</span>{" "}
                 e mostra exatamente o que <span style={{ color: ACCENT }}>funciona</span>.
-              </h2>
+              </Heading>
             </div>
 
             {/* Balanced 3-column grid */}
@@ -340,14 +341,14 @@ const Marketing = () => {
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
               <div className="max-w-xl">
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance text-gray-900">
+                <Heading className="text-balance">
                   Conecte o seu sistema aos{" "}
                   <span style={{ color: ACCENT }}>seus clientes</span>
-                </h2>
-                <p className="mt-4 text-base md:text-lg text-gray-500 leading-snug text-balance">
+                </Heading>
+                <SectionSubtitle className="mt-4">
                   Via API ou interface web, envie e receba mensagens com um contrato só, uma fatura
                   só e um dashboard só.
-                </p>
+                </SectionSubtitle>
               </div>
 
               <div className="w-full">
@@ -404,7 +405,7 @@ const Marketing = () => {
                   Inteligência Artificial Exclusiva
                 </div>
 
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-white mb-6">
+                <Heading className="text-white mb-6">
                   Conheça a{" "}
                   <span
                     className="bg-clip-text text-transparent"
@@ -414,7 +415,7 @@ const Marketing = () => {
                   >
                     EasyIA
                   </span>
-                </h2>
+                </Heading>
 
                 <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mb-8">
                   Precisa de ajuda para otimizar seu negócio? Nossa Inteligência Artificial nativa
@@ -456,12 +457,12 @@ const Marketing = () => {
               >
                 Planos & Precificação
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-balance">
+              <Heading className="text-balance">
                 Escolha o plano <span style={{ color: ACCENT }}>certo</span> para crescer.
-              </h2>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug text-balance">
+              </Heading>
+              <SectionSubtitle className="mt-4">
                 Faturamento em reais, sem oscilação cambial e sem letras miúdas.
-              </p>
+              </SectionSubtitle>
             </div>
 
             {/* 3 main plans */}

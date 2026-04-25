@@ -1,4 +1,11 @@
-import { Facebook, Instagram, Linkedin, Youtube, ArrowRight, Award } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Youtube,
+  ArrowRight,
+  Award,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logoFooter from "@/assets/logo-solvefy-footer.png";
@@ -20,7 +27,7 @@ const linkGroups = [
       { name: "Blog", to: "/blog" },
       { name: "Central de Ajuda", to: "/" },
       { name: "Documentação", to: "/" },
-      { name: "API Reference", to: "/" }
+      { name: "API Reference", to: "/" },
     ],
   },
   {
@@ -40,10 +47,16 @@ export const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-5 flex flex-col items-start">
             <Link to="/" aria-label="Solvefy" className="block ml-0 pl-0">
-              <img src={logoFooter} alt="Solvefy" className="h-7 w-auto ml-0 pl-0" />
+              <img
+                src={logoFooter}
+                alt="Solvefy"
+                className="h-7 w-auto ml-0 pl-0"
+              />
             </Link>
-            <h3 className="mt-6 text-xl md:text-2xl font-bold tracking-tighter text-balance">
-              Closer. <span className="text-primary">Quicker.</span> <span className="text-primary">Better.</span>
+            <h3 className="text-white mt-6 text-xl md:text-2xl font-bold tracking-tighter text-balance">
+              Closer<span className="text-primary">.</span> Quicker
+              <span className="text-primary">.</span> Better
+              <span className="text-primary">.</span>
             </h3>
             <p className="mt-3 text-dark-foreground/60 max-w-md leading-relaxed">
               Tecnologia que simplifica, integração que gera resultado.
@@ -73,11 +86,13 @@ export const Footer = () => {
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
             {linkGroups.map((group) => (
               <div key={group.title}>
-                <h4 className="text-sm font-bold text-dark-foreground mb-4">{group.title}</h4>
+                <h4 className="text-sm font-bold text-dark-foreground mb-4">
+                  {group.title}
+                </h4>
                 <ul className="space-y-3">
                   {group.links.map((link) => (
-                    <li key={typeof link === 'string' ? link : link.name}>
-                      {typeof link === 'string' ? (
+                    <li key={typeof link === "string" ? link : link.name}>
+                      {typeof link === "string" ? (
                         <a
                           href="#"
                           className="text-sm text-dark-foreground/60 hover:text-primary transition-colors"
@@ -108,22 +123,42 @@ export const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-14 pt-8 border-t border-dark-border flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="mt-14 pt-8 border-t border-[#F8FaFC99] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <p className="text-xs text-dark-foreground/50">
-            © {new Date().getFullYear()} Solvefy. Todos os direitos reservados. CNPJ 35.693.806/0001-97
+            © {new Date().getFullYear()} Solvefy. Todos os direitos reservados.
+            CNPJ 35.693.806/0001-97
           </p>
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-4 text-xs text-dark-foreground/50">
-              <a href="/termos-e-politicas#politica-de-privacidade" className="hover:text-primary transition-colors">Privacidade</a>
-              <a href="/termos-e-politicas#termos-de-uso" className="hover:text-primary transition-colors">Termos</a>
-              <a href="/termos-e-politicas#politica-de-privacidade" className="hover:text-primary transition-colors">LGPD</a>
+              <a
+                href="/termos-e-politicas#politica-de-privacidade"
+                className="hover:text-primary transition-colors"
+              >
+                Privacidade
+              </a>
+              <a
+                href="/termos-e-politicas#termos-de-uso"
+                className="hover:text-primary transition-colors"
+              >
+                Termos
+              </a>
+              <a
+                href="/termos-e-politicas#politica-de-privacidade"
+                className="hover:text-primary transition-colors"
+              >
+                LGPD
+              </a>
             </div>
             {/* ACATE seal */}
-            <div className="flex items-center gap-2 rounded-lg border border-dark-border bg-dark-muted px-4 py-2.5">
+            <div className="flex items-center gap-2 rounded-lg border border-[#F8FAFC99] bg-[#F8FAFC99] px-4 py-2.5">
               <Award className="h-5 w-5 text-primary" />
               <div className="leading-tight">
-                <div className="text-[10px] uppercase tracking-wider text-dark-foreground/50">Selo</div>
-                <div className="text-xs font-bold text-dark-foreground">ACATE 2024</div>
+                <div className="text-[10px] uppercase tracking-wider text-dark-foreground/50">
+                  Selo
+                </div>
+                <div className="text-xs font-bold text-dark-foreground">
+                  ACATE 2024
+                </div>
               </div>
             </div>
           </div>

@@ -113,7 +113,7 @@ export default function BlogPost() {
             </Link>
           )}
 
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
+          <h1 className="text-3xl md:text-5xl tracking-tight mb-6 leading-tight">
             {post.title}
           </h1>
 
@@ -138,7 +138,7 @@ export default function BlogPost() {
 
         <article 
           className="prose prose-slate prose-lg dark:prose-invert max-w-none mb-24
-            prose-headings:font-bold prose-headings:tracking-tight
+            prose-headings:font-light prose-headings:tracking-tight
             prose-a:text-primary prose-a:no-underline hover:prose-a:underline
             prose-img:rounded-xl prose-img:border prose-img:border-border"
           dangerouslySetInnerHTML={{ __html: renderContent(post.content) }}
@@ -146,7 +146,7 @@ export default function BlogPost() {
 
         {related && related.length > 0 && (
           <div className="border-t border-border pt-16 mb-8">
-            <h2 className="text-2xl font-bold mb-8">Artigos Relacionados</h2>
+            <h2 className="mb-8">Artigos Relacionados</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {related.map((p, i) => {
                 const pCat = p.post_categories?.[0]?.categories;
