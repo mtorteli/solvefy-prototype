@@ -573,9 +573,10 @@ const Ads = () => {
                   style={
                     highlight
                       ? {
-                          background: `linear-gradient(160deg, ${ACCENT} 0%, #b8860b 100%)`,
+                          background: `#F6F5EF`,
                           boxShadow: `0 20px 50px -20px ${ACCENT}99`,
                           color: "#0a0a0a",
+                          border: `1px solid #FFB219`,
                         }
                       : { boxShadow: "var(--shadow-soft)" }
                   }
@@ -620,7 +621,7 @@ const Ads = () => {
                       size="lg"
                       className={`w-full group font-semibold transition-all duration-200 ${
                         highlight
-                          ? "bg-black text-white hover:bg-black/90"
+                          ? "bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950"
                           : "bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950"
                       }`}
                     >
