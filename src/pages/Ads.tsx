@@ -246,7 +246,7 @@ const Ads = () => {
 
             <div className="grid md:grid-cols-2 gap-5">
               {/* Card 1 — Problema */}
-              <div className="relative rounded-2xl bg-card p-7 overflow-hidden">
+              <div className="relative rounded-2xl bg-card border border-border p-7 overflow-hidden">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
                     <TrendingDown className="h-5 w-5" />
