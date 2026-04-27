@@ -258,7 +258,7 @@ const Ads = () => {
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-3">
                   Tráfego tradicional: você paga caro e ainda fica refém.
                 </h3>
-                <ul className="space-y-3 text-sm text-foreground/80">
+                <ul className="space-y-3 text-base text-foreground/80">
                   <li className="flex items-start gap-2">
                     <X className="h-4 w-4 mt-0.5 text-destructive shrink-0" />
                     Custo por aquisição cresce ano após ano em leilões
@@ -375,7 +375,7 @@ const Ads = () => {
                   <h3 className="text-lg font-semibold tracking-tight">
                     {title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  <p className="mt-2 text-base text-muted-foreground leading-relaxed">
                     {desc}
                   </p>
                 </div>
@@ -540,7 +540,7 @@ const Ads = () => {
                   <h3 className="text-lg font-semibold tracking-tight">
                     {title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  <p className="mt-2 text-base text-muted-foreground leading-relaxed">
                     {desc}
                   </p>
                 </article>
@@ -581,7 +581,7 @@ const Ads = () => {
                   }
                 >
                   {highlight && (
-                    <span className="absolute -top-3 inline-flex items-center rounded-full bg-black px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[hsl(var(--ads))]">
+                    <span className="absolute -top-3 inline-flex items-center rounded-full bg-black px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
                       Mais escolhido
                     </span>
                   )}
@@ -591,7 +591,7 @@ const Ads = () => {
                     </h3>
                   </div>
                   <p
-                    className={`text-sm leading-relaxed mb-5 mt-2 ${
+                    className={`text-base leading-relaxed mb-5 mt-2 ${
                       highlight ? "text-gray-950/85" : "text-muted-foreground"
                     }`}
                   >
@@ -620,7 +620,7 @@ const Ads = () => {
                       size="lg"
                       className={`w-full group font-semibold transition-all duration-200 ${
                         highlight
-                          ? "bg-black text-[hsl(var(--ads))] hover:bg-black/90"
+                          ? "bg-black text-white hover:bg-black/90"
                           : "bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950"
                       }`}
                     >
