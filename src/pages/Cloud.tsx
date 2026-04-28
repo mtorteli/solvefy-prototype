@@ -41,22 +41,22 @@ const features = [
   {
     icon: Zap,
     title: "Provisionamento Imediato",
-    desc: "Crie VMS/VPS em poucos cliques, com sistemas operacionais pré-configurados e redes prontas.",
+    desc: "Cliente final cria, modifica e deleta VMs Windows e Linux com provisionamento automatizado e seguro.",
   },
   {
     icon: Terminal,
     title: "Console & SSH",
-    desc: "Gestão completa e segura via painel web ou acesso SSH com chaves gerenciadas.",
+    desc: "Acesso remoto via console gráfica direto na interface web, sem VPN ou cliente externo, com gestão de chaves SSH.",
   },
   {
     icon: DatabaseBackup,
     title: "Backup & Snapshots",
-    desc: "Proteção automatizada de dados críticos com agendamento flexível e restauração em 1 clique.",
+    desc: "Backups automáticos com Proxmox Backup Server (deduplication + AES-256-GCM) e snapshots em tempo real.",
   },
   {
     icon: Gauge,
     title: "Upgrades a Quente",
-    desc: "Escale RAM e CPU sem interromper o serviço. Sua aplicação cresce sem janela de manutenção.",
+    desc: "Agendamento e execução de upgrades de RAM, vCPU e disco da VM sem migração manual.",
   },
 ];
 
@@ -74,7 +74,7 @@ const opportunityCards = [
   {
     icon: Zap,
     title: "O fim do processo manual.",
-    desc: "Esqueça a abertura de tickets para criar ou fazer upgrade de VMs. Nossa plataforma integra o faturamento ao provisionamento técnico. O cliente compra, o sistema fatura e a nuvem liga.",
+    desc: "Integração nativa com Proxmox VE V8 e V9 conecta o faturamento ao provisionamento técnico. Esqueça tickets para criar ou fazer upgrade de VMs: o cliente compra, o sistema fatura e a nuvem liga.",
   },
 ];
 
@@ -98,64 +98,68 @@ const automationPills = [
 
 const plans = [
   {
-    name: "Closer",
-    price: "R$ 89",
+    name: "Basic",
+    price: "R$ 990",
     period: "/mês",
-    ideal: "Para quem está iniciando na nuvem com cargas leves.",
+    setup: "Implantação: R$ 18.890 (3x sem juros)",
+    ideal: "Pequenas operações iniciando a venda de cloud com a própria marca.",
     features: [
-      "2 vCPU dedicada",
-      "4 GB de RAM",
-      "80 GB SSD NVMe",
-      "Snapshots semanais",
-      "Suporte em português",
+      "Até 3 servidores (nodes)",
+      "1 cluster",
+      "VMs, vCPUs, backups e snapshots ilimitados",
+      "Pagamento pré e pós-pago",
+      "Suporte via ticket e e-mail",
+      "Atualizações mensais",
     ],
-    cta: "Começar com Closer",
+    cta: "Quero o Basic",
     highlight: false,
   },
   {
-    name: "Quicker",
-    price: "R$ 189",
+    name: "Standard",
+    price: "R$ 1.590",
     period: "/mês",
-    ideal: "Para times que já operam em produção e precisam escalar.",
+    setup: "Implantação: R$ 25.890 (3x sem juros)",
+    ideal: "Operações em crescimento com necessidade de escalar a oferta.",
     features: [
-      "4 vCPU dedicada",
-      "8 GB de RAM",
-      "160 GB SSD NVMe",
-      "Backups diários gerenciados",
-      "Console & SSH integrados",
-      "Suporte prioritário 24/7",
+      "Até 6 servidores (nodes)",
+      "2 clusters",
+      "VMs, vCPUs, backups e snapshots ilimitados",
+      "Suporte via chat, ticket e e-mail",
+      "Acesso a add-ons da plataforma",
+      "Atualizações mensais",
     ],
-    cta: "Quero o Quicker",
+    cta: "Quero o Standard",
     highlight: true,
     badge: "Mais Popular",
   },
   {
-    name: "Better",
-    price: "R$ 389",
+    name: "Premium",
+    price: "R$ 2.390",
     period: "/mês",
-    ideal: "Para cargas críticas e ambientes corporativos.",
+    setup: "Implantação: R$ 34.890 (3x sem juros)",
+    ideal: "Operações estabelecidas com demanda por suporte e canais avançados.",
     features: [
-      "8 vCPU dedicada",
-      "16 GB de RAM",
-      "320 GB SSD NVMe",
-      "Backups + replicação geográfica",
-      "Upgrades a quente (RAM/CPU)",
-      "SLA contratual de 99.99%",
+      "Até 9 servidores (nodes)",
+      "3 clusters",
+      "VMs, vCPUs, backups e snapshots ilimitados",
+      "Suporte via chat, ticket, e-mail e telefone",
+      "Acesso completo a add-ons",
+      "Atualizações mensais",
     ],
-    cta: "Falar com Vendas",
+    cta: "Quero o Premium",
     highlight: false,
   },
 ];
 
 const apiPlan = {
-  name: "Solve Customizing",
-  priceTag: "Customizado",
-  ideal: "Para Provedores, Data Centers e operações que precisam de uma plataforma sob medida com White-Label completo.",
+  name: "Enterprise",
+  priceTag: "Personalizado",
+  ideal: "Para Provedores e Data Centers com escala customizada — servidores e clusters sob medida, suporte dedicado e onboarding ajustado ao seu cenário.",
   features: [
-    "Portal White-Label com a sua marca",
-    "Faturamento e cobrança automatizados",
-    "Catálogo de planos personalizável",
-    "Onboarding técnico assistido",
+    "Servidores e clusters personalizados",
+    "Suporte chat, ticket, e-mail e telefone",
+    "Acesso a add-ons + roadmap colaborativo",
+    "Onboarding e licenciamento sob medida",
   ],
   cta: "Falar com Especialista",
 };
@@ -189,12 +193,12 @@ const Cloud = () => {
           accentVar="--cloud"
           badgeIcon={iconCloud}
           badgeLabel="Solvefy/Cloud"
-          title={<>Transforme sua infraestrutura ociosa em produto com{" "}
-            <span className="text-[hsl(var(--cloud))]">segurança e automação total.</span></>}
-          subtitle="Infraestrutura em nuvem de alta performance (VMS/VPS) com total segurança e autonomia operacional. Provisionamento imediato, gestão simplificada e escalabilidade real."
-          ctaText="Comprar Agora"
+          title={<>Infraestrutura inteligente para{" "}
+            <span className="text-[hsl(var(--cloud))]">empresas que escalam.</span></>}
+          subtitle="Plataforma E-CLOUD whitelabel on-premises, suporte em ambientes Proxmox VE/PBS/Ceph e consultoria especializada em Docker, Kubernetes e bancos de dados. Do diagnóstico inicial à operação contínua — do zero ao fim do processo."
+          ctaText="Falar com Especialista"
           ctaTextColor="text-gray-950"
-          trustItems={["Provisionamento Imediato", "Portal White-Label", "Alta Performance VMS/VPS"]}
+          trustItems={["Plataforma Whitelabel On-Premises", "Proxmox Reseller/Partner Oficial", "Do zero ao fim do processo"]}
           right={
             <StackedCardsCarousel
               accent={ACCENT}
@@ -236,16 +240,17 @@ const Cloud = () => {
                     <span style={{ color: ACCENT }}>automatizar a venda de Cloud</span>.
                   </h2>
                   <p className="section-subtitle mb-6">
-                    Com o nosso Portal White-Label, parceiros e revendedores podem comercializar
-                    VMS/VPS com a sua própria marca, identidade visual e faturamento automatizado.
-                    Você foca no cliente, a Solvefy cuida da infraestrutura.
+                    Produto 100% brasileiro da Ativos.Capital — grupo com 20 anos de mercado em
+                    Telecomunicações, Martech e Cloud. Equipe Proxmox Reseller/Partner oficial e
+                    programa de cibersegurança Bug Bounty (HuntersPay). Você foca no cliente; a
+                    Solvefy cuida da infraestrutura.
                   </p>
                   <ul className="space-y-3 text-sm text-foreground/85 mb-7">
                     {[
                       "Sua marca, seu domínio, sua identidade visual.",
-                      "Faturamento e cobrança automatizados em Reais.",
-                      "Catálogo de planos personalizável por revendedor.",
-                      "Margem comercial controlada por você, em tempo real.",
+                      "Painel Administrativo + Portal do Cliente self-service em um único produto.",
+                      "Integração nativa com Proxmox VE V8 e V9 e gateways Stripe e Bradesco.",
+                      "Billing completo: catálogo, planos, faturamento e medição de consumo automatizados.",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2">
                         <Check
@@ -536,7 +541,7 @@ const Cloud = () => {
               <div className="relative rounded-[2rem] bg-[#0a0a0f]/95 p-10 md:p-14 backdrop-blur-xl text-white">
                 <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 border border-white/10 bg-white/5 text-white/80">
                   <Wallet className="h-3.5 w-3.5" style={{ color: ACCENT }} />
-                  ? Gestão Financeira Integrada
+                  Gestão Financeira Integrada
                 </div>
 
                 <h2 className="tracking-tight leading-[1.05] text-white mb-6">
@@ -552,10 +557,10 @@ const Cloud = () => {
                 </h2>
 
                 <p className="section-subtitle mb-8">
-                  Gerenciar a cobrança de recursos computacionais não precisa ser uma dor de cabeça.
-                  A Solvefy/Cloud unifica o painel administrativo, o provisionamento de recursos, os
-                  backups gerenciados e o sistema de assinaturas. Você define os pacotes, a
-                  plataforma cobra e entrega.
+                  Painel Administrativo e Portal do Cliente unificam gestão de contratos,
+                  provisionamento de VMs, backups gerenciados e billing. Integração nativa com
+                  gateways Stripe e Bradesco, medição de consumo automatizada e relatórios em
+                  tempo real. Você define os pacotes; a plataforma cobra e entrega.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-10">
@@ -596,7 +601,8 @@ const Cloud = () => {
                 Escolha o plano <span style={{ color: ACCENT }}>certo</span> para crescer.
               </h2>
               <p className="section-subtitle mt-4">
-                Faturamento em reais, sem oscilação cambial e sem letras miúdas.
+                Faturamento em reais, parcelamento em até 3x sem juros e mensalidade só após a
+                entrega do ambiente em produção.
               </p>
             </div>
 
@@ -641,6 +647,9 @@ const Cloud = () => {
                       <span className="text-4xl font-bold tracking-tight">{plan.price}</span>
                       <span className="text-sm text-muted-foreground">{plan.period}</span>
                     </div>
+                    {plan.setup && (
+                      <p className="mt-1 text-xs text-muted-foreground">{plan.setup}</p>
+                    )}
                     <p className="mt-2 text-sm text-muted-foreground">
                       Ideal para: <span className="text-foreground/80">{plan.ideal}</span>
                     </p>

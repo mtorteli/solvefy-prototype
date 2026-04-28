@@ -61,9 +61,9 @@ const solutions = [
     panelBg: "hsl(var(--cloud-surface))",
     icon: iconCloud,
     to: "/cloud",
-    headline: "A base que sustenta o seu crescimento.",
-    desc: "Infraestrutura em nuvem de alta performance (VMS/VPS). Escale sua operação com total segurança e autonomia operacional, sem se preocupar com quedas de servidores.",
-    bullets: ["99.99% SLA", "Edge global", "Criptografia ponta-a-ponta"],
+    headline: "A 1ª e-Cloud whitelabel do Brasil.",
+    desc: "Plataforma E-CLOUD whitelabel on-premises, suporte em ambientes Proxmox VE/PBS/Ceph e consultoria especializada em Docker, Kubernetes e bancos de dados. Do diagnóstico inicial à operação contínua — do zero ao fim do processo.",
+    bullets: ["Plataforma Whitelabel On-Premises", "Proxmox Reseller/Partner Oficial", "Criptografia ponta-a-ponta"],
   },
 ];
 
