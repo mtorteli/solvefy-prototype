@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import { Heading } from "@/components/ui/Typography";
 
-export const EcosystemDiagram = () => {
+export const EcosystemDiagram = (_props: { accent?: string }) => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto">

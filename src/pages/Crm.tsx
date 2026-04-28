@@ -4,18 +4,15 @@ import {
   Bell,
   BarChart3,
   Check,
-  Megaphone,
-  Send,
-  Handshake,
-  Bot,
-  Cloud,
   DollarSign,
   TrendingUp,
   Sparkles,
   Rocket,
-  Code2,
 } from "lucide-react";
 import { Header } from "@/components/Header";
+import { SEO } from "@/components/SEO";
+import { ProductHero } from "@/components/ProductHero";
+import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import iconCrm from "@/assets/icons/crm-dark.png";
@@ -124,77 +121,38 @@ const apiPlan = {
 const Crm = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col overflow-x-hidden">
+      <SEO
+        title="CRM — Gestão de Relacionamento Omnichannel"
+        description="Centralize o relacionamento com seus clientes em um CRM omnichannel. Pipeline, automações e histórico completo de interações em um só lugar."
+        canonical="/crm"
+      />
       <Header />
       <main className="flex-1 overflow-x-hidden">
-        {/* ============ HERO ============ */}
-        <section className="relative overflow-hidden" style={{ background: "#f6f5ef" }}>
-          <div
-            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-10"
-            style={{ background: ACCENT }}
-          />
-          <div
-            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
-            style={{ background: ACCENT }}
-          />
-
-          <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-28">
-            <div className="grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
-              {/* LEFT — Content */}
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4 md:mb-6 bg-[hsl(var(--crm))]/10 text-[hsl(var(--crm))]">
-                  <img src={iconCrm} alt="Solvefy/CRM" className="w-4 h-4 object-contain" />
-                  Solvefy/CRM
-                </div>
-                <Heading variant="h1" className="text-balance mb-4 md:mb-6">
-                  Pare de perder vendas no funil.{" "}
-                  <span className="text-[hsl(var(--crm))]">Assuma o controle absoluto do seu pipeline.</span>
-                </Heading>
-                <SectionSubtitle className="mb-6 md:mb-8">
-                  Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de
-                  vendas definitiva para equipes de alta performance. Elimine o vazamento de leads,
-                  automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios
-                  em menos tempo.
-                </SectionSubtitle>
-                <Button
-                  size="lg"
-                  className="group w-full sm:w-auto bg-[hsl(var(--crm))] hover:bg-[hsl(var(--crm))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
-                >
-                  Teste Grátis
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-
-                {/* Trust checklist */}
-                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
-                  {[
-                    "Migração gratuita de dados",
-                    "20% mais barato que o RD CRM",
-                    "Implementação em 24h",
-                  ].map((item) => (
-                    <li key={item} className="inline-flex items-center gap-1.5">
-                      <Check className="h-3.5 w-3.5 text-[hsl(var(--crm))]" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* RIGHT — 3D Stacked Cards showcase */}
-              <StackedCardsCarousel
-                accent={ACCENT}
-                slides={heroSlides}
-                badge={{ iconSrc: iconCrm, label: "Solvefy/CRM" }}
-                notifications={[
-                  { title: "Novo lead qualificado", description: "Polaris S.A. · R$ 64.000", icon: "message" },
-                  { title: "Click-to-Chat", description: "WhatsApp enviado em 1 clique", icon: "whatsapp" },
-                ]}
-                metrics={[
-                  { label: "Conversão", value: "28%", icon: <TrendingUp className="h-4 w-4" />, position: "top-right" },
-                  { label: "Pipeline", value: "R$ 248k", icon: <Kanban className="h-4 w-4" />, position: "bottom-left" },
-                ]}
-              />
-            </div>
-          </div>
-        </section>
+        <ProductHero
+          accentVar="--crm"
+          badgeIcon={iconCrm}
+          badgeLabel="Solvefy/CRM"
+          title={<>Pare de perder vendas no funil.{" "}
+            <span className="text-[hsl(var(--crm))]">Assuma o controle absoluto do seu pipeline.</span></>}
+          subtitle="Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de vendas definitiva para equipes de alta performance. Elimine o vazamento de leads, automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios em menos tempo."
+          ctaText="Teste Grátis"
+          trustItems={["Migração gratuita de dados", "20% mais barato que o RD CRM", "Implementação em 24h"]}
+          right={
+            <StackedCardsCarousel
+              accent={ACCENT}
+              slides={heroSlides}
+              badge={{ iconSrc: iconCrm, label: "Solvefy/CRM" }}
+              notifications={[
+                { title: "Novo lead qualificado", description: "Polaris S.A. · R$ 64.000", icon: "message" },
+                { title: "Click-to-Chat", description: "WhatsApp enviado em 1 clique", icon: "whatsapp" },
+              ]}
+              metrics={[
+                { label: "Conversão", value: "28%", icon: <TrendingUp className="h-4 w-4" />, position: "top-right" },
+                { label: "Pipeline", value: "R$ 248k", icon: <Kanban className="h-4 w-4" />, position: "bottom-left" },
+              ]}
+            />
+          }
+        />
 
         {/* ============ Problem vs Solution ============ */}
         <section className="py-16 md:py-28 bg-white">
@@ -479,71 +437,15 @@ const Crm = () => {
               ))}
             </div>
 
-            {/* Custom plan — wide row */}
-            <div className="max-w-6xl mt-8">
-              <div
-                className="relative rounded-3xl p-6 sm:p-8 md:p-10 overflow-hidden border"
-                style={{
-                  borderColor: `${ACCENT}40`,
-                  background: `linear-gradient(120deg, #0a0a0f 0%, #14101e 100%)`,
-                  boxShadow: `0 24px 60px -30px ${ACCENT}80`,
-                }}
-              >
-                <div
-                  className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full blur-3xl opacity-10"
-                  style={{ background: ACCENT }}
-                />
-                <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
-                  <div className="md:col-span-2">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div
-                        className="flex h-10 w-10 items-center justify-center rounded-xl"
-                        style={{ backgroundColor: `${ACCENT}25`, color: ACCENT }}
-                      >
-                        <Code2 className="h-5 w-5" />
-                      </div>
-                      <div
-                        className="text-xs font-bold uppercase tracking-wider"
-                        style={{ color: ACCENT }}
-                      >
-                        Plano Customizado
-                      </div>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-2">
-                      {apiPlan.name}
-                    </h3>
-                    <p className="text-sm text-white/70 mb-5 max-w-xl">{apiPlan.ideal}</p>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-                      {apiPlan.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2 text-white/80">
-                          <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-col items-start md:items-end gap-4">
-                    <div
-                      className="inline-flex items-center rounded-full px-4 py-2 text-sm font-bold border"
-                      style={{
-                        color: ACCENT,
-                        borderColor: `${ACCENT}55`,
-                        backgroundColor: `${ACCENT}15`,
-                      }}
-                    >
-                      {apiPlan.priceTag}
-                    </div>
-                    <Button
-                      size="lg"
-                      className="group bg-[hsl(var(--crm))] hover:bg-[hsl(var(--crm))]/90 text-white font-semibold w-full md:w-auto"
-                    >
-                      {apiPlan.cta}
-                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+            <div className="mt-8">
+              <PricingCustomPlan
+                accentVar="--crm"
+                title={apiPlan.name}
+                description={apiPlan.ideal}
+                bullets={apiPlan.features}
+                badgeText={apiPlan.priceTag}
+                ctaText={apiPlan.cta}
+              />
             </div>
 
             {/* Migration banner — RD CRM */}

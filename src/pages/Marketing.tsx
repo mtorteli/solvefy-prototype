@@ -10,10 +10,12 @@ import {
   Wand2,
   FlaskConical,
   Users,
-  Code2,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
+import { SEO } from "@/components/SEO";
+import { ProductHero } from "@/components/ProductHero";
+import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import iconMarketing from "@/assets/icons/marketing-pink.png";
@@ -159,70 +161,38 @@ const apiPlan = {
 const Marketing = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEO
+        title="Marketing — Automação Multicanal"
+        description="Crie jornadas automatizadas, dispare campanhas e engaje clientes em todos os canais com a plataforma de marketing da Solvefy."
+        canonical="/marketing"
+      />
       <Header />
       <main className="flex-1">
-        {/* ============ HERO ============ */}
-        <section className="relative overflow-hidden" style={{ background: "#f6f5ef" }}>
-          <div
-            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-10"
-            style={{ background: ACCENT }}
-          />
-          <div
-            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
-            style={{ background: ACCENT }}
-          />
-
-          <div className="container relative mx-auto px-4 py-20 md:py-28">
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[hsl(var(--marketing))]/10 text-[hsl(var(--marketing))]">
-                  <img src={iconMarketing} alt="Solvefy/Marketing" className="w-4 h-4 object-contain" />
-                  Solvefy/Marketing
-                </div>
-                <Heading variant="h1" className="text-balance mb-6">
-                  Impulsione suas vendas com{" "}
-                  <span className="text-[hsl(var(--marketing))]">jornadas completas e personalizadas.</span>
-                </Heading>
-                <SectionSubtitle className="mb-8">
-                  Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você
-                  cria jornadas de relacionamento automatizadas e transforma contatos em vendas. Use
-                  nossos templates de disparo rápido, acompanhe métricas em tempo real e integre
-                  tudo facilmente via API.
-                </SectionSubtitle>
-                <Button
-                  size="lg"
-                  className="group bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
-                >
-                  Teste Grátis
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-
-                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
-                  {["Todos os Canais", "Construtor Visual de Jornadas", "EasyIA"].map((item) => (
-                    <li key={item} className="inline-flex items-center gap-1.5">
-                      <Check className="h-3.5 w-3.5 text-[hsl(var(--marketing))]" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <StackedCardsCarousel
-                accent={ACCENT}
-                slides={heroSlides}
-                badge={{ iconSrc: iconMarketing, label: "Solvefy/Marketing" }}
-                notifications={[
-                  { title: "Carrinho recuperado", description: "Jornada multicanal disparada", icon: "message" },
-                  { title: "Enviar WhatsApp", description: "Olá {nome}, finalize com 10% OFF ??", icon: "whatsapp" },
-                ]}
-                metrics={[
-                  { label: "Conversão", value: "+27%", icon: <Send className="h-4 w-4" />, position: "bottom-left" },
-                  { label: "Jornada ativa", value: "Recupera carrinho", icon: <Workflow className="h-4 w-4" />, position: "top-right" },
-                ]}
-              />
-            </div>
-          </div>
-        </section>
+        <ProductHero
+          accentVar="--marketing"
+          badgeIcon={iconMarketing}
+          badgeLabel="Solvefy/Marketing"
+          title={<>Impulsione suas vendas com{" "}
+            <span className="text-[hsl(var(--marketing))]">jornadas completas e personalizadas.</span></>}
+          subtitle="Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você cria jornadas de relacionamento automatizadas e transforma contatos em vendas. Use nossos templates de disparo rápido, acompanhe métricas em tempo real e integre tudo facilmente via API."
+          ctaText="Teste Grátis"
+          trustItems={["Todos os Canais", "Construtor Visual de Jornadas", "EasyIA"]}
+          right={
+            <StackedCardsCarousel
+              accent={ACCENT}
+              slides={heroSlides}
+              badge={{ iconSrc: iconMarketing, label: "Solvefy/Marketing" }}
+              notifications={[
+                { title: "Carrinho recuperado", description: "Jornada multicanal disparada", icon: "message" },
+                { title: "Enviar WhatsApp", description: "Olá {nome}, finalize com 10% OFF ??", icon: "whatsapp" },
+              ]}
+              metrics={[
+                { label: "Conversão", value: "+27%", icon: <Send className="h-4 w-4" />, position: "bottom-left" },
+                { label: "Jornada ativa", value: "Recupera carrinho", icon: <Workflow className="h-4 w-4" />, position: "top-right" },
+              ]}
+            />
+          }
+        />
 
         {/* ============ DORES & POSICIONAMENTO ============ */}
         <section className="relative py-16 md:py-20 overflow-hidden bg-white">
@@ -538,71 +508,15 @@ const Marketing = () => {
               ))}
             </div>
 
-            {/* API plan — wide row */}
-            <div className="max-w-6xl mt-8">
-              <div
-                className="relative rounded-3xl p-8 md:p-10 overflow-hidden border"
-                style={{
-                  borderColor: `${ACCENT}40`,
-                  background: `linear-gradient(120deg, #0a0a0f 0%, #14101e 100%)`,
-                  boxShadow: `0 24px 60px -30px ${ACCENT}80`,
-                }}
-              >
-                <div
-                  className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full blur-3xl opacity-10"
-                  style={{ background: ACCENT }}
-                />
-                <div className="relative grid md:grid-cols-3 gap-8 items-center">
-                  <div className="md:col-span-2">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div
-                        className="flex h-10 w-10 items-center justify-center rounded-xl"
-                        style={{ backgroundColor: `${ACCENT}25`, color: ACCENT }}
-                      >
-                        <Code2 className="h-5 w-5" />
-                      </div>
-                      <div
-                        className="text-xs font-bold uppercase tracking-wider"
-                        style={{ color: ACCENT }}
-                      >
-                        Plano API
-                      </div>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-2">
-                      {apiPlan.name}
-                    </h3>
-                    <p className="text-sm text-white/70 mb-5 max-w-xl">{apiPlan.ideal}</p>
-                    <ul className="grid sm:grid-cols-2 gap-2 text-sm">
-                      {apiPlan.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2 text-white/80">
-                          <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-col items-start md:items-end gap-4">
-                    <div
-                      className="inline-flex items-center rounded-full px-4 py-2 text-sm font-bold border"
-                      style={{
-                        color: ACCENT,
-                        borderColor: `${ACCENT}55`,
-                        backgroundColor: `${ACCENT}15`,
-                      }}
-                    >
-                      {apiPlan.priceTag}
-                    </div>
-                    <Button
-                      size="lg"
-                      className="group bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white font-semibold w-full md:w-auto"
-                    >
-                      {apiPlan.cta}
-                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+            <div className="mt-8">
+              <PricingCustomPlan
+                accentVar="--marketing"
+                title={apiPlan.name}
+                description={apiPlan.ideal}
+                bullets={apiPlan.features}
+                badgeText={apiPlan.priceTag}
+                ctaText={apiPlan.cta}
+              />
             </div>
           </div>
         </section>

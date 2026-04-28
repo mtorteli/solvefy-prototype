@@ -5,6 +5,7 @@ import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { MOCK_POSTS, MOCK_CATEGORIES } from "@/lib/mock-data";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import { ArrowLeft, Search } from "lucide-react";
 import { BlogCard } from "@/components/BlogCard";
 
@@ -136,6 +137,11 @@ export default function BlogCategory() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO
+        title={categoryData?.name ? `${categoryData.name} — Blog` : "Categoria — Blog"}
+        description={`Artigos sobre ${categoryData?.name ?? "este tema"} no blog da Solvefy. Conteúdo especializado em comunicação B2B e marketing digital.`}
+        canonical={`/blog/categoria/${category}`}
+      />
       <Header />
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-12 mt-8">
         <div className="mb-8">

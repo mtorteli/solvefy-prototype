@@ -17,10 +17,12 @@ import {
   Network,
   Briefcase,
   Wallet,
-  Code2,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
+import { SEO } from "@/components/SEO";
+import { ProductHero } from "@/components/ProductHero";
+import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import iconCloud from "@/assets/icons/cloud-blue.png";
@@ -161,69 +163,39 @@ const apiPlan = {
 const Cloud = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEO
+        title="Cloud — Infraestrutura em Nuvem para Empresas"
+        description="Hospede suas aplicações com performance e segurança na infraestrutura cloud da Solvefy. Escalabilidade sob demanda para empresas B2B."
+        canonical="/cloud"
+      />
       <Header />
       <main className="flex-1">
-        {/* ============ HERO ============ */}
-        <section className="relative overflow-hidden" style={{ background: "#f6f5ef" }}>
-          <div
-            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-25"
-            style={{ background: ACCENT }}
-          />
-          <div
-            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
-            style={{ background: ACCENT }}
-          />
-
-          <div className="container relative mx-auto px-4 py-20 md:py-28">
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[hsl(var(--cloud))]/10 text-[hsl(var(--cloud))]">
-                  <img src={iconCloud} alt="Solvefy/Cloud" className="w-4 h-4 object-contain" />
-                  Solvefy/Cloud
-                </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-balance mb-6">
-                  Transforme sua infraestrutura ociosa em produto com{" "}
-                  <span className="text-[hsl(var(--cloud))]">segurança e automação total.</span>
-                </h1>
-                <p className="section-subtitle mb-8">
-                  Infraestrutura em nuvem de alta performance (VMS/VPS) com total segurança e
-                  autonomia operacional. Provisionamento imediato, gestão simplificada e
-                  escalabilidade real.
-                </p>
-                <Button
-                  size="lg"
-                  className="group bg-[hsl(var(--cloud))] hover:bg-[hsl(var(--cloud))]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
-                >
-                  Comprar Agora
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-
-                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
-                  {["Provisionamento Imediato", "Portal White-Label", "Alta Performance VMS/VPS"].map((item) => (
-                    <li key={item} className="inline-flex items-center gap-1.5">
-                      <Check className="h-3.5 w-3.5 text-[hsl(var(--cloud))]" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <StackedCardsCarousel
-                accent={ACCENT}
-                slides={cloudHeroSlides}
-                badge={{ iconSrc: iconCloud, label: "Solvefy/Cloud" }}
-                notifications={[
-                  { title: "vm-prod-sao-01", description: "Ubuntu 22.04 · São Paulo · Ativo", icon: "message" },
-                  { title: "Auto-scaling", description: "RAM 4.8 / 16 GB · headroom saudável", icon: "whatsapp" },
-                ]}
-                metrics={[
-                  { label: "Uptime SLA", value: "99.99%", icon: <Activity className="h-4 w-4" />, position: "bottom-left" },
-                  { label: "CPU usage", value: "12%", icon: <Cpu className="h-4 w-4" />, position: "top-right" },
-                ]}
-              />
-            </div>
-          </div>
-        </section>
+        <ProductHero
+          accentVar="--cloud"
+          badgeIcon={iconCloud}
+          badgeLabel="Solvefy/Cloud"
+          title={<>Transforme sua infraestrutura ociosa em produto com{" "}
+            <span className="text-[hsl(var(--cloud))]">segurança e automação total.</span></>}
+          subtitle="Infraestrutura em nuvem de alta performance (VMS/VPS) com total segurança e autonomia operacional. Provisionamento imediato, gestão simplificada e escalabilidade real."
+          ctaText="Comprar Agora"
+          ctaTextColor="text-gray-950"
+          trustItems={["Provisionamento Imediato", "Portal White-Label", "Alta Performance VMS/VPS"]}
+          right={
+            <StackedCardsCarousel
+              accent={ACCENT}
+              slides={cloudHeroSlides}
+              badge={{ iconSrc: iconCloud, label: "Solvefy/Cloud" }}
+              notifications={[
+                { title: "vm-prod-sao-01", description: "Ubuntu 22.04 · São Paulo · Ativo", icon: "message" },
+                { title: "Auto-scaling", description: "RAM 4.8 / 16 GB · headroom saudável", icon: "whatsapp" },
+              ]}
+              metrics={[
+                { label: "Uptime SLA", value: "99.99%", icon: <Activity className="h-4 w-4" />, position: "bottom-left" },
+                { label: "CPU usage", value: "12%", icon: <Cpu className="h-4 w-4" />, position: "top-right" },
+              ]}
+            />
+          }
+        />
 
         {/* ============ 1. PLATAFORMA PIONEIRA (White-Label) ============ */}
         <section className="py-16 bg-white">
@@ -686,71 +658,15 @@ const Cloud = () => {
               ))}
             </div>
 
-            {/* Solve Customizing — wide row */}
-            <div className="max-w-6xl mx-auto mt-8">
-              <div
-                className="relative rounded-3xl p-8 md:p-10 overflow-hidden border"
-                style={{
-                  borderColor: `${ACCENT}40`,
-                  background: `linear-gradient(120deg, #0a0a0f 0%, #0d1620 100%)`,
-                  boxShadow: `0 24px 60px -30px ${ACCENT}80`,
-                }}
-              >
-                <div
-                  className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full blur-3xl opacity-10"
-                  style={{ background: ACCENT }}
-                />
-                <div className="relative grid md:grid-cols-3 gap-8 items-center">
-                  <div className="md:col-span-2">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div
-                        className="flex h-10 w-10 items-center justify-center rounded-xl"
-                        style={{ backgroundColor: `${ACCENT}25`, color: ACCENT }}
-                      >
-                        <Code2 className="h-5 w-5" />
-                      </div>
-                      <div
-                        className="text-xs font-bold uppercase tracking-wider"
-                        style={{ color: ACCENT }}
-                      >
-                        Plano Customizado
-                      </div>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-2">
-                      {apiPlan.name}
-                    </h3>
-                    <p className="text-sm text-white/70 mb-5 max-w-xl">{apiPlan.ideal}</p>
-                    <ul className="grid sm:grid-cols-2 gap-2 text-sm">
-                      {apiPlan.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2 text-white/80">
-                          <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-col items-start md:items-end gap-4">
-                    <div
-                      className="inline-flex items-center rounded-full px-4 py-2 text-sm font-bold border"
-                      style={{
-                        color: ACCENT,
-                        borderColor: `${ACCENT}55`,
-                        backgroundColor: `${ACCENT}15`,
-                      }}
-                    >
-                      {apiPlan.priceTag}
-                    </div>
-                    <Button
-                      size="lg"
-                      className="group bg-[hsl(var(--cloud))] hover:bg-[hsl(var(--cloud))]/90 text-gray-950 font-semibold w-full md:w-auto"
-                    >
-                      {apiPlan.cta}
-                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+            <div className="mt-8">
+              <PricingCustomPlan
+                accentVar="--cloud"
+                title={apiPlan.name}
+                description={apiPlan.ideal}
+                bullets={apiPlan.features}
+                badgeText={apiPlan.priceTag}
+                ctaText={apiPlan.cta}
+              />
             </div>
           </div>
         </section>

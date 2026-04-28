@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { SEO } from "@/components/SEO";
 import { Hero } from "@/components/Hero";
 import { SocialProof } from "@/components/SocialProof";
 import { Solutions } from "@/components/Solutions";
@@ -11,6 +12,11 @@ import { Footer } from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Plataforma B2B de Comunicação Multicanal"
+        description="A Solvefy conecta sua empresa aos clientes por WhatsApp, SMS, e-mail, voz e RCS. CRM, CPaaS, Marketing e Cloud em uma única plataforma."
+        canonical="/"
+      />
       <Header />
       <main>
         <Hero />
