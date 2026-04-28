@@ -71,9 +71,9 @@
     --popover-foreground: 0 0% 12%;
 
     /* Brand: vibrant conversion green */
-    --primary: 120 65% 63%; /* #63DE63 */
+    --primary: 150 100% 44%; /* #00df71 */
     --primary-foreground: 210 40% 98%;
-    --primary-glow: 120 70% 70%;
+    --primary-glow: 150 100% 55%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -96,9 +96,9 @@
     --cpaas: 258 100% 73%;   /* #9C73FF */
     --ads: 40 100% 50%;      /* #FFAA00 */
     --marketing: 330 81% 60%; /* #EC4899 */
-    --crm: 251 63% 27%;      /* #2D1B69 */
-    --cloud: 195 100% 50%;   /* #00C2FF */
-    --solve-green: 151 100% 44%; /* #00de71 */
+    --crm: 251 63% 24%;      /* #251765 */
+    --cloud: 194 100% 50%;   /* #00C2FF */
+    --solve-green: 150 100% 44%; /* #00df71 */
 
     /* Solution Panel Light Surfaces */
     --cpaas-surface: 258 100% 97%;
@@ -116,7 +116,7 @@
     /* Gradients */
     --gradient-hero: radial-gradient(
       60% 60% at 50% 0%,
-      hsl(120 65% 63% / 0.12) 0%,
+      hsl(150 100% 44% / 0.12) 0%,
       transparent 70%
     );
     --gradient-primary: linear-gradient(
@@ -153,7 +153,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
-    --primary: 120 65% 63%;
+    --primary: 150 100% 44%;
     --primary-foreground: 222 47% 11%;
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
