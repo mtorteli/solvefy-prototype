@@ -240,7 +240,7 @@ const Cloud = () => {
                     <span style={{ color: ACCENT }}>automatizar a venda de Cloud</span>.
                   </h2>
                   <p className="section-subtitle mb-6">
-                    Produto 100% brasileiro da Ativos.Capital — grupo com 20 anos de mercado em
+                    Produto 100% brasileiro da Solvefy — grupo com 20 anos de mercado em
                     Telecomunicações, Martech e Cloud. Equipe Proxmox Reseller/Partner oficial e
                     programa de cibersegurança Bug Bounty (HuntersPay). Você foca no cliente; a
                     Solvefy cuida da infraestrutura.
