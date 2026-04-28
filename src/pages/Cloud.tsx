@@ -167,6 +167,21 @@ const Cloud = () => {
         title="Cloud — Infraestrutura em Nuvem para Empresas"
         description="Hospede suas aplicações com performance e segurança na infraestrutura cloud da Solvefy. Escalabilidade sob demanda para empresas B2B."
         canonical="/cloud"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Solvefy Cloud",
+          "applicationCategory": "BusinessApplication",
+          "description": "Infraestrutura VMS/VPS com portal White-Label para provedores, data centers e revendedores.",
+          "operatingSystem": "Web",
+          "url": "https://solvefy.com/cloud",
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "89",
+            "highPrice": "389",
+            "priceCurrency": "BRL"
+          }
+        }}
       />
       <Header />
       <main className="flex-1">

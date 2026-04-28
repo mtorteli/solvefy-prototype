@@ -92,6 +92,20 @@ const Cpaas = () => {
         title="CPaaS — Comunicação Programável via API"
         description="Integre WhatsApp, SMS, RCS e voz diretamente no seu sistema com a API de comunicação da Solvefy. Alta disponibilidade e escala para o seu negócio."
         canonical="/cpaas"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Solvefy CPaaS",
+          "applicationCategory": "BusinessApplication",
+          "description": "Plataforma de comunicação programável via API para WhatsApp, SMS, RCS e voz.",
+          "operatingSystem": "Web",
+          "url": "https://solvefy.com/cpaas",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "BRL",
+            "description": "Cobrança por volume de mensagens, sem taxa de setup"
+          }
+        }}
       />
       <Header />
       <main className="flex-1">

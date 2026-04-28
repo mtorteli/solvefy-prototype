@@ -125,6 +125,21 @@ const Crm = () => {
         title="CRM — Gestão de Relacionamento Omnichannel"
         description="Centralize o relacionamento com seus clientes em um CRM omnichannel. Pipeline, automações e histórico completo de interações em um só lugar."
         canonical="/crm"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Solvefy CRM",
+          "applicationCategory": "BusinessApplication",
+          "description": "CRM omnichannel para gestão de pipeline, automações e relacionamento com clientes.",
+          "operatingSystem": "Web",
+          "url": "https://solvefy.com/crm",
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "47",
+            "highPrice": "97",
+            "priceCurrency": "BRL"
+          }
+        }}
       />
       <Header />
       <main className="flex-1 overflow-x-hidden">

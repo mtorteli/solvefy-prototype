@@ -168,6 +168,15 @@ const Ads = () => {
         title="Ads — Gestão de Tráfego Pago Inteligente"
         description="Gerencie campanhas de mídia paga com inteligência e automação. Maximize o ROI dos seus investimentos em anúncios com a Solvefy Ads."
         canonical="/ads"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Solvefy Ads",
+          "applicationCategory": "BusinessApplication",
+          "description": "Gestão inteligente de tráfego pago e campanhas de mídia para máximo ROI.",
+          "operatingSystem": "Web",
+          "url": "https://solvefy.com/ads"
+        }}
       />
       <Header />
       <main className="flex-1">

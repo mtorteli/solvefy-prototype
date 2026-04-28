@@ -86,7 +86,7 @@ export const ChannelsCarousel = () => {
                       ? `drop-shadow(0 30px 60px rgba(0,0,0,0.18)) drop-shadow(0 18px 40px ${accentRgba(0.25)})`
                       : `drop-shadow(0 18px 35px rgba(0,0,0,0.15))`,
                 }}
-                loading="eager"
+                loading="lazy"
                 decoding="async"
               />
             </motion.div>

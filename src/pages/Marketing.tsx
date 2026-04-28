@@ -165,6 +165,21 @@ const Marketing = () => {
         title="Marketing — Automação Multicanal"
         description="Crie jornadas automatizadas, dispare campanhas e engaje clientes em todos os canais com a plataforma de marketing da Solvefy."
         canonical="/marketing"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Solvefy Marketing",
+          "applicationCategory": "BusinessApplication",
+          "description": "Plataforma de automação de marketing multicanal com WhatsApp, SMS, RCS e EasyIA.",
+          "operatingSystem": "Web",
+          "url": "https://solvefy.com/marketing",
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "197",
+            "highPrice": "1997",
+            "priceCurrency": "BRL"
+          }
+        }}
       />
       <Header />
       <main className="flex-1">

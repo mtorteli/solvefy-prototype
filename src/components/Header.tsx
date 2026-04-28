@@ -36,7 +36,10 @@ const NavDropdown = ({
   items: { name: string; desc?: string; to?: string }[];
 }) => (
   <div className="relative group">
-    <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors py-2">
+    <button
+      className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors py-2"
+      aria-haspopup="true"
+    >
       {label}
       <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
     </button>
@@ -74,7 +77,11 @@ const NavDropdown = ({
 
 const SolutionsMegaMenu = () => (
   <div className="relative group">
-    <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors py-2">
+    <button
+      className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors py-2"
+      aria-haspopup="true"
+      aria-label="Soluções"
+    >
       Soluções
       <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
     </button>
@@ -120,7 +127,10 @@ export const Header = () => {
       {/* Top bar */}
       <div className="bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 md:px-0 flex h-9 items-center justify-end gap-5 py-2 text-xs">
-          <button className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+          <button
+            className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors"
+            aria-label="Selecionar idioma: Português"
+          >
             <Globe className="h-3.5 w-3.5" />
             <span className="font-medium">PT</span>
             <ChevronDown className="h-3 w-3" />

@@ -5,12 +5,13 @@ interface SEOProps {
   description: string;
   canonical?: string;
   ogImage?: string;
+  schema?: Record<string, unknown>;
 }
 
 const BASE_URL = "https://solvefy.com";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph.webp`;
 
-export function SEO({ title, description, canonical, ogImage }: SEOProps) {
+export function SEO({ title, description, canonical, ogImage, schema }: SEOProps) {
   const fullTitle = `${title} | Solvefy`;
   const url = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
   const image = ogImage ?? DEFAULT_OG_IMAGE;
@@ -31,6 +32,12 @@ export function SEO({ title, description, canonical, ogImage }: SEOProps) {
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
     </Helmet>
   );
 }

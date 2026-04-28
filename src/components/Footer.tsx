@@ -51,6 +51,9 @@ export const Footer = () => {
                 src={logoFooter}
                 alt="Solvefy"
                 className="h-7 w-auto ml-0 pl-0"
+                loading="lazy"
+                width="120"
+                height="28"
               />
             </Link>
             <h3 className="text-white mt-6 text-xl md:text-2xl font-bold tracking-tighter text-balance">
