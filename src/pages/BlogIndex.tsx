@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { MOCK_POSTS, MOCK_CATEGORIES } from "@/lib/mock-data";
 import { Header } from "@/components/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/Footer";
 import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -70,6 +71,11 @@ export default function BlogIndex() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO
+        title="Blog — Comunicação B2B e Marketing Digital"
+        description="Artigos, guias e novidades sobre comunicação multicanal, CRM, CPaaS e marketing digital. Conteúdo especializado da Solvefy."
+        canonical="/blog"
+      />
       <Header />
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-12 mt-8">
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">

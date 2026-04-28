@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/Footer";
 import { captureUtms } from "@/lib/utms";
 import { motion } from "framer-motion";
@@ -108,6 +109,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO
+        title="Contato — Fale com a Solvefy"
+        description="Entre em contato com nossa equipe comercial. Descubra como a Solvefy pode transformar a comunicação da sua empresa."
+        canonical="/contato"
+      />
       <Header />
       <main className="flex-1 pt-12 md:pt-20">
         <section className="px-4 pb-20">

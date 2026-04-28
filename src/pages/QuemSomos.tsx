@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Play, X } from "lucide-react";
 import { Header } from "@/components/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/Footer";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
@@ -51,6 +52,11 @@ const QuemSomos = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEO
+        title="Quem Somos — A Solvefy"
+        description="Conheça a Solvefy, a plataforma B2B que nasceu para simplificar a comunicação entre empresas e seus clientes. Nossa missão, valores e time."
+        canonical="/quem-somos"
+      />
       <Header />
       <main className="flex-1">
         {/* Bloco 1: Hero */}

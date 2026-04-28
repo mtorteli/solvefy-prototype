@@ -19,7 +19,8 @@
 }
 @font-face {
   font-family: "Pacaembu";
-  src: url("/fonts/Pacaembu-Regular.ttf") format("truetype");
+  src: url("/fonts/Pacaembu-Regular.woff2") format("woff2"),
+       url("/fonts/Pacaembu-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -40,7 +41,8 @@
 }
 @font-face {
   font-family: "Pacaembu";
-  src: url("/fonts/Pacaembu-Black.ttf") format("truetype");
+  src: url("/fonts/Pacaembu-Black.woff2") format("woff2"),
+       url("/fonts/Pacaembu-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -60,7 +62,7 @@
     /* Surfaces */
     --background: 210 40% 98%; /* #f8fafc off-white */
     --foreground: 0 0% 12%;    /* #1e1e1e */
-    --muted-foreground: 0 0% 12%; /* #1e1e1e */
+    --muted-foreground: 0 0% 45%; /* #737373 — diferenciado do foreground para hierarquia visual */
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 12%;
@@ -123,6 +125,10 @@
       hsl(var(--primary-glow))
     );
 
+    /* Section backgrounds */
+    --hero-bg: #f6f5ef;          /* fundo creme dos heroes de produto */
+    --dark-section-bg: linear-gradient(120deg, #0a0a0f 0%, #14101e 100%); /* pricing dark */
+
     /* Shadows */
     --shadow-soft:
       0 1px 2px hsl(222 47% 11% / 0.04), 0 4px 16px hsl(222 47% 11% / 0.04);
@@ -171,7 +177,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground antialiased font-light;
+    @apply bg-background text-foreground antialiased font-normal;
     color: #1e1e1e;
     font-family:
       "Pacaembu",

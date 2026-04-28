@@ -16,6 +16,8 @@ import {
 } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { Header } from "@/components/Header";
+import { SEO } from "@/components/SEO";
+import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import iconAds from "@/assets/icons/ads-yellow.png";
@@ -162,76 +164,26 @@ const Ads = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEO
+        title="Ads — Gestão de Tráfego Pago Inteligente"
+        description="Gerencie campanhas de mídia paga com inteligência e automação. Maximize o ROI dos seus investimentos em anúncios com a Solvefy Ads."
+        canonical="/ads"
+      />
       <Header />
       <main className="flex-1">
-        {/* ============ HERO ============ */}
-        <section
-          className="relative overflow-hidden"
-          style={{ background: "#f6f5ef" }}
-        >
-          <div
-            className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-10"
-            style={{ background: ACCENT }}
-          />
-          <div
-            className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
-            style={{ background: ACCENT }}
-          />
-
-          <div className="container relative mx-auto px-4 py-20">
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 bg-[hsl(var(--ads))]/10 text-[hsl(var(--ads))]">
-                  <img
-                    src={iconAds}
-                    alt="Solvefy/Ads"
-                    className="w-4 h-4 object-contain"
-                  />
-                  Solvefy/Ads
-                </div>
-                <Heading variant="h1" className="text-balance mb-6">
-                  Escale suas vendas com um{" "}
-                  <span className="text-[hsl(var(--ads))]">
-                    CPA até 20% menor
-                  </span>{" "}
-                  que nos outros Ads.
-                </Heading>
-                <SectionSubtitle className="mb-8">
-                  Pare de queimar orçamento em plataformas saturadas e leilões
-                  inflacionados. A Solvefy/Ads entrega tráfego qualificado de
-                  alta performance com total autonomia. Sem bloqueios injustos,
-                  sem vínculo com outras redes. Apenas resultados reais e
-                  escaláveis.
-                </SectionSubtitle>
-                <Button
-                  size="lg"
-                  className="group bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
-                >
-                  Comprar Agora
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-
-                <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
-                  {["CPA até 20% menor", "CTR de até 35%", "Zero Vínculos"].map(
-                    (item) => (
-                      <li
-                        key={item}
-                        className="inline-flex items-center gap-1.5"
-                      >
-                        <Check className="h-3.5 w-3.5 text-[hsl(var(--ads))]" />
-                        {item}
-                      </li>
-                    ),
-                  )}
-                </ul>
-              </div>
-
-              <div className="flex justify-center md:justify-end">
-                <AdsHeroMockup />
-              </div>
-            </div>
-          </div>
-        </section>
+        <ProductHero
+          accentVar="--ads"
+          badgeIcon={iconAds}
+          badgeLabel="Solvefy/Ads"
+          title={<>Escale suas vendas com um{" "}
+            <span className="text-[hsl(var(--ads))]">CPA até 20% menor</span>{" "}
+            que nos outros Ads.</>}
+          subtitle="Pare de queimar orçamento em plataformas saturadas e leilões inflacionados. A Solvefy/Ads entrega tráfego qualificado de alta performance com total autonomia. Sem bloqueios injustos, sem vínculo com outras redes. Apenas resultados reais e escaláveis."
+          ctaText="Comprar Agora"
+          ctaTextColor="text-gray-950"
+          trustItems={["CPA até 20% menor", "CTR de até 35%", "Zero Vínculos"]}
+          right={<AdsHeroMockup />}
+        />
 
         {/* ============ DOR vs SOLUÇÃO ============ */}
         <section className="py-16 bg-white">

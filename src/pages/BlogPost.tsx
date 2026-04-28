@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { MOCK_POSTS } from "@/lib/mock-data";
 import { Header } from "@/components/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/Footer";
 import { Calendar, User, ArrowLeft, Clock } from "lucide-react";
 import { renderContent } from "@/lib/renderContent";
@@ -97,6 +98,12 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO
+        title={post.title}
+        description={post.excerpt || post.description || `Leia o artigo "${post.title}" no blog da Solvefy.`}
+        canonical={`/blog/${post.slug}`}
+        ogImage={post.cover_image || post.thumbnail || undefined}
+      />
       <Header />
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 md:px-8 py-12 mt-8">
         <div className="mb-8">
