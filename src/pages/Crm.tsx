@@ -5,7 +5,6 @@ import {
   BarChart3,
   Check,
   DollarSign,
-  TrendingUp,
   Sparkles,
   Rocket,
 } from "lucide-react";
@@ -15,10 +14,11 @@ import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import iconCrm from "@/assets/icons/crm-dark.png";
+import iconCrm from "@/assets/icons/crm.svg";
 import {
   WhatsappChannelIcon,
 } from "@/components/icons/ChannelIcons";
+import { CrmHeroMockup } from "@/components/CrmHeroMockup";
 import { StackedCardsCarousel, type StackedSlide } from "@/components/StackedCardsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
@@ -27,16 +27,6 @@ import channelWhatsapp from "@/assets/crm-channels/whatsapp.png";
 import channelSms from "@/assets/crm-channels/sms.png";
 import channelEmail from "@/assets/crm-channels/email.png";
 import channelVoz from "@/assets/crm-channels/voz.png";
-
-import crmHero1 from "@/assets/crm-hero/hero-1.png";
-import crmHero2 from "@/assets/crm-hero/hero-2.png";
-import crmHero3 from "@/assets/crm-hero/hero-3.png";
-
-const heroSlides: StackedSlide[] = [
-  { src: crmHero1, alt: "Dashboard CRM em monitor" },
-  { src: crmHero2, alt: "Dashboard CRM em tablet" },
-  { src: crmHero3, alt: "Dashboard CRM em notebook" },
-];
 
 const ACCENT = "hsl(var(--crm))";
 
@@ -152,21 +142,7 @@ const Crm = () => {
           subtitle="Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de vendas definitiva para equipes de alta performance. Elimine o vazamento de leads, automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios em menos tempo."
           ctaText="Teste Grátis"
           trustItems={["Migração gratuita de dados", "20% mais barato que o RD CRM", "Implementação em 24h"]}
-          right={
-            <StackedCardsCarousel
-              accent={ACCENT}
-              slides={heroSlides}
-              badge={{ iconSrc: iconCrm, label: "Solvefy/CRM" }}
-              notifications={[
-                { title: "Novo lead qualificado", description: "Polaris S.A. · R$ 64.000", icon: "message" },
-                { title: "Click-to-Chat", description: "WhatsApp enviado em 1 clique", icon: "whatsapp" },
-              ]}
-              metrics={[
-                { label: "Conversão", value: "28%", icon: <TrendingUp className="h-4 w-4" />, position: "top-right" },
-                { label: "Pipeline", value: "R$ 248k", icon: <Kanban className="h-4 w-4" />, position: "bottom-left" },
-              ]}
-            />
-          }
+          right={<CrmHeroMockup />}
         />
 
         {/* ============ Problem vs Solution ============ */}
@@ -241,7 +217,7 @@ const Crm = () => {
       </section>
 
         {/* ============ Features ============ */}
-        <section className="bg-[#f6f5ef] py-16 md:py-28">
+        <section className="bg-[hsl(var(--crm-tint))] py-16 md:py-28">
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl mb-10 md:mb-12">
               <h2 className="tracking-tight text-balance mb-4">

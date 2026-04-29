@@ -5,7 +5,6 @@ import {
   Workflow,
   Layers,
   TrendingUp,
-  Send,
   Bot,
   Wand2,
   FlaskConical,
@@ -18,7 +17,8 @@ import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import iconMarketing from "@/assets/icons/marketing-pink.png";
+import iconMarketing from "@/assets/icons/marketing.svg";
+import { MarketingHeroMockup } from "@/components/MarketingHeroMockup";
 import { StackedCardsCarousel, type StackedSlide } from "@/components/StackedCardsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
@@ -29,10 +29,6 @@ import marketingSms from "@/assets/marketing-channels/sms.png";
 import marketingEmail from "@/assets/marketing-channels/email.png";
 import marketingVoz from "@/assets/marketing-channels/voz.png";
 import marketingGrupos from "@/assets/marketing-channels/grupos.png";
-
-import heroMarketing1 from "@/assets/marketing-hero/hero-1.png";
-import heroMarketing2 from "@/assets/marketing-hero/hero-2.png";
-import heroMarketing3 from "@/assets/marketing-hero/hero-3.png";
 
 import logoContaAzul from "@/assets/integrations/conta-azul.svg";
 import logoEliteSoft from "@/assets/integrations/elite-soft.svg";
@@ -53,12 +49,6 @@ const marketingSlides: StackedSlide[] = [
   { src: marketingEmail, alt: "E-mail" },
   { src: marketingVoz, alt: "Disparo de Voz" },
   { src: marketingGrupos, alt: "Gestão de Grupos" },
-];
-
-const heroSlides: StackedSlide[] = [
-  { src: heroMarketing1, alt: "Profissional de marketing planejando jornadas" },
-  { src: heroMarketing2, alt: "Painel de Disparos e API da Solvefy/Marketing" },
-  { src: heroMarketing3, alt: "Construção de relatórios multicanal na Solvefy/Marketing" },
 ];
 
 const painCards = [
@@ -192,21 +182,7 @@ const Marketing = () => {
           subtitle="Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você cria jornadas de relacionamento automatizadas e transforma contatos em vendas. Use nossos templates de disparo rápido, acompanhe métricas em tempo real e integre tudo facilmente via API."
           ctaText="Teste Grátis"
           trustItems={["Todos os Canais", "Construtor Visual de Jornadas", "EasyIA"]}
-          right={
-            <StackedCardsCarousel
-              accent={ACCENT}
-              slides={heroSlides}
-              badge={{ iconSrc: iconMarketing, label: "Solvefy/Marketing" }}
-              notifications={[
-                { title: "Carrinho recuperado", description: "Jornada multicanal disparada", icon: "message" },
-                { title: "Enviar WhatsApp", description: "Olá {nome}, finalize com 10% OFF ??", icon: "whatsapp" },
-              ]}
-              metrics={[
-                { label: "Conversão", value: "+27%", icon: <Send className="h-4 w-4" />, position: "bottom-left" },
-                { label: "Jornada ativa", value: "Recupera carrinho", icon: <Workflow className="h-4 w-4" />, position: "top-right" },
-              ]}
-            />
-          }
+          right={<MarketingHeroMockup />}
         />
 
         {/* ============ DORES & POSICIONAMENTO ============ */}
@@ -322,7 +298,7 @@ const Marketing = () => {
         </section>
 
         {/* ============ CANAIS — Stacked Cards ============ */}
-        <section className="py-20 bg-[#f6f5ef]">
+        <section className="py-20 bg-[hsl(var(--marketing-tint))]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
               <div className="max-w-xl">

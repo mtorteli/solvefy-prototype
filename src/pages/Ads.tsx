@@ -20,7 +20,7 @@ import { SEO } from "@/components/SEO";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import iconAds from "@/assets/icons/ads-yellow.png";
+import iconAds from "@/assets/icons/ads.svg";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 import { AdsHeroMockup } from "@/components/AdsHeroMockup";
@@ -291,7 +291,7 @@ const Ads = () => {
         </section>
 
         {/* ============ COMO FUNCIONA — 6 PASSOS ============ */}
-        <section className="py-16 bg-[#f6f5ef]">
+        <section className="py-16 bg-[hsl(var(--ads-tint))]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl text-left mb-12">
               <h2 className="tracking-tight leading-tight text-balance">
@@ -511,7 +511,7 @@ const Ads = () => {
         </section>
 
         {/* ============ PRECIFICAÇÃO (estilo CPaaS) ============ */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-16 bg-[hsl(var(--ads-tint))]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl text-left mb-12">
               <h2 className="tracking-tight leading-tight text-balance">

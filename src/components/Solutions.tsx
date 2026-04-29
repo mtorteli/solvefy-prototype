@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
-import iconCpaas from "@/assets/icons/cpaas-purple.png";
-import iconAds from "@/assets/icons/ads-yellow.png";
-import iconMarketing from "@/assets/icons/marketing-pink.png";
-import iconCrm from "@/assets/icons/crm-dark.png";
-import iconCloud from "@/assets/icons/cloud-blue.png";
+import iconCpaas from "@/assets/icons/cpaas.svg";
+import iconAds from "@/assets/icons/ads.svg";
+import iconMarketing from "@/assets/icons/marketing.svg";
+import iconCrm from "@/assets/icons/crm.svg";
+import iconCloud from "@/assets/icons/cloud.svg";
 
 const solutions = [
   {
@@ -106,12 +106,12 @@ export const Solutions = () => {
                     style={isActive ? { borderColor: s.color, boxShadow: `0 12px 40px -12px ${s.color}66` } : undefined}
                   >
                     <div className="flex items-center gap-4 pl-2">
-                      <div className="flex h-11 w-11 items-center justify-center shrink-0 transition-transform group-hover:scale-105">
-                        <img src={s.icon} alt={s.name} className="w-8 h-8 object-contain" width="32" height="32" loading="lazy" />
+                      <div className="flex h-10 w-10 items-center justify-center shrink-0 transition-transform group-hover:scale-105">
+                        <img src={s.icon} alt={s.name} className="w-9 h-9 object-contain" width="36" height="36" loading="lazy" />
                       </div>
                       <div className="flex-1">
-                        <div className="font-semibold text-foreground">{s.name}</div>
-                        <div className="text-sm text-muted-foreground">{s.headline}</div>
+                        <div className="font-semibold text-[#000000]">{s.name}</div>
+                        <div className="text-sm text-[#1e1e1e]">{s.headline}</div>
                       </div>
                       <ArrowRight
                         className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-1"
@@ -141,21 +141,21 @@ export const Solutions = () => {
                   style={{ background: current.color }}
                 />
                 <div
-                  className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold mb-6 w-fit"
+                  className="inline-flex self-start items-center gap-2 rounded-full pr-3 py-1 text-xs font-semibold mb-6 w-fit"
                   style={{ backgroundColor: `${current.color}20`, color: current.color }}
                 >
                   <img src={current.icon} alt={current.name} className="h-4 w-4 object-contain" width="16" height="16" loading="lazy" />
                   {current.name}
                 </div>
-                <Heading variant="h3" className="mb-4 text-balance">
+                <Heading variant="h3" className="mb-4 text-balance text-[#000000]">
                   {current.headline}
                 </Heading>
-                <p className="text-gray-600 text-base md:text-lg leading-snug mb-8">
+                <p className="text-[#1e1e1e] text-base md:text-lg leading-snug mb-8">
                   {current.desc}
                 </p>
-                <ul className="space-y-3 mb-8">
+                <ul className="flex flex-wrap gap-3 mb-8">
                   {current.bullets.map((b) => (
-                    <li key={b} className="flex items-center gap-3 text-sm text-gray-700">
+                    <li key={b} className="flex items-center gap-2 text-sm text-[#1e1e1e]">
                       <span
                         className="flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold text-white shrink-0"
                         style={{ backgroundColor: current.color }}

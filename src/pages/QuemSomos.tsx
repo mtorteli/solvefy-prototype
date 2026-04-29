@@ -11,10 +11,10 @@ import logoSolvefyDark from "@/assets/logo-solvefy-dark.png";
 import solversLogoBlack from "@/assets/solvers-logo-black.png";
 import manifestoSolvers from "@/assets/manifesto-solvers.png";
 import videoThumbnail from "@/assets/video-thumbnail.jpg";
-import iconCloud from "@/assets/icons/cloud-blue.png";
-import iconCpaas from "@/assets/icons/cpaas-purple.png";
-import iconMarketing from "@/assets/icons/marketing-pink.png";
-import iconCrm from "@/assets/icons/crm-dark.png";
+import iconCloud from "@/assets/icons/cloud.svg";
+import iconCpaas from "@/assets/icons/cpaas.svg";
+import iconMarketing from "@/assets/icons/marketing.svg";
+import iconCrm from "@/assets/icons/crm.svg";
 
 const values = [
   {
@@ -66,26 +66,28 @@ const QuemSomos = () => {
             alt="Equipe Solvers"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/45" />
-          <div className="relative z-10 container mx-auto h-full w-full flex flex-col items-start justify-center text-left px-4">
-            <h1 className="sr-only">Somos os Solvers</h1>
-            <img
-              src={somosOsSolvers}
-              alt="Somos os Solvers"
-              className="block h-12 md:h-16 lg:h-20 w-auto object-contain drop-shadow-lg"
-            />
-            <SectionSubtitle as="p" className="max-w-4xl mt-8 md:mt-10 text-white/90 drop-shadow-lg">
-              Existimos para acelerar resultados reais ao unir tecnologia, estratégia e clareza humana.
-              Eliminamos a burocracia e a frieza para entregar execução ágil e parcerias próximas,
-              transformando complexidade em vantagem competitiva e crescimento direto.
-            </SectionSubtitle>
+          <div className="absolute inset-0 bg-black/55" />
+          <div className="relative z-10 container mx-auto h-full w-full flex flex-col items-center justify-center px-4">
+            <div className="w-full max-w-2xl text-left">
+              <h1 className="sr-only">Somos os Solvers</h1>
+              <img
+                src={somosOsSolvers}
+                alt="Somos os Solvers"
+                className="block h-12 md:h-16 lg:h-20 w-auto object-contain drop-shadow-lg"
+              />
+              <p className="max-w-xl mt-8 md:mt-10 text-white/95 font-light leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">
+                Existimos para acelerar resultados reais ao unir tecnologia, estratégia e clareza humana.
+                Eliminamos a burocracia e a frieza para entregar execução ágil e parcerias próximas,
+                transformando complexidade em vantagem competitiva e crescimento direto.
+              </p>
+            </div>
           </div>
         </section>
 
         {/* Bloco 2: Manifesto */}
         <section className="py-16 bg-muted/30">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="max-w-4xl text-base md:text-lg leading-snug text-gray-800 text-left font-light">
+            <div className="max-w-4xl mx-auto text-base md:text-lg leading-snug text-[#1e1e1e] text-left font-light">
               <h2 className="sr-only">Manifesto Solvers</h2>
               <img
                 src={manifestoSolvers}
@@ -128,7 +130,7 @@ const QuemSomos = () => {
           <div className="max-w-6xl mx-auto px-6">
             <button
               onClick={() => setVideoOpen(true)}
-              className="group relative w-full max-w-5xl block rounded-2xl overflow-hidden shadow-elegant aspect-video focus:outline-none focus:ring-4 focus:ring-primary/40"
+              className="group relative w-full max-w-5xl mx-auto block rounded-2xl overflow-hidden shadow-elegant aspect-video focus:outline-none focus:ring-4 focus:ring-primary/40"
               aria-label="Assistir vídeo institucional Solvefy"
             >
               <img
@@ -170,20 +172,20 @@ const QuemSomos = () => {
               {values.map((v) => (
                 <article
                   key={v.titleAccent}
-                  className="group rounded-2xl border border-border bg-card p-8 hover:shadow-elegant transition-all duration-300 text-left"
+                  className="group flex flex-col items-start rounded-2xl border border-border bg-card p-8 hover:shadow-elegant transition-all duration-300"
                   style={{ ["--card-accent" as any]: v.color }}
                 >
                   <div
-                    className="flex items-center justify-center h-12 w-12 rounded-xl mb-5 transition-transform group-hover:scale-110"
+                    className="flex items-center justify-center h-10 w-10 rounded-xl mb-5 transition-transform group-hover:scale-110"
                     style={{ backgroundColor: `${v.color}1A` }}
                   >
-                    <img src={v.icon} alt="" className="h-6 w-6 object-contain" />
+                    <img src={v.icon} alt="" className="h-7 w-7 object-contain" />
                   </div>
-                  <Heading variant="h3">
+                  <Heading variant="h3" className="text-left">
                     {v.titleStart}
                     <span style={{ color: v.color }}>{v.titleAccent}</span>
                   </Heading>
-                  <p className="mt-3 text-muted-foreground leading-snug">{v.desc}</p>
+                  <p className="mt-3 text-muted-foreground leading-snug text-left">{v.desc}</p>
                 </article>
               ))}
             </div>

@@ -31,22 +31,22 @@ export function ProductHero({
   return (
     <section
       className="relative overflow-hidden"
-      style={{ background: "var(--hero-bg)" }}
+      style={{ background: `hsl(var(${accentVar}-surface))` }}
     >
       <div
-        className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-15"
+        className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-10"
         style={{ background: accent }}
       />
       <div
-        className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-10"
+        className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl opacity-[0.07]"
         style={{ background: accent }}
       />
 
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-0 py-20 md:py-28">
+        <div className="grid md:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
           <div>
             <div
-              className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6"
+              className="inline-flex items-center gap-2 rounded-full pr-3 py-1 text-xs font-medium mb-6"
               style={{
                 backgroundColor: `${accent}1A`,
                 color: accent,
@@ -81,7 +81,7 @@ export function ProductHero({
               <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
 
-            <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
+            <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#1e1e1e]">
               {trustItems.map((item) => (
                 <li key={item} className="inline-flex items-center gap-1.5">
                   <Check className="h-3.5 w-3.5" style={{ color: accent }} />

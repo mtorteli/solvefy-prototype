@@ -5,28 +5,20 @@ import {
   Banknote,
   Network,
   Layers,
-  Zap,
   Lock,
   FileCheck2,
-  Send,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
 import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
-import iconCpaas from "@/assets/icons/cpaas-purple.png";
+import iconCpaas from "@/assets/icons/cpaas.svg";
 
-import cpaasHero1 from "@/assets/cpaas-hero/hero-1.png";
-import cpaasHero2 from "@/assets/cpaas-hero/hero-2.png";
-import cpaasHero3 from "@/assets/cpaas-hero/hero-3.png";
-import {
-  StackedCardsCarousel,
-  type StackedSlide,
-} from "@/components/StackedCardsCarousel";
 import { UseCasesSelector } from "@/components/UseCasesSelector";
 import { ChannelsCarousel } from "@/components/ChannelsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
+import { CpaasHeroMockup } from "@/components/CpaasHeroMockup";
 
 const ACCENT = "hsl(var(--cpaas))";
 
@@ -72,12 +64,6 @@ const compliance = [
   },
 ];
 
-const cpaasHeroSlides: StackedSlide[] = [
-  { src: cpaasHero1, alt: "Atendimento ao cliente via telefone" },
-  { src: cpaasHero2, alt: "Equipe analisando dados de comunicação" },
-  { src: cpaasHero3, alt: "Pagamento por aproximação no varejo" },
-];
-
 const enterprisePlan = {
   title: "Solve Customizing",
   desc: "Negociação customizada, precificação de acordo com o que cabe no seu bolso e arquitetura sob medida para operações de alta criticidade.",
@@ -118,21 +104,7 @@ const Cpaas = () => {
           subtitle="O coração transacional do ecossistema. É uma plataforma robusta de comunicação via API desenvolvida para empresas que demandam alto volume de disparos. Atua como a engrenagem invisível que também potencializa as outras soluções (como o Solvefy Marketing)."
           ctaText="Fale com um Especialista"
           trustItems={["Integração via API", "Sem taxa de setup", "Cobrança por volume"]}
-          right={
-            <StackedCardsCarousel
-              accent={ACCENT}
-              slides={cpaasHeroSlides}
-              badge={{ iconSrc: iconCpaas, label: "Solvefy/CPaaS" }}
-              notifications={[
-                { title: "Mensagem inbound", icon: "message" },
-                { title: "Enviar Whatsapp", description: "Podemos começar com seu nome?", icon: "whatsapp" },
-              ]}
-              metrics={[
-                { label: "Entrega", value: "98.7%", icon: <Zap className="h-4 w-4" />, position: "bottom-left" },
-                { label: "API CPaaS", value: "Live", icon: <Send className="h-4 w-4" />, position: "top-right" },
-              ]}
-            />
-          }
+          right={<CpaasHeroMockup />}
         />
 
         {/* 20 Anos de Infraestrutura */}
@@ -227,7 +199,7 @@ const Cpaas = () => {
         </section>
 
         {/* Channels — Infinite Carousel */}
-        <section className="py-20 bg-[#f6f5ef]">
+        <section className="py-20 bg-[hsl(var(--cpaas-tint))]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
               {/* LEFT — Heading & description */}
@@ -266,7 +238,7 @@ const Cpaas = () => {
         </section>
 
         {/* Segurança e Compliance */}
-        <section className="py-16 bg-[#f6f5ef]">
+        <section className="py-16 bg-[hsl(var(--cpaas-tint))]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl text-left mb-12">
               <div

@@ -1,8 +1,6 @@
 import {
   ArrowRight,
   Check,
-  Cpu,
-  Activity,
   Zap,
   Terminal,
   DatabaseBackup,
@@ -25,13 +23,11 @@ import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import iconCloud from "@/assets/icons/cloud-blue.png";
-import cloudHero1 from "@/assets/cloud-hero/hero-1.png";
-import cloudHero2 from "@/assets/cloud-hero/hero-2.png";
-import cloudHero3 from "@/assets/cloud-hero/hero-3.png";
+import iconCloud from "@/assets/icons/cloud.svg";
 import cloudUseCase1 from "@/assets/cloud-hero/usecase-1.png";
 import cloudUseCase2 from "@/assets/cloud-hero/usecase-2.png";
 import cloudUseCase3 from "@/assets/cloud-hero/usecase-3.png";
+import { CloudHeroMockup } from "@/components/CloudHeroMockup";
 import { StackedCardsCarousel, type StackedSlide } from "@/components/StackedCardsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 
@@ -76,12 +72,6 @@ const opportunityCards = [
     title: "O fim do processo manual.",
     desc: "Integração nativa com Proxmox VE V8 e V9 conecta o faturamento ao provisionamento técnico. Esqueça tickets para criar ou fazer upgrade de VMs: o cliente compra, o sistema fatura e a nuvem liga.",
   },
-];
-
-const cloudHeroSlides: StackedSlide[] = [
-  { src: cloudHero1, alt: "Equipe analisando infraestrutura cloud" },
-  { src: cloudHero2, alt: "Profissional em data center" },
-  { src: cloudHero3, alt: "Especialista de cloud com laptop" },
 ];
 
 const useCaseSlides: StackedSlide[] = [
@@ -199,21 +189,7 @@ const Cloud = () => {
           ctaText="Falar com Especialista"
           ctaTextColor="text-gray-950"
           trustItems={["Plataforma Whitelabel On-Premises", "Proxmox Reseller/Partner Oficial", "Do zero ao fim do processo"]}
-          right={
-            <StackedCardsCarousel
-              accent={ACCENT}
-              slides={cloudHeroSlides}
-              badge={{ iconSrc: iconCloud, label: "Solvefy/Cloud" }}
-              notifications={[
-                { title: "vm-prod-sao-01", description: "Ubuntu 22.04 · São Paulo · Ativo", icon: "message" },
-                { title: "Auto-scaling", description: "RAM 4.8 / 16 GB · headroom saudável", icon: "whatsapp" },
-              ]}
-              metrics={[
-                { label: "Uptime SLA", value: "99.99%", icon: <Activity className="h-4 w-4" />, position: "bottom-left" },
-                { label: "CPU usage", value: "12%", icon: <Cpu className="h-4 w-4" />, position: "top-right" },
-              ]}
-            />
-          }
+          right={<CloudHeroMockup />}
         />
 
         {/* ============ 1. PLATAFORMA PIONEIRA (White-Label) ============ */}
@@ -332,7 +308,7 @@ const Cloud = () => {
         </section>
 
         {/* ============ 2. DORES E MERCADO (3 cards) ============ */}
-        <section className="relative py-16 md:py-20 overflow-hidden bg-[#f6f5ef]">
+        <section className="relative py-16 md:py-20 overflow-hidden bg-[hsl(var(--cloud-tint))]">
           <div
             className="pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
@@ -431,7 +407,7 @@ const Cloud = () => {
         </section>
 
         {/* ============ 4. CASOS DE USO — Stacked Cards ============ */}
-        <section className="py-20 bg-[#f6f5ef]">
+        <section className="py-20 bg-[hsl(var(--cloud-tint))]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
               <div className="max-w-xl">
@@ -479,7 +455,7 @@ const Cloud = () => {
                         <h3 className="text-base font-bold tracking-tight text-gray-900 mb-1">
                           {title}
                         </h3>
-                        <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+                        <p className="text-sm text-[#1e1e1e] leading-relaxed">{desc}</p>
                       </div>
                     </div>
                   ))}
@@ -556,7 +532,7 @@ const Cloud = () => {
                   </span>
                 </h2>
 
-                <p className="section-subtitle mb-8">
+                <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-3xl font-light mb-8">
                   Painel Administrativo e Portal do Cliente unificam gestão de contratos,
                   provisionamento de VMs, backups gerenciados e billing. Integração nativa com
                   gateways Stripe e Bradesco, medição de consumo automatizada e relatórios em

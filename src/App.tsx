@@ -11,17 +11,17 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index.tsx";
 
 // Demais páginas: carregamento sob demanda (chunks separados)
-const NotFound   = lazy(() => import("./pages/NotFound.tsx"));
-const Cpaas      = lazy(() => import("./pages/Cpaas.tsx"));
-const Ads        = lazy(() => import("./pages/Ads.tsx"));
-const Marketing  = lazy(() => import("./pages/Marketing.tsx"));
-const Crm        = lazy(() => import("./pages/Crm.tsx"));
-const Cloud      = lazy(() => import("./pages/Cloud.tsx"));
-const QuemSomos  = lazy(() => import("./pages/QuemSomos.tsx"));
-const BlogIndex  = lazy(() => import("./pages/BlogIndex.tsx"));
-const BlogPost   = lazy(() => import("./pages/BlogPost.tsx"));
+const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+const Cpaas = lazy(() => import("./pages/Cpaas.tsx"));
+const Ads = lazy(() => import("./pages/Ads.tsx"));
+const Marketing = lazy(() => import("./pages/Marketing.tsx"));
+const Crm = lazy(() => import("./pages/Crm.tsx"));
+const Cloud = lazy(() => import("./pages/Cloud.tsx"));
+const QuemSomos = lazy(() => import("./pages/QuemSomos.tsx"));
+const BlogIndex = lazy(() => import("./pages/BlogIndex.tsx"));
+const BlogPost = lazy(() => import("./pages/BlogPost.tsx"));
 const BlogCategory = lazy(() => import("./pages/BlogCategory.tsx"));
-const Contact    = lazy(() => import("./pages/Contact.tsx"));
+const Contact = lazy(() => import("./pages/Contact.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -51,7 +51,10 @@ const App = () => {
               {/* Blog Routes */}
               <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/blog/categoria/:category" element={<BlogCategory />} />
+              <Route
+                path="/blog/categoria/:category"
+                element={<BlogCategory />}
+              />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

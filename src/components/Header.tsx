@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
-import iconCpaas from "@/assets/icons/cpaas-purple.png";
-import iconAds from "@/assets/icons/ads-yellow.png";
-import iconMarketing from "@/assets/icons/marketing-pink.png";
-import iconCrm from "@/assets/icons/crm-dark.png";
-import iconCloud from "@/assets/icons/cloud-blue.png";
+import iconCpaas from "@/assets/icons/cpaas.svg";
+import iconAds from "@/assets/icons/ads.svg";
+import iconMarketing from "@/assets/icons/marketing.svg";
+import iconCrm from "@/assets/icons/crm.svg";
+import iconCloud from "@/assets/icons/cloud.svg";
 
 const solutions = [
   { name: "Solvefy/CPaaS", icon: iconCpaas, hover: "hover:bg-[hsl(var(--cpaas))]/10", desc: "Comunicação em Escala", to: "/cpaas" },

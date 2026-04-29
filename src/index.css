@@ -62,7 +62,7 @@
     /* Surfaces */
     --background: 210 40% 98%; /* #f8fafc off-white */
     --foreground: 0 0% 12%;    /* #1e1e1e */
-    --muted-foreground: 0 0% 45%; /* #737373 — diferenciado do foreground para hierarquia visual */
+    --muted-foreground: 0 0% 12%; /* #1e1e1e */
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 12%;
@@ -92,20 +92,27 @@
 
     --radius: 0.875rem;
 
-    /* Solvefy Solution colors (exact HEX → HSL) */
-    --cpaas: 258 100% 73%;   /* #9C73FF */
-    --ads: 40 100% 50%;      /* #FFAA00 */
-    --marketing: 330 81% 60%; /* #EC4899 */
-    --crm: 251 63% 24%;      /* #251765 */
-    --cloud: 194 100% 50%;   /* #00C2FF */
+    /* Solvefy Solution colors (brand guide) */
+    --cpaas: 255 100% 74%;      /* #9C7BFF */
+    --ads: 42 100% 47%;         /* #F0A800 */
+    --marketing: 329 76% 58%;   /* #E64499 */
+    --crm: 21 78% 50%;          /* #E1611C */
+    --cloud: 192 100% 50%;      /* #00CBFF */
     --solve-green: 150 100% 44%; /* #00df71 */
 
     /* Solution Panel Light Surfaces */
-    --cpaas-surface: 258 100% 97%;
-    --ads-surface: 40 100% 95%;
-    --marketing-surface: 330 100% 97%;
-    --crm-surface: 251 50% 96%;
-    --cloud-surface: 195 100% 95%;
+    --cpaas-surface: 260 100% 93%;   /* #E7DBFF */
+    --ads-surface: 42 100% 95%;      /* #FFF7E5 */
+    --marketing-surface: 327 100% 96%; /* #FFE9F5 */
+    --crm-surface: 21 100% 89%;      /* #FFDAC6 */
+    --cloud-surface: 192 60% 86%;    /* #C6E8F1 */
+
+    /* Solution Section Tints (ultra-light, section backgrounds) */
+    --cpaas-tint: 260 100% 98.5%;
+    --ads-tint: 42 100% 98.5%;
+    --marketing-tint: 327 100% 98.5%;
+    --crm-tint: 21 100% 97%;
+    --cloud-tint: 192 40% 97%;
 
     /* Dark surface */
     --dark: 222 47% 11%; /* #0f172a */
@@ -177,7 +184,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground antialiased font-normal;
+    @apply bg-background text-foreground antialiased font-light;
     color: #1e1e1e;
     font-family:
       "Pacaembu",
@@ -219,7 +226,8 @@
     text-wrap: balance;
   }
   .section-subtitle {
-    @apply text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl font-light;
+    @apply text-base md:text-lg leading-relaxed max-w-3xl font-light;
+    color: #1e1e1e;
   }
   .bg-grid {
     background-image:
