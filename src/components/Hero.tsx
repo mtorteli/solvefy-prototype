@@ -11,7 +11,7 @@ export const Hero = () => {
         background: "#f6f5ef",
       }}
     >
-      <div className="container mx-auto px-6 lg:px-0 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
           {/* Left Column: Content */}
           <div className="max-w-2xl">

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   ArrowRight,
   Check,
@@ -15,6 +16,7 @@ import {
   Network,
   Briefcase,
   Wallet,
+  ChevronDown,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
@@ -58,19 +60,37 @@ const features = [
 
 const opportunityCards = [
   {
-    icon: TrendingUp,
-    title: "Um mercado de US$ 155 Bilhões.",
-    desc: "A demanda por nuvem local e Edge Computing cresce 37% ao ano. Posicione seu Provedor ou Data Center para abocanhar essa fatia e reter clientes B2B sem aumentar seu custo operacional.",
+    icon: Building2,
+    title: "100% White Label.",
+    desc: "Operação com a sua logomarca, cores e domínio próprio.",
   },
   {
-    icon: Sparkles,
-    title: "A sua marca no centro de tudo.",
-    desc: "Não seja apenas um revendedor invisível. Entregue um painel de controle robusto (com console e SSH integrados) usando a sua logomarca, suas cores e seus preços. Fidelização garantida.",
+    icon: Wallet,
+    title: "Faturamento Automático.",
+    desc: "Integração nativa com gateways de pagamento recorrentes.",
   },
   {
-    icon: Zap,
-    title: "O fim do processo manual.",
-    desc: "Integração nativa com Proxmox VE V8 e V9 conecta o faturamento ao provisionamento técnico. Esqueça tickets para criar ou fazer upgrade de VMs: o cliente compra, o sistema fatura e a nuvem liga.",
+    icon: Layers,
+    title: "Painel e Portal.",
+    desc: "Um painel administrativo para você gerenciar os recursos e um portal self-service para seu cliente.",
+  },
+];
+
+const accordionItems = [
+  {
+    title: "Gestão Avançada de Recursos e Rede (SDN)",
+    content:
+      "Automação completa de IPs Flutuantes e vinculação dinâmica entre VMs. Controle total de redes privadas via Software Defined Network (SDN) para ambientes multi-tenant.",
+  },
+  {
+    title: "Segurança e Resiliência Nativa",
+    content:
+      "Implementação de Firewall Proxmox gerenciável diretamente pelo cliente. Suporte a autenticação segura com dois fatores (2FA) e gerenciamento de snapshots em tempo real para recuperação rápida.",
+  },
+  {
+    title: "Performance Garantida",
+    content:
+      "Atualizações mensais de software inclusas em todos os planos, garantindo máxima estabilidade e acesso a novas funcionalidades contínuas.",
   },
 ];
 
@@ -155,6 +175,8 @@ const apiPlan = {
 };
 
 const Cloud = () => {
+  const [openAccordion, setOpenAccordion] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
@@ -183,11 +205,12 @@ const Cloud = () => {
           accentVar="--cloud"
           badgeIcon={iconCloud}
           badgeLabel="Solvefy/Cloud"
-          title={<>Infraestrutura inteligente para{" "}
-            <span className="text-[hsl(var(--cloud))]">empresas que escalam.</span></>}
-          subtitle="Plataforma E-CLOUD whitelabel on-premises, suporte em ambientes Proxmox VE/PBS/Ceph e consultoria especializada em Docker, Kubernetes e bancos de dados. Do diagnóstico inicial à operação contínua — do zero ao fim do processo."
+          title={<>A Plataforma para você{" "}
+            <span className="text-[hsl(var(--cloud))]">criar e vender a sua própria Cloud.</span></>}
+          subtitle="Transforme a infraestrutura ociosa do seu Provedor de Internet (ISP) ou Data Center em um negócio rentável. Automatize 100% da venda, o provisionamento e o faturamento de serviços de cloud com a sua marca, sem depender de terceiros."
           ctaText="Falar com Especialista"
           ctaTextColor="text-gray-950"
+          ctaSecondary={{ text: "Simular Retorno (ROI)", href: "#" }}
           trustItems={["Plataforma Whitelabel On-Premises", "Proxmox Reseller/Partner Oficial", "Do zero ao fim do processo"]}
           right={<CloudHeroMockup />}
         />
@@ -307,7 +330,7 @@ const Cloud = () => {
           </div>
         </section>
 
-        {/* ============ 2. DORES E MERCADO (3 cards) ============ */}
+        {/* ============ 2. O PROBLEMA E A SOLUÇÃO E-CLOUD (3 cards + accordion) ============ */}
         <section className="relative py-16 md:py-20 overflow-hidden bg-[hsl(var(--cloud-tint))]">
           <div
             className="pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] rounded-full blur-3xl opacity-10"
@@ -320,12 +343,17 @@ const Cloud = () => {
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
                 <Sparkles className="h-3.5 w-3.5" />
-                Oportunidade de Mercado
+                E-Cloud Platform
               </div>
               <h2 className="tracking-tight leading-tight text-balance">
-                A nuvem deixou de ser custo.{" "}
-                <span style={{ color: ACCENT }}>Virou produto.</span>
+                Você entra com a infraestrutura,{" "}
+                <span style={{ color: ACCENT }}>nós entregamos a automação comercial.</span>
               </h2>
+              <p className="section-subtitle mt-4">
+                Chega de vendas por e-mail e faturamento manual. Nossa plataforma White Label
+                automatiza de ponta a ponta, entregando uma experiência self-service enterprise
+                para o seu cliente final.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -358,6 +386,35 @@ const Cloud = () => {
                   <h3 className="text-xl font-bold tracking-tight mb-3">{title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
                 </motion.article>
+              ))}
+            </div>
+
+            {/* Recursos Avançados — Accordion */}
+            <div className="mt-10 rounded-2xl border border-border/60 bg-card/80 backdrop-blur-xl overflow-hidden">
+              <div className="px-6 py-5 border-b border-border/60">
+                <h3 className="text-base font-semibold tracking-tight">Recursos Avançados</h3>
+              </div>
+              {accordionItems.map((item, i) => (
+                <div key={i} className={i < accordionItems.length - 1 ? "border-b border-border/60" : ""}>
+                  <button
+                    className="w-full flex items-center justify-between px-6 py-4 text-left gap-4 hover:bg-muted/30 transition-colors"
+                    onClick={() => setOpenAccordion(openAccordion === i ? null : i)}
+                    aria-expanded={openAccordion === i}
+                  >
+                    <span className="font-medium text-sm text-foreground">{item.title}</span>
+                    <ChevronDown
+                      className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
+                        openAccordion === i ? "rotate-180" : ""
+                      }`}
+                      style={{ color: ACCENT }}
+                    />
+                  </button>
+                  {openAccordion === i && (
+                    <div className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed">
+                      {item.content}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </div>

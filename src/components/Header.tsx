@@ -126,7 +126,7 @@ export const Header = () => {
     >
       {/* Top bar */}
       <div className="bg-black text-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-0 flex h-9 items-center justify-end gap-5 py-2 text-xs">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex h-9 items-center justify-end gap-5 py-2 text-xs">
           <button
             className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors"
             aria-label="Selecionar idioma: Português"
@@ -153,7 +153,7 @@ export const Header = () => {
           scrolled ? "border-b border-border" : ""
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-0 flex h-auto items-center justify-between gap-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex h-auto items-center justify-between gap-6 py-4">
           <Logo />
 
           <nav className="hidden lg:flex items-center gap-8">

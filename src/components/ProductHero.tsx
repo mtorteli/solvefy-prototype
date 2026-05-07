@@ -11,6 +11,7 @@ interface ProductHeroProps {
   subtitle: ReactNode;
   ctaText: string;
   ctaTextColor?: string;
+  ctaSecondary?: { text: string; href?: string };
   trustItems: string[];
   right: ReactNode;
 }
@@ -23,6 +24,7 @@ export function ProductHero({
   subtitle,
   ctaText,
   ctaTextColor = "text-white",
+  ctaSecondary,
   trustItems,
   right,
 }: ProductHeroProps) {
@@ -42,7 +44,7 @@ export function ProductHero({
         style={{ background: accent }}
       />
 
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-0 py-20 md:py-28">
+      <div className="container relative mx-auto px-4 sm:px-6 py-20 md:py-28">
         <div className="grid md:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
           <div>
             <div
@@ -64,22 +66,41 @@ export function ProductHero({
               {subtitle}
             </SectionSubtitle>
 
-            <Button
-              size="lg"
-              className={`group font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 ${ctaTextColor}`}
-              style={{
-                backgroundColor: accent,
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.backgroundColor = `color-mix(in srgb, ${accent} 90%, black)`;
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.backgroundColor = accent;
-              }}
-            >
-              {ctaText}
-              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button
+                size="lg"
+                className={`group font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 ${ctaTextColor}`}
+                style={{
+                  backgroundColor: accent,
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.backgroundColor = `color-mix(in srgb, ${accent} 90%, black)`;
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.backgroundColor = accent;
+                }}
+              >
+                {ctaText}
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+
+              {ctaSecondary && (
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="group font-semibold transition-all duration-200 hover:-translate-y-0.5 border-foreground/20 hover:border-foreground/40"
+                  asChild={!!ctaSecondary.href}
+                >
+                  {ctaSecondary.href ? (
+                    <a href={ctaSecondary.href}>
+                      {ctaSecondary.text}
+                    </a>
+                  ) : (
+                    <span>{ctaSecondary.text}</span>
+                  )}
+                </Button>
+              )}
+            </div>
 
             <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#1e1e1e]">
               {trustItems.map((item) => (
