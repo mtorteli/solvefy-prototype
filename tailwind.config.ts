@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Pacaembu", "Inter", "system-ui", "sans-serif"],
-        display: ["Pacaembu", "Inter", "system-ui", "sans-serif"],
+        sans: ["Pacaembu", "Urbanist", "Inter", "system-ui", "sans-serif"],
+        display: ["Pacaembu", "Urbanist", "Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

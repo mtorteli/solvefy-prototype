@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+@font-face{font-family:'Pacaembu';src:url('/fonts/Pacaembu-Regular.woff2') format('woff2'),url('/fonts/Pacaembu-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Pacaembu';src:url('/fonts/Pacaembu-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Pacaembu';src:url('/fonts/Pacaembu-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Pacaembu';src:url('/fonts/Pacaembu-Black.woff2') format('woff2'),url('/fonts/Pacaembu-Black.ttf') format('truetype');font-weight:900;font-style:normal;font-display:swap}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{min-height:100vh;background:#FFFFFF;color:#1e1e1e;font-family:'Pacaembu','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;padding:20px 12px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto}
+.hidden{display:none!important}
+strong{font-weight:400}
+h1{font-size:clamp(17px,4.5vw,21px);font-weight:500;margin:0 0 6px;background:linear-gradient(135deg,#1e1e1e 30%,#00CBFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header{text-align:center;margin-bottom:24px}
+.logo{display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;font-size:16px;font-weight:400}
+.sub{font-size:13px;color:#64748b;max-width:520px;margin:0 auto;line-height:1.5;font-family:'Pacaembu',sans-serif;font-weight:400}
+.toggle{display:flex;gap:6px;margin-bottom:16px;background:#f1f5f9;border-radius:14px;padding:4px;border:1px solid #e2e8f0}
+.toggle button{flex:1;padding:10px 8px;border-radius:10px;border:none;cursor:pointer;font-weight:400;font-size:13px;background:transparent;color:#94a3b8;transition:.2s;line-height:1.3;min-height:44px;font-family:'Pacaembu',sans-serif}
+.toggle button.on{background:linear-gradient(135deg,rgba(0,203,255,.12),rgba(0,203,255,.05));color:#00CBFF}
+.btn-pri{padding:14px 24px;border-radius:12px;border:none;cursor:pointer;background:linear-gradient(135deg,#00CBFF,#009fd4);color:#0f172a;font-weight:400;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:48px;justify-content:center;touch-action:manipulation;font-family:'Pacaembu',sans-serif}
+.btn-sec{padding:14px 20px;border-radius:12px;border:1px solid #e2e8f0;cursor:pointer;background:#f8fafc;color:#475569;font-weight:400;font-size:14px;min-height:48px;touch-action:manipulation;font-family:'Pacaembu',sans-serif}
+.nav{display:flex;gap:8px;margin-top:16px}.spacer{flex:1}
+.steps{display:flex;gap:0;margin-bottom:18px;align-items:center;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.sdot{width:28px;height:28px;min-width:28px;border-radius:50%;border:none;cursor:pointer;flex-shrink:0;font-weight:400;font-size:11px;display:flex;align-items:center;justify-content:center;touch-action:manipulation;font-family:'Pacaembu',sans-serif}
+.sdot.on{background:#00CBFF;color:#fff}.sdot.off{background:#e2e8f0;color:#94a3b8}
+.sline{flex:1;height:2px;min-width:8px;margin:0 4px;border-radius:1px}.sline.on{background:#00CBFF}.sline.off{background:#e2e8f0}
+.slbl{font-size:9px;margin-left:3px;font-weight:400;white-space:nowrap}.slbl.on{color:#64748b}.slbl.off{color:#94a3b8}
+.card{border-radius:14px;padding:16px;margin-bottom:14px}
+.card-d{background:#f8fafc;border:1px solid #e2e8f0}
+.card-a{background:linear-gradient(135deg,rgba(0,203,255,.05),rgba(0,203,255,.01));border:1px solid rgba(0,203,255,.15)}
+.ctitle{font-size:12px;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.ctitle-d{color:#64748b}.ctitle-a{color:#00CBFF}
+.specg{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.speci{flex:1;min-width:calc(50% - 8px)}
+.speci label{font-size:11px;font-weight:400;color:#64748b;display:block;margin-bottom:5px}
+.specw{display:flex;align-items:center;background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;overflow:hidden}
+.specin{flex:1;background:transparent;border:none;color:#1e1e1e;padding:12px;font-size:16px;font-weight:400;font-family:monospace;outline:none;width:100%;min-height:44px;-webkit-appearance:none}
+.specu{padding:12px 10px;font-size:11px;color:#64748b;font-weight:400;background:#f1f5f9;border-left:1px solid #e2e8f0;white-space:nowrap}
+.sl-row{margin-bottom:18px}
+.sl-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px;flex-wrap:wrap}
+.sl-lbl{font-size:12px;font-weight:400;color:#1e1e1e;flex:1}
+.sl-val{font-size:15px;font-weight:400;color:#00CBFF;font-family:monospace;cursor:pointer;border-bottom:1px dashed rgba(0,203,255,.4);padding:4px 0;min-height:32px;display:flex;align-items:center}
+.sl-edit{width:110px;background:#f8fafc;border:1px solid #00CBFF;border-radius:6px;color:#00CBFF;padding:8px;font-size:16px;font-weight:400;font-family:monospace;outline:none;text-align:right;min-height:44px}
+input[type=range]{width:100%;accent-color:#00CBFF;height:6px;cursor:pointer;margin:0;-webkit-appearance:none;appearance:none;background:#e2e8f0;border-radius:4px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#00CBFF;cursor:pointer;border:2px solid #fff}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#00CBFF;cursor:pointer;border:2px solid #fff}
+.sl-mm{display:flex;justify-content:space-between;font-size:10px;color:#94a3b8;margin-top:6px}
+.tbl{border-radius:10px;overflow:hidden;border:1px solid #e2e8f0}
+.tr{display:flex;justify-content:space-between;padding:10px 12px;align-items:flex-start;border-bottom:1px solid #e2e8f0;gap:8px}
+.tr:last-child{border-bottom:none}
+.tr:nth-child(odd){background:#f8fafc}.tr:nth-child(even){background:#ffffff}
+.tr.hl{background:rgba(0,203,255,.05)}
+.tr .l{font-size:11px;color:#64748b;flex:1;line-height:1.4}.tr .v{font-size:11px;color:#1e1e1e;font-weight:400;font-family:monospace;white-space:nowrap;text-align:right}
+.tr.hl .l,.tr.hl .v{color:#00CBFF;font-weight:400}
+.tr .calc{font-size:9px;color:#94a3b8;margin-top:2px}
+.ins{display:flex;gap:8px;padding:10px 12px;background:rgba(0,203,255,.04);border-radius:10px;border-left:2px solid rgba(0,203,255,.3);margin:10px 0;font-size:11px;color:#64748b;line-height:1.5}
+.pset{width:100%;padding:12px;border-radius:12px;cursor:pointer;text-align:left;border:1px solid #e2e8f0;background:#f8fafc;transition:.2s;min-height:48px;touch-action:manipulation;font-family:'Pacaembu',sans-serif}
+.pset.on{background:rgba(0,203,255,.05);border-color:rgba(0,203,255,.4)}
+.pset .nm{font-size:13px;font-weight:500;margin-bottom:4px}.pset.on .nm{color:#00CBFF}.pset:not(.on) .nm{color:#1e1e1e}
+.pset .ds{font-size:10px;color:#64748b;margin-bottom:6px;line-height:1.3}
+.tag{font-size:9px;padding:3px 6px;border-radius:6px;font-weight:400;display:inline-block;margin:1px 2px}
+.pset.on .tag{background:rgba(0,203,255,.1);color:#00CBFF}.pset:not(.on) .tag{background:#f1f5f9;color:#64748b}
+.pset .pr{margin-top:6px;font-size:11px;font-weight:400}.pset.on .pr{color:#00CBFF}.pset:not(.on) .pr{color:#64748b}
+.opt{flex:1;padding:12px 10px;border-radius:10px;cursor:pointer;text-align:center;transition:.2s;border:1px solid #e2e8f0;background:#f8fafc;color:#64748b;min-height:48px;touch-action:manipulation;font-family:'Pacaembu',sans-serif}
+.opt.on{border-color:rgba(0,203,255,.4);background:rgba(0,203,255,.05);color:#00CBFF}
+.opt .t{font-size:12px;font-weight:400;line-height:1.3}.opt .s{font-size:10px;margin-top:3px;opacity:.7;line-height:1.3}
+.opt .d{font-size:9px;margin-top:2px;opacity:.6;line-height:1.3}
+.bar-h{display:flex;justify-content:space-between;margin-bottom:4px;font-size:10px;gap:4px}
+.bar-l{color:#64748b;font-weight:400}.bar-v{font-weight:400;font-family:monospace;white-space:nowrap}
+.bar-t{height:6px;border-radius:4px;background:#e2e8f0;overflow:hidden;margin-bottom:10px}
+.bar-f{height:100%;border-radius:4px;transition:width .3s}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gc{padding:10px;border-radius:10px;text-align:center;border:1px solid #e2e8f0;background:#f8fafc}
+.gc.warn{background:rgba(251,146,60,.04);border-color:rgba(251,146,60,.2)}
+.gc .l{font-size:9px;margin-bottom:3px;color:#64748b}.gc.warn .l{color:#fb923c}
+.gc .v{font-size:16px;font-weight:400;font-family:monospace;color:#1e1e1e}.gc.warn .v{color:#fb923c}
+.gc .s{font-size:9px;color:#00CBFF;margin-top:2px}
+.hero{background:linear-gradient(135deg,rgba(0,203,255,.06),rgba(0,203,255,.01));border:1px solid rgba(0,203,255,.15);border-radius:18px;padding:24px 16px;margin-bottom:16px;text-align:center}
+.hero .lb{font-size:11px;font-weight:400;color:#64748b;margin-bottom:4px}
+.hero .big{font-size:clamp(24px,7vw,36px);font-weight:400;font-family:monospace;line-height:1.2}
+.hero .mg{font-size:11px;color:#64748b;margin-top:4px}
+.hcols{display:flex;justify-content:center;gap:16px;margin-top:16px;flex-wrap:wrap}
+.hcol{min-width:120px}
+.hcol .hl{font-size:9px;color:#64748b}
+.hcol .hv{font-size:clamp(16px,4vw,20px);font-weight:400;font-family:monospace}
+.hdiv{width:1px;background:#e2e8f0}
+.pbk{margin-top:14px;padding:8px 14px;background:#f1f5f9;border-radius:10px;display:inline-block;font-size:12px;color:#64748b}
+.pbk strong{font-size:14px;font-weight:400;color:#00CBFF}
+.svpay{padding:14px;background:rgba(0,203,255,.04);border-radius:12px;border:1px solid rgba(0,203,255,.12);text-align:center;margin-top:12px}
+.svpay .lb{font-size:10px;color:#64748b;margin-bottom:4px}
+.svpay .bv{font-size:clamp(22px,6vw,28px);font-weight:400;color:#00CBFF;font-family:monospace}
+.svpay .su{font-size:11px;color:#64748b;margin-top:4px;line-height:1.4}
+.svpcols{display:flex;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap}
+.svpc{padding:8px 12px;background:#f8fafc;border-radius:8px;text-align:center;flex:1;min-width:90px}
+.svpc .l{font-size:8px;color:#64748b;margin-bottom:2px}
+.svpc .v{font-size:13px;font-weight:400;font-family:monospace;color:#1e1e1e}
+.ovr{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#f8fafc;border-radius:8px;margin:10px 0;font-size:11px;color:#64748b}
+.ovr input[type=checkbox]{width:20px;height:20px;accent-color:#00CBFF;cursor:pointer;flex-shrink:0}
+.ovr label{cursor:pointer;line-height:1.4}
+.warn{padding:10px 12px;background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.2);border-radius:10px;margin-bottom:12px;font-size:11px;color:#fb923c;line-height:1.4}
+.disc{text-align:center;padding:12px 14px;background:rgba(0,203,255,.03);border-radius:12px;border:1px solid rgba(0,203,255,.1);font-size:10px;color:#94a3b8;margin-bottom:8px;line-height:1.5}
+.parcel{margin-top:10px;padding:8px 12px;background:rgba(0,203,255,.04);border-radius:8px;font-size:11px;color:#64748b}
+.parcel strong{color:#00CBFF;font-weight:400}
+.summary{font-size:12px;color:#64748b;line-height:1.7}
+.summary strong{color:#1e1e1e;font-weight:400}.summary .grn{color:#00CBFF}
+.bn-tip{margin-top:6px;font-size:10px;color:#fb923c;line-height:1.4}.bn-tip strong{font-weight:400}
+.mcard{padding:10px 12px;background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0}
+.mcard .l{font-size:9px;color:#64748b;margin-bottom:3px}
+.mcard .v{font-size:13px;font-weight:400;color:#00CBFF}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.oc-box{padding:14px;background:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:16px}
+.oc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.svq-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
+.svq-btn{padding:10px;border-radius:10px;cursor:pointer;text-align:left;border:1px solid #e2e8f0;background:#f8fafc;transition:.2s;touch-action:manipulation;min-height:48px;font-family:'Pacaembu',sans-serif}
+.svq-btn.on{border-color:rgba(0,203,255,.4);background:rgba(0,203,255,.05)}
+.svq-btn .t{font-size:11px;font-weight:400}.svq-btn.on .t{color:#00CBFF}.svq-btn:not(.on) .t{color:#1e1e1e}
+.svq-btn .d{font-size:9px;margin-top:2px;line-height:1.3}.svq-btn.on .d{color:rgba(0,203,255,.7)}.svq-btn:not(.on) .d{color:#64748b}
+.svq-btn .e{font-size:8px;margin-top:3px;color:#94a3b8;line-height:1.2}
+.cap-box{padding:14px;background:#f8fafc;border-radius:12px;border:1px solid #e2e8f0}
+.cap-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px;flex-wrap:wrap}
+.cap-hdr .l{font-size:12px;color:#1e1e1e;font-weight:400}
+.cap-hdr .v{font-size:clamp(18px,5vw,22px);font-weight:400;color:#00CBFF;font-family:monospace}
+@media(max-width:480px){
+  body{padding:16px 10px}
+  .g3{grid-template-columns:1fr 1fr 1fr}
+  .gc .v{font-size:14px}
+  .speci{min-width:calc(50% - 6px)}
+  .oc-grid{grid-template-columns:1fr 1fr 1fr}
+  .svq-grid{grid-template-columns:1fr 1fr}
+  .hdiv{display:none}
+  .hcols{gap:12px}
+  .svpcols{gap:6px}
+  .svpc{min-width:80px;padding:6px 8px}
+  .svpc .v{font-size:11px}
+}
+@media(max-width:360px){
+  .g3{grid-template-columns:1fr 1fr}
+  .oc-grid{grid-template-columns:1fr}
+  .toggle button{font-size:11px;padding:8px 6px}
+  .svq-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="header">
+  <div class="logo"><svg width="22" height="22" viewBox="62 67 98 88" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M73.292 142.447C73.4891 142.645 73.6861 142.842 73.8832 143.039C78.7445 147.908 85.4453 150.934 92.8029 150.934C92.8029 150.868 129.197 151 129.197 151H129.328C136.423 151 143.058 148.237 148.117 143.237C153.175 138.237 156 131.526 156 124.355C156 112.645 148.708 102.513 137.803 98.9605V97.8421C137.803 90.7368 135.109 83.9605 130.051 78.8947C125.058 73.8289 118.358 71 111.197 71V76.9211C122.628 76.9211 131.891 86.3289 131.825 97.7763C131.825 98.6974 131.759 99.6842 131.628 100.671L131.234 103.368L133.861 103.961C143.255 106.132 150.022 114.684 149.956 124.289C149.956 129.816 147.788 135.079 143.847 138.961C139.905 142.842 134.715 145.013 129.197 145.013C123.679 145.013 129.197 145.013 129.131 145.013L92.6058 144.882C85.8394 144.882 79.7956 141.592 76.0511 136.526C75.9197 136.329 75.7883 136.197 75.6569 136C75.6569 135.934 75.5255 135.868 75.5255 135.803C73.292 132.513 71.9781 128.5 71.9781 124.224C71.9781 112.776 81.3066 103.434 92.7372 103.434C104.168 103.434 111.46 110.868 113.168 120.605L105.876 113.303L101.672 117.513L111.526 127.382C112.839 128.697 114.613 129.421 116.387 129.421C118.161 129.421 119.934 128.763 121.248 127.382L131.102 117.513L126.898 113.303L119.146 121.066C117.635 107.776 106.336 97.4474 92.6715 97.4474C79.0073 97.4474 88.7299 97.6447 86.8905 98.1053C74.6058 100.737 66.0657 111.395 66 124.026C66 130.803 68.4307 137.184 72.9635 142.118C72.9635 142.184 73.0949 142.25 73.1606 142.316L73.292 142.447Z" fill="#00CBFF"/></svg><span style="color:#1e1e1e;font-weight:500">Solvefy/Cloud</span></div>
+  <h1>Calculadora Inteligente de ROI Cloud</h1>
+  <p class="sub">Informe as configurações dos seus servidores e veja quanto pode faturar vendendo cloud com a Solvefy.</p>
+</div>
+<div class="toggle"><button class="on" id="m-exist" onclick="S.setMode('existing')">Já tenho servidores</button><button id="m-new" onclick="S.setMode('new')">Quero comprar</button></div>
+<div class="steps" id="stepsBar"></div>
+<div id="page-1"></div><div id="page-2" class="hidden"></div><div id="page-3" class="hidden"></div><div id="page-4" class="hidden"></div>
+</div>
+
+<script>
+const PLANS=[{name:"Básico",mo:990,setup:18990,maxSv:3,sup:"Ticket / E-mail",addons:false},{name:"Padrão",mo:1590,setup:25990,maxSv:6,sup:"Chat / Ticket / E-mail",addons:true},{name:"Elite",mo:2390,setup:34990,maxSv:9,sup:"Chat / Ticket / E-mail / Telefone",addons:true}];
+const PX=[{min:2,max:10,su:2200,mo:350},{min:11,max:20,su:2100,mo:300},{min:21,max:40,su:2000,mo:250}];
+const VMP=[
+  {label:"VPS Entrada",vcpu:1,ram:2,disk:30,pMin:50,pMax:80,price:65,desc:"Sites, blogs, apps leves"},
+  {label:"VPS Básica",vcpu:2,ram:4,disk:50,pMin:80,pMax:150,price:120,desc:"Apps web, bancos leves"},
+  {label:"VPS Intermediária",vcpu:4,ram:8,disk:100,pMin:150,pMax:300,price:220,desc:"ERPs, e-commerce"},
+  {label:"VPS Avançada",vcpu:8,ram:16,disk:200,pMin:300,pMax:600,price:450,desc:"Alta performance, IA"}
+];
+const OCP=[{label:"Conservador",cpu:4,ram:1,desc:"Seguro"},{label:"Moderado",cpu:6,ram:1.5,desc:"Equilíbrio"},{label:"Agressivo",cpu:8,ram:2,desc:"Máx. densidade"}];
+const SVC=[{label:"Novo",desc:"Garantia de fábrica",f:1},{label:"Recondicionado",desc:"Até 50% mais barato",f:0.55}];
+const SVQ=[
+  {label:"Básico",desc:"Xeon E / Ryzen",ex:"Dell T140, HP ML30",base:4500,cpu:220,ram:22,disk:0.35},
+  {label:"Intermediário",desc:"Xeon Silver / EPYC 7002",ex:"Dell R640, HP DL360 G10",base:8000,cpu:420,ram:30,disk:0.55},
+  {label:"Avançado",desc:"Xeon Gold / EPYC 7003",ex:"Dell R750, HP DL380 G10+",base:14000,cpu:700,ram:38,disk:0.80},
+  {label:"Enterprise",desc:"EPYC 9004 / Xeon Platinum",ex:"Dell R760, Supermicro",base:20000,cpu:1100,ram:48,disk:1.20}
+];
+
+let st={mode:"existing",step:1,cpu:32,ram:128,disk:2000,ocCpu:4,ocRam:1,servers:3,vmP:1,custVm:false,vVcpu:2,vRam:4,vDisk:50,price:120,occ:70,planI:0,prox:false,svCond:0,svQual:1,svOver:false,svCost:0,elec:250,inet:150};
+
+const $=function(id){return document.getElementById(id)};
+const fmt=function(v){return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL",minimumFractionDigits:2})};
+const fN=function(v){return Math.round(v).toLocaleString("pt-BR")};
+function vm(){return st.custVm?{vcpu:st.vVcpu,ram:st.vRam,disk:st.vDisk}:VMP[st.vmP]}
+function pxT(){for(var i=0;i<PX.length;i++){var t=PX[i];if(st.servers>=t.min&&st.servers<=t.max)return t;}return PX[2]}
+function svPrice(){var q=SVQ[st.svQual],f=SVC[st.svCond].f;return Math.round((q.base+st.cpu*q.cpu+st.ram*q.ram+st.disk*q.disk)*f)}
+function svBreak(){var q=SVQ[st.svQual],f=SVC[st.svCond].f;return{base:Math.round(q.base*f),cpu:Math.round(st.cpu*q.cpu*f),ram:Math.round(st.ram*q.ram*f),disk:Math.round(st.disk*q.disk*f),cpuU:Math.round(q.cpu*f),ramU:Math.round(q.ram*f),diskU:(q.disk*f).toFixed(2)}}
+function getCost(){return st.svOver?st.svCost:svPrice()}
+
+function calc(){
+  var v=vm(),px=pxT(),s=st.servers,p=PLANS[st.planI],sc=getCost();
+  var aR=st.ram*0.9*st.ocRam,aD=st.disk*0.95,aC=st.cpu*st.ocCpu;
+  var bC=Math.floor(aC/v.vcpu),bR=Math.floor(aR/v.ram),bD=Math.floor(aD/v.disk);
+  var mx=Math.max(0,Math.min(bC,bR,bD)),bn=mx===bR?"RAM":mx===bD?"Disco":"CPU";
+  var tV=s*mx,aV=Math.round(tV*(st.occ/100)),gr=aV*st.price;
+  var sA=p.setup/12,pxS=st.prox?s*px.su:0,pxM=st.prox?s*px.mo:0,pxA=pxS/12;
+  var inf=st.mode==="new"?s*(st.elec+st.inet):s*st.elec;
+  var svP=st.mode==="new"?s*sc:0,svA=svP/36;
+  var tc=p.mo+pxM+inf+sA+pxA+svA,net=gr-tc,mg=gr>0?(net/gr)*100:0;
+  var ti=p.setup+pxS+svP,pb=net>0?Math.ceil(ti/net):Infinity;
+  return{bC:bC,bR:bR,bD:bD,mx:mx,bn:bn,aC:aC,aR:aR,aD:aD,tV:tV,aV:aV,gr:gr,sA:sA,pxS:pxS,pxM:pxM,pxA:pxA,inf:inf,svP:svP,svA:svA,tc:tc,net:net,mg:mg,ti:ti,pb:pb,aRev:gr*12,aProf:net*12,sc:sc,px:px};
+}
+
+function tblH(rows){
+  return '<div class="tbl">'+rows.map(function(r){
+    return '<div class="tr'+(r.h?' hl':'')+'">'+
+      (r.sub?'<div><span class="l">'+r.l+'</span><div class="calc">'+r.sub+'</div></div>':'<span class="l">'+r.l+'</span>')+
+      '<span class="v">'+r.v+'</span></div>';
+  }).join('')+'</div>';
+}
+function barH(lb,u,t,un){
+  var p=t>0?Math.min(u/t*100,100):0,w=p>90,c=w?"#fb923c":"#00CBFF",vc=w?"#fb923c":"#1e1e1e";
+  return '<div class="bar-h"><span class="bar-l">'+lb+'</span><span class="bar-v" style="color:'+vc+'">'+fN(u)+'/'+fN(t)+' '+un+' ('+p.toFixed(0)+'%)</span></div><div class="bar-t"><div class="bar-f" style="width:'+p+'%;background:'+c+'"></div></div>';
+}
+
+var S={
+  setMode:function(m){st.mode=m;$("m-exist").className=m==="existing"?"on":"";$("m-new").className=m==="new"?"on":"";render()},
+  go:function(n){st.step=n;[1,2,3,4].forEach(function(i){$("page-"+i).className=i===n?"":"hidden"});renderSteps();render();window.scrollTo({top:0,behavior:"smooth"})},
+  setPlan:function(i){st.planI=i;if(st.servers>PLANS[i].maxSv)st.servers=PLANS[i].maxSv;render()},
+  setProx:function(v){st.prox=v;render()},
+  setVmP:function(i){st.vmP=i;st.custVm=false;st.price=VMP[i].price;render()},
+  toggleCust:function(){st.custVm=!st.custVm;render()},
+  setOcP:function(i){st.ocCpu=OCP[i].cpu;st.ocRam=OCP[i].ram;render()},
+  setSvC:function(i){st.svCond=i;render()},
+  setSvQ:function(i){st.svQual=i;render()},
+  toggleOvr:function(){st.svOver=!st.svOver;if(!st.svOver)st.svCost=svPrice();render()},
+  editSl:function(k){$("lbl-"+k).classList.add("hidden");var e=$("ed-"+k);e.classList.remove("hidden");e.value=k==="servers"?st.servers:k==="price"?st.price:st.occ;e.focus()},
+  commitSl:function(k){var e=$("ed-"+k),v=+e.value;e.classList.add("hidden");$("lbl-"+k).classList.remove("hidden");if(k==="servers")st.servers=Math.max(1,v||1);if(k==="price")st.price=Math.max(1,v||1);if(k==="occ")st.occ=Math.max(1,Math.min(100,v||1));render()}
+};
+
+function readInputs(){
+  var g=function(id){var e=$(id);return e?+e.value:0};
+  st.cpu=Math.max(1,g("i-cpu")||1);st.ram=Math.max(1,g("i-ram")||1);st.disk=Math.max(1,g("i-disk")||1);
+  st.ocCpu=Math.max(0.5,g("i-occ")||4);st.ocRam=Math.max(0.1,g("i-ocr")||1);
+  if(st.custVm){st.vVcpu=Math.max(1,g("i-vvc")||1);st.vRam=Math.max(1,g("i-vrm")||1);st.vDisk=Math.max(1,g("i-vdk")||1)}
+  if(st.svOver)st.svCost=Math.max(0,g("i-svc")||0);
+  st.elec=Math.max(0,g("i-elec")||0);st.inet=Math.max(0,g("i-inet")||0);
+  render();
+}
+
+function renderSteps(){
+  var ss=[{n:1,l:"Infra"},{n:2,l:"VMs"},{n:3,l:"Plano"},{n:4,l:"Resultado"}];
+  $("stepsBar").innerHTML=ss.map(function(s,i){
+    var a=st.step>=s.n,d=st.step>s.n;
+    return '<div style="display:flex;align-items:center;'+(i<3?'flex:1':'')+'">'+
+      '<button class="sdot '+(a?'on':'off')+'" onclick="S.go('+s.n+')">'+s.n+'</button>'+
+      '<span class="slbl '+(a?'on':'off')+'">'+s.l+'</span>'+
+      (i<3?'<div class="sline '+(d?'on':'off')+'"></div>':'')+
+      '</div>';
+  }).join("");
+}
+
+function render(){
+  var c=calc(),v=vm(),p=PLANS[st.planI],s=st.servers,px=pxT(),sc=getCost();
+  var pc=c.net>=0?"#00CBFF":"#f87171",vlbl=st.custVm?"Personalizada":VMP[st.vmP].label;
+
+  var h='<div class="card card-a"><div class="ctitle ctitle-a">Configuração do servidor</div>'+
+  '<p style="font-size:12px;color:#64748b;margin:0 0 14px">'+(st.mode==="existing"?"Informe as specs de cada servidor. Se forem diferentes, use a média.":"Configure o servidor que pretende comprar.")+'</p>'+
+  '<div class="specg">'+
+    '<div class="speci"><label>CPU (cores/servidor)</label><div class="specw"><input class="specin" type="number" id="i-cpu" value="'+st.cpu+'" inputmode="numeric" oninput="readInputs()"><span class="specu">cores</span></div></div>'+
+    '<div class="speci"><label>RAM (por servidor)</label><div class="specw"><input class="specin" type="number" id="i-ram" value="'+st.ram+'" inputmode="numeric" oninput="readInputs()"><span class="specu">GB</span></div></div>'+
+    '<div class="speci"><label>Disco (por servidor)</label><div class="specw"><input class="specin" type="number" id="i-disk" value="'+st.disk+'" inputmode="numeric" oninput="readInputs()"><span class="specu">GB</span></div></div>'+
+  '</div>'+
+  '<div class="oc-box">'+
+    '<div style="font-size:11px;font-weight:400;color:#64748b;margin-bottom:10px">Overcommit de Recursos</div>'+
+    '<div class="specg">'+
+      '<div class="speci"><label>Overcommit CPU</label><div class="specw"><input class="specin" type="number" id="i-occ" value="'+st.ocCpu+'" step="0.5" inputmode="decimal" oninput="readInputs()"><span class="specu">: 1</span></div></div>'+
+      '<div class="speci"><label>Overcommit RAM</label><div class="specw"><input class="specin" type="number" id="i-ocr" value="'+st.ocRam+'" step="0.1" inputmode="decimal" oninput="readInputs()"><span class="specu">: 1</span></div></div>'+
+    '</div>'+
+    '<div class="oc-grid">'+OCP.map(function(o,i){return '<button class="opt'+(st.ocCpu===o.cpu&&st.ocRam===o.ram?" on":"")+'" onclick="S.setOcP('+i+')"><div class="t">'+o.label+'</div><div class="s">CPU '+o.cpu+':1 · RAM '+o.ram+':1</div></button>';}).join('')+'</div>'+
+  '</div>'+
+  '<div class="sl-row"><div class="sl-hdr"><span class="sl-lbl">Servidores</span><span class="sl-val" id="lbl-servers" onclick="S.editSl(\'servers\')">'+s+'</span><input class="sl-edit hidden" id="ed-servers" type="number" inputmode="numeric" onblur="S.commitSl(\'servers\')" onkeydown="if(event.key===\'Enter\'){this.blur()}"></div>'+
+  '<input type="range" min="1" max="20" value="'+Math.min(20,Math.max(1,s))+'" oninput="st.servers=+this.value;render()"><div class="sl-mm"><span>1</span><span>20</span></div></div></div>';
+
+  if(st.mode==="new"){
+    var bk=svBreak(),tot=bk.base+bk.cpu+bk.ram+bk.disk;
+    if(!st.svOver)st.svCost=tot;
+    var tInv=s*sc,am36=tInv/36;
+    var revSv=c.tV>0?c.gr/s:0,costSv=s>0?c.tc/s:0,profSv=revSv-costSv;
+    var svPb=profSv>0?Math.ceil(sc/profSv):0;
+
+    h+='<div class="card card-d"><div class="ctitle ctitle-d">Estimativa do servidor</div>'+
+    '<div style="font-size:11px;font-weight:400;color:#64748b;margin-bottom:6px">Condição</div>'+
+    '<div style="display:flex;gap:6px;margin-bottom:12px">'+SVC.map(function(c2,i){return '<button class="opt'+(st.svCond===i?" on":"")+'" onclick="S.setSvC('+i+')"><div class="t">'+c2.label+'</div><div class="s">'+c2.desc+'</div></button>';}).join('')+'</div>'+
+    '<div style="font-size:11px;font-weight:400;color:#64748b;margin-bottom:6px">Nível de qualidade</div>'+
+    '<div class="svq-grid">'+SVQ.map(function(q,i){return '<button class="svq-btn'+(st.svQual===i?" on":"")+'" onclick="S.setSvQ('+i+')"><div class="t">'+q.label+'</div><div class="d">'+q.desc+'</div><div class="e">'+q.ex+'</div></button>';}).join('')+'</div>';
+
+    if(!st.svOver){
+      h+=tblH([
+        {l:"Chassi / Placa / Fonte",v:fmt(bk.base),sub:SVQ[st.svQual].label+" "+SVC[st.svCond].label.toLowerCase()},
+        {l:"CPU ("+st.cpu+" cores)",v:fmt(bk.cpu),sub:st.cpu+" × "+fmt(bk.cpuU)+"/core"},
+        {l:"RAM ("+st.ram+" GB)",v:fmt(bk.ram),sub:st.ram+" × "+fmt(bk.ramU)+"/GB"},
+        {l:"Disco ("+fN(st.disk)+" GB)",v:fmt(bk.disk),sub:fN(st.disk)+" × R$ "+bk.diskU+"/GB"},
+        {l:"Valor / Servidor",v:fmt(tot),h:true}
+      ]);
+    }
+    h+='<div class="ovr"><input type="checkbox" id="ck-ovr" '+(st.svOver?"checked":"")+' onchange="S.toggleOvr()"><label for="ck-ovr">Informar valor manualmente</label></div>';
+    if(st.svOver)h+='<div class="specg"><div class="speci" style="min-width:100%"><label>Valor por servidor (R$)</label><div class="specw"><input class="specin" type="number" id="i-svc" value="'+st.svCost+'" inputmode="numeric" oninput="readInputs()"><span class="specu">R$</span></div></div></div>';
+
+    h+=tblH([{l:s+" serv. × "+fmt(sc),v:fmt(tInv)},{l:"Amortização (÷ 36 meses)",v:fmt(am36)+"/mês",h:true}]);
+
+    if(svPb>0&&profSv>0){
+      h+='<div class="svpay"><div class="lb">Tempo para pagar os servidores</div><div class="bv">'+svPb+' '+(svPb===1?"mês":"meses")+'</div><div class="su">Cada servidor se paga com o lucro das VMs</div>'+
+      '<div class="svpcols"><div class="svpc"><div class="l">Receita/serv.</div><div class="v">'+fmt(revSv)+'</div></div><div class="svpc"><div class="l">Custo/serv.</div><div class="v">'+fmt(costSv)+'</div></div><div class="svpc"><div class="l">Lucro/serv.</div><div class="v" style="color:'+(profSv>=0?"#00CBFF":"#f87171")+'">'+fmt(profSv)+'</div></div></div></div>';
+    }else{
+      h+='<div class="svpay"><div class="lb">Payback dos servidores</div><div class="bv" style="color:#fb923c;font-size:14px">Ajuste os parâmetros</div><div class="su">Aumente preço, ocupação ou reduza custos</div></div>';
+    }
+    h+='</div>';
+
+    h+='<div class="card card-d"><div class="ctitle ctitle-d">Custos operacionais mensais</div><div class="specg">'+
+      '<div class="speci"><label>Energia (por serv./mês)</label><div class="specw"><input class="specin" type="number" id="i-elec" value="'+st.elec+'" inputmode="numeric" oninput="readInputs()"><span class="specu">R$</span></div></div>'+
+      '<div class="speci"><label>Internet (por serv./mês)</label><div class="specw"><input class="specin" type="number" id="i-inet" value="'+st.inet+'" inputmode="numeric" oninput="readInputs()"><span class="specu">R$</span></div></div>'+
+    '</div></div>';
+  }
+
+  h+='<div class="card card-d"><div class="ctitle ctitle-d">Infraestrutura total</div><div class="g3">'+
+    '<div class="gc"><div class="l">CPU</div><div class="v">'+fN(st.cpu*s)+'</div><div class="s">'+fN(st.cpu*s*st.ocCpu)+' vCPUs</div></div>'+
+    '<div class="gc"><div class="l">RAM</div><div class="v">'+fN(st.ram*s)+' GB</div><div class="s">'+fN(Math.floor(st.ram*s*0.9*st.ocRam))+' GB disp.</div></div>'+
+    '<div class="gc"><div class="l">Disco</div><div class="v">'+fN(st.disk*s)+' GB</div><div class="s">'+fN(Math.floor(st.disk*s*0.95))+' GB disp.</div></div>'+
+  '</div></div>';
+  h+='<div class="nav"><div class="spacer"></div><button class="btn-pri" onclick="S.go(2)">Próximo →</button></div>';
+  $("page-1").innerHTML=h;
+
+  var bnT=c.bn==="RAM"?"overcommit "+st.ocRam+":1. Aumente o ratio ou adicione RAM.":c.bn==="Disco"?"adicione mais armazenamento.":"overcommit "+st.ocCpu+":1. Aumente o ratio ou mais cores.";
+  var h2='<div class="card card-a"><div class="ctitle ctitle-a">Tipo de VM para vender</div>'+
+  '<p style="font-size:12px;color:#64748b;margin:0 0 14px">Escolha o perfil carro-chefe. A capacidade é calculada automaticamente.</p>'+
+  '<div class="vm-grid">'+VMP.map(function(vp,i){var a=!st.custVm&&st.vmP===i;return '<button class="pset'+(a?" on":"")+'" onclick="S.setVmP('+i+')"><div class="nm">'+vp.label+'</div><div class="ds">'+vp.desc+'</div><div>'+[vp.vcpu+" vCPU",vp.ram+"GB",vp.disk+"GB"].map(function(t){return '<span class="tag">'+t+'</span>';}).join('')+'</div><div class="pr">'+fmt(vp.pMin)+'–'+fmt(vp.pMax)+'</div></button>';}).join('')+'</div>'+
+  '<button class="opt'+(st.custVm?" on":"")+'" style="width:100%;margin-bottom:14px" onclick="S.toggleCust()"><div class="t">VM personalizada</div></button>'+
+  (st.custVm?'<div class="specg"><div class="speci"><label>vCPUs</label><div class="specw"><input class="specin" type="number" id="i-vvc" value="'+st.vVcpu+'" inputmode="numeric" oninput="readInputs()"><span class="specu">vCPU</span></div></div><div class="speci"><label>RAM</label><div class="specw"><input class="specin" type="number" id="i-vrm" value="'+st.vRam+'" inputmode="numeric" oninput="readInputs()"><span class="specu">GB</span></div></div><div class="speci"><label>Disco</label><div class="specw"><input class="specin" type="number" id="i-vdk" value="'+st.vDisk+'" inputmode="numeric" oninput="readInputs()"><span class="specu">GB</span></div></div></div>':"")+
+  '</div>';
+
+  h2+='<div class="card card-d"><div class="ctitle ctitle-d">Capacidade por servidor</div>'+
+  '<p style="font-size:11px;color:#64748b;margin:0 0 12px">'+st.cpu+' cores, '+st.ram+'GB RAM, '+fN(st.disk)+'GB · OC CPU '+st.ocCpu+':1, RAM '+st.ocRam+':1 · VM '+v.vcpu+'vCPU/'+v.ram+'GB/'+v.disk+'GB</p>'+
+  '<div class="g3">'+
+    '<div class="gc'+(c.bn==="CPU"?" warn":"")+'"><div class="l">CPU'+(c.bn==="CPU"?" ↑":"")+'</div><div class="v">'+fN(c.bC)+'</div><div class="s" style="color:#64748b">'+fN(c.aC)+'÷'+v.vcpu+'</div></div>'+
+    '<div class="gc'+(c.bn==="RAM"?" warn":"")+'"><div class="l">RAM'+(c.bn==="RAM"?" ↑":"")+'</div><div class="v">'+fN(c.bR)+'</div><div class="s" style="color:#64748b">'+fN(Math.floor(c.aR))+'÷'+v.ram+'</div></div>'+
+    '<div class="gc'+(c.bn==="Disco"?" warn":"")+'"><div class="l">Disco'+(c.bn==="Disco"?" ↑":"")+'</div><div class="v">'+fN(c.bD)+'</div><div class="s" style="color:#64748b">'+fN(Math.floor(c.aD))+'÷'+v.disk+'</div></div>'+
+  '</div>'+
+  '<div class="cap-box"><div class="cap-hdr"><span class="l">Máximo/servidor</span><span class="v">'+fN(c.mx)+' VMs</span></div>'+
+  barH("CPU",c.mx*v.vcpu,c.aC,"vCPUs")+barH("RAM",c.mx*v.ram,Math.floor(c.aR),"GB")+barH("Disco",c.mx*v.disk,Math.floor(c.aD),"GB")+
+  '<div class="bn-tip">Limitante: <strong>'+c.bn+'</strong> — '+bnT+'</div></div>'+
+  '<div class="ins">Total: '+s+' serv. × '+fN(c.mx)+' = até '+fN(s*c.mx)+' VMs. OC CPU '+st.ocCpu+':1, RAM '+st.ocRam+':1.</div></div>';
+
+  h2+='<div class="card card-d"><div class="ctitle ctitle-d">Preço e ocupação</div>'+
+  '<div class="sl-row"><div class="sl-hdr"><span class="sl-lbl">Preço/VM (mês)</span><span class="sl-val" id="lbl-price" onclick="S.editSl(\'price\')">'+fmt(st.price)+'</span><input class="sl-edit hidden" id="ed-price" type="number" inputmode="decimal" onblur="S.commitSl(\'price\')" onkeydown="if(event.key===\'Enter\')this.blur()"></div>'+
+  '<input type="range" min="30" max="800" step="5" value="'+Math.min(800,Math.max(30,st.price))+'" oninput="st.price=+this.value;render()"><div class="sl-mm"><span>R$ 30</span><span>R$ 800</span></div></div>'+
+  '<div class="sl-row"><div class="sl-hdr"><span class="sl-lbl">Ocupação</span><span class="sl-val" id="lbl-occ" onclick="S.editSl(\'occ\')">'+st.occ+'%</span><input class="sl-edit hidden" id="ed-occ" type="number" inputmode="numeric" onblur="S.commitSl(\'occ\')" onkeydown="if(event.key===\'Enter\')this.blur()"></div>'+
+  '<input type="range" min="20" max="100" step="5" value="'+st.occ+'" oninput="st.occ=+this.value;render()"><div class="sl-mm"><span>20%</span><span>100%</span></div></div>'+
+  '<div class="ins">'+st.occ+'% de '+fN(c.tV)+' VMs = '+fN(c.aV)+' ativas × '+fmt(st.price)+' = <strong style="color:#00CBFF">'+fmt(c.gr)+'/mês</strong></div></div>';
+  h2+='<div class="nav"><button class="btn-sec" onclick="S.go(1)">← Voltar</button><div class="spacer"></div><button class="btn-pri" onclick="S.go(3)">Próximo →</button></div>';
+  $("page-2").innerHTML=h2;
+
+  var h3='<div class="card card-a"><div class="ctitle ctitle-a">Plano Solvefy Cloud</div>'+
+  '<p style="font-size:12px;color:#64748b;margin:0 0 14px">Licença whitelabel. Setup parcelável em 3× sem juros.</p>'+
+  '<div style="display:flex;gap:6px;margin-bottom:14px">'+PLANS.map(function(pl,i){return '<button class="opt'+(st.planI===i?" on":"")+'" onclick="S.setPlan('+i+')"><div class="t">'+pl.name+'</div><div class="s">'+fmt(pl.mo)+'/mês</div><div class="d">Até '+pl.maxSv+' serv.</div></button>';}).join('')+'</div>'+
+  (s>p.maxSv?'<div class="warn">'+s+' servidores excedem o plano '+p.name+' ('+p.maxSv+'). Escolha um plano maior.</div>':"")+
+  tblH([{l:"Mensalidade",v:fmt(p.mo)},{l:"Setup",v:fmt(p.setup)},{l:"Setup amortizado (÷12)",v:fmt(p.setup/12)+"/mês",h:true},{l:"Suporte",v:p.sup},{l:"Add-ons",v:p.addons?"Sim ✓":"Não"}])+
+  '</div>';
+
+  h3+='<div class="card card-d"><div class="ctitle ctitle-d">Suporte Proxmox (Opcional)</div>'+
+  '<p style="font-size:12px;color:#64748b;margin:0 0 10px">Instalação e manutenção dos servidores Proxmox.</p>'+
+  '<div style="display:flex;gap:6px;margin-bottom:14px">'+
+    '<button class="opt'+(!st.prox?" on":"")+'" onclick="S.setProx(false)"><div class="t">Não preciso</div><div class="s">Já tenho equipe</div></button>'+
+    '<button class="opt'+(st.prox?" on":"")+'" onclick="S.setProx(true)"><div class="t">Contratar</div><div class="s">'+fmt(c.px.mo)+'/serv.</div></button>'+
+  '</div>'+
+  (st.prox?tblH([{l:"Config.: "+s+" × "+fmt(c.px.su),v:fmt(c.pxS)},{l:"Mensal: "+s+" × "+fmt(c.px.mo),v:fmt(c.pxM)},{l:"Config. amortizada (÷12)",v:fmt(c.pxA)+"/mês",h:true}]):"")+
+  '</div>';
+  h3+='<div class="nav"><button class="btn-sec" onclick="S.go(2)">← Voltar</button><div class="spacer"></div><button class="btn-pri" onclick="S.go(4)">Ver Resultados →</button></div>';
+  $("page-3").innerHTML=h3;
+
+  var h4='<div class="hero"><div class="lb">Lucro Estimado Mensal</div><div class="big" style="color:'+pc+'">'+fmt(c.net)+'</div><div class="mg">margem de '+c.mg.toFixed(1)+'%</div>'+
+  '<div class="hcols"><div class="hcol"><div class="hl">Faturamento Anual</div><div class="hv" style="color:#1e1e1e">'+fmt(c.aRev)+'</div></div><div class="hdiv"></div><div class="hcol"><div class="hl">Lucro Anual</div><div class="hv" style="color:'+pc+'">'+fmt(c.aProf)+'</div></div></div>'+
+  (c.pb!==Infinity&&c.pb>0?'<div class="pbk">Payback em <strong>'+c.pb+' '+(c.pb===1?"mês":"meses")+'</strong></div>':"")+
+  '</div>';
+
+  h4+='<div class="card card-d"><div class="ctitle ctitle-d">Faturamento</div>'+
+  tblH([{l:st.cpu+"c ("+st.ocCpu+":1), "+st.ram+"GB ("+st.ocRam+":1), "+fN(st.disk)+"GB",v:fN(c.mx)+" VMs/serv."},{l:s+" serv. × "+fN(c.mx)+" VMs",v:fN(c.tV)+" total"},{l:"Ocupação "+st.occ+"%",v:fN(c.aV)+" ativas"},{l:fN(c.aV)+" × "+fmt(st.price),v:fmt(c.gr),h:true}])+
+  '<div class="ins">Limitante: '+c.bn+'. '+(c.bn==="RAM"?"Overcommit "+st.ocRam+":1 — aumente ou adicione RAM.":c.bn==="Disco"?"Adicione armazenamento.":"Overcommit "+st.ocCpu+":1 — aumente ou mais cores.")+'</div></div>';
+
+  var cr=[{l:"Solvefy "+p.name,v:fmt(p.mo)},{l:"Setup amortizado",v:fmt(c.sA)}];
+  if(st.prox){cr.push({l:"Proxmox ("+s+"×"+fmt(c.px.mo)+")",v:fmt(c.pxM)});cr.push({l:"Config. Proxmox (÷12)",v:fmt(c.pxA)});}
+  cr.push({l:"Infra ("+(st.mode==="new"?"energia+internet":"energia")+")",v:fmt(c.inf)});
+  if(st.mode==="new")cr.push({l:"Servidores ("+fmt(c.svP)+"÷36)",v:fmt(c.svA)});
+  cr.push({l:"Custo total/mês",v:fmt(c.tc),h:true});
+  h4+='<div class="card card-d"><div class="ctitle ctitle-d">Custos mensais</div>'+tblH(cr)+'</div>';
+
+  var ir=[{l:"Setup Solvefy ("+p.name+")",v:fmt(p.setup)}];
+  if(st.prox)ir.push({l:"Config. Proxmox",v:fmt(c.pxS)});
+  if(st.mode==="new")ir.push({l:s+" Servidor(es)",v:fmt(c.svP)});
+  ir.push({l:"Total",v:fmt(c.ti),h:true});
+  h4+='<div class="card card-d"><div class="ctitle ctitle-d">Investimento inicial</div>'+tblH(ir)+'<div class="parcel">Setup parcelável em <strong>3× sem juros</strong></div></div>';
+
+  h4+='<div class="card card-d"><div class="ctitle ctitle-d">Mercado</div><div class="g2">'+
+    '<div class="mcard"><div class="l">Mercado VPS BR</div><div class="v">USD 120-150 mi</div></div>'+
+    '<div class="mcard"><div class="l">Crescimento</div><div class="v">12-14% CAGR</div></div>'+
+    '<div class="mcard"><div class="l">Provedores BR</div><div class="v">88 empresas</div></div>'+
+    '<div class="mcard"><div class="l">VMware→Proxmox</div><div class="v">+300% custos</div></div>'+
+  '</div><div class="ins">PMEs brasileiras buscam VPS com suporte local. Com a Solvefy, capture essa demanda.</div></div>';
+
+  h4+='<div class="card card-a"><div class="ctitle ctitle-a">Resumo</div><div class="summary">'+
+  '<p style="margin:0 0 8px"><strong>'+s+' servidor(es)</strong> de <strong>'+st.cpu+' cores, '+st.ram+'GB RAM, '+fN(st.disk)+'GB</strong> (OC CPU '+st.ocCpu+':1, RAM '+st.ocRam+':1) → até <strong>'+fN(c.mx)+' VMs/serv.</strong> tipo <strong>'+vlbl+'</strong> ('+v.vcpu+'vCPU, '+v.ram+'GB, '+v.disk+'GB).</p>'+
+  '<p style="margin:0 0 8px">Total: <strong>'+fN(c.tV)+' VMs</strong>. '+st.occ+'% ocupação = '+fN(c.aV)+' ativas × '+fmt(st.price)+' = <strong class="grn">'+fmt(c.gr)+'/mês</strong>.</p>'+
+  '<p style="margin:0">Custos '+fmt(c.tc)+' → <strong style="color:'+pc+'">lucro '+fmt(c.net)+'/mês ('+c.mg.toFixed(1)+'%)</strong>. 12 meses: <strong class="grn">'+fmt(c.aProf)+'</strong>.</p></div></div>';
+
+  h4+='<div class="disc">* Overcommit CPU '+st.ocCpu+':1, RAM '+st.ocRam+':1, reserva 10% RAM e 5% disco. Dados: IMARC Group, AbraCloud, Grand View Research.</div>';
+  h4+='<div class="nav" style="margin-top:16px"><button class="btn-sec" onclick="S.go(3)">← Ajustar</button></div>';
+  $("page-4").innerHTML=h4;
+}
+
+renderSteps();render();
+</script>
+</body>
+</html>

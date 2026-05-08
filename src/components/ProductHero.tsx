@@ -10,8 +10,9 @@ interface ProductHeroProps {
   title: ReactNode;
   subtitle: ReactNode;
   ctaText: string;
+  ctaHref?: string;
   ctaTextColor?: string;
-  ctaSecondary?: { text: string; href?: string };
+  ctaSecondary?: { text: string; href?: string; onClick?: () => void };
   trustItems: string[];
   right: ReactNode;
 }
@@ -23,6 +24,7 @@ export function ProductHero({
   title,
   subtitle,
   ctaText,
+  ctaHref,
   ctaTextColor = "text-white",
   ctaSecondary,
   trustItems,
@@ -69,19 +71,27 @@ export function ProductHero({
             <div className="flex flex-wrap items-center gap-3">
               <Button
                 size="lg"
+                asChild={!!ctaHref}
                 className={`group font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 ${ctaTextColor}`}
-                style={{
-                  backgroundColor: accent,
-                }}
+                style={{ backgroundColor: accent }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.backgroundColor = `color-mix(in srgb, ${accent} 90%, black)`;
+                  (e.currentTarget as HTMLElement).style.backgroundColor = `color-mix(in srgb, ${accent} 90%, black)`;
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.backgroundColor = accent;
+                  (e.currentTarget as HTMLElement).style.backgroundColor = accent;
                 }}
               >
-                {ctaText}
-                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                {ctaHref ? (
+                  <a href={ctaHref} className="inline-flex items-center">
+                    {ctaText}
+                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                ) : (
+                  <>
+                    {ctaText}
+                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </>
+                )}
               </Button>
 
               {ctaSecondary && (
@@ -89,6 +99,7 @@ export function ProductHero({
                   size="lg"
                   variant="outline"
                   className="group font-semibold transition-all duration-200 hover:-translate-y-0.5 border-foreground/20 hover:border-foreground/40"
+                  onClick={ctaSecondary.onClick}
                   asChild={!!ctaSecondary.href}
                 >
                   {ctaSecondary.href ? (
@@ -96,7 +107,7 @@ export function ProductHero({
                       {ctaSecondary.text}
                     </a>
                   ) : (
-                    <span>{ctaSecondary.text}</span>
+                    ctaSecondary.text
                   )}
                 </Button>
               )}

@@ -76,7 +76,7 @@ export const Solutions = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl text-left mb-14">
           <Heading className="tracking-tighter text-balance leading-[1.1]">
-            Closer. Quicker. <span className="text-primary">Better.</span>
+            Próximo. Veloz. <span className="text-primary">Único.</span>
           </Heading>
           <SectionSubtitle className="mt-5">
             Pare de dividir sua estratégia em várias ferramentas. Unifique sua comunicação,

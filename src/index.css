@@ -55,12 +55,28 @@
   font-display: swap;
 }
 
+/* Urbanist — official Solvefy fallback typeface (variable font) */
+@font-face {
+  font-family: "Urbanist";
+  src: url("/fonts/Urbanist-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Urbanist";
+  src: url("/fonts/Urbanist-Variable-Italic.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* Solvefy Design System — All colors HSL */
 
 @layer base {
   :root {
     /* Surfaces */
-    --background: 210 40% 98%; /* #f8fafc off-white */
+    --background: 0 0% 100%; /* #FFFFFF */
     --foreground: 0 0% 12%;    /* #1e1e1e */
     --muted-foreground: 0 0% 12%; /* #1e1e1e */
 
@@ -93,7 +109,7 @@
     --radius: 0.875rem;
 
     /* Solvefy Solution colors (brand guide) */
-    --cpaas: 255 100% 74%;      /* #9C7BFF */
+    --cpaas: 255 100% 74.1%;    /* #9C7BFF */
     --ads: 42 100% 47%;         /* #F0A800 */
     --marketing: 329 76% 58%;   /* #E64499 */
     --crm: 21 78% 50%;          /* #E1611C */
@@ -133,7 +149,7 @@
     );
 
     /* Section backgrounds */
-    --hero-bg: #f6f5ef;          /* fundo creme dos heroes de produto */
+    --hero-bg: #FFFFFF;          /* branco puro */
     --dark-section-bg: linear-gradient(120deg, #0a0a0f 0%, #14101e 100%); /* pricing dark */
 
     /* Shadows */
@@ -188,6 +204,7 @@
     color: #1e1e1e;
     font-family:
       "Pacaembu",
+      "Urbanist",
       "Inter",
       system-ui,
       -apple-system,
