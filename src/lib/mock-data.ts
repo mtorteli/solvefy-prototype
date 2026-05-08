@@ -32,6 +32,23 @@ export const MOCK_POSTS = [
       name: "Marketing",
       slug: "marketing"
     }
+  },
+  {
+    id: "3",
+    title: "Como segmentar a comunicação e tornar suas mensagens mais relevantes em cada etapa da jornada",
+    slug: "segmentar-comunicacao-jornada",
+    excerpt: "Descubra como usar segmentação inteligente para entregar a mensagem certa, para a pessoa certa, no momento certo — e transformar comunicação em conversão.",
+    content: "A segmentação é o alicerce de qualquer estratégia de comunicação eficiente. Quando você fala com todos da mesma forma, não fala com ninguém...",
+    cover_image: "/images/blog/segmentar-comunicacao-jornada.jpg",
+    created_at: new Date("2026-05-05").toISOString(),
+    authors: {
+      name: "Equipe de Marketing",
+      avatar_url: "https://github.com/shadcn.png"
+    },
+    post_categories: {
+      name: "Marketing",
+      slug: "marketing"
+    }
   }
 ];
 

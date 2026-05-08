@@ -17,9 +17,9 @@ const solutions = [
     panelBg: "hsl(var(--cpaas-surface))",
     icon: iconCpaas,
     to: "/cpaas",
-    headline: "Comunicação em alta escala.",
-    desc: "Dispare WhatsApp, RCS, SMS e Voz com a infraestrutura robusta e rotas de alta performance para sustentar suas operações com máxima estabilidade.",
-    bullets: ["WhatsApp Business API", "RCS & SMS", "Voz e URA inteligente"],
+    headline: "Comunicação em Escala.",
+    desc: "O coração transacional do ecossistema. É uma plataforma robusta de comunicação via API desenvolvida para empresas que demandam alto volume de disparos. Atua como a engrenagem invisível que também potencializa as outras soluções (como o Solvefy Marketing).",
+    bullets: ["Integração via API", "Sem Taxa de Setup", "Cobrança por Volume"],
   },
   {
     key: "ads",
@@ -28,9 +28,9 @@ const solutions = [
     panelBg: "hsl(var(--ads-surface))",
     icon: iconAds,
     to: "/ads",
-    headline: "Compre performance, não apenas contatos.",
-    desc: "Pare de desperdiçar orçamento. Segmente sua audiência com inteligência e atraia leads qualificados direto para seus canais de conversão, pagando apenas por resultados reais.",
-    bullets: ["Meta & Google Ads", "Otimização por LTV", "Atribuição multitouch"],
+    headline: "Tráfego Direto",
+    desc: "Pare de queimar orçamento em plataformas saturadas e leilões inflacionados. A Solvefy/Ads entrega tráfego qualificado de alta performance com total autonomia. Sem bloqueios injustos, sem vínculo com outras redes. Apenas resultados reais e escaláveis.",
+    bullets: ["CPA até 20% menor", "CTR de até 35%", "Zero Vínculos"],
   },
   {
     key: "marketing",
@@ -39,9 +39,9 @@ const solutions = [
     panelBg: "hsl(var(--marketing-surface))",
     icon: iconMarketing,
     to: "/marketing",
-    headline: "Crie jornadas inteligentes",
-    desc: "Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você cria jornadas de relacionamento automatizadas e transforma contatos em vendas.",
-    bullets: ["Automações no-code", "Segmentação por comportamento", "A/B test nativo"],
+    headline: "Jornadas Inteligentes",
+    desc: "Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você cria jornadas de relacionamento automatizadas e transforma contatos em vendas. Use nossos templates de disparo rápido, acompanhe métricas em tempo real e integre tudo facilmente via API.",
+    bullets: ["Todos os Canais", "Construtor Visual de Jornadas", "EasyIA"],
   },
   {
     key: "crm",
@@ -50,9 +50,9 @@ const solutions = [
     panelBg: "hsl(var(--crm-surface))",
     icon: iconCrm,
     to: "/crm",
-    headline: "Fechamento rápido e sem atritos.",
-    desc: "Um funil de vendas claro e integrado nativamente às suas campanhas. Gerencie negociações, acompanhe o histórico de clientes e impulsione a produtividade do seu time de vendas.",
-    bullets: ["Kanban de oportunidades", "Discador integrado", "Forecast em tempo real"],
+    headline: "Gestão Comercial",
+    desc: "Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de vendas definitiva para equipes de alta performance. Elimine o vazamento de leads, automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios em menos tempo.",
+    bullets: ["Migração de Dados Gratuita", "Economize 20% vs. Concorrentes", "Implementação em 24h"],
   },
   {
     key: "cloud",
@@ -61,9 +61,9 @@ const solutions = [
     panelBg: "hsl(var(--cloud-surface))",
     icon: iconCloud,
     to: "/cloud",
-    headline: "A 1ª e-Cloud whitelabel do Brasil.",
-    desc: "Plataforma E-CLOUD whitelabel on-premises, suporte em ambientes Proxmox VE/PBS/Ceph e consultoria especializada em Docker, Kubernetes e bancos de dados. Do diagnóstico inicial à operação contínua — do zero ao fim do processo.",
-    bullets: ["Plataforma Whitelabel On-Premises", "Proxmox Reseller/Partner Oficial", "Criptografia ponta-a-ponta"],
+    headline: "Automação Cloud White Label",
+    desc: "Transforme a infraestrutura ociosa do seu Provedor de Internet (ISP) ou Data Center em um negócio rentável. Automatize 100% da venda, o provisionamento e o faturamento de serviços de cloud com a sua marca, sem depender de terceiros.",
+    bullets: ["Plataforma White Label On-Premises", "Proxmox Reseller/Partner Oficial", "Do Zero ao Fim do Processo"],
   },
 ];
 
@@ -76,7 +76,7 @@ export const Solutions = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl text-left mb-14">
           <Heading className="tracking-tighter text-balance leading-[1.1]">
-            Próximo. Veloz. <span className="text-primary">Único.</span>
+            Próximo. Veloz. <span className="text-primary">Melhor.</span>
           </Heading>
           <SectionSubtitle className="mt-5">
             Pare de dividir sua estratégia em várias ferramentas. Unifique sua comunicação,

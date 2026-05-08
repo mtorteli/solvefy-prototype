@@ -15,12 +15,12 @@ const solutions = [
   { name: "Solvefy/Ads", icon: iconAds, hover: "hover:bg-[hsl(var(--ads))]/10", desc: "Tráfego Direto", to: "/ads" },
   { name: "Solvefy/Marketing", icon: iconMarketing, hover: "hover:bg-[hsl(var(--marketing))]/10", desc: "Jornadas Inteligentes", to: "/marketing" },
   { name: "Solvefy/CRM", icon: iconCrm, hover: "hover:bg-[hsl(var(--crm))]/10", desc: "Gestão Comercial", to: "/crm" },
-  { name: "Solvefy/Cloud", icon: iconCloud, hover: "hover:bg-[hsl(var(--cloud))]/10", desc: "Automação Cloud", to: "/cloud" },
+  { name: "Solvefy/Cloud", icon: iconCloud, hover: "hover:bg-[hsl(var(--cloud))]/10", desc: "Automação Cloud White Label", to: "/cloud" },
 ];
 
 const resources = [
   { name: "Blog", to: "/blog" }, 
-  { name: "Central de Ajuda", to: "/" }, 
+  { name: "Central de Ajuda", to: "https://intercom.help/Solvefy/pt-BR" },
   { name: "Documentação", to: "/" }
 ];
 const company = [
@@ -46,7 +46,20 @@ const NavDropdown = ({
     <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
       <div className="w-72 rounded-2xl border border-border bg-card shadow-elegant p-2">
         {items.map((item) =>
-          item.to ? (
+          item.to?.startsWith("http") ? (
+            <a
+              key={item.name}
+              href={item.to}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 rounded-xl px-3 py-2.5 hover:bg-muted transition-colors"
+            >
+              <div>
+                <div className="text-sm font-semibold text-foreground">{item.name}</div>
+                {item.desc && <div className="text-xs text-muted-foreground">{item.desc}</div>}
+              </div>
+            </a>
+          ) : item.to ? (
             <Link
               key={item.name}
               to={item.to}

@@ -58,7 +58,7 @@ export const Footer = () => {
             </Link>
             <h3 className="text-white mt-6 text-xl md:text-2xl font-bold tracking-tighter text-balance">
               Próximo<span className="text-primary">.</span> Veloz
-              <span className="text-primary">.</span> Único
+              <span className="text-primary">.</span> Melhor
               <span className="text-primary">.</span>
             </h3>
             <p className="mt-3 text-dark-foreground/60 max-w-md leading-relaxed">
