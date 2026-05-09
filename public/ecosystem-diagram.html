@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Ecossistema Solvefy</title>
 <style>
-/* ── Pacaembu (served from same origin) ── */
+/* ── Pacaembu ── */
 @font-face {
   font-family: 'Pacaembu';
   src: url('/fonts/Pacaembu-Regular.woff2') format('woff2'),
@@ -48,48 +48,48 @@
 
   --fg-default: var(--ink-900);
   --fg-muted:   var(--ink-400);
-  --fg-subtle:  var(--ink-300);
 
   --rule-subtle:  var(--paper-300);
   --rule-default: var(--paper-400);
 
   /* product palette */
-  --brand-crm:          #E1611C;
-  --brand-crm-bg:       #FFDAC6;
+  --brand-cpaas:        #9C7BFF;
+  --brand-cpaas-bg:     #E7DBFF;
   --brand-ads:          #F0A800;
   --brand-ads-bg:       #FFF7E5;
   --brand-marketing:    #E64499;
   --brand-marketing-bg: #FFE9F5;
-  --brand-cpaas:        #9C7BFF;
-  --brand-cpaas-bg:     #E7DBFF;
+  --brand-crm:          #E1611C;
+  --brand-crm-bg:       #FFDAC6;
   --brand-cloud:        #00CBFF;
   --brand-cloud-bg:     #C6E8F1;
   --brand-lead:         #00DF71;
+  --brand-lead-bg:      #E7FFE7;
 
   /* local aliases */
-  --c-crm:          var(--brand-crm);
-  --c-crm-bg:       var(--brand-crm-bg);
+  --c-cpaas:        var(--brand-cpaas);
+  --c-cpaas-bg:     var(--brand-cpaas-bg);
   --c-ads:          var(--brand-ads);
   --c-ads-bg:       var(--brand-ads-bg);
   --c-marketing:    var(--brand-marketing);
   --c-marketing-bg: var(--brand-marketing-bg);
-  --c-cpaas:        var(--brand-cpaas);
-  --c-cpaas-bg:     var(--brand-cpaas-bg);
+  --c-crm:          var(--brand-crm);
+  --c-crm-bg:       var(--brand-crm-bg);
   --c-cloud:        var(--brand-cloud);
   --c-cloud-bg:     var(--brand-cloud-bg);
   --lead:           var(--brand-lead);
+  --lead-bg:        var(--brand-lead-bg);
 
   /* typography — all Pacaembu */
   --font-sans: 'Pacaembu', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Pacaembu', ui-monospace, monospace;
 
   --text-2xs: 11px;
-  --text-xs:  12px;
   --text-lg:  18px;
 
-  --leading-tight:   1.08;
-  --track-tight:    -0.02em;
-  --track-caps:      0.08em;
+  --leading-tight: 1.08;
+  --track-tight:  -0.02em;
+  --track-caps:    0.08em;
 
   --weight-regular:  400;
   --weight-medium:   500;
@@ -119,17 +119,8 @@
 
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; }
-html, body {
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  overflow: hidden;
-}
-body {
-  font-family: var(--font-sans);
-  color: var(--fg-default);
-  -webkit-font-smoothing: antialiased;
-}
+html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+body { font-family: var(--font-sans); color: var(--fg-default); -webkit-font-smoothing: antialiased; }
 
 .wrap { width: 100%; }
 
@@ -145,19 +136,12 @@ body {
 }
 
 /* ── Canvas ── */
-.canvas {
-  position: relative;
-  width: 100%;
-  height: 460px;
-}
+.canvas { position: relative; width: 100%; height: 460px; }
 
 .lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 1; pointer-events: none;
 }
 
 /* ── Nodes ── */
@@ -174,9 +158,9 @@ body {
   text-align: left;
   transition:
     box-shadow var(--dur-slow) var(--ease-out),
-    transform   var(--dur-slow) var(--ease-out),
+    transform  var(--dur-slow) var(--ease-out),
     border-color var(--dur-med) var(--ease-out),
-    background  var(--dur-med) var(--ease-out);
+    background   var(--dur-med) var(--ease-out);
 }
 .node::before {
   content: "";
@@ -207,8 +191,8 @@ body {
   display: grid; place-items: center;
   transition:
     background var(--dur-med) var(--ease-out),
-    color var(--dur-med) var(--ease-out),
-    transform var(--dur-med) var(--ease-spring);
+    color      var(--dur-med) var(--ease-out),
+    transform  var(--dur-med) var(--ease-spring);
 }
 .node .title {
   font-family: var(--font-sans);
@@ -228,12 +212,13 @@ body {
   font-weight: var(--weight-medium);
 }
 
-.n-crm       { --c: var(--c-crm);       --c-bg: var(--c-crm-bg);       left: 1%;  }
-.n-marketing { --c: var(--c-marketing); --c-bg: var(--c-marketing-bg); left: 22%; }
-.n-ads       { --c: var(--c-ads);       --c-bg: var(--c-ads-bg);       left: 43%; }
-.n-cpaas     { --c: var(--c-cpaas);     --c-bg: var(--c-cpaas-bg);     left: 64%; }
+/* NEW ORDER — left to right: CPaaS → Ads → Marketing → CRM */
+.n-cpaas     { --c: var(--c-cpaas);     --c-bg: var(--c-cpaas-bg);     left: 1%;  }
+.n-ads       { --c: var(--c-ads);       --c-bg: var(--c-ads-bg);       left: 22%; }
+.n-marketing { --c: var(--c-marketing); --c-bg: var(--c-marketing-bg); left: 43%; }
+.n-crm       { --c: var(--c-crm);       --c-bg: var(--c-crm-bg);       left: 64%; }
 
-/* ── Channels stack ── */
+/* ── Channels stack (right of CRM, output in Lead green) ── */
 .channels-stack {
   position: absolute;
   left: 85%;
@@ -263,20 +248,20 @@ body {
   gap: var(--s-2);
   transition:
     border-color var(--dur-med) var(--ease-out),
-    background  var(--dur-med) var(--ease-out),
-    transform   var(--dur-med) var(--ease-out);
+    background   var(--dur-med) var(--ease-out),
+    transform    var(--dur-med) var(--ease-out);
 }
 .channel .ico {
   width: 18px; height: 18px;
   border-radius: var(--r-xs);
-  background: var(--c-cpaas-bg);
-  color: var(--c-cpaas);
+  background: var(--lead-bg);
+  color: var(--lead);
   display: grid; place-items: center;
   flex-shrink: 0;
 }
 .channel.active {
-  border-color: var(--c-cpaas);
-  background: color-mix(in oklab, var(--c-cpaas) 6%, var(--bg-surface));
+  border-color: var(--lead);
+  background: color-mix(in oklab, var(--lead) 6%, var(--bg-surface));
   transform: translateX(2px);
 }
 
@@ -304,8 +289,7 @@ body {
 /* ── Cloud chip ── */
 .cloud-chip {
   position: absolute;
-  left: 1%;
-  bottom: 0;
+  left: 1%; bottom: 0;
   z-index: 3;
   display: inline-flex;
   align-items: center;
@@ -321,16 +305,7 @@ body {
   padding: var(--s-1_5) var(--s-3);
   font-weight: var(--weight-medium);
 }
-.cloud-chip .dot {
-  width: 6px; height: 6px;
-  border-radius: var(--r-pill);
-  background: var(--c-cloud);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--c-cloud) 22%, transparent);
-}
-.cloud-chip .lbl-prod {
-  color: var(--fg-default);
-  font-weight: var(--weight-semibold);
-}
+.cloud-chip .lbl-prod { color: var(--fg-default); font-weight: var(--weight-semibold); }
 
 /* ── Lead ball ── */
 .ball {
@@ -341,15 +316,14 @@ body {
   background: var(--lead);
   box-shadow:
     0 0 0 3px color-mix(in oklab, var(--lead) 30%, transparent),
-    0 0 12px color-mix(in oklab, var(--lead) 55%, transparent);
+    0 0 12px  color-mix(in oklab, var(--lead) 55%, transparent);
   z-index: 2;
   pointer-events: none;
   will-change: transform, opacity;
 }
 .ball::after {
   content: "";
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   border-radius: 99px;
   animation: ping 1.4s ease-out infinite;
 }
@@ -358,12 +332,10 @@ body {
   100% { box-shadow: 0 0 0 14px transparent; }
 }
 
-/* ── Particles ── */
+/* ── Particles (Lead green) ── */
 .emitter {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: visible;
+  position: absolute; inset: 0;
+  pointer-events: none; overflow: visible;
 }
 .particle {
   position: absolute;
@@ -377,17 +349,17 @@ body {
   20%  { opacity: 1; }
   100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1); opacity: 0; }
 }
-.p-sms   { width: 22px; height: 16px; background: var(--c-cpaas); border-radius: 4px 4px 4px 1px; opacity: 0.85; }
-.p-rcs   { width: 24px; height: 18px; background: color-mix(in oklab, var(--c-cpaas) 70%, white); border-radius: 6px; }
-.p-email { width: 24px; height: 16px; background: var(--paper-0); border: 1.5px solid var(--c-cpaas); border-radius: 2px; position: relative; }
+.p-sms   { width: 22px; height: 16px; background: var(--lead); border-radius: 4px 4px 4px 1px; opacity: 0.85; }
+.p-rcs   { width: 24px; height: 18px; background: color-mix(in oklab, var(--lead) 70%, white); border-radius: 6px; }
+.p-email { width: 24px; height: 16px; background: var(--paper-0); border: 1.5px solid var(--lead); border-radius: 2px; position: relative; }
 .p-email::before {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to bottom right, transparent 45%, var(--c-cpaas) 45%, var(--c-cpaas) 55%, transparent 55%);
+  background: linear-gradient(to bottom right, transparent 45%, var(--lead) 45%, var(--lead) 55%, transparent 55%);
   opacity: 0.4;
 }
 .p-voz   { display: flex; gap: 2px; align-items: center; height: 18px; }
 .p-voz span {
-  width: 2px; background: var(--c-cpaas); border-radius: 2px;
+  width: 2px; background: var(--lead); border-radius: 2px;
   animation: voz 0.8s ease-in-out infinite;
 }
 .p-voz span:nth-child(1) { height: 6px; }
@@ -401,7 +373,7 @@ body {
 }
 .p-wa {
   width: 22px; height: 22px;
-  background: var(--c-cpaas);
+  background: var(--lead);
   border-radius: 99px 99px 99px 4px;
   color: white;
   display: grid; place-items: center;
@@ -437,7 +409,10 @@ body {
 
       <div class="canvas" id="canvas">
 
-        <!-- SVG: flow lines + return loops -->
+        <!-- SVG: flow lines + return loops
+             viewBox 1600×700; new node centers (same positions, new products):
+             CPaaS=168, Ads=504, Marketing=840, CRM=1176
+             Channels at left:85% → center ≈ 1472 -->
         <svg class="lines" viewBox="0 0 1600 700" preserveAspectRatio="none">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
@@ -445,96 +420,96 @@ body {
             </marker>
           </defs>
 
-          <!-- Forward flow lines -->
-          <path d="M 168,210 H 504" fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
-          <path d="M 504,210 H 840" fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
+          <!-- Forward flow: CPaaS → Ads → Marketing → CRM -->
+          <path d="M 168,210 H 504"  fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
+          <path d="M 504,210 H 840"  fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
           <path d="M 840,210 H 1176" fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
 
-          <!-- Path used for ball positioning -->
+          <!-- Invisible path the ball follows (CPaaS → CRM) -->
           <path id="fullPath" d="M 168,210 L 504,210 L 840,210 L 1176,210" fill="none" stroke="none"/>
 
-          <!-- Return loops -->
-          <path id="returnToMkt"
-                d="M 1472,360 L 1472,460 L 504,460 L 504,260"
+          <!-- Return loops: channels → back to CPaaS (168) and Ads (504) -->
+          <path id="returnToCpaas"
+                d="M 1472,380 L 1472,500 L 168,500 L 168,260"
                 fill="none" stroke="var(--ink-300)" stroke-width="1.2"
                 stroke-dasharray="2 6" opacity="0.55"
                 vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
-          <path id="returnToCrm"
-                d="M 1472,380 L 1472,500 L 168,500 L 168,260"
+          <path id="returnToAds"
+                d="M 1472,360 L 1472,460 L 504,460 L 504,260"
                 fill="none" stroke="var(--ink-300)" stroke-width="1.2"
                 stroke-dasharray="2 6" opacity="0.55"
                 vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
 
           <!-- Return dots -->
-          <circle id="rpDotMkt" r="3.5" fill="var(--lead)" opacity="0">
-            <animateMotion id="rpAnimMkt" dur="2.6s" repeatCount="indefinite" begin="indefinite">
-              <mpath href="#returnToMkt"/>
-            </animateMotion>
-            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" repeatCount="indefinite" begin="indefinite"/>
-          </circle>
-          <circle id="rpDotCrm" r="3.5" fill="var(--lead)" opacity="0">
-            <animateMotion id="rpAnimCrm" dur="3.2s" repeatCount="indefinite" begin="indefinite">
-              <mpath href="#returnToCrm"/>
+          <circle id="rpDotCpaas" r="3.5" fill="var(--lead)" opacity="0">
+            <animateMotion id="rpAnimCpaas" dur="3.2s" repeatCount="indefinite" begin="indefinite">
+              <mpath href="#returnToCpaas"/>
             </animateMotion>
             <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="3.2s" repeatCount="indefinite" begin="indefinite"/>
+          </circle>
+          <circle id="rpDotAds" r="3.5" fill="var(--lead)" opacity="0">
+            <animateMotion id="rpAnimAds" dur="2.6s" repeatCount="indefinite" begin="indefinite">
+              <mpath href="#returnToAds"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" repeatCount="indefinite" begin="indefinite"/>
           </circle>
         </svg>
 
         <!-- Return label -->
         <div class="return-label">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/>
-            <path d="M3 3v5h5"/>
+            <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>
           </svg>
           dados de retorno · engajamento · conversão
         </div>
 
-        <!-- Nodes -->
-        <div class="node n-crm" id="n-crm">
-          <div class="ico">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 11 L12 4 L21 11 V20 a1 1 0 0 1 -1 1 H4 a1 1 0 0 1 -1 -1 Z"/>
-              <path d="M16 13 v3 h-5"/><path d="M14 14 l-3 2 3 2"/>
-            </svg>
-          </div>
-          <div class="title">CRM</div>
-          <div class="sub">Base de dados</div>
-        </div>
+        <!-- ── NODES: CPaaS → Ads → Marketing → CRM ── -->
 
-        <div class="node n-marketing" id="n-marketing">
-          <div class="ico">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 3 L5 13 h6 L9 21 L19 10 h-6 Z"/>
-              <path d="M16 6 l3 -3 M19 3 v3 M19 3 h-3"/>
-            </svg>
-          </div>
-          <div class="title">Marketing</div>
-          <div class="sub">Nutrição</div>
-        </div>
-
-        <div class="node n-ads" id="n-ads">
-          <div class="ico">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 5 a4 4 0 0 0 -4 -2 H10 a4 4 0 0 0 0 8 h4 a4 4 0 0 1 0 8 h-4 a4 4 0 0 1 -4 -4"/>
-              <path d="M9 22 l-3 -3 3 -3"/>
-            </svg>
-          </div>
-          <div class="title">Ads</div>
-          <div class="sub">Aquisição</div>
-        </div>
-
+        <!-- 1: CPaaS (Omnichannel) — official purple arrow-up icon -->
         <div class="node n-cpaas" id="n-cpaas">
           <div class="ico">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3 L21 20 H3 Z"/>
-              <path d="M12 16 V10"/><path d="M9 13 L12 10 L15 13"/>
+            <svg width="20" height="20" viewBox="67 67 88 88" xmlns="http://www.w3.org/2000/svg">
+              <path d="M71.5 137.397H91.5635C93.7579 137.397 95.8479 138.388 97.2064 140.107L104.312 149.072C105.305 150.322 106.716 151 108.231 151C108.806 151 109.38 150.896 109.903 150.739C111.94 150.01 113.299 148.186 113.299 145.997V114.049L119.203 119.938L122.547 116.603L114.71 108.785C113.665 107.743 112.306 107.169 110.843 107.169C109.38 107.169 108.022 107.743 106.977 108.785L99.1396 116.603L102.483 119.938L108.649 113.788V145.945C108.649 146.049 108.649 146.153 108.44 146.257C108.231 146.309 108.126 146.257 108.074 146.153L100.968 137.189C98.7216 134.322 95.3254 132.655 91.668 132.655H79.8598L111.052 80.1726L142.245 132.655H125.786V137.345H150.5L111.052 71L71.6045 137.345L71.5 137.397Z" fill="currentColor"/>
             </svg>
           </div>
           <div class="title">CPaaS</div>
           <div class="sub">Omnichannel</div>
         </div>
 
-        <!-- Channels -->
+        <!-- 2: Ads (Aquisição) — official yellow S-curve icon -->
+        <div class="node n-ads" id="n-ads">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="71 67 80 88" xmlns="http://www.w3.org/2000/svg">
+              <path d="M81.2954 129.019C77.503 134.78 75.5 141.486 75.5 148.41V151H146.5V148.41C146.5 128.892 130.574 113.012 111 113.012C100.818 113.012 92.5285 104.752 92.5285 94.5931C92.5285 84.4341 100.812 76.1745 111 76.1745C120.253 76.1745 127.936 82.9951 129.264 91.8591L121.182 87.2602L118.608 91.7612L129.229 97.8106C130.176 98.3516 131.203 98.6049 132.225 98.6049C134.332 98.6049 136.381 97.5113 137.501 95.56L143.568 84.9694L139.054 82.4023L134.326 90.6618C132.439 79.5128 122.701 71 111 71C97.9545 71 87.3333 81.5849 87.3333 94.5988C87.3333 107.613 97.9487 118.198 111 118.198C126.834 118.198 139.873 130.371 141.195 145.826H80.8048C81.232 140.841 82.8828 136.058 85.642 131.862L81.2954 129.019Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="title">Ads</div>
+          <div class="sub">Aquisição</div>
+        </div>
+
+        <!-- 3: Marketing (Nutrição) — official pink lightning icon -->
+        <div class="node n-marketing" id="n-marketing">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="72 66 78 89" xmlns="http://www.w3.org/2000/svg">
+              <path d="M114.219 101.305L136.649 101.656L110.447 137.188V123.025C110.447 118.321 106.574 114.467 101.847 114.467H85.8039L113.414 79.4358L114.621 86.5922L119.097 85.8416L117.286 75.3822C116.784 72.5296 114.068 70.5779 111.201 71.0783L100.69 72.8799L101.445 77.3339L110.547 75.7826L76.5 119.021H101.847C104.06 119.021 105.921 120.823 105.921 123.075V151L145.5 97.4019L114.269 96.9015V101.406L114.219 101.305Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="title">Marketing</div>
+          <div class="sub">Nutrição</div>
+        </div>
+
+        <!-- 4: CRM (Base de dados) — official orange house icon -->
+        <div class="node n-crm" id="n-crm">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="65 66 92 89" xmlns="http://www.w3.org/2000/svg">
+              <path d="M147.369 93.9663L118.929 73.5518C114.218 70.1494 107.84 70.1494 103.129 73.5518L74.5732 94.3123C71.0684 96.8497 69 100.944 69 105.333V148.353H74.171V105.333C74.171 102.622 75.4925 100.085 77.6183 98.5278L106.174 77.7616C109.104 75.6279 113.011 75.6279 115.941 77.7616L144.382 98.1761C146.565 99.7331 147.886 102.27 147.886 104.981V145.752H101.347V115.765C101.347 114.496 102.382 113.458 103.646 113.458H117.607C118.871 113.458 119.906 114.496 119.906 115.765V129.086L113.126 122.281L109.449 125.972L118.067 134.622C119.216 135.776 120.71 136.41 122.319 136.41C123.927 136.41 125.421 135.776 126.57 134.622L135.189 125.972L131.512 122.281L125.019 128.798V115.822C125.019 111.67 121.687 108.326 117.55 108.326H103.588C99.4514 108.326 96.119 111.67 96.119 115.822V151H153V105.039C153 100.656 150.874 96.5614 147.312 93.9663H147.369Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="title">CRM</div>
+          <div class="sub">Base de dados</div>
+        </div>
+
+        <!-- Channels (to the right of CRM, output in Lead green) -->
         <div class="channels-stack">
           <div class="channel" id="ch-sms" data-channel="sms">
             <span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
@@ -575,12 +550,12 @@ body {
 
       </div>
 
-      <!-- Legend (no speed controls) -->
+      <!-- Legend in new order: CPaaS → Ads → Marketing → CRM → Lead -->
       <div class="legend">
-        <span class="swatch" style="--bg: var(--c-crm)"><i></i> CRM</span>
-        <span class="swatch" style="--bg: var(--c-marketing)"><i></i> Marketing</span>
-        <span class="swatch" style="--bg: var(--c-ads)"><i></i> Ads</span>
         <span class="swatch" style="--bg: var(--c-cpaas)"><i></i> CPaaS</span>
+        <span class="swatch" style="--bg: var(--c-ads)"><i></i> Ads</span>
+        <span class="swatch" style="--bg: var(--c-marketing)"><i></i> Marketing</span>
+        <span class="swatch" style="--bg: var(--c-crm)"><i></i> CRM</span>
         <span class="swatch" style="--bg: var(--lead)"><i></i> Lead</span>
       </div>
 
@@ -592,7 +567,7 @@ body {
   const canvas   = document.getElementById('canvas');
   const fullPath = document.getElementById('fullPath');
 
-  // ── Single ball: linear L→R with fade-in / fade-out ──
+  // ── Single ball: linear left-to-right (CPaaS → CRM) ──
   const ball = document.createElement('div');
   ball.className = 'ball';
   ball.style.opacity = '0';
@@ -605,26 +580,29 @@ body {
   recalc();
   window.addEventListener('resize', recalc);
 
-  const CYCLE_MS = 9000; // traversal duration (fixed speed)
+  const CYCLE_MS = 9000;
   const startTime = performance.now();
 
-  // t ranges for each node centre (viewBox 1600, path from x=168 to x=1176, length=1008)
+  // Node ranges along the path (viewBox 1600, path x: 168→1176, total=1008)
+  // New order: n-cpaas=168, n-ads=504, n-marketing=840, n-crm=1176
   function nodeRange(cx) {
-    const half = 120; // slightly narrower than original so pulse doesn't stay long
+    const half = 120;
     return { enter: (cx - half - 168) / 1008, exit: (cx + half - 168) / 1008 };
   }
   const NODE_RANGES = [
-    { id: 'n-crm',       ...nodeRange(168)  },
-    { id: 'n-marketing', ...nodeRange(504)  },
-    { id: 'n-ads',       ...nodeRange(840)  },
-    { id: 'n-cpaas',     ...nodeRange(1176) },
+    { id: 'n-cpaas',     ...nodeRange(168)  },
+    { id: 'n-ads',       ...nodeRange(504)  },
+    { id: 'n-marketing', ...nodeRange(840)  },
+    { id: 'n-crm',       ...nodeRange(1176) },
   ];
+
   function nodeAtT(t) {
     for (const r of NODE_RANGES) {
       if (t >= r.enter && t <= r.exit) return r.id;
     }
     return null;
   }
+
   function pulseNode(id) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -651,29 +629,27 @@ body {
   let lastNode = null;
 
   function tick(now) {
-    const elapsed = now - startTime;
-    const t = (elapsed % CYCLE_MS) / CYCLE_MS; // 0..1, linear, left-to-right
+    const t = ((now - startTime) % CYCLE_MS) / CYCLE_MS;
 
     if (totalLength > 0) {
       const rect = canvas.getBoundingClientRect();
-
       const pt = fullPath.getPointAtLength(totalLength * t);
       const px = (pt.x / 1600) * rect.width;
       const py = (pt.y / 700)  * rect.height;
       ball.style.transform = `translate(${px}px, ${py}px) translate(-50%, -50%)`;
 
-      // Smooth fade: appear at t=0.03, disappear near t=0.96
+      // Fade in at start, fade out near end
       let opacity = 1;
       if (t < 0.03)      opacity = t / 0.03;
       else if (t > 0.92) opacity = (1 - t) / 0.08;
       ball.style.opacity = String(Math.max(0, Math.min(1, opacity)));
 
-      // Node pulse on entry
+      // Pulse node on entry; fan-out when ball reaches CRM (last node)
       const here = nodeAtT(t);
       if (here !== lastNode) {
         if (here) {
           pulseNode(here);
-          if (here === 'n-cpaas') fanOutChannels();
+          if (here === 'n-crm') fanOutChannels();
         }
         lastNode = here;
       }
@@ -721,10 +697,10 @@ body {
 
   // ── Start return-loop SVG animations ──
   window.addEventListener('load', () => {
-    const mkt = document.getElementById('rpAnimMkt');
-    const crm = document.getElementById('rpAnimCrm');
-    if (mkt) mkt.beginElement();
-    if (crm) crm.beginElement();
+    const aCpaas = document.getElementById('rpAnimCpaas');
+    const aAds   = document.getElementById('rpAnimAds');
+    if (aCpaas) aCpaas.beginElement();
+    if (aAds)   aAds.beginElement();
   });
 })();
 </script>
