@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ecossistema Solvefy</title>
+<style>
+/* ── Design system tokens (inlined from colors_and_type.css + solvefy-brand.css) ── */
+:root {
+  --ink-1000: #06070A;
+  --ink-900:  #0B0D0E;
+  --ink-800:  #15181A;
+  --ink-700:  #1F2223;
+  --ink-600:  #2A2D2F;
+  --ink-500:  #3D4143;
+  --ink-400:  #5A5E62;
+  --ink-300:  #8A8E92;
+  --ink-200:  #B6B9BC;
+  --ink-100:  #D4D6D8;
+
+  --paper-0:   #FFFFFF;
+  --paper-50:  #FBFAF7;
+  --paper-100: #F7F5F2;
+  --paper-200: #F0EEE9;
+  --paper-300: #E5E3DE;
+  --paper-400: #D6D3CC;
+  --paper-500: #B5B1A8;
+
+  --bg-page:    var(--paper-50);
+  --bg-surface: var(--paper-0);
+  --bg-inset:   var(--paper-100);
+  --bg-muted:   var(--paper-200);
+  --bg-inverse: var(--ink-900);
+
+  --fg-default: var(--ink-900);
+  --fg-muted:   var(--ink-400);
+  --fg-subtle:  var(--ink-300);
+  --fg-inverse: var(--paper-50);
+
+  --rule-subtle:  var(--paper-300);
+  --rule-default: var(--paper-400);
+  --rule-strong:  var(--ink-200);
+  --rule-inverse: var(--ink-700);
+
+  /* product palette */
+  --brand-crm:          #E1611C;
+  --brand-crm-bg:       #FFDAC6;
+  --brand-ads:          #F0A800;
+  --brand-ads-bg:       #FFF7E5;
+  --brand-marketing:    #E64499;
+  --brand-marketing-bg: #FFE9F5;
+  --brand-cpaas:        #9C7BFF;
+  --brand-cpaas-bg:     #E7DBFF;
+  --brand-cloud:        #00CBFF;
+  --brand-cloud-bg:     #C6E8F1;
+  --brand-lead:         #00DF71;
+  --brand-lead-bg:      #E7FFE7;
+
+  /* type */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+
+  --text-2xs: 11px;
+  --text-xs:  12px;
+  --text-sm:  13px;
+  --text-md:  14px;
+  --text-base:16px;
+  --text-lg:  18px;
+  --text-xl:  22px;
+  --text-2xl: 28px;
+  --text-4xl: 48px;
+
+  --leading-tight:   1.08;
+  --leading-snug:    1.25;
+  --leading-relaxed: 1.6;
+
+  --track-tight: -0.02em;
+  --track-caps:   0.12em;
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+
+  --s-1:    4px;
+  --s-1_5:  6px;
+  --s-2:    8px;
+  --s-3:    12px;
+  --s-4:    16px;
+  --s-5:    20px;
+  --s-6:    24px;
+  --s-8:    32px;
+  --s-10:   40px;
+  --s-12:   48px;
+  --s-16:   64px;
+
+  --r-xs:   3px;
+  --r-sm:   5px;
+  --r-md:   6px;
+  --r-lg:   10px;
+  --r-xl:   14px;
+  --r-2xl:  20px;
+  --r-pill: 9999px;
+
+  --shadow-pop: 0 1px 0 rgba(11,13,14,0.04), 0 2px 6px rgba(11,13,14,0.06);
+
+  --container-xl: 1360px;
+
+  --ease-out:    cubic-bezier(0.22, 0.8, 0.30, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 120ms;
+  --dur-med:  200ms;
+  --dur-slow: 400ms;
+
+  /* local aliases for the animation */
+  --c-crm:          var(--brand-crm);
+  --c-crm-bg:       var(--brand-crm-bg);
+  --c-ads:          var(--brand-ads);
+  --c-ads-bg:       var(--brand-ads-bg);
+  --c-marketing:    var(--brand-marketing);
+  --c-marketing-bg: var(--brand-marketing-bg);
+  --c-cpaas:        var(--brand-cpaas);
+  --c-cpaas-bg:     var(--brand-cpaas-bg);
+  --c-cloud:        var(--brand-cloud);
+  --c-cloud-bg:     var(--brand-cloud-bg);
+  --lead:           var(--brand-lead);
+  --lead-bg:        var(--brand-lead-bg);
+}
+
+/* ── iframe reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+html { margin: 0; padding: 0; }
+body {
+  margin: 0;
+  padding: var(--s-6);
+  background: transparent;
+  font-family: var(--font-sans);
+  color: var(--fg-default);
+  overflow-x: hidden;
+}
+
+.wrap { width: 100%; }
+
+/* ── Stage card ── */
+.stage {
+  position: relative;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--rule-subtle);
+  border-radius: var(--r-xl);
+  padding: var(--s-12) var(--s-12) var(--s-16);
+  box-shadow: var(--shadow-pop);
+  overflow: hidden;
+}
+
+/* ── Canvas ── */
+.canvas {
+  position: relative;
+  width: 100%;
+  height: 460px;
+}
+
+/* SVG layer */
+.lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Nodes ── */
+.node {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 4;
+  background: var(--bg-surface);
+  border: 1px solid var(--rule-subtle);
+  border-radius: var(--r-lg);
+  width: 19%;
+  padding: var(--s-5) var(--s-5);
+  text-align: left;
+  transition: box-shadow var(--dur-slow) var(--ease-out),
+              transform   var(--dur-slow) var(--ease-out),
+              border-color var(--dur-med) var(--ease-out),
+              background var(--dur-med) var(--ease-out);
+}
+.node::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--c);
+  border-radius: var(--r-lg) 0 0 var(--r-lg);
+  transition: width var(--dur-med) var(--ease-out);
+}
+.node.active {
+  border-color: var(--c);
+  background: color-mix(in oklab, var(--c-bg) 55%, var(--bg-surface));
+  box-shadow: var(--shadow-pop),
+              0 0 0 4px color-mix(in oklab, var(--c) 18%, transparent);
+  transform: translateY(-50%) translateY(-3px);
+}
+.node.active::before { width: 5px; }
+.node.active .ico {
+  background: var(--c);
+  color: var(--paper-0);
+  transform: scale(1.05);
+}
+.node .ico {
+  width: 36px; height: 36px;
+  margin-bottom: var(--s-3);
+  border-radius: var(--r-md);
+  background: var(--c-bg);
+  color: var(--c);
+  display: grid; place-items: center;
+  transition: background var(--dur-med) var(--ease-out),
+              color var(--dur-med) var(--ease-out),
+              transform var(--dur-med) var(--ease-spring);
+}
+.node .title {
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-lg);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--track-tight);
+  color: var(--fg-default);
+  margin-bottom: var(--s-1);
+}
+.node .sub {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  font-weight: var(--weight-medium);
+}
+
+.n-crm       { --c: var(--c-crm);       --c-bg: var(--c-crm-bg);       left: 1%;  }
+.n-marketing { --c: var(--c-marketing); --c-bg: var(--c-marketing-bg); left: 22%; }
+.n-ads       { --c: var(--c-ads);       --c-bg: var(--c-ads-bg);       left: 43%; }
+.n-cpaas     { --c: var(--c-cpaas);     --c-bg: var(--c-cpaas-bg);     left: 64%; }
+
+/* ── Channels stack ── */
+.channels-stack {
+  position: absolute;
+  left: 85%;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  width: 14%;
+  min-width: 110px;
+}
+.channel {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--rule-subtle);
+  border-radius: var(--r-md);
+  padding: var(--s-1_5) var(--s-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  color: var(--fg-default);
+  font-weight: var(--weight-medium);
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  transition: border-color var(--dur-med) var(--ease-out),
+              background var(--dur-med) var(--ease-out),
+              transform var(--dur-med) var(--ease-out);
+}
+.channel .ico {
+  width: 18px; height: 18px;
+  border-radius: var(--r-xs);
+  background: var(--c-cpaas-bg);
+  color: var(--c-cpaas);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.channel.active {
+  border-color: var(--c-cpaas);
+  background: color-mix(in oklab, var(--c-cpaas) 6%, var(--bg-surface));
+  transform: translateX(2px);
+}
+
+/* ── Return loop label ── */
+.return-label {
+  position: absolute;
+  left: 50%;
+  bottom: 14%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1_5);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  color: var(--fg-muted);
+  background: var(--bg-page);
+  padding: var(--s-1) var(--s-2);
+  font-weight: var(--weight-medium);
+}
+.return-label svg { color: var(--lead); }
+
+/* ── Cloud chip ── */
+.cloud-chip {
+  position: absolute;
+  left: 1%;
+  bottom: 0;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  color: var(--fg-muted);
+  background: var(--bg-inset);
+  border: 1px dashed var(--rule-default);
+  border-radius: var(--r-pill);
+  padding: var(--s-1_5) var(--s-3);
+  font-weight: var(--weight-medium);
+}
+.cloud-chip .dot {
+  width: 6px; height: 6px;
+  border-radius: var(--r-pill);
+  background: var(--c-cloud);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--c-cloud) 22%, transparent);
+}
+.cloud-chip .lbl-prod { color: var(--fg-default); font-weight: var(--weight-semibold); }
+
+/* ── Lead balls ── */
+.ball {
+  position: absolute;
+  left: 0; top: 0;
+  width: 12px; height: 12px;
+  border-radius: var(--r-pill);
+  background: var(--lead);
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--lead) 30%, transparent),
+    0 0 12px color-mix(in oklab, var(--lead) 55%, transparent);
+  z-index: 2;
+  pointer-events: none;
+  will-change: transform;
+}
+.ball::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 99px;
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--lead) 50%, transparent);
+  animation: ping 1.4s ease-out infinite;
+}
+@keyframes ping {
+  0%   { box-shadow: 0 0 0 0 color-mix(in oklab, var(--lead) 50%, transparent); }
+  100% { box-shadow: 0 0 0 14px transparent; }
+}
+
+/* ── Particles ── */
+.emitter {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.particle {
+  position: absolute;
+  left: 100%; top: 50%;
+  transform: translate(-50%, -50%);
+  --dx: 60px; --dy: 0px;
+  will-change: transform, opacity;
+}
+@keyframes drift-out {
+  0%   { transform: translate(-50%, -50%) scale(0.4); opacity: 0; }
+  20%  { opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1); opacity: 0; }
+}
+.p-sms   { width: 22px; height: 16px; background: var(--c-cpaas); border-radius: 4px 4px 4px 1px; opacity: 0.85; }
+.p-rcs   { width: 24px; height: 18px; background: color-mix(in oklab, var(--c-cpaas) 70%, white); border-radius: 6px; }
+.p-email { width: 24px; height: 16px; background: var(--paper-0); border: 1.5px solid var(--c-cpaas); border-radius: 2px; }
+.p-email::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom right, transparent 45%, var(--c-cpaas) 45%, var(--c-cpaas) 55%, transparent 55%);
+  opacity: 0.4;
+}
+.p-voz   { display: flex; gap: 2px; align-items: center; height: 18px; }
+.p-voz span {
+  width: 2px; background: var(--c-cpaas); border-radius: 2px;
+  animation: voz 0.8s ease-in-out infinite;
+}
+.p-voz span:nth-child(1) { height: 6px; }
+.p-voz span:nth-child(2) { height: 14px; animation-delay: 0.1s; }
+.p-voz span:nth-child(3) { height: 18px; animation-delay: 0.2s; }
+.p-voz span:nth-child(4) { height: 12px; animation-delay: 0.3s; }
+.p-voz span:nth-child(5) { height: 8px;  animation-delay: 0.4s; }
+@keyframes voz {
+  0%, 100% { transform: scaleY(0.4); }
+  50%      { transform: scaleY(1); }
+}
+.p-wa {
+  width: 22px; height: 22px;
+  background: var(--c-cpaas);
+  border-radius: 99px 99px 99px 4px;
+  color: white;
+  display: grid; place-items: center;
+}
+
+/* ── Header ── */
+.head {
+  margin-bottom: var(--s-10);
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: var(--s-6);
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  color: var(--fg-muted);
+  margin-bottom: var(--s-3);
+  font-weight: var(--weight-medium);
+}
+.head h1 {
+  font-size: clamp(22px, 3.6vw, var(--text-4xl));
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--track-tight);
+  line-height: var(--leading-tight);
+  margin: 0;
+  text-wrap: balance;
+  max-width: 740px;
+}
+.head .meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  color: var(--fg-muted);
+  text-align: right;
+  line-height: var(--leading-relaxed);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Legend ── */
+.legend {
+  margin-top: var(--s-10);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-6);
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  color: var(--fg-subtle);
+  font-weight: var(--weight-medium);
+}
+.legend .lhs { display: flex; gap: var(--s-5); flex-wrap: wrap; }
+.legend .swatch { display: inline-flex; align-items: center; gap: var(--s-1_5); }
+.legend .swatch i {
+  width: 8px; height: 8px;
+  border-radius: var(--r-pill);
+  background: var(--bg);
+}
+
+/* ── Speed controls ── */
+.controls {
+  display: inline-flex;
+  gap: var(--s-1);
+  background: var(--bg-surface);
+  border: 1px solid var(--rule-subtle);
+  padding: var(--s-1);
+  border-radius: var(--r-pill);
+}
+.controls button {
+  background: transparent;
+  border: 0;
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  color: var(--fg-muted);
+  font-weight: var(--weight-medium);
+  transition: background var(--dur-med) var(--ease-out), color var(--dur-med) var(--ease-out);
+}
+.controls button:hover { color: var(--fg-default); }
+.controls button.active {
+  background: var(--bg-inverse);
+  color: var(--fg-inverse);
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="stage">
+
+      <div class="head">
+        <div>
+          <div class="eyebrow">Solvefy / ecosystem · fluxo do dado</div>
+          <h1>Da base de dados ao cliente, em uma linha.</h1>
+        </div>
+        <div class="meta">
+          <div>4 produtos integrados</div>
+          <div>5 canais de saída</div>
+        </div>
+      </div>
+
+      <div class="canvas" id="canvas">
+
+        <svg class="lines" viewBox="0 0 1600 700" preserveAspectRatio="none">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--ink-300)"/>
+            </marker>
+          </defs>
+
+          <path id="seg1" d="M 168,210 H 504" fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
+          <path id="seg2" d="M 504,210 H 840" fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
+          <path id="seg3" d="M 840,210 H 1176" fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
+
+          <path id="fullPath" d="M 168,210 L 504,210 L 840,210 L 1176,210" fill="none" stroke="none"/>
+
+          <g id="branchGroup"></g>
+
+          <path id="returnToMkt"
+                d="M 1472,360 L 1472,460 L 504,460 L 504,260"
+                fill="none" stroke="var(--ink-300)" stroke-width="1.2"
+                stroke-dasharray="2 6" opacity="0.55"
+                vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
+          <path id="returnToCrm"
+                d="M 1472,380 L 1472,500 L 168,500 L 168,260"
+                fill="none" stroke="var(--ink-300)" stroke-width="1.2"
+                stroke-dasharray="2 6" opacity="0.55"
+                vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
+
+          <circle id="rpDotMkt" r="3.5" fill="var(--lead)" opacity="0">
+            <animateMotion id="rpAnimMkt" dur="2.6s" repeatCount="indefinite" begin="indefinite">
+              <mpath href="#returnToMkt"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" repeatCount="indefinite" begin="indefinite"/>
+          </circle>
+          <circle id="rpDotCrm" r="3.5" fill="var(--lead)" opacity="0">
+            <animateMotion id="rpAnimCrm" dur="3.2s" repeatCount="indefinite" begin="indefinite">
+              <mpath href="#returnToCrm"/>
+            </animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="3.2s" repeatCount="indefinite" begin="indefinite"/>
+          </circle>
+        </svg>
+
+        <div class="return-label" style="flex-direction: row">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/>
+            <path d="M3 3v5h5"/>
+          </svg>
+          dados de retorno · engajamento · conversão
+        </div>
+
+        <div class="node n-crm" id="n-crm">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 11 L12 4 L21 11 V20 a1 1 0 0 1 -1 1 H4 a1 1 0 0 1 -1 -1 Z"/>
+              <path d="M16 13 v3 h-5"/>
+              <path d="M14 14 l-3 2 3 2"/>
+            </svg>
+          </div>
+          <div class="title">CRM</div>
+          <div class="sub">Base de dados</div>
+        </div>
+
+        <div class="node n-marketing" id="n-marketing">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 3 L5 13 h6 L9 21 L19 10 h-6 Z"/>
+              <path d="M16 6 l3 -3 M19 3 v3 M19 3 h-3"/>
+            </svg>
+          </div>
+          <div class="title">Marketing</div>
+          <div class="sub">Nutrição</div>
+        </div>
+
+        <div class="node n-ads" id="n-ads">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 5 a4 4 0 0 0 -4 -2 H10 a4 4 0 0 0 0 8 h4 a4 4 0 0 1 0 8 h-4 a4 4 0 0 1 -4 -4"/>
+              <path d="M9 22 l-3 -3 3 -3"/>
+            </svg>
+          </div>
+          <div class="title">Ads</div>
+          <div class="sub">Aquisição</div>
+        </div>
+
+        <div class="node n-cpaas" id="n-cpaas">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3 L21 20 H3 Z"/>
+              <path d="M12 16 V10"/>
+              <path d="M9 13 L12 10 L15 13"/>
+            </svg>
+          </div>
+          <div class="title">CPaaS</div>
+          <div class="sub">Omnichannel</div>
+        </div>
+
+        <div class="channels-stack">
+          <div class="channel" id="ch-sms" data-channel="sms">
+            <span class="ico">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </span>
+            SMS
+            <div class="emitter" data-channel="sms"></div>
+          </div>
+          <div class="channel" id="ch-rcs" data-channel="rcs">
+            <span class="ico">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h6"/></svg>
+            </span>
+            RCS
+            <div class="emitter" data-channel="rcs"></div>
+          </div>
+          <div class="channel" id="ch-email" data-channel="email">
+            <span class="ico">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </span>
+            E-mail
+            <div class="emitter" data-channel="email"></div>
+          </div>
+          <div class="channel" id="ch-voz" data-channel="voz">
+            <span class="ico">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.7 2z"/></svg>
+            </span>
+            Voz
+            <div class="emitter" data-channel="voz"></div>
+          </div>
+          <div class="channel" id="ch-wa" data-channel="wa">
+            <span class="ico">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-1 4 8.5 8.5 0 0 1-7.5 4.5A8.4 8.4 0 0 1 8.5 19l-5.5 1.5L4.5 15a8.4 8.4 0 0 1-1-4 8.5 8.5 0 0 1 4.5-7.5 8.4 8.4 0 0 1 4-1 8.5 8.5 0 0 1 8.5 8.5z"/></svg>
+            </span>
+            WhatsApp
+            <div class="emitter" data-channel="wa"></div>
+          </div>
+        </div>
+
+        <div class="cloud-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--c-cloud)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+            <path d="M17 18 a4 4 0 0 0 0 -8 a6 6 0 0 0 -11 1 a4 4 0 0 0 1 7"/>
+            <path d="M12 13 v6 M9 16 l3 3 3 -3"/>
+          </svg>
+          <span class="lbl-prod">Cloud</span>
+          <span>· produto de infra · disponível avulso</span>
+        </div>
+
+      </div>
+
+      <div class="legend">
+        <div class="lhs">
+          <span class="swatch" style="--bg: var(--c-crm)"><i></i> CRM</span>
+          <span class="swatch" style="--bg: var(--c-marketing)"><i></i> Marketing</span>
+          <span class="swatch" style="--bg: var(--c-ads)"><i></i> Ads</span>
+          <span class="swatch" style="--bg: var(--c-cpaas)"><i></i> CPaaS</span>
+          <span class="swatch" style="--bg: var(--lead)"><i></i> Lead</span>
+        </div>
+        <div class="controls">
+          <button data-rate="0.5">0.5×</button>
+          <button data-rate="1" class="active">1×</button>
+          <button data-rate="2">2×</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<script>
+  const canvas = document.getElementById('canvas');
+  const path   = document.getElementById('fullPath');
+
+  const N_BALLS = 2;
+  const balls = [];
+  for (let i = 0; i < N_BALLS; i++) {
+    const b = document.createElement('div');
+    b.className = 'ball';
+    canvas.appendChild(b);
+    balls.push({ el: b, offset: i / N_BALLS, lastNode: null });
+  }
+
+  let totalLength = 0;
+  function recalc() {
+    try { totalLength = path.getTotalLength(); } catch(e) { totalLength = 0; }
+  }
+  recalc();
+  window.addEventListener('load', recalc);
+  window.addEventListener('resize', recalc);
+
+  balls.forEach(b => b.el.style.opacity = '0');
+
+  const cycleMs = 11000;
+  let speed = 1;
+  let startTime = performance.now();
+
+  function range(centerX) {
+    const half = 152;
+    return {
+      enter: (centerX - half - 168) / 1008,
+      exit:  (centerX + half - 168) / 1008,
+    };
+  }
+  const NODE_RANGES = [
+    { id: 'n-crm',       ...range(168)  },
+    { id: 'n-marketing', ...range(504)  },
+    { id: 'n-ads',       ...range(840)  },
+    { id: 'n-cpaas',     ...range(1176) },
+  ];
+
+  function nodeAtT(t) {
+    for (const r of NODE_RANGES) {
+      if (t >= r.enter && t <= r.exit) return r.id;
+    }
+    return null;
+  }
+
+  function pulseNode(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('active');
+    clearTimeout(el._pulseTimer);
+    el._pulseTimer = setTimeout(() => el.classList.remove('active'), 700);
+  }
+
+  const CHANNELS = ['ch-sms', 'ch-rcs', 'ch-email', 'ch-voz', 'ch-wa'];
+  function pulseChannel(idx) {
+    const c = document.getElementById(CHANNELS[idx]);
+    if (!c) return;
+    c.classList.add('active');
+    clearTimeout(c._pulseTimer);
+    c._pulseTimer = setTimeout(() => c.classList.remove('active'), 600);
+  }
+
+  // Start return-loop SVG animations once DOM is ready
+  window.addEventListener('load', () => {
+    const rpAnimMkt = document.getElementById('rpAnimMkt');
+    const rpAnimCrm = document.getElementById('rpAnimCrm');
+    if (rpAnimMkt) rpAnimMkt.beginElement();
+    if (rpAnimCrm) rpAnimCrm.beginElement();
+  });
+
+  function tick(now) {
+    const elapsed = (now - startTime) * speed;
+    const t = (elapsed % cycleMs) / cycleMs;
+
+    if (totalLength > 0) {
+      const rect = canvas.getBoundingClientRect();
+      let anyAtCpaas = false;
+      balls.forEach(b => {
+        const bt = (t + b.offset) % 1;
+        const pt = path.getPointAtLength(totalLength * bt);
+        const px = (pt.x / 1600) * rect.width;
+        const py = (pt.y / 700)  * rect.height;
+        b.el.style.transform = `translate(${px}px, ${py}px) translate(-50%, -50%)`;
+        b.el.style.opacity = '1';
+
+        const here = nodeAtT(bt);
+        if (here && here !== b.lastNode) {
+          pulseNode(here);
+          if (here === 'n-cpaas') anyAtCpaas = true;
+        }
+        b.lastNode = here;
+      });
+
+      if (anyAtCpaas) {
+        let i = 0;
+        const id = setInterval(() => {
+          pulseChannel(i);
+          i++;
+          if (i >= CHANNELS.length) clearInterval(id);
+        }, 110);
+      }
+    } else {
+      recalc();
+    }
+
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  const ICONS = {
+    sms:   () => `<div class="p-sms"></div>`,
+    rcs:   () => `<div class="p-rcs"></div>`,
+    email: () => `<div class="p-email"></div>`,
+    voz:   () => `<div class="p-voz"><span></span><span></span><span></span><span></span><span></span></div>`,
+    wa:    () => `<div class="p-wa"><svg width="12" height="10" viewBox="0 0 14 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,5 4,8 9,2"/></svg></div>`,
+  };
+
+  function spawn(emitter, kind) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.innerHTML = ICONS[kind]();
+    const baseAngle = -10 + Math.random() * 20;
+    const a = baseAngle * Math.PI / 180;
+    const dist = 50 + Math.random() * 20;
+    const dx = Math.cos(a) * dist;
+    const dy = Math.sin(a) * dist;
+    p.style.setProperty('--dx', dx.toFixed(0) + 'px');
+    p.style.setProperty('--dy', dy.toFixed(0) + 'px');
+    p.style.animation = `drift-out ${1500 + Math.random() * 400}ms cubic-bezier(0.22,0.8,0.30,1) forwards`;
+    emitter.appendChild(p);
+    setTimeout(() => p.remove(), 2200);
+  }
+
+  CHANNELS.forEach(id => {
+    const ch = document.getElementById(id);
+    if (!ch) return;
+    const obs = new MutationObserver(() => {
+      if (ch.classList.contains('active')) {
+        const em = ch.querySelector('.emitter');
+        if (em) {
+          spawn(em, em.dataset.channel);
+          if (Math.random() < 0.5) {
+            setTimeout(() => spawn(em, em.dataset.channel), 120);
+          }
+        }
+      }
+    });
+    obs.observe(ch, { attributes: true, attributeFilter: ['class'] });
+  });
+
+  document.querySelectorAll('.controls button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const rate = parseFloat(btn.dataset.rate);
+      const now = performance.now();
+      const elapsedScaled = (now - startTime) * speed;
+      speed = rate;
+      startTime = now - (elapsedScaled / speed);
+    });
+  });
+</script>
+</body>
+</html>
