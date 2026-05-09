@@ -1,8 +1,19 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Heading } from "@/components/ui/Typography";
-import rawHtml from "@/data/ecosystem-diagram.html?raw";
 
 export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [iframeHeight, setIframeHeight] = useState(600);
+
+  const handleLoad = () => {
+    const doc = iframeRef.current?.contentDocument;
+    if (doc) {
+      const h = Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight);
+      if (h > 100) setIframeHeight(h + 4);
+    }
+  };
+
   return (
     <section className="py-20">
       <div className="container mx-auto">
@@ -23,11 +34,13 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
           className="w-full"
         >
           <iframe
-            srcDoc={rawHtml}
+            ref={iframeRef}
+            src="/ecosystem-diagram.html"
             title="Ecossistema Solvefy — fluxo animado"
-            className="w-full border-0 rounded-2xl"
-            style={{ height: "720px" }}
-            loading="lazy"
+            onLoad={handleLoad}
+            scrolling="no"
+            className="w-full border-0"
+            style={{ height: `${iframeHeight}px`, background: "transparent", overflow: "hidden", display: "block" }}
           />
         </motion.div>
       </div>
