@@ -8,6 +8,7 @@ interface PricingCustomPlanProps {
   bullets: string[];
   badgeText?: string;
   ctaText: string;
+  footerText?: string;
 }
 
 export function PricingCustomPlan({
@@ -17,6 +18,7 @@ export function PricingCustomPlan({
   bullets,
   badgeText = "Sob Medida",
   ctaText,
+  footerText,
 }: PricingCustomPlanProps) {
   const accent = `hsl(var(${accentVar}))`;
 
@@ -90,6 +92,12 @@ export function PricingCustomPlan({
           </Button>
         </div>
       </div>
+
+      {footerText && (
+        <div className="relative mt-6 pt-6 border-t border-white/10">
+          <p className="text-sm text-white/40 leading-relaxed">{footerText}</p>
+        </div>
+      )}
     </div>
   );
 }

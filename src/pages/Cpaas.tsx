@@ -19,7 +19,6 @@ import { UseCasesSelector } from "@/components/UseCasesSelector";
 import { ChannelsCarousel } from "@/components/ChannelsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { CpaasHeroMockup } from "@/components/CpaasHeroMockup";
-import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
 
 const ACCENT = "hsl(var(--cpaas))";
 
@@ -66,10 +65,16 @@ const compliance = [
 ];
 
 const enterprisePlan = {
-  title: "Solve Customizing",
-  desc: "Negociação customizada, precificação de acordo com o que cabe no seu bolso e arquitetura sob medida para operações de alta criticidade.",
-  bullets: ["Preço Acessível", "SLA Personalizado", "Suporte Especializado"],
+  title: "Enterprise",
+  desc: "A comunicação moderna exige flexibilidade e rapidez. Com o SolvefyCPaaS, você conecta o seu sistema aos canais favoritos dos seus clientes através de APIs robustas e de fácil implementação. Chega de soluções engessadas: construa a jornada ideal para o seu modelo de negócio.",
+  bullets: [
+    "Omnichannel de Verdade",
+    "Feito para Desenvolvedores",
+    "Casos de Uso Infinitos",
+    "Escalabilidade Inteligente",
+  ],
   cta: "Falar com um Especialista",
+  footerText: "Integre APIs de WhatsApp, SMS, Voz e E-mail diretamente no seu software e escale suas interações com facilidade.",
 };
 
 const Cpaas = () => {
@@ -104,7 +109,7 @@ const Cpaas = () => {
             <span className="text-[hsl(var(--cpaas))]">conexões em tempo real</span></>}
           subtitle="O coração transacional do ecossistema. É uma plataforma robusta de comunicação via API desenvolvida para empresas que demandam alto volume de disparos. Atua como a engrenagem invisível que também potencializa as outras soluções (como o Solvefy Marketing)."
           ctaText="Fale com um Especialista"
-          trustItems={["Integração via API", "Sem taxa de setup", "Cobrança por volume"]}
+          trustItems={["Integração via API", "Sem Taxa de Setup", "Cobrança por Volume"]}
           right={<CpaasHeroMockup />}
         />
 
@@ -117,6 +122,7 @@ const Cpaas = () => {
                   className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                   style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
                 >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   Mais de 20 anos de História
                 </div>
                 <h2 className="tracking-tight leading-tight text-balance mb-5">
@@ -161,10 +167,10 @@ const Cpaas = () => {
                 {infraPoints.map(({ icon: Icon, title, desc, badge }) => (
                   <div
                     key={title}
-                    className="rounded-2xl border border-border bg-card p-5"
+                    className="rounded-2xl border border-border bg-card p-5 flex flex-col items-center text-center"
                     style={{ boxShadow: "var(--shadow-soft)" }}
                   >
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex flex-col items-center gap-2 mb-4">
                       <div
                         className="flex h-10 w-10 items-center justify-center rounded-lg"
                         style={{
@@ -223,8 +229,6 @@ const Cpaas = () => {
           </div>
         </section>
 
-        <CpaasChannelFlow />
-
         <EcosystemDiagram accent="hsl(var(--cpaas))" />
 
         <section className="py-16">
@@ -248,6 +252,7 @@ const Cpaas = () => {
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
                 Segurança & Compliance
               </div>
               <h2 className="tracking-tight leading-tight text-balance">
@@ -293,7 +298,8 @@ const Cpaas = () => {
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
-                Transparência total
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                Transparência Total
               </div>
               <h2 className="tracking-tight leading-tight text-balance">
                 Precificação que{" "}
@@ -311,6 +317,7 @@ const Cpaas = () => {
               bullets={enterprisePlan.bullets}
               badgeText="Sob Medida"
               ctaText={enterprisePlan.cta}
+              footerText={enterprisePlan.footerText}
             />
           </div>
         </section>

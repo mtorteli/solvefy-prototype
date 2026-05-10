@@ -168,8 +168,8 @@ export const UseCasesSelector = () => {
               <span
                 className="flex h-7 w-7 items-center justify-center rounded-lg"
                 style={{
-                  background: "rgba(0, 222, 113, 0.18)",
-                  color: BRAND_GREEN,
+                  background: "rgba(255,255,255,0.15)",
+                  color: "#ffffff",
                 }}
               >
                 <active.icon className="h-4 w-4" />
@@ -200,9 +200,9 @@ export const UseCasesSelector = () => {
                       className="flex h-7 w-7 items-center justify-center rounded-md"
                       style={{
                         background: isActive
-                          ? "rgba(0,222,113,0.18)"
+                          ? "rgba(255,255,255,0.18)"
                           : "rgba(156,123,255,0.12)",
-                        color: isActive ? BRAND_GREEN : ACCENT,
+                        color: isActive ? "#ffffff" : ACCENT,
                       }}
                     >
                       <Icon className="h-4 w-4" />
