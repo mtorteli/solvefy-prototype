@@ -18,7 +18,7 @@ export const MOCK_POSTS = [
   },
   {
     id: "2",
-    title: "Estratégias de Ads para reduzir seu CPA",
+    title: "Pague menos por cada conversão: Estratégias de Ads imbatíveis com a Solvefy",
     slug: "estrategias-ads-reduzir-cpa",
     excerpt: "Pare de queimar orçamento. Aprenda as técnicas que nossos clientes usam para otimizar campanhas de alta performance.",
     content: "Reduzir o CPA não é mágica, é técnica. Comece revisando seu público-alvo e a qualidade dos seus criativos...",
