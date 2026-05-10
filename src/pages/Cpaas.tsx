@@ -19,6 +19,7 @@ import { UseCasesSelector } from "@/components/UseCasesSelector";
 import { ChannelsCarousel } from "@/components/ChannelsCarousel";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { CpaasHeroMockup } from "@/components/CpaasHeroMockup";
+import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
 
 const ACCENT = "hsl(var(--cpaas))";
 
@@ -221,6 +222,8 @@ const Cpaas = () => {
             </div>
           </div>
         </section>
+
+        <CpaasChannelFlow />
 
         <EcosystemDiagram accent="hsl(var(--cpaas))" />
 
