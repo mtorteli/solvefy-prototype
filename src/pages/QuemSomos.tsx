@@ -81,12 +81,7 @@ const QuemSomos = () => {
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl mx-auto text-base md:text-lg leading-snug text-[#1e1e1e] text-left font-light">
               <h2 className="sr-only">Manifesto Solvers</h2>
-              <img
-                src={manifestoSolvers}
-                alt="Manifesto Solvers"
-                className="h-8 md:h-10 w-auto object-contain"
-              />
-              <div className="space-y-6 mt-16">
+              <div className="space-y-6">
                 <p className="font-light">
                   Embora a tecnologia, os negócios e as relações tenham se transformado, uma necessidade continua a mesma:
                   contar com quem resolve de verdade. Foi por isso que chegamos até aqui e é por isso que seguimos em frente.
