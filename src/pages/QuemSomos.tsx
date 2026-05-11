@@ -6,13 +6,12 @@ import { Footer } from "@/components/Footer";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import somosOsSolvers from "@/assets/somos-os-solvers.png";
-import solversHero from "@/assets/solvers-hero.jpg";
+import solversHero from "@/assets/solvers-hero.png";
 import logoSolvefyDark from "@/assets/logo-solvefy-dark.png";
 import solversLogoBlack from "@/assets/solvers-logo-black.png";
 import manifestoSolvers from "@/assets/manifesto-solvers.png";
 import videoThumbnail from "@/assets/video-thumbnail.jpg";
 import iconCloud from "@/assets/icons/cloud.svg";
-import iconCpaas from "@/assets/icons/cpaas.svg";
 import iconMarketing from "@/assets/icons/marketing.svg";
 import iconCrm from "@/assets/icons/crm.svg";
 
@@ -20,30 +19,23 @@ const values = [
   {
     icon: iconCloud,
     color: "hsl(var(--cloud))",
-    titleStart: "Simplicidade que ",
-    titleAccent: "Conecta",
-    desc: "Acreditamos que o universo da tecnologia não precisa ser frio, robótico ou chato. Traduzimos a complexidade em uma linguagem acessível e humana. Trabalhamos lado a lado, com um tom afirmativo e transparente, construindo parcerias baseadas em proximidade e precisão.",
-  },
-  {
-    icon: iconCpaas,
-    color: "hsl(var(--cpaas))",
-    titleStart: "Sem ",
-    titleAccent: "Rodeios",
-    desc: "Não gostamos de perder tempo e sabemos que você também não. Nossa comunicação é clara, ágil e livre de jargões desnecessários. Enquanto o mercado se perde em parágrafos, nós resolvemos em uma linha. Cada palavra nossa tem um propósito: acelerar seu negócio.",
+    titleStart: "Senso de ",
+    titleAccent: "Dono",
+    desc: "Nosso compromisso vai além de entregar tarefas; nós assumimos a responsabilidade pelos resultados. Abraçamos os desafios da empresa e dos nossos clientes como se fossem nossos. É essa postura de quem cuida do negócio, antecipa necessidades e foca na excelência da execução que garante o crescimento de todos. Não terceirizamos problemas: se algo precisa ser resolvido, nós assumimos a frente e resolvemos de verdade.",
   },
   {
     icon: iconMarketing,
     color: "hsl(var(--marketing))",
-    titleStart: "Agilidade que ",
-    titleAccent: "Impulsiona",
-    desc: "Sabemos que no cenário atual da tecnologia, o tempo define quem lidera. Nossa rapidez não é sinônimo de pressa, mas de eficiência, ritmo e prontidão. Porque eliminamos a burocracia e dominamos o que fazemos, retiramos o atrito da execução. Transformamos o nosso tempo de resposta na sua vantagem competitiva.",
+    titleStart: "Livre ",
+    titleAccent: "Iniciativa",
+    desc: "Não esperamos as coisas acontecerem; nós fazemos acontecer. Temos a liberdade, a autonomia e a confiança necessárias para criar soluções reais, simplificar caminhos e agir com inteligência. Valorizamos a atitude de quem usa a inovação para ganhar velocidade e tem a coragem de propor novas ideias. Aqui, transformar a complexidade em decisões melhores é responsabilidade de cada um.",
   },
   {
     icon: iconCrm,
     color: "hsl(var(--crm))",
-    titleStart: "Especialistas em ",
-    titleAccent: "Impacto",
-    desc: "Assumimos nossa posição de especialistas sem espaço para arrogância ou dúvidas. Nosso foco não é o que fazemos, mas o que você ganha com o que entregamos. Trabalhamos com dados, métricas e impacto real. Nossa confiança se baseia na certeza de que entregamos o melhor.",
+    titleStart: "Comunicação ",
+    titleAccent: "Horizontal",
+    desc: "Nossas relações são baseadas na proximidade, na clareza e na transparência. Nos comunicamos de forma direta, aberta e sem burocracias ou barreiras. Acreditamos que a inteligência é coletiva e que as melhores soluções nascem quando as pessoas têm voz ativa, independentemente de cargos. O diálogo franco e a visão humana são os alicerces que constroem a verdadeira confiança em nossos times.",
   },
 ];
 
@@ -60,22 +52,22 @@ const QuemSomos = () => {
       <Header />
       <main className="flex-1">
         {/* Bloco 1: Hero */}
-        <section className="relative h-[70vh] min-h-[480px] w-full overflow-hidden">
+        <section className="relative h-[60vh] min-h-[420px] w-full overflow-hidden">
           <img
             src={solversHero}
             alt="Equipe Solvers"
-            className="absolute inset-0 h-full w-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-cover object-top"
           />
-          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-black/65" />
           <div className="relative z-10 container mx-auto h-full w-full flex flex-col items-center justify-center px-4">
-            <div className="w-full max-w-2xl text-left">
+            <div className="w-full max-w-2xl text-center mx-auto">
               <h1 className="sr-only">Somos os Solvers</h1>
               <img
                 src={somosOsSolvers}
                 alt="Somos os Solvers"
-                className="block h-12 md:h-16 lg:h-20 w-auto object-contain drop-shadow-lg"
+                className="block h-12 md:h-16 lg:h-20 w-auto object-contain drop-shadow-lg mx-auto"
               />
-              <p className="max-w-xl mt-8 md:mt-10 text-white/95 font-light leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]">
+              <p className="max-w-xl mt-8 md:mt-10 text-white/95 font-light leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.6)] mx-auto">
                 Existimos para acelerar resultados reais ao unir tecnologia, estratégia e clareza humana.
                 Eliminamos a burocracia e a frieza para entregar execução ágil e parcerias próximas,
                 transformando complexidade em vantagem competitiva e crescimento direto.
@@ -96,17 +88,27 @@ const QuemSomos = () => {
               />
               <div className="space-y-6 mt-16">
                 <p className="font-light">
-                  Viemos para simplificar o que o mercado insistiu em complicar. Acreditamos que a tecnologia é o meio,
-                  mas a relação humana é o fundamento.
+                  Embora a tecnologia, os negócios e as relações tenham se transformado, uma necessidade continua a mesma:
+                  contar com quem resolve de verdade. Foi por isso que chegamos até aqui e é por isso que seguimos em frente.
                 </p>
                 <p className="font-light">
-                  Embora nossas mesas estejam em diferentes coordenadas, temos uma só direção, e estamos conectados por um
-                  objetivo único: aproximar pessoas e negócios. Para nós, a distância física não é barreira; é o que nos
-                  move a sermos especialistas em tecnologia.
+                  A Solvefy nasce como a evolução natural de uma trajetória construída à base de confiança, proximidade e
+                  resultados consistentes. Somos uma nova marca criada para representar com ainda mais clareza a nossa essência:
+                  simplificar caminhos, aproximar pessoas e entregar soluções eficientes.
                 </p>
                 <p className="font-light">
-                  Não gostamos de perder tempo. Falamos a real, sem rodeios e sem jargões, traduzindo complexidade em
-                  agilidade. A Solvefy chega para dar nome ao que a gente já faz com excelência há duas décadas.
+                  Acreditamos que a tecnologia importa, mas acreditamos ainda mais em pessoas. São elas que entendem os contextos,
+                  antecipam as necessidades e transformam os desafios em decisões melhores. Por isso, usamos a inovação para ganhar
+                  velocidade, inteligência e escala sem abrir mão do atendimento próximo e da relação humana.
+                </p>
+                <p className="font-light">
+                  Trabalhamos com senso de dono e agimos com iniciativa. Nossa comunicação é direta e sem barreiras, pois sabemos
+                  que a confiança se constrói com transparência e os resultados se alcançam com atitude.
+                </p>
+                <p className="font-light">
+                  Mudamos de nome, evoluímos em estrutura e expandimos nossa visão. Apesar de todo esse movimento, permanecemos
+                  fiéis ao que sempre nos trouxe até aqui: a parceria verdadeira, a excelência na execução e o compromisso com
+                  cada cliente. Mantemos a mesma essência, agora com um nome que traduz perfeitamente o que fazemos todos os dias.
                 </p>
               </div>
 
@@ -117,34 +119,32 @@ const QuemSomos = () => {
                   className="h-6 w-auto object-contain opacity-20 grayscale"
                 />
                 <p className="text-base md:text-lg font-medium tracking-tight m-0">
-                  <span className="text-black">closer. quicker. </span>
-                  <span className="text-[hsl(var(--solve-green))]">better.</span>
+                  <span className="text-black">Resolvemos com inteligência. </span>
+                  <span className="text-[hsl(var(--solve-green))]">Crescemos com você.</span>
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Bloco 3: Modal de Vídeo */}
-        <section className="py-16">
-          <div className="max-w-6xl mx-auto px-6">
-            <button
-              onClick={() => setVideoOpen(true)}
-              className="group relative w-full max-w-5xl mx-auto block rounded-2xl overflow-hidden shadow-elegant aspect-video focus:outline-none focus:ring-4 focus:ring-primary/40"
-              aria-label="Assistir vídeo institucional Solvefy"
-            >
-              <img
-                src={videoThumbnail}
-                alt="Vídeo institucional Solvefy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="flex items-center justify-center h-20 w-20 md:h-24 md:w-24 rounded-full bg-primary text-primary-foreground shadow-glow transition-transform duration-300 group-hover:scale-110">
-                  <Play className="h-8 w-8 md:h-10 md:w-10 ml-1" fill="currentColor" />
-                </span>
+              {/* Vídeo institucional — abaixo do manifesto, tamanho reduzido */}
+              <div className="mt-12">
+                <button
+                  onClick={() => setVideoOpen(true)}
+                  className="group relative w-full max-w-2xl mx-auto block rounded-2xl overflow-hidden shadow-elegant aspect-video focus:outline-none focus:ring-4 focus:ring-primary/40"
+                  aria-label="Assistir vídeo institucional Solvefy"
+                >
+                  <img
+                    src={videoThumbnail}
+                    alt="Vídeo institucional Solvefy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="flex items-center justify-center h-14 w-14 md:h-16 md:w-16 rounded-full bg-primary text-primary-foreground shadow-glow transition-transform duration-300 group-hover:scale-110">
+                      <Play className="h-6 w-6 md:h-7 md:w-7 ml-1" fill="currentColor" />
+                    </span>
+                  </div>
+                </button>
               </div>
-            </button>
+            </div>
           </div>
 
           <Dialog open={videoOpen} onOpenChange={setVideoOpen}>

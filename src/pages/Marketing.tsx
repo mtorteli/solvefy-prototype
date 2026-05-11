@@ -1,7 +1,9 @@
+import { useState } from "react";
 import {
   ArrowRight,
   Sparkles,
   Check,
+  Clock,
   Workflow,
   Layers,
   TrendingUp,
@@ -19,16 +21,10 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import iconMarketing from "@/assets/icons/marketing.svg";
 import { MarketingHeroMockup } from "@/components/MarketingHeroMockup";
-import { StackedCardsCarousel, type StackedSlide } from "@/components/StackedCardsCarousel";
+import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 
-import marketingWhatsapp from "@/assets/marketing-channels/whatsapp.png";
-import marketingRcs from "@/assets/marketing-channels/rcs.png";
-import marketingSms from "@/assets/marketing-channels/sms.png";
-import marketingEmail from "@/assets/marketing-channels/email.png";
-import marketingVoz from "@/assets/marketing-channels/voz.png";
-import marketingGrupos from "@/assets/marketing-channels/grupos.png";
 
 import logoContaAzul from "@/assets/integrations/conta-azul.svg";
 import logoEliteSoft from "@/assets/integrations/elite-soft.svg";
@@ -42,14 +38,6 @@ import logoZapier from "@/assets/integrations/zapier.svg";
 
 const ACCENT = "hsl(var(--marketing))";
 
-const marketingSlides: StackedSlide[] = [
-  { src: marketingWhatsapp, alt: "WhatsApp Oficial" },
-  { src: marketingRcs, alt: "RCS" },
-  { src: marketingSms, alt: "SMS" },
-  { src: marketingEmail, alt: "E-mail" },
-  { src: marketingVoz, alt: "Disparo de Voz" },
-  { src: marketingGrupos, alt: "Gestão de Grupos" },
-];
 
 const painCards = [
   {
@@ -89,66 +77,80 @@ const easyIaPills = [
 
 const plans = [
   {
-    name: "Closer",
-    price: "R$ 197",
+    name: "Próximo",
+    desc: "Perfeito para começar e estruturar sua comunicação.",
+    monthly: "R$ 77",
+    annual:  "R$ 47",
     period: "/mês",
-    ideal: "Para quem está começando a estruturar a comunicação.",
     features: [
-      "Disparos em todos os canais",
-      "Templates prontos de mensagem",
-      "Histórico e relatórios básicos",
-      "Suporte humano por chat",
+      "Módulo de disparos simples",
+      "Upload de arquivos",
+      "Formulários",
+      "Histórico de disparos",
+      "Etiquetas",
+      "WhatsApp, e-mail, RCS, Voz e SMS",
+      "Acesso Próximo a API Disparo Pro",
     ],
-    cta: "Começar com Closer",
+    soon: [] as string[],
+    cta: "Começar com Próximo",
     highlight: false,
+    badge: null as string | null,
   },
   {
-    name: "Quicker",
-    price: "R$ 597",
+    name: "Veloz",
+    desc: "Ideal para quem quer escalar com organização e integração.",
+    monthly: "R$ 577",
+    annual:  "R$ 447",
     period: "/mês",
-    ideal: "Para times que precisam acelerar conversão.",
     features: [
-      "Tudo do Closer",
-      "Construtor visual de jornadas",
-      "Segmentação avançada por comportamento",
-      "Dashboards em tempo real",
-      "Suporte prioritário",
+      "Tudo do plano Próximo",
+      "Criação de Segmentos",
+      "Criação de Jornadas de Atendimento",
+      "Integração com Ecommerce",
+      "Módulo de produtos",
+      "Gestão de Clientes",
+      "Acesso Veloz a API Disparo Pro",
     ],
-    cta: "Quero o Quicker",
+    soon: [] as string[],
+    cta: "Começar com Veloz",
     highlight: true,
-    badge: "Mais Popular",
+    badge: "Recomendado" as string | null,
   },
   {
-    name: "Better",
-    price: "R$ 1.997",
+    name: "Melhor",
+    desc: "Para operações que exigem performance máxima e inteligência.",
+    monthly: "R$ 1.987",
+    annual:  "R$ 1.347",
     period: "/mês",
-    ideal: "Para escalar com inteligência e previsibilidade.",
     features: [
-      "Tudo do Quicker",
-      "EasyIA — Inteligência Artificial nativa",
-      "Gestão de Grupos no WhatsApp",
-      "Acesso completo à API",
-      "Customer Success dedicado",
+      "Tudo do plano Veloz",
+      "Disparo AI",
+      "Gestão de Grupos",
+      "Acesso Melhor a API Disparo Pro",
     ],
+    soon: ["IA Conversacional", "Agentes de atendimento IA"] as string[],
     cta: "Falar com Vendas",
     highlight: false,
+    badge: null as string | null,
   },
 ];
 
 const apiPlan = {
-  name: "Solve Customizing",
-  priceTag: "API Personalizado",
-  ideal: "Para empresas que precisam de uma operação sob medida via API.",
+  name: "Enterprise",
+  priceTag: "Sob Medida",
+  ideal: "No marketing digital atual, depender de processos manuais ou dados fragmentados significa perder dinheiro. Com o Solvefy Marketing, você orquestra toda a jornada do seu cliente através de uma plataforma robusta, intuitiva e feita para times de alta performance.",
   features: [
-    "Integração ponta-a-ponta via API",
-    "SLA, throughput e segurança dedicados",
-    "Onboarding técnico assistido",
-    "Faturamento e contratos customizados",
+    "Campanhas Omnichannel",
+    "Automação Inteligente de Funil",
+    "Dashboards e Analytics Avançados",
+    "Integração Sem Atritos",
   ],
   cta: "Falar com Especialista",
+  footerText: "Atraia, engaje e converta. Centralize sua estratégia digital em uma única plataforma de automação com foco em resultados reais.",
 };
 
 const Marketing = () => {
+  const [isAnnual, setIsAnnual] = useState(false);
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
@@ -249,6 +251,9 @@ const Marketing = () => {
           </div>
         </section>
 
+        {/* ============ CANAIS — Animated Flow ============ */}
+        <CpaasChannelFlow accent="#E64499" accentBg="#FFE9F5" />
+
         {/* ============ ECOSSISTEMA ============ */}
         <EcosystemDiagram accent={ACCENT} />
 
@@ -295,32 +300,6 @@ const Marketing = () => {
               100% { transform: translateX(-33.333%); }
             }
           `}</style>
-        </section>
-
-        {/* ============ CANAIS — Stacked Cards ============ */}
-        <section className="py-20 bg-[hsl(var(--marketing-tint))]">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-              <div className="max-w-xl">
-                <Heading className="text-balance">
-                  Conecte o seu sistema aos{" "}
-                  <span style={{ color: ACCENT }}>seus clientes</span>
-                </Heading>
-                <SectionSubtitle className="mt-4">
-                  Via API ou interface web, envie e receba mensagens com um contrato só, uma fatura
-                  só e um dashboard só.
-                </SectionSubtitle>
-              </div>
-
-              <div className="w-full">
-                <StackedCardsCarousel
-                  accent={ACCENT}
-                  slides={marketingSlides}
-                  variant="raw"
-                />
-              </div>
-            </div>
-          </div>
         </section>
 
         {/* ============ EASY IA ============ */}
@@ -411,11 +390,16 @@ const Marketing = () => {
         {/* ============ PRICING ============ */}
         <section className="py-20 md:py-28 bg-white">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="max-w-4xl text-left mb-14">
+            {/* Header */}
+            <div className="max-w-4xl text-left mb-10">
               <div
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/>
+                  <path d="M7 7h.01"/>
+                </svg>
                 Planos & Precificação
               </div>
               <Heading className="text-balance">
@@ -426,7 +410,42 @@ const Marketing = () => {
               </SectionSubtitle>
             </div>
 
-            {/* 3 main plans */}
+            {/* Toggle mensal / anual */}
+            <div className="flex flex-col items-center gap-3 mb-12">
+              <div className="flex items-center gap-1 rounded-full p-1 bg-muted">
+                <button
+                  onClick={() => setIsAnnual(false)}
+                  className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
+                    !isAnnual
+                      ? "bg-white text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Mensal
+                </button>
+                <button
+                  onClick={() => setIsAnnual(true)}
+                  className="px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 text-white"
+                  style={{
+                    backgroundColor: isAnnual ? ACCENT : "transparent",
+                    color: isAnnual ? "#fff" : undefined,
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isAnnual) (e.currentTarget as HTMLButtonElement).style.color = "var(--foreground)";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isAnnual) (e.currentTarget as HTMLButtonElement).style.color = "";
+                  }}
+                >
+                  Anual
+                </button>
+              </div>
+              <p className="text-sm font-semibold" style={{ color: ACCENT }}>
+                Economize até 39% optando pelo plano anual
+              </p>
+            </div>
+
+            {/* Cards */}
             <div className="grid md:grid-cols-3 gap-6 items-stretch">
               {plans.map((plan) => (
                 <div
@@ -448,45 +467,73 @@ const Marketing = () => {
                       : undefined
                   }
                 >
-                  {plan.highlight && plan.badge && (
+                  {plan.badge && (
                     <span
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-900 shadow-lg"
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg"
                       style={{ background: ACCENT }}
                     >
                       {plan.badge}
                     </span>
                   )}
+
+                  {/* Nome + descrição + preço */}
                   <div className="mb-5">
                     <div
-                      className="text-sm font-bold uppercase tracking-wider mb-2"
+                      className="text-sm font-bold uppercase tracking-wider mb-1"
                       style={{ color: ACCENT }}
                     >
                       {plan.name}
                     </div>
+                    <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                      {plan.desc}
+                    </p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-bold tracking-tight">{plan.price}</span>
+                      <span className="text-4xl font-bold tracking-tight">
+                        {isAnnual ? plan.annual : plan.monthly}
+                      </span>
                       <span className="text-sm text-muted-foreground">{plan.period}</span>
                     </div>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      Ideal para: <span className="text-foreground/80">{plan.ideal}</span>
-                    </p>
+                    {isAnnual && (
+                      <p className="mt-1 text-xs font-medium" style={{ color: ACCENT }}>
+                        Cobrado anualmente
+                      </p>
+                    )}
                   </div>
 
-                  <ul className="space-y-2.5 mb-7 text-sm flex-1">
+                  {/* Features */}
+                  <ul className="space-y-2.5 mb-4 text-sm flex-1">
                     {plan.features.map((feat) => (
                       <li key={feat} className="flex items-start gap-2">
-                        <Check
-                          className="h-4 w-4 mt-0.5 shrink-0"
-                          style={{ color: ACCENT }}
-                        />
+                        <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
                         <span className="text-foreground/85">{feat}</span>
                       </li>
                     ))}
                   </ul>
 
+                  {/* Em breve */}
+                  {plan.soon.length > 0 && (
+                    <>
+                      <div className="flex items-center gap-2 my-3">
+                        <div className="flex-1 border-t border-dashed border-border" />
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-1">
+                          Em breve
+                        </span>
+                        <div className="flex-1 border-t border-dashed border-border" />
+                      </div>
+                      <ul className="space-y-2.5 mb-5 text-sm">
+                        {plan.soon.map((feat) => (
+                          <li key={feat} className="flex items-start gap-2 opacity-55">
+                            <Clock className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                            <span className="text-foreground/70">{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+
                   <Button
                     size="lg"
-                    className={`w-full font-semibold ${
+                    className={`w-full font-semibold mt-auto ${
                       plan.highlight
                         ? "bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white"
                         : "bg-foreground/90 hover:bg-foreground text-background"
@@ -499,6 +546,11 @@ const Marketing = () => {
               ))}
             </div>
 
+            {/* Aviso de rodapé */}
+            <p className="mt-8 text-sm text-muted-foreground text-center max-w-2xl mx-auto leading-relaxed">
+              ⚠️ <span className="font-semibold text-foreground/70">Importante:</span> A assinatura dos planos não inclui créditos de envio para os canais. Os disparos são cobrados conforme uso e podem ser adquiridos separadamente em créditos avulsos.
+            </p>
+
             <div className="mt-8">
               <PricingCustomPlan
                 accentVar="--marketing"
@@ -507,6 +559,7 @@ const Marketing = () => {
                 bullets={apiPlan.features}
                 badgeText={apiPlan.priceTag}
                 ctaText={apiPlan.cta}
+                footerText={apiPlan.footerText}
               />
             </div>
           </div>

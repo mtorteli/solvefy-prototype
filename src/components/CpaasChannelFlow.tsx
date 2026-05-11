@@ -1,10 +1,10 @@
 /**
- * CpaasChannelFlow — preview draft (não injetado na página ainda)
+ * CpaasChannelFlow — canal animado multi-produto
  *
  * Estrutura:
  *  1. 5 cards em grid responsivo (2 col mobile → 3 tablet → 5 desktop)
- *  2. Bola luminosa varrendo por trás dos cards (z-index 0) a 0.5× (18 s/ciclo)
- *  3. Badge roxa fade-in a partir do topo do card ativo
+ *  2. Destaque direto no card ativo (borda colorida, ícone, badge) — sem bola animada
+ *  3. Badge fade-in a partir do topo do card ativo
  *  4. Área de texto dinâmica logo abaixo que troca com AnimatePresence
  */
 
@@ -36,12 +36,13 @@ const WhatsAppIcon = ({ className, ...rest }: React.SVGProps<SVGSVGElement>) => 
   </svg>
 );
 
-// ── Brand constants ────────────────────────────────────────────────────────────
-const CPAAS     = "#9C7BFF";   // brand guide CPaaS purple
-const CPAAS_BG  = "#E7DBFF";   // CPaaS light surface
-
 // 0.5× do ciclo do ecosistema (9 000 ms) → 18 000 ms
 const CYCLE_MS  = 18_000;
+
+interface CpaasChannelFlowProps {
+  accent?:   string;
+  accentBg?: string;
+}
 
 // ── Channel data ───────────────────────────────────────────────────────────────
 interface Channel {
@@ -103,40 +104,25 @@ const CHANNELS: Channel[] = [
 ];
 
 // ── Component ──────────────────────────────────────────────────────────────────
-export const CpaasChannelFlow = () => {
-  const [activeIdx, setActiveIdx]   = useState(0);
-  const lastIdxRef                  = useRef(-1);
-  const containerRef                = useRef<HTMLDivElement>(null);
-  const ballRef                     = useRef<HTMLDivElement>(null);
-  const rafRef                      = useRef<number>(0);
-  const t0Ref                       = useRef<number>(0);
+export const CpaasChannelFlow = ({
+  accent   = "#9C7BFF",
+  accentBg = "#E7DBFF",
+}: CpaasChannelFlowProps = {}) => {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const lastIdxRef                = useRef(-1);
+  const rafRef                    = useRef<number>(0);
+  const t0Ref                     = useRef<number>(0);
 
-  // ── Animation loop (imperative — zero React re-renders on ball position) ──
+  // ── Animation loop — apenas troca de índice, sem manipulação de DOM extra ──
   useEffect(() => {
     const loop = (now: number) => {
       if (!t0Ref.current) t0Ref.current = now;
       const t   = ((now - t0Ref.current) % CYCLE_MS) / CYCLE_MS; // 0..1
-      const ball = ballRef.current;
-      const cont = containerRef.current;
-
-      if (ball && cont) {
-        // Move ball across full container width, centered via translateX(-50%)
-        ball.style.left = `${t * cont.offsetWidth}px`;
-
-        // Fade in/out at loop edges for clean reset
-        let op = 1;
-        if (t < 0.02)  op = t / 0.02;
-        if (t > 0.95)  op = (1 - t) / 0.05;
-        ball.style.opacity = op.toFixed(3);
-
-        // Update active card — only triggers React re-render on change
-        const idx = Math.min(CHANNELS.length - 1, Math.floor(t * CHANNELS.length));
-        if (idx !== lastIdxRef.current) {
-          lastIdxRef.current = idx;
-          setActiveIdx(idx);
-        }
+      const idx = Math.min(CHANNELS.length - 1, Math.floor(t * CHANNELS.length));
+      if (idx !== lastIdxRef.current) {
+        lastIdxRef.current = idx;
+        setActiveIdx(idx);
       }
-
       rafRef.current = requestAnimationFrame(loop);
     };
 
@@ -154,7 +140,7 @@ export const CpaasChannelFlow = () => {
         <div className="mb-12 max-w-2xl">
           <h2 className="tracking-tighter leading-tight text-balance">
             Conecte o seu sistema aos{" "}
-            <span style={{ color: CPAAS }}>seus clientes</span>
+            <span style={{ color: accent }}>seus clientes</span>
           </h2>
           <p className="section-subtitle mt-4">
             Via API ou interface web, gerencie cada canal de comunicação com
@@ -162,103 +148,71 @@ export const CpaasChannelFlow = () => {
           </p>
         </div>
 
-        {/* ── Cards + animated glow ── */}
-        {/*
-            Camadas (z-index):
-              0 → bola luminosa (atrás de tudo)
-              10 → grid de cards
-              20 → badge de topo (acima do card ativo)
-        */}
-        <div ref={containerRef} className="relative">
+        {/* ── Cards ── */}
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {CHANNELS.map((ch, i) => {
+            const isActive = activeIdx === i;
+            return (
+              /* pt-8 reserva espaço para o badge flutuar acima do card */
+              <div key={ch.id} className="relative pt-8">
 
-          {/* Glow ball — atrás dos cards, nunca capta eventos de mouse */}
-          <div
-            ref={ballRef}
-            aria-hidden
-            className="pointer-events-none absolute top-1/2 z-0 rounded-full"
-            style={{
-              width:      220,
-              height:     220,
-              marginTop: -110, // centrar verticalmente sem transform para não conflitar com left
-              background: `radial-gradient(circle, ${CPAAS}4D 0%, ${CPAAS}1A 40%, transparent 70%)`,
-            }}
-          />
+                {/* Badge: fade-in do topo quando o card está ativo */}
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.div
+                      key={`badge-${ch.id}`}
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y:  0 }}
+                      exit={{    opacity: 0, y: -8 }}
+                      transition={{ duration: 0.22, ease: "easeOut" }}
+                      className="absolute left-1/2 top-0 z-20 flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold shadow-sm"
+                      style={{ backgroundColor: accent, color: "#fff" }}
+                    >
+                      <ch.BadgeIcon className="h-2.5 w-2.5" />
+                      {ch.badgeText}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
-          {/* Cards */}
-          <div className="relative z-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {CHANNELS.map((ch, i) => {
-              const isActive = activeIdx === i;
-              return (
-                /* pt-8 reserva espaço para o badge flutuar acima do card */
-                <div key={ch.id} className="relative pt-8">
-
-                  {/* Badge: fade-in do topo quando o card está ativo */}
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        key={`badge-${ch.id}`}
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y:  0 }}
-                        exit={{    opacity: 0, y: -8 }}
-                        transition={{ duration: 0.22, ease: "easeOut" }}
-                        className="absolute left-1/2 top-0 z-20 flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold shadow-sm"
-                        style={{ backgroundColor: CPAAS, color: "#fff" }}
-                      >
-                        <ch.BadgeIcon className="h-2.5 w-2.5" />
-                        {ch.badgeText}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  {/* Card */}
+                {/* Card */}
+                <div
+                  className="relative flex min-h-[140px] flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border bg-card px-4 py-5 text-center transition-all duration-500"
+                  style={
+                    isActive
+                      ? {
+                          borderColor:     accent,
+                          backgroundColor: `${accent}0D`,
+                          boxShadow:       `0 0 0 2px ${accent}30, 0 8px 24px -8px ${accent}40`,
+                        }
+                      : {
+                          borderColor:     "#e5e7eb",
+                          backgroundColor: "transparent",
+                        }
+                  }
+                >
+                  {/* Ícone do canal */}
                   <div
-                    className="relative flex min-h-[140px] flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border bg-card px-4 py-5 text-center transition-all duration-500"
-                    style={
-                      isActive
-                        ? {
-                            borderColor:     CPAAS,
-                            backgroundColor: `${CPAAS}0D`,
-                            boxShadow:       `0 0 0 3px ${CPAAS}2E, 0 16px 40px -10px ${CPAAS}44`,
-                          }
-                        : {
-                            borderColor: "transparent",
-                          }
-                    }
+                    className="flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-300"
+                    style={{
+                      backgroundColor: isActive ? accent    : accentBg,
+                      color:           isActive ? "#ffffff" : accent,
+                      transform:       isActive ? "scale(1.05)" : "scale(1)",
+                    }}
                   >
-                    {/* Barra de destaque lateral esquerda */}
-                    <div
-                      className="absolute bottom-3 left-0 top-3 w-[3px] rounded-r-full transition-all duration-400"
-                      style={{
-                        backgroundColor: CPAAS,
-                        opacity: isActive ? 1 : 0,
-                        transform: isActive ? "scaleY(1)" : "scaleY(0.4)",
-                      }}
-                    />
-
-                    {/* Ícone do canal */}
-                    <div
-                      className="flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-300"
-                      style={{
-                        backgroundColor: isActive ? CPAAS     : CPAAS_BG,
-                        color:           isActive ? "#ffffff" : CPAAS,
-                        transform:       isActive ? "scale(1.05)" : "scale(1)",
-                      }}
-                    >
-                      <ch.Icon className="h-5 w-5" strokeWidth={1.8} />
-                    </div>
-
-                    {/* Nome do canal */}
-                    <p
-                      className="text-sm font-semibold leading-snug tracking-tight transition-colors duration-300"
-                      style={{ color: isActive ? CPAAS : undefined }}
-                    >
-                      {ch.label}
-                    </p>
+                    <ch.Icon className="h-5 w-5" strokeWidth={1.8} />
                   </div>
+
+                  {/* Nome do canal */}
+                  <p
+                    className="text-sm font-semibold leading-snug tracking-tight transition-colors duration-300"
+                    style={{ color: isActive ? accent : "#9ca3af" }}
+                  >
+                    {ch.label}
+                  </p>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* ── Área de texto dinâmico ── */}
@@ -282,7 +236,7 @@ export const CpaasChannelFlow = () => {
                   <span
                     key={f}
                     className="rounded-full px-3 py-1 text-xs font-medium"
-                    style={{ backgroundColor: CPAAS_BG, color: CPAAS }}
+                    style={{ backgroundColor: accentBg, color: accent }}
                   >
                     {f}
                   </span>

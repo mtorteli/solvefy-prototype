@@ -61,7 +61,7 @@ const solutions = [
     panelBg: "hsl(var(--cloud-surface))",
     icon: iconCloud,
     to: "/cloud",
-    headline: "Automação Cloud White Label",
+    headline: "Automação de Cloud",
     desc: "Transforme a infraestrutura ociosa do seu Provedor de Internet (ISP) ou Data Center em um negócio rentável. Automatize 100% da venda, o provisionamento e o faturamento de serviços de cloud com a sua marca, sem depender de terceiros.",
     bullets: ["Plataforma White Label On-Premises", "Proxmox Reseller/Partner Oficial", "Do Zero ao Fim do Processo"],
   },

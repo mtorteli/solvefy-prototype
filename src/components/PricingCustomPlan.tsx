@@ -1,4 +1,5 @@
-import { ArrowRight, Check, Code2 } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Check, Code2, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface PricingCustomPlanProps {
@@ -9,6 +10,8 @@ interface PricingCustomPlanProps {
   badgeText?: string;
   ctaText: string;
   footerText?: string;
+  accordionTitle?: string;
+  accordionBody?: string;
 }
 
 export function PricingCustomPlan({
@@ -19,8 +22,11 @@ export function PricingCustomPlan({
   badgeText = "Sob Medida",
   ctaText,
   footerText,
+  accordionTitle,
+  accordionBody,
 }: PricingCustomPlanProps) {
   const accent = `hsl(var(${accentVar}))`;
+  const [accordionOpen, setAccordionOpen] = useState(false);
 
   return (
     <div
@@ -65,7 +71,7 @@ export function PricingCustomPlan({
           </ul>
         </div>
 
-        <div className="flex flex-col items-start md:items-end gap-4">
+        <div className="flex flex-col items-start md:items-end gap-4 md:mt-6">
           <div
             className="inline-flex items-center rounded-full px-4 py-2 text-sm font-bold border"
             style={{
@@ -92,6 +98,31 @@ export function PricingCustomPlan({
           </Button>
         </div>
       </div>
+
+      {accordionTitle && accordionBody && (
+        <div className="relative mt-6 pt-6 border-t border-white/10">
+          <button
+            onClick={() => setAccordionOpen((o) => !o)}
+            className="flex w-full items-center justify-between gap-3 text-left"
+          >
+            <span className="text-sm font-semibold" style={{ color: accent }}>
+              {accordionTitle}
+            </span>
+            <ChevronDown
+              className="h-4 w-4 shrink-0 transition-transform duration-300"
+              style={{
+                color: accent,
+                transform: accordionOpen ? "rotate(180deg)" : "rotate(0deg)",
+              }}
+            />
+          </button>
+          {accordionOpen && (
+            <p className="mt-3 text-sm text-white/60 leading-relaxed">
+              {accordionBody}
+            </p>
+          )}
+        </div>
+      )}
 
       {footerText && (
         <div className="relative mt-6 pt-6 border-t border-white/10">

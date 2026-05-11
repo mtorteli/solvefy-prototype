@@ -4,9 +4,10 @@ import {
   Bell,
   BarChart3,
   Check,
-  DollarSign,
   Sparkles,
   Rocket,
+  TrendingDown,
+  X,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
@@ -19,14 +20,9 @@ import {
   WhatsappChannelIcon,
 } from "@/components/icons/ChannelIcons";
 import { CrmHeroMockup } from "@/components/CrmHeroMockup";
-import { StackedCardsCarousel, type StackedSlide } from "@/components/StackedCardsCarousel";
+import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
-
-import channelWhatsapp from "@/assets/crm-channels/whatsapp.png";
-import channelSms from "@/assets/crm-channels/sms.png";
-import channelEmail from "@/assets/crm-channels/email.png";
-import channelVoz from "@/assets/crm-channels/voz.png";
 
 const ACCENT = "hsl(var(--crm))";
 
@@ -53,16 +49,9 @@ const features = [
   },
 ];
 
-const channelSlides: StackedSlide[] = [
-  { src: channelWhatsapp, alt: "WhatsApp Oficial" },
-  { src: channelSms, alt: "SMS" },
-  { src: channelEmail, alt: "E-mail" },
-  { src: channelVoz, alt: "Voz" },
-];
-
 const plans = [
   {
-    name: "Quicker",
+    name: "Veloz",
     price: "R$ 47",
     period: "/usuário/mês",
     ideal: "Para times comerciais que precisam acelerar fechamentos e organizar o funil agora.",
@@ -77,7 +66,7 @@ const plans = [
     highlight: false,
   },
   {
-    name: "Better",
+    name: "Melhor",
     price: "R$ 97",
     period: "/usuário/mês",
     ideal: "Para equipes de alta performance que esmagam metas com automação e inteligência comercial.",
@@ -89,23 +78,26 @@ const plans = [
       "Inteligência comercial e relatórios",
       "Suporte prioritário",
     ],
-    cta: "Quero o Better",
+    cta: "Quero o Melhor",
     highlight: true,
     badge: "Mais Escolhido",
   },
 ];
 
 const apiPlan = {
-  name: "Solve Customizing",
+  name: "Enterprise",
   priceTag: "Customizado",
-  ideal: "Para operações comerciais com SLA dedicado, governança e times distribuídos em múltiplas unidades.",
+  ideal: "Para crescer, sua equipe comercial precisa de previsibilidade, não de processos manuais. O Solvefy CRM foi desenhado para ser o coração da sua operação de vendas, garantindo que nenhuma oportunidade seja esquecida no fundo do funil.",
   features: [
-    "SLA contratual e CSM dedicado",
-    "API e Webhooks ilimitados",
-    "SSO e auditoria avançada",
-    "Onboarding white-glove",
+    "Visão 360º do Cliente",
+    "Comunicação Nativa",
+    "Gestão de Pipeline Inteligente",
+    "Relatórios e Previsibilidade",
   ],
   cta: "Falar com Especialista",
+  accordionTitle: "Traga sua base de outro CRM e ganhe os 2 primeiros meses de isenção",
+  accordionBody: "Migração gratuita, mapeamento de campos e zero downtime no time comercial.",
+  footerText: "Dê adeus às planilhas e sistemas desconexos. Tenha controle total do seu funil de vendas, integre seus canais de comunicação e feche mais negócios.",
 };
 
 const Crm = () => {
@@ -141,7 +133,7 @@ const Crm = () => {
             <span className="text-[hsl(var(--crm))]">Assuma o controle absoluto do seu pipeline.</span></>}
           subtitle="Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de vendas definitiva para equipes de alta performance. Elimine o vazamento de leads, automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios em menos tempo."
           ctaText="Teste Grátis"
-          trustItems={["Migração gratuita de dados", "20% mais barato que o RD CRM", "Implementação em 24h"]}
+          trustItems={["Migração de Dados Gratuita", "Economize 20% vs. Concorrentes", "Implementação em 24h"]}
           right={<CrmHeroMockup />}
         />
 
@@ -165,48 +157,70 @@ const Crm = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6">
-            <div className="rounded-2xl border border-destructive/20 bg-destructive/5 p-6">
-              <div className="text-xs font-semibold uppercase tracking-wider text-destructive mb-3">
-                Modelo Antigo
+          <div className="grid md:grid-cols-2 gap-5">
+            {/* Card 1 — Problema */}
+            <div className="relative rounded-2xl bg-card border border-border p-7 overflow-hidden">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
+                  <TrendingDown className="h-5 w-5" />
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-widest text-destructive">
+                  Em Outros CRM
+                </span>
               </div>
-              <ul className="space-y-3">
+              <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-3">
+                Planilhas e CRMs desconectados. Você no escuro.
+              </h3>
+              <ul className="space-y-3 text-base text-foreground/80">
                 {[
-                  "Planilhas e CRMs desconectados do marketing",
-                  "Integrações via Zapier que quebram toda semana",
-                  "Vendedor sem contexto da campanha que gerou o lead",
-                  "Mensagens enviadas por fora, sem registro",
+                  "Planilhas e CRMs desconectados do marketing.",
+                  "Integrações via Zapier que quebram toda semana.",
+                  "Vendedor sem contexto da campanha que gerou o lead.",
+                  "Mensagens enviadas por fora, sem registro.",
                 ].map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-muted-foreground">
-                    <span className="text-destructive">?</span>
+                  <li key={item} className="flex items-start gap-2">
+                    <X className="h-4 w-4 mt-0.5 text-destructive shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
 
+            {/* Card 2 — Solução */}
             <div
-              className="rounded-2xl p-6 border"
+              className="relative rounded-2xl p-7 overflow-hidden border border-border transition-all hover:-translate-y-1"
               style={{
-                borderColor: `${ACCENT}33`,
-                background: `linear-gradient(135deg, ${ACCENT}0d, transparent)`,
+                background: `linear-gradient(165deg, #ffffff 0%, ${ACCENT}08 100%)`,
+                boxShadow: `0 12px 30px -15px ${ACCENT}55`,
               }}
             >
-              <div
-                className="text-xs font-semibold uppercase tracking-wider mb-3"
-                style={{ color: ACCENT }}
-              >
-                Solvefy/CRM
+              <div className="flex items-center gap-2 mb-4">
+                <span
+                  className="text-xs font-semibold uppercase tracking-widest"
+                  style={{ color: ACCENT }}
+                >
+                  Solvefy/CRM
+                </span>
               </div>
-              <ul className="space-y-3">
+              <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-3">
+                Você no comando. Lead com histórico completo.
+              </h3>
+              <p className="text-sm text-foreground/85 leading-relaxed mb-4">
+                No ecossistema Solvefy, o lead nasce no Ads, é aquecido no Marketing e cai no CRM
+                com todo o histórico, pronto para o vendedor fechar com agressividade.
+              </p>
+              <ul className="space-y-3 text-sm text-foreground/85">
                 {[
-                  "Lead entra no CRM com origem, criativo e jornada anexada",
-                  "WhatsApp e SMS nativos, sem APIs externas",
-                  "Vendedor abre o card e domina tudo: clicks, mensagens, perfil",
-                  "Marketing e vendas no mesmo banco de dados, em tempo real",
+                  "Lead entra no CRM com origem, criativo e jornada anexada.",
+                  "WhatsApp e SMS nativos, sem APIs externas.",
+                  "Vendedor abre o card e domina tudo: clicks, mensagens, perfil.",
+                  "Marketing e vendas no mesmo banco de dados, em tempo real.",
                 ].map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-foreground/80">
-                    <Check className="h-4 w-4 shrink-0 mt-0.5" style={{ color: ACCENT }} />
+                  <li key={item} className="flex items-start gap-2">
+                    <Check
+                      className="h-4 w-4 mt-0.5 shrink-0"
+                      style={{ color: ACCENT }}
+                    />
                     {item}
                   </li>
                 ))}
@@ -252,31 +266,8 @@ const Crm = () => {
           </div>
         </section>
 
-        {/* ============ CHANNELS — Stacked Cards 3D (CPaaS-style) ============ */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-20 items-center">
-              <div className="max-w-xl">
-                <h2 className="tracking-tight leading-tight text-balance mb-4 md:mb-6">
-                  Seus canais de venda,{" "}
-                  <span style={{ color: ACCENT }}>unificados em um só lugar</span>.
-                </h2>
-                <p className="section-subtitle">
-                  WhatsApp, SMS, E-mail e Voz dentro do card do cliente. Toda interação registrada,
-                  todo histórico preservado, todo follow-up no canal que o lead realmente responde.
-                </p>
-              </div>
-
-              <div className="w-full max-w-full overflow-hidden">
-                <StackedCardsCarousel
-                  accent={ACCENT}
-                  slides={channelSlides}
-                  variant="raw"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* ============ CHANNELS — Animated Flow ============ */}
+        <CpaasChannelFlow accent="hsl(var(--crm))" accentBg="#FFEEE5" />
 
         {/* ============ TRIAL PRO BANNER ============ */}
         <section className="relative py-16 md:py-24 overflow-hidden bg-[#0a0a0f]">
@@ -345,6 +336,10 @@ const Crm = () => {
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/>
+                  <path d="M7 7h.01"/>
+                </svg>
                 Planos & Precificação
               </div>
               <h2 className="tracking-tight leading-tight text-balance">
@@ -436,38 +431,10 @@ const Crm = () => {
                 bullets={apiPlan.features}
                 badgeText={apiPlan.priceTag}
                 ctaText={apiPlan.cta}
+                accordionTitle={apiPlan.accordionTitle}
+                accordionBody={apiPlan.accordionBody}
+                footerText={apiPlan.footerText}
               />
-            </div>
-
-            {/* Migration banner — RD CRM */}
-            <div
-              className="max-w-6xl mx-auto mt-8 md:mt-10 rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row items-start gap-4 md:gap-6"
-              style={{
-                borderColor: `${ACCENT}40`,
-                background: `linear-gradient(135deg, ${ACCENT}14, transparent)`,
-              }}
-            >
-              <div
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
-                style={{ backgroundColor: `${ACCENT}1f`, color: ACCENT }}
-              >
-                <DollarSign className="h-6 w-6" />
-              </div>
-              <div className="flex-1">
-                <div className="text-base md:text-lg font-bold text-foreground">
-                  Traga sua base do RD CRM e ganhe os 2 primeiros meses de isenção.
-                </div>
-                <div className="text-sm text-muted-foreground font-light mt-1">
-                  Migração gratuita, mapeamento de campos e zero downtime no time comercial.
-                </div>
-              </div>
-              <Button
-                className="font-semibold shrink-0 w-full md:w-auto md:self-center"
-                style={{ background: ACCENT, color: "#fff" }}
-              >
-                Quero migrar agora
-                <ArrowRight className="ml-1 h-4 w-4" />
-              </Button>
             </div>
           </div>
         </section>

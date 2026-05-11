@@ -16,7 +16,7 @@ import { Footer } from "@/components/Footer";
 import iconCpaas from "@/assets/icons/cpaas.svg";
 
 import { UseCasesSelector } from "@/components/UseCasesSelector";
-import { ChannelsCarousel } from "@/components/ChannelsCarousel";
+import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { CpaasHeroMockup } from "@/components/CpaasHeroMockup";
 
@@ -116,7 +116,7 @@ const Cpaas = () => {
         {/* 20 Anos de Infraestrutura */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <div
                   className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
@@ -163,16 +163,16 @@ const Cpaas = () => {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4 mt-10">
                 {infraPoints.map(({ icon: Icon, title, desc, badge }) => (
                   <div
                     key={title}
-                    className="rounded-2xl border border-border bg-card p-5 flex flex-col items-center text-center"
+                    className="rounded-2xl border border-border bg-card p-5 flex flex-col items-start text-left"
                     style={{ boxShadow: "var(--shadow-soft)" }}
                   >
-                    <div className="flex flex-col items-center gap-2 mb-4">
+                    <div className="flex items-center gap-2.5 mb-4">
                       <div
-                        className="flex h-10 w-10 items-center justify-center rounded-lg"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg"
                         style={{
                           backgroundColor: `${ACCENT}1A`,
                           color: ACCENT,
@@ -182,7 +182,7 @@ const Cpaas = () => {
                       </div>
                       {badge && (
                         <span
-                          className="inline-flex items-center rounded-full px-2.5 py-0.5 text-[10px] font-semibold"
+                          className="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold leading-none"
                           style={{
                             backgroundColor: `${ACCENT}1A`,
                             color: ACCENT,
@@ -192,7 +192,7 @@ const Cpaas = () => {
                         </span>
                       )}
                     </div>
-                    <h3 className="text-base font-semibold tracking-tight mb-1">
+                    <h3 className="text-base font-semibold tracking-tight mb-1.5">
                       {title}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
@@ -205,29 +205,7 @@ const Cpaas = () => {
           </div>
         </section>
 
-        {/* Channels — Infinite Carousel */}
-        <section className="py-20 bg-[hsl(var(--cpaas-tint))]">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-              {/* LEFT — Heading & description */}
-              <div className="max-w-xl">
-                <h2 className="tracking-tight leading-tight text-balance">
-                  Conecte o seu sistema aos{" "}
-                  <span style={{ color: ACCENT }}>seus clientes</span>
-                </h2>
-                <p className="section-subtitle mt-4">
-                  Via API ou interface web, envie e receba mensagens com um
-                  contrato só, uma fatura só e um dashboard só.
-                </p>
-              </div>
-
-              {/* RIGHT — Carousel */}
-              <div className="w-full">
-                <ChannelsCarousel />
-              </div>
-            </div>
-          </div>
-        </section>
+        <CpaasChannelFlow />
 
         <EcosystemDiagram accent="hsl(var(--cpaas))" />
 

@@ -203,7 +203,7 @@ const roadmapItems = [
 
 const plans = [
   {
-    name: "Básico",
+    name: "Próximo",
     price: "R$ 990",
     period: "/mês",
     features: [
@@ -214,11 +214,11 @@ const plans = [
       "Suporte via ticket/e-mail em horário comercial",
       "Atualizações de Software garantidas",
     ],
-    cta: "Quero o Básico",
+    cta: "Quero o Próximo",
     highlight: false,
   },
   {
-    name: "Padrão",
+    name: "Veloz",
     price: "R$ 1.590",
     period: "/mês",
     features: [
@@ -230,12 +230,12 @@ const plans = [
       "Atualizações de Software garantidas",
       "Acesso a ADD-ON",
     ],
-    cta: "Quero o Padrão",
+    cta: "Quero o Veloz",
     highlight: true,
     badge: "Mais Popular",
   },
   {
-    name: "Elite",
+    name: "Melhor",
     price: "R$ 2.390",
     period: "/mês",
     features: [
@@ -247,7 +247,7 @@ const plans = [
       "Atualizações de Software garantidas",
       "Acesso a ADD-ON",
     ],
-    cta: "Quero o Elite",
+    cta: "Quero o Melhor",
     highlight: false,
   },
 ];
@@ -788,7 +788,7 @@ const Cloud = () => {
                     </button>
                     {openAcc["enterprise"] === 0 && (
                       <div className="px-5 pb-4 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                        Todos os planos (Básico, Padrão e Elite) permitem a criação de VMs e VCPUs de forma ilimitada, sem cobrança extra por recurso provisionado. A diferenciação ocorre apenas pelo número de servidores físicos (nodes) e clusters gerenciados.
+                        Todos os planos (Próximo, Veloz e Melhor) permitem a criação de VMs e VCPUs de forma ilimitada, sem cobrança extra por recurso provisionado. A diferenciação ocorre apenas pelo número de servidores físicos (nodes) e clusters gerenciados.
                       </div>
                     )}
                   </div>

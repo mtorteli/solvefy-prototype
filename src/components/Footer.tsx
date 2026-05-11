@@ -31,10 +31,10 @@ const linkGroups = [
     ],
   },
   {
-    title: "Empresa",
+    title: "Institucional",
     links: [
       { name: "Quem Somos", to: "/quem-somos" },
-      { name: "Seja um Solvers", to: "/" },
+      { name: "Seja um Solvers", to: "https://ativoscapital.rhgestor.com.br/" },
     ],
   },
 ];
@@ -101,6 +101,15 @@ export const Footer = () => {
                           className="text-sm text-dark-foreground/60 hover:text-primary transition-colors"
                         >
                           {link}
+                        </a>
+                      ) : link.to?.startsWith("http") ? (
+                        <a
+                          href={link.to}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-dark-foreground/60 hover:text-primary transition-colors"
+                        >
+                          {link.name}
                         </a>
                       ) : link.to ? (
                         <Link

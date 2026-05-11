@@ -15,17 +15,16 @@ const solutions = [
   { name: "Solvefy/Ads", icon: iconAds, hover: "hover:bg-[hsl(var(--ads))]/10", desc: "Tráfego Direto", to: "/ads" },
   { name: "Solvefy/Marketing", icon: iconMarketing, hover: "hover:bg-[hsl(var(--marketing))]/10", desc: "Jornadas Inteligentes", to: "/marketing" },
   { name: "Solvefy/CRM", icon: iconCrm, hover: "hover:bg-[hsl(var(--crm))]/10", desc: "Gestão Comercial", to: "/crm" },
-  { name: "Solvefy/Cloud", icon: iconCloud, hover: "hover:bg-[hsl(var(--cloud))]/10", desc: "Automação Cloud White Label", to: "/cloud" },
+  { name: "Solvefy/Cloud", icon: iconCloud, hover: "hover:bg-[hsl(var(--cloud))]/10", desc: "Automação de Cloud", to: "/cloud" },
 ];
 
 const resources = [
-  { name: "Blog", to: "/blog" }, 
+  { name: "Blog", to: "/blog" },
   { name: "Central de Ajuda", to: "https://intercom.help/Solvefy/pt-BR" },
-  { name: "Documentação", to: "/" }
 ];
 const company = [
   { name: "Quem Somos", to: "/quem-somos" },
-  { name: "Seja um Solvers", to: "/" },
+  { name: "Seja um Solvers", to: "https://ativoscapital.rhgestor.com.br/" },
 ];
 
 const NavDropdown = ({
@@ -178,7 +177,7 @@ export const Header = () => {
             </Link>
             <SolutionsMegaMenu />
             <NavDropdown label="Recursos" items={resources} />
-            <NavDropdown label="Empresa" items={company} />
+            <NavDropdown label="Institucional" items={company} />
           </nav>
 
           <div className="hidden lg:flex items-center">
@@ -228,7 +227,7 @@ export const Header = () => {
                 Recursos
               </Link>
               <Link to="/quem-somos" className="block px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium">
-                Empresa
+                Institucional
               </Link>
               <div className="px-3 pt-2">
                 <Button variant="hero" className="w-full group">

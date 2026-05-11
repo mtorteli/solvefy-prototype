@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { useState, type FormEvent } from "react";
+import { AdsStepsFlow } from "@/components/AdsStepsFlow";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
 import { ProductHero } from "@/components/ProductHero";
@@ -22,6 +23,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import iconAds from "@/assets/icons/ads.svg";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
+import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 import { AdsHeroMockup } from "@/components/AdsHeroMockup";
 
@@ -290,60 +292,10 @@ const Ads = () => {
           </div>
         </section>
 
-        {/* ============ COMO FUNCIONA — 6 PASSOS ============ */}
-        <section className="py-16 bg-[hsl(var(--ads-tint))]">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="max-w-4xl text-left mb-12">
-              <h2 className="tracking-tight leading-tight text-balance">
-                Da meta ao disparo em{" "}
-                <span style={{ color: ACCENT }}>6 passos</span>.
-              </h2>
-              <p className="section-subtitle mt-4">
-                Um fluxo guiado, com IA assistindo cada decisão crítica da
-                campanha.
-              </p>
-            </div>
+        <AdsStepsFlow />
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {steps.map(({ icon: Icon, title, desc }, i) => (
-                <div
-                  key={title}
-                  className="group relative rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1"
-                  style={{ boxShadow: "var(--shadow-soft)" }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = ACCENT;
-                    e.currentTarget.style.boxShadow = `0 12px 40px -12px ${ACCENT}55`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "";
-                    e.currentTarget.style.boxShadow = "var(--shadow-soft)";
-                  }}
-                >
-                  <div className="flex items-center justify-between mb-5">
-                    <div
-                      className="flex h-12 w-12 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
-                      style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
-                    >
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <span
-                      className="text-3xl font-bold leading-none"
-                      style={{ color: "#FF9200" }}
-                    >
-                      0{i + 1}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-semibold tracking-tight">
-                    {title}
-                  </h3>
-                  <p className="mt-2 text-base text-muted-foreground leading-relaxed">
-                    {desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* ============ CANAIS — Animated Flow ============ */}
+        <CpaasChannelFlow accent="#F0A800" accentBg="#FFF7E5" />
 
         <EcosystemDiagram accent="hsl(var(--ads))" />
 
@@ -519,77 +471,79 @@ const Ads = () => {
                 <span style={{ color: ACCENT }}>cabe na sua operação</span>.
               </h2>
               <p className="section-subtitle mt-4">
-                Dois modelos para escolher como você quer escalar — sem letra
-                miúda.
+                Dois modelos para escolher como você quer escalar, sem letras miúdas.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-5 items-stretch mb-8">
+            <div className="grid md:grid-cols-2 gap-6 items-stretch">
               {pricing.map(({ title, desc, bullets, cta, highlight }) => (
                 <div
                   key={title}
-                  className={`relative rounded-2xl p-7 flex flex-col ${
-                    highlight ? "" : "border border-border bg-card"
+                  className={`relative rounded-3xl p-8 flex flex-col transition-all ${
+                    highlight
+                      ? "shadow-2xl"
+                      : "border border-border bg-card hover:-translate-y-1 hover:shadow-md"
                   }`}
                   style={
                     highlight
                       ? {
-                          background: `#F6F5EF`,
-                          boxShadow: `0 20px 50px -20px ${ACCENT}99`,
-                          color: "#0a0a0a",
-                          border: `1px solid #FFB219`,
+                          borderWidth: "2px",
+                          borderStyle: "solid",
+                          borderColor: ACCENT,
+                          background: `linear-gradient(160deg, ${ACCENT}18 0%, hsl(var(--card)) 55%)`,
+                          boxShadow: `0 32px 80px -24px ${ACCENT}99`,
                         }
-                      : { boxShadow: "var(--shadow-soft)" }
+                      : undefined
                   }
                 >
                   {highlight && (
-                    <span className="absolute -top-3 inline-flex items-center rounded-full bg-black px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+                    <span
+                      className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-950 shadow-lg"
+                      style={{ background: ACCENT }}
+                    >
                       Mais escolhido
                     </span>
                   )}
-                  <div className="flex items-baseline gap-2 mb-1 flex-wrap">
-                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
-                      {title}
-                    </h3>
-                  </div>
-                  <p
-                    className={`text-base leading-relaxed mb-5 mt-2 ${
-                      highlight ? "text-gray-950/85" : "text-muted-foreground"
-                    }`}
+
+                  {/* Nome do plano */}
+                  <div
+                    className="text-xs font-bold uppercase tracking-widest mb-2"
+                    style={{ color: ACCENT }}
                   >
+                    {title}
+                  </div>
+
+                  {/* Título grande */}
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-4">
                     {desc}
-                  </p>
-                  <ul className="space-y-2 mb-7">
+                  </h3>
+
+                  {/* Divisor */}
+                  <div
+                    className="w-12 h-1 rounded-full mb-6"
+                    style={{ background: ACCENT }}
+                  />
+
+                  {/* Features */}
+                  <ul className="space-y-3 mb-8 text-sm flex-1">
                     {bullets.map((b) => (
-                      <li
-                        key={b}
-                        className={`flex items-center gap-2 text-sm ${
-                          highlight ? "text-gray-950/90" : "text-foreground/80"
-                        }`}
-                      >
+                      <li key={b} className="flex items-start gap-2.5">
                         <Check
-                          className="h-4 w-4"
-                          style={
-                            highlight ? { color: "#0a0a0a" } : { color: ACCENT }
-                          }
+                          className="h-4 w-4 mt-0.5 shrink-0"
+                          style={{ color: ACCENT }}
                         />
-                        {b}
+                        <span className="text-foreground/85">{b}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-auto">
-                    <Button
-                      size="lg"
-                      className={`w-full group font-semibold transition-all duration-200 ${
-                        highlight
-                          ? "bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950"
-                          : "bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950"
-                      }`}
-                    >
-                      {cta}
-                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </div>
+
+                  <Button
+                    size="lg"
+                    className="w-full group font-semibold mt-auto bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950"
+                  >
+                    {cta}
+                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
                 </div>
               ))}
             </div>
