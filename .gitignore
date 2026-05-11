@@ -26,3 +26,6 @@ dist-ssr
 
 # PDFs internos
 Portfólio Técnico Solvefy Cloud.pdf
+
+# Claude Code worktrees e cache local
+.claude/worktrees/

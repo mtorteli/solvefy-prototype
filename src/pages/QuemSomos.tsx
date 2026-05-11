@@ -8,8 +8,6 @@ import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import somosOsSolvers from "@/assets/somos-os-solvers.png";
 import solversHero from "@/assets/solvers-hero.png";
 import logoSolvefyDark from "@/assets/logo-solvefy-dark.png";
-import solversLogoBlack from "@/assets/solvers-logo-black.png";
-import manifestoSolvers from "@/assets/manifesto-solvers.png";
 import videoThumbnail from "@/assets/video-thumbnail.jpg";
 import iconCloud from "@/assets/icons/cloud.svg";
 import iconMarketing from "@/assets/icons/marketing.svg";
