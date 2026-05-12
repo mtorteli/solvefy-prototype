@@ -8,6 +8,7 @@ import iconAds from "@/assets/icons/ads.svg";
 import iconMarketing from "@/assets/icons/marketing.svg";
 import iconCrm from "@/assets/icons/crm.svg";
 import iconCloud from "@/assets/icons/cloud.svg";
+import iconAgents from "@/assets/icons/agents.svg";
 
 const solutions = [
   {
@@ -53,6 +54,17 @@ const solutions = [
     headline: "Gestão Comercial",
     desc: "Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de vendas definitiva para equipes de alta performance. Elimine o vazamento de leads, automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios em menos tempo.",
     bullets: ["Migração de Dados Gratuita", "Economize 20% vs. Concorrentes", "Implementação em 24h"],
+  },
+  {
+    key: "agents",
+    name: "Solvefy/Agents",
+    color: "hsl(var(--agents))",
+    panelBg: "hsl(var(--agents-surface))",
+    icon: iconAgents,
+    to: "/agents",
+    headline: "Inteligência Artificial",
+    desc: "Tenha múltiplos especialistas trabalhando 24/7 na sua operação. De SDRs rodando metodologias adaptadas ao mercado a squads criando conteúdo para as redes sociais, o Agents faz o trabalho operacional para o seu time focar em fechar negócios. Tudo em português e dentro de uma única plataforma.",
+    bullets: ["Inteligência Artificial", "Múltiplos Especialistas", "Workspace Ilimitado"],
   },
   {
     key: "cloud",
@@ -153,7 +165,7 @@ export const Solutions = () => {
                 <p className="text-[#1e1e1e] text-base md:text-lg leading-snug mb-8">
                   {current.desc}
                 </p>
-                <ul className="flex flex-wrap gap-3 mb-8">
+                <ul className="flex flex-col gap-2 mb-8">
                   {current.bullets.map((b) => (
                     <li key={b} className="flex items-center gap-2 text-sm text-[#1e1e1e]">
                       <span

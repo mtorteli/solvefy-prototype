@@ -16,8 +16,8 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
 
   return (
     <section className="py-20">
-      <div className="container mx-auto">
-        <div className="max-w-[960px] mx-auto text-left mb-10">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-3xl text-left mb-1">
           <Heading className="text-balance">
             Tecnologia que <span style={{ color: accent }}>simplifica</span>,
             <br />
@@ -31,7 +31,8 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="w-full"
+          className="w-full overflow-hidden"
+          style={{ height: `${iframeHeight - 108}px` }}
         >
           <iframe
             ref={iframeRef}
@@ -40,7 +41,13 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
             onLoad={handleLoad}
             scrolling="no"
             className="w-full border-0"
-            style={{ height: `${iframeHeight}px`, background: "transparent", overflow: "hidden", display: "block" }}
+            style={{
+              height: `${iframeHeight}px`,
+              marginTop: "-108px",
+              background: "transparent",
+              overflow: "hidden",
+              display: "block",
+            }}
           />
         </motion.div>
       </div>

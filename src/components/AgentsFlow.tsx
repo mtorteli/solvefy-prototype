@@ -1,25 +1,22 @@
 /**
- * AgentsFlow — exibe os 5 agentes Solvefy com animação cíclica
- * Mesma lógica do CpaasChannelFlow: ciclo 18 000 ms (0.5× do ecossistema),
- * badge fade-in no topo do card ativo, texto dinâmico centralizado abaixo.
+ * AgentsFlow — catálogo animado de agentes Solvefy
+ * Ciclo 18 000 ms (0.5× do ecossistema), badge fade-in no topo do card ativo,
+ * texto descritivo centralizado abaixo.
  */
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Target,
-  FileText,
+  Crosshair,
   Users,
   BarChart2,
-  MessageCircle,
   Zap,
   Sparkles,
   Star,
-  ShieldCheck,
   TrendingUp,
 } from "lucide-react";
 
-// 0.5× do ciclo padrão (9 000 ms) → 18 000 ms
 const CYCLE_MS = 18_000;
 
 interface AgentCard {
@@ -42,19 +39,19 @@ const AGENTS: AgentCard[] = [
     BadgeIcon: TrendingUp,
     badgeText: "SPIN + MEDDPICC",
     description:
-      "Faz pesquisa, outreach, discovery e qualificação com base em SPIN e MEDDPICC.",
+      "Faz pesquisa, outreach e qualificação com base nos melhores playbooks de vendas B2B do mercado.",
     tags: ["Prospecção", "Qualificação", "Outreach"],
   },
   {
-    id: "proposta",
+    id: "deal",
     number: "02",
-    label: "Proposta",
-    Icon: FileText,
+    label: "Deal Estratégico",
+    Icon: Crosshair,
     BadgeIcon: Zap,
-    badgeText: "Em Minutos",
+    badgeText: "Competitivo",
     description:
-      "Estrutura narrativas convincentes e cria propostas completas em minutos.",
-    tags: ["Narrativa", "Pitch", "Personalizado"],
+      "Análise competitiva profunda e quebra de objeções para acelerar o fechamento de negócios.",
+    tags: ["Análise", "Objeções", "Competidores"],
   },
   {
     id: "social",
@@ -64,8 +61,8 @@ const AGENTS: AgentCard[] = [
     BadgeIcon: Sparkles,
     badgeText: "10 Agentes",
     description:
-      "Orquestra 10 agentes para pesquisar, escrever e criar carrosséis para o Instagram e posts para o LinkedIn.",
-    tags: ["Instagram", "LinkedIn", "Carrossel"],
+      "Pesquisa, fact-check e criação de posts para Instagram e LinkedIn em minutos, sem agência.",
+    tags: ["Instagram", "LinkedIn", "Conteúdo"],
   },
   {
     id: "reuniao",
@@ -75,19 +72,8 @@ const AGENTS: AgentCard[] = [
     BadgeIcon: Star,
     badgeText: "Insights IA",
     description:
-      "Avalia transcrições de chamadas e gera notas e insights acionáveis para o time.",
+      "Avalia transcrições e gera insights acionáveis de vendas para preparar o seu time para fechar.",
     tags: ["Transcrição", "Notas", "Insights"],
-  },
-  {
-    id: "followup",
-    number: "05",
-    label: "Follow-up",
-    Icon: MessageCircle,
-    BadgeIcon: ShieldCheck,
-    badgeText: "Anti-Silêncio",
-    description:
-      "Gera sequências de acompanhamento baseadas no histórico, reduzindo perdas por silêncio.",
-    tags: ["Sequência", "Histórico", "Retenção"],
   },
 ];
 
@@ -130,17 +116,17 @@ export const AgentsFlow = ({
         {/* Header */}
         <div className="mb-12 max-w-2xl">
           <h2 className="tracking-tighter leading-tight text-balance">
-            Um time inteiro de{" "}
-            <span style={{ color: accent }}>especialistas operando 24/7</span>
+            Conheça a sua nova{" "}
+            <span style={{ color: accent }}>equipa a operar 24/7</span>
           </h2>
           <p className="section-subtitle mt-4">
-            Cada agente é treinado para uma missão específica. Juntos, cobrem
-            todo o ciclo de vendas e marketing B2B.
+            Quatro agentes prontos a rodar hoje, cobrindo todo o ciclo de vendas
+            e marketing B2B — sem contratar, sem onboarding.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           {AGENTS.map((agent, i) => {
             const isActive = activeIdx === i;
             return (
@@ -180,7 +166,6 @@ export const AgentsFlow = ({
                         }
                   }
                 >
-                  {/* Número */}
                   <span
                     className="text-[10px] font-bold tracking-widest uppercase transition-colors duration-300"
                     style={{ color: isActive ? accent : "#9ca3af" }}
@@ -188,7 +173,6 @@ export const AgentsFlow = ({
                     {agent.number}
                   </span>
 
-                  {/* Ícone */}
                   <div
                     className="flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-300"
                     style={{
@@ -200,7 +184,6 @@ export const AgentsFlow = ({
                     <agent.Icon className="h-5 w-5" strokeWidth={1.8} />
                   </div>
 
-                  {/* Nome */}
                   <p
                     className="text-sm font-semibold leading-snug tracking-tight transition-colors duration-300"
                     style={{ color: isActive ? accent : "#9ca3af" }}
@@ -213,7 +196,7 @@ export const AgentsFlow = ({
           })}
         </div>
 
-        {/* Área de texto dinâmico */}
+        {/* Texto dinâmico */}
         <div className="mt-8 min-h-[110px]">
           <AnimatePresence mode="wait">
             <motion.div

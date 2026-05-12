@@ -116,6 +116,8 @@
     --cloud: 192 100% 50%;      /* #00CBFF */
     --agents: 218 45% 58%;      /* #6487C4 */
     --solve-green: 150 100% 44%; /* #00df71 */
+    --lead: 150 100% 44%;        /* #00df71 — alias lead/conversão */
+    --lead-surface: 150 60% 92%; /* light green surface */
 
     /* Solution Panel Light Surfaces */
     --cpaas-surface: 260 100% 93%;   /* #E7DBFF */

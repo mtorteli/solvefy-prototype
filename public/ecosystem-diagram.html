@@ -63,6 +63,8 @@
   --brand-crm-bg:       #FFDAC6;
   --brand-cloud:        #00CBFF;
   --brand-cloud-bg:     #C6E8F1;
+  --brand-agents:       #6487C4;
+  --brand-agents-bg:    #C8D8F0;
   --brand-lead:         #00DF71;
   --brand-lead-bg:      #E7FFE7;
 
@@ -77,6 +79,8 @@
   --c-crm-bg:       var(--brand-crm-bg);
   --c-cloud:        var(--brand-cloud);
   --c-cloud-bg:     var(--brand-cloud-bg);
+  --c-agents:       var(--brand-agents);
+  --c-agents-bg:    var(--brand-agents-bg);
   --lead:           var(--brand-lead);
   --lead-bg:        var(--brand-lead-bg);
 
@@ -136,7 +140,7 @@ body { font-family: var(--font-sans); color: var(--fg-default); -webkit-font-smo
 }
 
 /* ── Canvas ── */
-.canvas { position: relative; width: 100%; height: 460px; }
+.canvas { position: relative; width: 100%; height: 520px; }
 
 .lines {
   position: absolute; inset: 0;
@@ -147,7 +151,7 @@ body { font-family: var(--font-sans); color: var(--fg-default); -webkit-font-smo
 /* ── Nodes ── */
 .node {
   position: absolute;
-  top: 30%;
+  top: 60%;
   transform: translateY(-50%);
   z-index: 4;
   background: var(--bg-surface);
@@ -222,7 +226,7 @@ body { font-family: var(--font-sans); color: var(--fg-default); -webkit-font-smo
 .channels-stack {
   position: absolute;
   left: 85%;
-  top: 30%;
+  top: 51%;
   transform: translateY(-50%);
   z-index: 3;
   display: flex;
@@ -379,6 +383,109 @@ body { font-family: var(--font-sans); color: var(--fg-default); -webkit-font-smo
   display: grid; place-items: center;
 }
 
+/* ── Agents horizontal band ── */
+.n-agents {
+  position: absolute;
+  left: 1%;
+  width: 82%;
+  top: 31%;
+  z-index: 3;
+  background: color-mix(in oklab, var(--c-agents-bg) 28%, var(--bg-surface));
+  border: 1.5px solid color-mix(in oklab, var(--c-agents) 30%, transparent);
+  border-radius: var(--r-lg);
+  padding: var(--s-3) var(--s-5);
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  transition:
+    box-shadow var(--dur-slow) var(--ease-out),
+    border-color var(--dur-med) var(--ease-out),
+    background   var(--dur-med) var(--ease-out);
+}
+.n-agents::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--c-agents);
+  border-radius: var(--r-lg) 0 0 var(--r-lg);
+  transition: width var(--dur-med) var(--ease-out);
+}
+.n-agents.active {
+  border-color: var(--c-agents);
+  background: color-mix(in oklab, var(--c-agents-bg) 45%, var(--bg-surface));
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--c-agents) 14%, transparent);
+}
+.n-agents.active::before { width: 5px; }
+.n-agents .ico {
+  width: 36px; height: 36px;
+  border-radius: var(--r-md);
+  background: var(--c-agents-bg);
+  color: var(--c-agents);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  transition:
+    background var(--dur-med) var(--ease-out),
+    color      var(--dur-med) var(--ease-out),
+    transform  var(--dur-med) var(--ease-spring);
+}
+.n-agents.active .ico {
+  background: var(--c-agents);
+  color: var(--paper-0);
+  transform: scale(1.05);
+}
+.n-agents .agents-body {
+  display: flex; align-items: center;
+  gap: var(--s-5); flex: 1;
+}
+.n-agents .agents-label { flex-shrink: 0; }
+.n-agents .title {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-lg);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--track-tight);
+  color: var(--fg-default);
+  margin-bottom: var(--s-1);
+}
+.n-agents .sub {
+  font-family: var(--font-sans);
+  font-size: var(--text-2xs);
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  font-weight: var(--weight-medium);
+}
+.n-agents .sep {
+  width: 1px; align-self: stretch;
+  background: color-mix(in oklab, var(--c-agents) 22%, transparent);
+  flex-shrink: 0;
+}
+.n-agents .desc {
+  font-family: var(--font-sans);
+  font-size: var(--text-2xs);
+  color: var(--fg-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+.n-agents .tags {
+  display: flex; gap: var(--s-2);
+  flex-wrap: wrap; align-items: center;
+  flex-shrink: 0;
+}
+.n-agents .tag {
+  font-family: var(--font-sans);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  color: var(--c-agents);
+  background: color-mix(in oklab, var(--c-agents-bg) 70%, var(--bg-surface));
+  border: 1px solid color-mix(in oklab, var(--c-agents) 20%, transparent);
+  border-radius: var(--r-pill);
+  padding: 2px var(--s-2);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  white-space: nowrap;
+}
+
 /* ── Legend ── */
 .legend {
   margin-top: var(--s-10);
@@ -421,21 +528,21 @@ body { font-family: var(--font-sans); color: var(--fg-default); -webkit-font-smo
           </defs>
 
           <!-- Forward flow: CPaaS → Ads → Marketing → CRM -->
-          <path d="M 168,210 H 504"  fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
-          <path d="M 504,210 H 840"  fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
-          <path d="M 840,210 H 1176" fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
+          <path d="M 168,420 H 504"  fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
+          <path d="M 504,420 H 840"  fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
+          <path d="M 840,420 H 1176" fill="none" stroke="var(--ink-200)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5" vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
 
           <!-- Invisible path the ball follows (CPaaS → CRM) -->
-          <path id="fullPath" d="M 168,210 L 504,210 L 840,210 L 1176,210" fill="none" stroke="none"/>
+          <path id="fullPath" d="M 168,420 L 504,420 L 840,420 L 1176,420" fill="none" stroke="none"/>
 
           <!-- Return loops: channels → back to CPaaS (168) and Ads (504) -->
           <path id="returnToCpaas"
-                d="M 1472,380 L 1472,500 L 168,500 L 168,260"
+                d="M 1472,480 L 1472,600 L 168,600 L 168,470"
                 fill="none" stroke="var(--ink-300)" stroke-width="1.2"
                 stroke-dasharray="2 6" opacity="0.55"
                 vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
           <path id="returnToAds"
-                d="M 1472,360 L 1472,460 L 504,460 L 504,260"
+                d="M 1472,460 L 1472,560 L 504,560 L 504,470"
                 fill="none" stroke="var(--ink-300)" stroke-width="1.2"
                 stroke-dasharray="2 6" opacity="0.55"
                 vector-effect="non-scaling-stroke" marker-end="url(#arrow)"/>
@@ -509,6 +616,26 @@ body { font-family: var(--font-sans); color: var(--fg-default); -webkit-font-smo
           <div class="sub">Base de dados</div>
         </div>
 
+        <!-- Agents: horizontal AI band spanning CPaaS → CRM -->
+        <div class="n-agents" id="n-agents">
+          <div class="ico">
+            <svg width="21" height="20" viewBox="14 23 69 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="50" cy="52" r="11"/>
+                <path d="M 30 84 Q 35 69 50 69 Q 57 69 63 75"/>
+                <path d="M 46 77.5 A 26 26 0 0 0 75.7 56 A 4.5 4.5 0 0 0 75.7 48 A 26 26 0 0 0 24 52"/>
+                <path d="M 17 44 L 24 52 L 32 47"/>
+              </g>
+            </svg>
+          </div>
+          <div class="agents-body">
+            <div class="agents-label">
+              <div class="title">Agents</div>
+              <div class="sub">Inteligência Artificial</div>
+            </div>
+          </div>
+        </div>
+
         <!-- Channels (to the right of CRM, output in Lead green) -->
         <div class="channels-stack">
           <div class="channel" id="ch-sms" data-channel="sms">
@@ -556,6 +683,7 @@ body { font-family: var(--font-sans); color: var(--fg-default); -webkit-font-smo
         <span class="swatch" style="--bg: var(--c-ads)"><i></i> Ads</span>
         <span class="swatch" style="--bg: var(--c-marketing)"><i></i> Marketing</span>
         <span class="swatch" style="--bg: var(--c-crm)"><i></i> CRM</span>
+        <span class="swatch" style="--bg: var(--c-agents)"><i></i> Agents</span>
         <span class="swatch" style="--bg: var(--lead)"><i></i> Lead</span>
       </div>
 
@@ -612,7 +740,16 @@ body { font-family: var(--font-sans); color: var(--fg-default); -webkit-font-smo
   }
 
   const CHANNELS = ['ch-sms', 'ch-rcs', 'ch-email', 'ch-voz', 'ch-wa'];
+  function pulseAgents() {
+    const ag = document.getElementById('n-agents');
+    if (!ag) return;
+    ag.classList.add('active');
+    clearTimeout(ag._t);
+    ag._t = setTimeout(() => ag.classList.remove('active'), 1200);
+  }
+
   function fanOutChannels() {
+    pulseAgents();
     let i = 0;
     const iv = setInterval(() => {
       const ch = document.getElementById(CHANNELS[i]);
