@@ -114,6 +114,7 @@
     --marketing: 329 76% 58%;   /* #E64499 */
     --crm: 21 78% 50%;          /* #E1611C */
     --cloud: 192 100% 50%;      /* #00CBFF */
+    --agents: 218 45% 58%;      /* #6487C4 */
     --solve-green: 150 100% 44%; /* #00df71 */
 
     /* Solution Panel Light Surfaces */
@@ -122,6 +123,7 @@
     --marketing-surface: 327 100% 96%; /* #FFE9F5 */
     --crm-surface: 21 100% 89%;      /* #FFDAC6 */
     --cloud-surface: 192 60% 86%;    /* #C6E8F1 */
+    --agents-surface: 218 60% 92%;   /* #C8D8F0 */
 
     /* Solution Section Tints (ultra-light, section backgrounds) */
     --cpaas-tint: 260 100% 98.5%;
@@ -129,6 +131,7 @@
     --marketing-tint: 327 100% 98.5%;
     --crm-tint: 21 100% 97%;
     --cloud-tint: 192 40% 97%;
+    --agents-tint: 218 70% 97%;
 
     /* Dark surface */
     --dark: 222 47% 11%; /* #0f172a */

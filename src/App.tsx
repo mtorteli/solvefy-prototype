@@ -16,6 +16,7 @@ const Cpaas = lazy(() => import("./pages/Cpaas.tsx"));
 const Ads = lazy(() => import("./pages/Ads.tsx"));
 const Marketing = lazy(() => import("./pages/Marketing.tsx"));
 const Crm = lazy(() => import("./pages/Crm.tsx"));
+const Agents = lazy(() => import("./pages/Agents.tsx"));
 const Cloud = lazy(() => import("./pages/Cloud.tsx"));
 const QuemSomos = lazy(() => import("./pages/QuemSomos.tsx"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex.tsx"));
@@ -44,6 +45,7 @@ const App = () => {
               <Route path="/ads" element={<Ads />} />
               <Route path="/marketing" element={<Marketing />} />
               <Route path="/crm" element={<Crm />} />
+              <Route path="/agents" element={<Agents />} />
               <Route path="/cloud" element={<Cloud />} />
               <Route path="/quem-somos" element={<QuemSomos />} />
               <Route path="/contato" element={<Contact />} />

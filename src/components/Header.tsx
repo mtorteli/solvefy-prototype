@@ -8,6 +8,7 @@ import iconCpaas from "@/assets/icons/cpaas.svg";
 import iconAds from "@/assets/icons/ads.svg";
 import iconMarketing from "@/assets/icons/marketing.svg";
 import iconCrm from "@/assets/icons/crm.svg";
+import iconAgents from "@/assets/icons/agents.svg";
 import iconCloud from "@/assets/icons/cloud.svg";
 
 const solutions = [
@@ -15,6 +16,7 @@ const solutions = [
   { name: "Solvefy/Ads", icon: iconAds, hover: "hover:bg-[hsl(var(--ads))]/10", desc: "Tráfego Direto", to: "/ads" },
   { name: "Solvefy/Marketing", icon: iconMarketing, hover: "hover:bg-[hsl(var(--marketing))]/10", desc: "Jornadas Inteligentes", to: "/marketing" },
   { name: "Solvefy/CRM", icon: iconCrm, hover: "hover:bg-[hsl(var(--crm))]/10", desc: "Gestão Comercial", to: "/crm" },
+  { name: "Solvefy/Agents", icon: iconAgents, hover: "hover:bg-[hsl(var(--agents))]/10", desc: "Copiloto de IA B2B", to: "/agents" },
   { name: "Solvefy/Cloud", icon: iconCloud, hover: "hover:bg-[hsl(var(--cloud))]/10", desc: "Automação de Cloud", to: "/cloud" },
 ];
 
