@@ -18,6 +18,7 @@ const linkGroups = [
       { name: "Solvefy/Ads", to: "/ads" },
       { name: "Solvefy/Marketing", to: "/marketing" },
       { name: "Solvefy/CRM", to: "/crm" },
+      { name: "Solvefy/Agents", to: "/agents" },
       { name: "Solvefy/Cloud", to: "/cloud" },
     ],
   },
