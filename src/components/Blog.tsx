@@ -10,18 +10,24 @@ export const Blog = () => {
     queryKey: ["latest-posts"],
     queryFn: async () => {
       if (!isSupabaseConfigured) return MOCK_POSTS.slice(0, 3);
-      
+
       try {
-        const { data, error } = await supabase
+        const { data: supabasePosts } = await supabase
           .from("posts")
           .select("*, post_categories(categories(name, slug)), authors(name)")
           .eq("status", "published")
           .order("created_at", { ascending: false })
-          .limit(3);
-        
-        if (error) throw error;
-        return data || MOCK_POSTS.slice(0, 3);
-      } catch (e) {
+          .limit(50);
+
+        // MOCK_POSTS são sempre os artigos mais recentes/destacados;
+        // artigos do Supabase aparecem depois (sem duplicar slugs)
+        const mockSlugs = new Set((MOCK_POSTS as any[]).map((p) => p.slug));
+        const supabaseOnly = (supabasePosts || []).filter(
+          (p) => !mockSlugs.has(p.slug)
+        );
+
+        return [...(MOCK_POSTS as any[]), ...supabaseOnly].slice(0, 3);
+      } catch {
         return MOCK_POSTS.slice(0, 3);
       }
     },
