@@ -21,6 +21,7 @@ import { SEO } from "@/components/SEO";
 import { ProductHero } from "@/components/ProductHero";
 import { AgentsFlow } from "@/components/AgentsFlow";
 import { AgentsHeroMockup } from "@/components/AgentsHeroMockup";
+import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import iconAgents from "@/assets/icons/agents.svg";
 
 const ACCENT      = "hsl(var(--agents))";
@@ -282,6 +283,8 @@ export default function Agents() {
             </div>
           </div>
         </section>
+
+        <EcosystemDiagram accent={ACCENT} />
 
         {/* ── 3. DIFERENCIAIS ──────────────────────────────────────────────── */}
         <section className="py-16 md:py-24" style={{ backgroundColor: ACCENT_TINT }}>
