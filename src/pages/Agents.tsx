@@ -470,19 +470,6 @@ export default function Agents() {
               </p>
             </div>
 
-            {/* Billing model badge */}
-            <div className="flex flex-col items-start gap-3 mb-12">
-              <span
-                className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium border"
-                style={{
-                  backgroundColor: `${ACCENT}0D`,
-                  color: ACCENT,
-                  borderColor: `${ACCENT}30`,
-                }}
-              >
-                Assinatura mensal fixa + créditos para consumo de IA
-              </span>
-            </div>
 
             {/* Cards */}
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto items-stretch">
