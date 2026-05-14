@@ -109,6 +109,7 @@ const Cpaas = () => {
             <span className="text-[hsl(var(--cpaas))]">conexões em tempo real</span></>}
           subtitle="O coração transacional do ecossistema. É uma plataforma robusta de comunicação via API desenvolvida para empresas que demandam alto volume de disparos. Atua como a engrenagem invisível que também potencializa as outras soluções (como o Solvefy Marketing)."
           ctaText="Fale com um Especialista"
+          ctaHref="/contato"
           trustItems={["Integração via API", "Sem Taxa de Setup", "Cobrança por Volume"]}
           right={<CpaasHeroMockup />}
         />

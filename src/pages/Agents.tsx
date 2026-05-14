@@ -165,7 +165,7 @@ export default function Agents() {
           }
           subtitle="Tenha múltiplos especialistas trabalhando 24/7 na sua operação. De SDRs rodando metodologias adaptadas ao mercado a squads criando conteúdo para as redes sociais, o Agents faz o trabalho operacional para o seu time focar em fechar negócios. Tudo em português e dentro de uma única plataforma."
           ctaText="Comprar Agora"
-          ctaHref="#pricing"
+          ctaHref="/contato"
           ctaTextColor="text-white"
           trustItems={[
             "Inteligência Artificial",

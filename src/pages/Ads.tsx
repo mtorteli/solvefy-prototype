@@ -191,6 +191,7 @@ const Ads = () => {
             que nos outros Ads.</>}
           subtitle="Pare de queimar orçamento em plataformas saturadas e leilões inflacionados. A Solvefy/Ads entrega tráfego qualificado de alta performance com total autonomia. Sem bloqueios injustos, sem vínculo com outras redes. Apenas resultados reais e escaláveis."
           ctaText="Comprar Agora"
+          ctaHref="/contato"
           ctaTextColor="text-gray-950"
           trustItems={["CPA até 20% menor", "CTR de até 35%", "Zero Vínculos"]}
           right={<AdsHeroMockup />}

@@ -133,6 +133,7 @@ const Crm = () => {
             <span className="text-[hsl(var(--crm))]">Assuma o controle absoluto do seu pipeline.</span></>}
           subtitle="Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de vendas definitiva para equipes de alta performance. Elimine o vazamento de leads, automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios em menos tempo."
           ctaText="Teste Grátis"
+          ctaHref="/contato"
           trustItems={["Migração de Dados Gratuita", "Economize 20% vs. Concorrentes", "Implementação em 24h"]}
           right={<CrmHeroMockup />}
         />

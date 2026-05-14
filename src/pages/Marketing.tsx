@@ -183,6 +183,7 @@ const Marketing = () => {
             <span className="text-[hsl(var(--marketing))]">jornadas completas e personalizadas.</span></>}
           subtitle="Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você cria jornadas de relacionamento automatizadas e transforma contatos em vendas. Use nossos templates de disparo rápido, acompanhe métricas em tempo real e integre tudo facilmente via API."
           ctaText="Teste Grátis"
+          ctaHref="/contato"
           trustItems={["Todos os Canais", "Construtor Visual de Jornadas", "EasyIA"]}
           right={<MarketingHeroMockup />}
         />
