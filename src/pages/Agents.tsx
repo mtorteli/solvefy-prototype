@@ -470,7 +470,7 @@ export default function Agents() {
               </p>
             </div>
 
-            {/* Billing model + promo banner */}
+            {/* Billing model badge */}
             <div className="flex flex-col items-start gap-3 mb-12">
               <span
                 className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium border"
@@ -482,12 +482,6 @@ export default function Agents() {
               >
                 Assinatura mensal fixa + créditos para consumo de IA
               </span>
-              <div
-                className="inline-flex items-center rounded-full px-5 py-2 text-sm font-bold text-white shadow-lg"
-                style={{ backgroundColor: ACCENT }}
-              >
-                🎉 Promoção de Lançamento: 50% OFF por 6 meses
-              </div>
             </div>
 
             {/* Cards */}
