@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
 import { Heading } from "@/components/ui/Typography";
 
 export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) => {
@@ -26,11 +25,7 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
           </Heading>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+        <div
           className="w-full overflow-hidden"
           style={{ height: `${iframeHeight - 108}px` }}
         >
@@ -49,7 +44,7 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
               display: "block",
             }}
           />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

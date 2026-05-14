@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Check,
   ArrowRight,
+  X,
   Bot,
   GitMerge,
   Globe,
@@ -13,6 +14,7 @@ import {
   Brain,
   Users,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -107,31 +109,45 @@ const PERSONAS = [
 /* ── 6. Planos ───────────────────────────────────────────────────────────── */
 const PLANS = [
   {
-    name: "Básico",
-    price: "R$ 97,90",
+    name: "Veloz",
+    promoPrice: "R$ 97,90",
+    fullPrice: "R$ 195,80",
     period: "/mês",
-    description: "Ideal para founders e times enxutos.",
+    credits: "20 créditos de IA/mês inclusos",
     highlight: false,
-    bullets: [
-      "15+ agentes pré-configurados em PT-BR",
-      "20 créditos mensais inclusos",
-      "Usuários ilimitados no workspace",
-      "Analytics nativo em tempo real",
+    badge: null as string | null,
+    cta: "Começar com Veloz",
+    features: [
+      "Usuários no workspace: Ilimitado",
+      "Agentes pré-configurados: Todos (15+)",
+      "Multi-modelo: Padrão (Gemini)",
+      "Analytics, histórico e anexos",
     ],
+    disabledItems: [
+      "Squads pré-prontos",
+      "Criar agentes próprios",
+      "Criar squads próprios",
+    ] as string[],
   },
   {
-    name: "Completo",
-    price: "R$ 187,90",
+    name: "Melhor",
+    promoPrice: "R$ 187,90",
+    fullPrice: "R$ 375,80",
     period: "/mês",
-    description: "Para times comerciais que precisam escalar.",
+    credits: "50 créditos de IA/mês inclusos",
     highlight: true,
-    bullets: [
-      "Tudo do plano Básico",
-      "Criação de agentes customizados",
-      "Squads próprios com orquestração visual",
-      "50 créditos mensais inclusos",
-      "Multi-modelo: Gemini, Claude e GPT",
+    badge: "Mais Escolhido" as string | null,
+    cta: "Começar com Melhor",
+    features: [
+      "Usuários no workspace: Ilimitado",
+      "Agentes pré-configurados: Todos (15+)",
+      "Squads pré-prontos",
+      "Criar agentes próprios",
+      "Criar squads próprios",
+      "Multi-modelo: Acesso total (Gemini, Claude e GPT)",
+      "Analytics, histórico e anexos",
     ],
+    disabledItems: [] as string[],
   },
 ];
 
@@ -431,15 +447,40 @@ export default function Agents() {
         </section>
 
         {/* ── 6. PRICING ───────────────────────────────────────────────────── */}
-        <section id="pricing" className="py-16 md:py-24">
+        <section id="pricing" className="py-20 md:py-28 bg-white">
           <div className="max-w-6xl mx-auto px-6">
 
-            <div className="flex flex-col items-center text-center mb-10 gap-3">
-              <span
-                className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
-                style={{ backgroundColor: `${ACCENT}15`, color: ACCENT }}
+            {/* Header */}
+            <div className="max-w-4xl text-left mb-10">
+              <div
+                className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
+                style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/>
+                  <path d="M7 7h.01"/>
+                </svg>
                 Planos & Precificação
+              </div>
+              <h2 className="tracking-tight leading-tight text-balance">
+                Escolha o plano <span style={{ color: ACCENT }}>certo</span> para crescer.
+              </h2>
+              <p className="section-subtitle mt-4">
+                Faturamento em reais, sem oscilação cambial e sem letras miúdas.
+              </p>
+            </div>
+
+            {/* Billing model + promo banner */}
+            <div className="flex flex-col items-start gap-3 mb-12">
+              <span
+                className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium border"
+                style={{
+                  backgroundColor: `${ACCENT}0D`,
+                  color: ACCENT,
+                  borderColor: `${ACCENT}30`,
+                }}
+              >
+                Assinatura mensal fixa + créditos para consumo de IA
               </span>
               <div
                 className="inline-flex items-center rounded-full px-5 py-2 text-sm font-bold text-white shadow-lg"
@@ -447,78 +488,117 @@ export default function Agents() {
               >
                 🎉 Promoção de Lançamento: 50% OFF por 6 meses
               </div>
-              <h2 className="tracking-tighter leading-tight text-balance mt-2">
-                Escolha o seu plano
-              </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {/* Cards */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto items-stretch">
               {PLANS.map((plan) => (
                 <div
                   key={plan.name}
-                  className="relative rounded-2xl border p-8 flex flex-col transition-all duration-300 hover:shadow-elegant"
-                  style={{
-                    borderColor: plan.highlight ? ACCENT : `${ACCENT}25`,
-                    backgroundColor: plan.highlight ? `${ACCENT}08` : "transparent",
-                    boxShadow: plan.highlight
-                      ? `0 0 0 2px ${ACCENT}30, 0 8px 32px -8px ${ACCENT}30`
-                      : undefined,
-                  }}
+                  className={`relative rounded-3xl p-7 flex flex-col transition-all ${
+                    plan.highlight
+                      ? "shadow-2xl md:-translate-y-2"
+                      : "border border-border bg-card hover:-translate-y-1 hover:shadow-md"
+                  }`}
+                  style={
+                    plan.highlight
+                      ? {
+                          borderWidth: "2px",
+                          borderStyle: "solid",
+                          borderColor: ACCENT,
+                          background: `linear-gradient(160deg, ${ACCENT}10 0%, hsl(var(--card)) 60%)`,
+                          boxShadow: `0 24px 60px -24px ${ACCENT}80`,
+                        }
+                      : undefined
+                  }
                 >
-                  {plan.highlight && (
-                    <div
-                      className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-bold text-white shadow"
-                      style={{ backgroundColor: ACCENT }}
+                  {plan.badge && (
+                    <span
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg"
+                      style={{ background: ACCENT }}
                     >
-                      Mais Escolhido
-                    </div>
+                      {plan.badge}
+                    </span>
                   )}
 
-                  <div className="mb-6">
-                    <p
-                      className="text-sm font-semibold uppercase tracking-widest mb-1"
+                  {/* Nome + preços */}
+                  <div className="mb-5">
+                    <div
+                      className="text-sm font-bold uppercase tracking-wider mb-2"
                       style={{ color: ACCENT }}
                     >
                       {plan.name}
-                    </p>
-                    <div className="flex items-end gap-1">
-                      <span className="text-4xl font-black tracking-tight">{plan.price}</span>
-                      <span className="text-muted-foreground mb-1">{plan.period}</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mt-2">{plan.description}</p>
+                    {/* Promo price — destaque */}
+                    <div className="flex items-baseline gap-1 mb-1">
+                      <span className="text-4xl font-bold tracking-tight">{plan.promoPrice}</span>
+                      <span className="text-sm text-muted-foreground">{plan.period}</span>
+                    </div>
+                    {/* Full price riscado */}
+                    <p className="text-sm text-muted-foreground line-through mb-2">
+                      {plan.fullPrice}/mês
+                    </p>
+                    {/* Créditos */}
+                    <div
+                      className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold"
+                      style={{ backgroundColor: `${ACCENT}15`, color: ACCENT }}
+                    >
+                      {plan.credits}
+                    </div>
                   </div>
 
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {plan.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2.5 text-sm">
-                        <Check
-                          className="h-4 w-4 mt-0.5 shrink-0"
-                          style={{ color: ACCENT }}
-                        />
-                        <span>{b}</span>
+                  {/* Features ativas */}
+                  <ul className="space-y-2.5 mb-4 text-sm flex-1">
+                    {plan.features.map((feat) => (
+                      <li key={feat} className="flex items-start gap-2">
+                        <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                        <span className="text-foreground/85">{feat}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <Link
-                    to="/contato"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5"
-                    style={
+                  {/* Features desativadas */}
+                  {plan.disabledItems.length > 0 && (
+                    <>
+                      <div className="flex items-center gap-2 my-3">
+                        <div className="flex-1 border-t border-dashed border-border" />
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-1">
+                          Não incluso
+                        </span>
+                        <div className="flex-1 border-t border-dashed border-border" />
+                      </div>
+                      <ul className="space-y-2.5 mb-5 text-sm">
+                        {plan.disabledItems.map((feat) => (
+                          <li key={feat} className="flex items-start gap-2 opacity-40">
+                            <X className="h-4 w-4 mt-0.5 shrink-0" />
+                            <span className="text-foreground/70 line-through">{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+
+                  <Button
+                    size="lg"
+                    asChild
+                    className={`w-full font-semibold mt-auto ${
                       plan.highlight
-                        ? { backgroundColor: ACCENT, color: "#fff" }
-                        : { backgroundColor: `${ACCENT}15`, color: ACCENT }
-                    }
+                        ? "bg-[hsl(var(--agents))] hover:bg-[hsl(var(--agents))]/90 text-white"
+                        : "bg-foreground/90 hover:bg-foreground text-background"
+                    }`}
                   >
-                    Começar Agora
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
+                    <Link to="/contato" className="inline-flex items-center justify-center">
+                      {plan.cta}
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </Button>
                 </div>
               ))}
             </div>
 
             <p className="text-center text-xs text-muted-foreground/60 mt-8 max-w-lg mx-auto leading-relaxed">
               1 crédito = R$ 1,00, consumido proporcionalmente ao uso real da IA.
-              Sem taxas ocultas e sem surpresas.
+              Créditos adicionais disponíveis conforme necessidade. Sem taxas ocultas.
             </p>
           </div>
         </section>
