@@ -110,8 +110,7 @@ const PERSONAS = [
 const PLANS = [
   {
     name: "Veloz",
-    promoPrice: "R$ 97,90",
-    fullPrice: "R$ 195,80",
+    price: "R$ 195,80",
     period: "/mês",
     credits: "20 créditos de IA/mês inclusos",
     highlight: false,
@@ -131,8 +130,7 @@ const PLANS = [
   },
   {
     name: "Melhor",
-    promoPrice: "R$ 187,90",
-    fullPrice: "R$ 375,80",
+    price: "R$ 375,80",
     period: "/mês",
     credits: "50 créditos de IA/mês inclusos",
     highlight: true,
@@ -502,7 +500,7 @@ export default function Agents() {
                     </span>
                   )}
 
-                  {/* Nome + preços */}
+                  {/* Nome + preço */}
                   <div className="mb-5">
                     <div
                       className="text-sm font-bold uppercase tracking-wider mb-2"
@@ -510,15 +508,10 @@ export default function Agents() {
                     >
                       {plan.name}
                     </div>
-                    {/* Promo price — destaque */}
-                    <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-4xl font-bold tracking-tight">{plan.promoPrice}</span>
+                    <div className="flex items-baseline gap-1 mb-3">
+                      <span className="text-4xl font-bold tracking-tight">{plan.price}</span>
                       <span className="text-sm text-muted-foreground">{plan.period}</span>
                     </div>
-                    {/* Full price riscado */}
-                    <p className="text-sm text-muted-foreground line-through mb-2">
-                      {plan.fullPrice}/mês
-                    </p>
                     {/* Créditos */}
                     <div
                       className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold"
