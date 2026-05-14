@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, Check, Code2, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 interface PricingCustomPlanProps {
@@ -9,6 +10,7 @@ interface PricingCustomPlanProps {
   bullets: string[];
   badgeText?: string;
   ctaText: string;
+  ctaHref?: string;
   footerText?: string;
   accordionTitle?: string;
   accordionBody?: string;
@@ -21,6 +23,7 @@ export function PricingCustomPlan({
   bullets,
   badgeText = "Sob Medida",
   ctaText,
+  ctaHref,
   footerText,
   accordionTitle,
   accordionBody,
@@ -84,17 +87,27 @@ export function PricingCustomPlan({
           </div>
           <Button
             size="lg"
+            asChild={!!ctaHref}
             className="group font-semibold text-white w-full md:w-auto"
             style={{ backgroundColor: accent }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = `color-mix(in srgb, ${accent} 90%, black)`;
+              (e.currentTarget as HTMLElement).style.backgroundColor = `color-mix(in srgb, ${accent} 90%, black)`;
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = accent;
+              (e.currentTarget as HTMLElement).style.backgroundColor = accent;
             }}
           >
-            {ctaText}
-            <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            {ctaHref ? (
+              <Link to={ctaHref} className="inline-flex items-center">
+                {ctaText}
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            ) : (
+              <>
+                {ctaText}
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </>
+            )}
           </Button>
         </div>
       </div>

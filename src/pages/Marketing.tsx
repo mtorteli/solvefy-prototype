@@ -13,6 +13,7 @@ import {
   Users,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
 import { ProductHero } from "@/components/ProductHero";
@@ -534,14 +535,17 @@ const Marketing = () => {
 
                   <Button
                     size="lg"
+                    asChild
                     className={`w-full font-semibold mt-auto ${
                       plan.highlight
                         ? "bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white"
                         : "bg-foreground/90 hover:bg-foreground text-background"
                     }`}
                   >
-                    {plan.cta}
-                    <ArrowRight className="ml-1 h-4 w-4" />
+                    <Link to="/contato" className="inline-flex items-center justify-center">
+                      {plan.cta}
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
               ))}
@@ -560,6 +564,7 @@ const Marketing = () => {
                 bullets={apiPlan.features}
                 badgeText={apiPlan.priceTag}
                 ctaText={apiPlan.cta}
+                ctaHref="/contato"
                 footerText={apiPlan.footerText}
               />
             </div>

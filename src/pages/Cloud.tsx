@@ -713,14 +713,17 @@ const Cloud = () => {
 
                   <Button
                     size="lg"
+                    asChild
                     className={`w-full font-semibold ${
                       plan.highlight
                         ? "bg-[hsl(var(--cloud))] hover:bg-[hsl(var(--cloud))]/90 text-gray-950"
                         : "bg-foreground/90 hover:bg-foreground text-background"
                     }`}
                   >
-                    {plan.cta}
-                    <ArrowRight className="ml-1 h-4 w-4" />
+                    <Link to="/contato" className="inline-flex items-center justify-center">
+                      {plan.cta}
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
               ))}

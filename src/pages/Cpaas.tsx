@@ -296,6 +296,7 @@ const Cpaas = () => {
               bullets={enterprisePlan.bullets}
               badgeText="Sob Medida"
               ctaText={enterprisePlan.cta}
+              ctaHref="/contato"
               footerText={enterprisePlan.footerText}
             />
           </div>

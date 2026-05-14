@@ -9,6 +9,7 @@ import {
   TrendingDown,
   X,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
 import { ProductHero } from "@/components/ProductHero";
@@ -411,14 +412,17 @@ const Crm = () => {
 
                   <Button
                     size="lg"
+                    asChild
                     className={`w-full font-semibold ${
                       plan.highlight
                         ? "bg-[hsl(var(--crm))] hover:bg-[hsl(var(--crm))]/90 text-white"
                         : "bg-foreground/90 hover:bg-foreground text-background"
                     }`}
                   >
-                    {plan.cta}
-                    <ArrowRight className="ml-1 h-4 w-4" />
+                    <Link to="/contato" className="inline-flex items-center justify-center">
+                      {plan.cta}
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
               ))}
@@ -432,6 +436,7 @@ const Crm = () => {
                 bullets={apiPlan.features}
                 badgeText={apiPlan.priceTag}
                 ctaText={apiPlan.cta}
+                ctaHref="/contato"
                 accordionTitle={apiPlan.accordionTitle}
                 accordionBody={apiPlan.accordionBody}
                 footerText={apiPlan.footerText}

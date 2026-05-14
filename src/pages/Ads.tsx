@@ -21,6 +21,7 @@ import { SEO } from "@/components/SEO";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import iconAds from "@/assets/icons/ads.svg";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
@@ -540,10 +541,13 @@ const Ads = () => {
 
                   <Button
                     size="lg"
+                    asChild
                     className="w-full group font-semibold mt-auto bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950"
                   >
-                    {cta}
-                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <Link to="/contato" className="inline-flex items-center justify-center">
+                      {cta}
+                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
                   </Button>
                 </div>
               ))}
