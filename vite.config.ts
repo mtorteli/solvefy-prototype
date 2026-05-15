@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [
-    react(), 
+    react(),
     mode === "development" && componentTagger(),
     ViteImageOptimizer({
       png: { quality: 80 },
@@ -22,7 +22,11 @@ export default defineConfig(({ mode }) => ({
       jpg: { quality: 80 },
       webp: { quality: 80 },
       avif: { quality: 70 },
-    })
+    }),
+    // rollup-plugin-visualizer fica como devDep instalada; ativar manualmente
+    // via `import { visualizer } from "rollup-plugin-visualizer"` quando for
+    // auditar bundle. Não plugamos no build padrão para não brigar com o
+    // pipeline do react-snap.
   ].filter(Boolean),
   resolve: {
     alias: {
