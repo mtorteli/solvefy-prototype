@@ -21,7 +21,7 @@ const Index = () => {
         schemas={[organizationSchema(), websiteSchema()]}
       />
       <Header />
-      <main>
+      <main id="main">
         <Hero />
         <SocialProof />
         <Testimonial />

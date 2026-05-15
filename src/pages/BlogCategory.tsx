@@ -155,7 +155,7 @@ export default function BlogCategory() {
         ]}
       />
       <Header />
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-12 mt-8">
+      <main id="main" className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-12 mt-8">
         <div className="mb-8">
           <Link to="/blog" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-6">
             <ArrowLeft className="mr-2 h-4 w-4" />

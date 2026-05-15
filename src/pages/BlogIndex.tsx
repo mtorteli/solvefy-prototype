@@ -137,7 +137,7 @@ export default function BlogIndex() {
       />
       <Header />
 
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 pt-12 pb-20">
 
           {/* ── POST EM DESTAQUE ──────────────────────────────────────────────── */}

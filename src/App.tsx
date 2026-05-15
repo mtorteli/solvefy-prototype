@@ -6,6 +6,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { SkipLink } from "@/components/SkipLink";
 
 // Carregado imediatamente — é a entrada do site
 import Index from "./pages/Index.tsx";
@@ -37,6 +38,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <SkipLink />
           <ScrollToTop />
           <Suspense fallback={<div className="min-h-screen bg-background" />}>
             <Routes>

@@ -115,7 +115,7 @@ const Cpaas = () => {
         }}
       />
       <Header />
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <ProductHero
           accentVar="--cpaas"
           badgeIcon={iconCpaas}

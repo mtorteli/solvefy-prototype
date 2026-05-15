@@ -56,7 +56,7 @@ const QuemSomos = () => {
         ]}
       />
       <Header />
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         {/* Bloco 1: Hero */}
         <section className="relative h-[60vh] min-h-[420px] w-full overflow-hidden">
           <img

@@ -22,7 +22,7 @@ const NotFound = () => {
         noindex
       />
       <Header />
-      <main className="flex-1 flex items-center justify-center py-24 px-6">
+      <main id="main" className="flex-1 flex items-center justify-center py-24 px-6">
         <div className="text-center max-w-lg">
           <div className="text-[120px] font-black leading-none tracking-tight text-foreground/10 select-none mb-2">
             404

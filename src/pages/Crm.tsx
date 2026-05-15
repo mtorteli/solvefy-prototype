@@ -141,7 +141,7 @@ const Crm = () => {
         }}
       />
       <Header />
-      <main className="flex-1 overflow-x-hidden">
+      <main id="main" className="flex-1 overflow-x-hidden">
         <ProductHero
           accentVar="--crm"
           badgeIcon={iconCrm}
