@@ -2,47 +2,134 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://solvefy.com/</loc>
-    <priority>1.0</priority>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://solvefy.com/cpaas</loc>
-    <priority>0.9</priority>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://solvefy.com/ads</loc>
-    <priority>0.9</priority>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://solvefy.com/marketing</loc>
-    <priority>0.9</priority>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://solvefy.com/crm</loc>
-    <priority>0.9</priority>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/agents</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://solvefy.com/cloud</loc>
-    <priority>0.9</priority>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://solvefy.com/quem-somos</loc>
-    <priority>0.7</priority>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://solvefy.com/contato</loc>
-    <priority>0.7</priority>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://solvefy.com/blog</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/como-escalar-vendas-infoprodutos-multicanal-automacao</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/como-evitar-bloqueio-whatsapp-business</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/rcs-saas-vender-engajar-escalar</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/whatsapp-marketing-guia-definitivo</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/automacao-comunicacao-multicanal</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/whatsapp-lgpd-guia-completo</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/rcs-para-empresas-saas</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/categoria/tecnologia</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/categoria/marketing</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/categoria/vendas</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/categoria/comercial</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://solvefy.com/blog/categoria/produto</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

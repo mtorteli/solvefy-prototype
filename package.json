@@ -5,12 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/build-sitemap.mjs && node scripts/build-llms-full.mjs",
     "build": "vite build",
-    "build:dev": "vite build --mode development",
+    "build:dev": "node scripts/build-sitemap.mjs && node scripts/build-llms-full.mjs && vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "seo:sitemap": "node scripts/build-sitemap.mjs",
+    "seo:llms-full": "node scripts/build-llms-full.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
