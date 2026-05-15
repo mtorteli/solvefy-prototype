@@ -27,7 +27,7 @@
       "collapseWhitespace": false,
       "removeComments": false
     },
-    "skipThirdPartyRequests": false,
+    "skipThirdPartyRequests": true,
     "inlineCss": false,
     "include": [
       "/",

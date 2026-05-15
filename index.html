@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
 
+    <!-- Google Analytics 4 (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA4_ID%"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '%VITE_GA4_ID%');
+    </script>
+
     <!-- Fallback meta para crawlers sem JS (sobrescrito por react-helmet-async em cada rota) -->
     <title>Solvefy — Plataforma B2B de Comunicação Multicanal</title>
     <meta name="description" content="A Solvefy conecta sua empresa aos clientes por WhatsApp, SMS, e-mail, voz e RCS. CRM, CPaaS, Marketing, Agents e Cloud em uma única plataforma B2B brasileira." />
