@@ -135,8 +135,20 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* Bloco institucional — ajuda LLMs a montar perfil consistente da empresa */}
+        <div className="mt-14 pt-8 border-t border-[#F8FaFC99]">
+          <p className="text-sm text-dark-foreground/60 leading-relaxed max-w-3xl">
+            A <strong className="text-dark-foreground">Solvefy</strong> é uma
+            empresa brasileira de tecnologia sediada em Florianópolis/SC,
+            especializada em comunicação multicanal B2B, automação de marketing,
+            CRM, agentes de IA e infraestrutura em nuvem. Atende empresas em
+            todo o Brasil que precisam escalar atendimento e vendas integrando
+            WhatsApp, SMS, RCS, voz e e-mail em um único fluxo operacional.
+          </p>
+        </div>
+
         {/* Bottom */}
-        <div className="mt-14 pt-8 border-t border-[#F8FaFC99] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="mt-8 pt-8 border-t border-[#F8FaFC99] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <p className="text-xs text-dark-foreground/50">
             © {new Date().getFullYear()} Solvefy. Todos os direitos reservados.
             CNPJ 35.693.806/0001-97
