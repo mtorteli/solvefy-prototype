@@ -175,3 +175,31 @@ Este arquivo documenta cada decisão técnica tomada durante a otimização SEO 
 - `npm run build` → "3071 modules transformed, built in 3.63s" sem erros ✓
 - Build verificado pós-Fase 4: todos os schemas serializam para JSON-LD válido (Helmet injeta `<script type="application/ld+json">`).
 - Pendente: testar URLs em `validator.schema.org` e `search.google.com/test/rich-results` após deploy (essas ferramentas precisam de URL pública).
+
+### Fase 4 (extensão) — Enriquecimento do Organization schema
+
+- **Decisão D6 atualizada**: Endereço público da sede confirmado pelo usuário: **Rua Manoel de Oliveira Ramos, 205 — Estreito, Florianópolis/SC**. `streetAddress`, `addressLocality` (Florianópolis), `addressRegion` (SC), `addressCountry` (BR) agora populados no schema.
+- Descrição do Organization reescrita a partir do vault Obsidian em `/Users/italo.vca/Documents/Claude/Projects/Solvefy/Solvefy/02 - Marca/Plataforma de Marca Solvefy.md` para refletir o posicionamento oficial pós-rebrand: "ecossistema que unifica soluções de comunicação multicanal, marketing, CRM, agentes de IA e cloud".
+- `slogan: "Próximo. Veloz. Melhor."` adicionado ao schema Organization.
+- **Decisão D11**: Solvefy é o rebrand de Ativos Capital — explica o domínio do e-mail do CEO (italo@ativos.capital) e os e-mails internos em @solvefy.cloud. URL canônica do site é solvefy.com (o produto).
+- Decisão D2 confirmada: estratégia de prerender = **react-snap** (item abaixo).
+- Decisões D5 confirmada (security@solvefy.com), pendentes ainda: redes sociais reais (D6 — sameAs vazio, footer com href="#"), ano de fundação, telefone, FAQs por página, bios de equipe.
+
+### Fase 5.4 — Pré-renderização estática (CRÍTICO — destrava GEO)
+
+- **5.4** `feat(geo): static prerender via react-snap` — pacote `react-snap` adicionado como devDep + `postbuild: react-snap` em `package.json`. Configuração `reactSnap` lista todas as 22 rotas (estáticas + 5 categorias + 7 slugs de post).
+- `vite.config.ts` ajustado com `build.target: "es2017"` — o Chromium 73 que react-snap usa não suporta optional chaining (`?.`), então Rollup transpila para ES2017. Sem custo perceptível em runtime (todos os browsers atuais suportam ES2017 nativamente).
+- `src/main.tsx` reescrito para alternar entre `createRoot().render()` (carga inicial sem prerender) e `hydrateRoot()` (quando HTML pré-renderizado já está no DOM). Necessário para React 18 + react-snap.
+- `netlify.toml` atualizado: catch-all SPA agora aponta para `/200.html` (shell deixado pelo react-snap) ao invés de `/index.html` (que agora é a home prerendada).
+- Build verificado: **25/25 rotas com HTML estático completo** — cada uma traz `<head>` em pt-BR, OG/Twitter tags, JSON-LD schemas (Org, WebSite, Service, Breadcrumb, Article, etc.) e conteúdo do `<body>` totalmente renderizado.
+- Exemplo: `dist/cpaas/index.html` (93 KB) traz 3 schemas (Service, Breadcrumb, SoftwareApplication) + conteúdo completo da página.
+- Primeira execução teve 1 crash transitório do Chromium em `/blog/automacao-comunicacao-multicanal`; segunda execução completou 25/25. Recomendação operacional: se o build do Netlify falhar pontualmente, basta retry — não é problema de código.
+
+### Verificação Fase 5.4
+
+- `rm -rf dist && npm run build` (limpo) → 25/25 rotas prerendadas ✓
+- `dist/cpaas/index.html`: 93 KB, 3 schemas (Service, BreadcrumbList, SoftwareApplication) ✓
+- `dist/index.html`: 81 KB, 2 schemas (Organization, WebSite) ✓
+- `dist/blog/<slug>/index.html`: ~60 KB, 2 schemas (BlogPosting, BreadcrumbList) ✓
+- `dist/200.html`: shell não-prerendado (3.3 KB) para catch-all do Netlify ✓
+- Pendente em deploy: `curl -A "GPTBot" https://solvefy.com/cpaas` deve retornar HTML completo (não shell).
