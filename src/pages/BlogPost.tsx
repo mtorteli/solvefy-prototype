@@ -4,6 +4,7 @@ import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { MOCK_POSTS } from "@/lib/mock-data";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 import { Footer } from "@/components/Footer";
 import { Calendar, User, ArrowLeft, Clock } from "lucide-react";
 import { renderContent } from "@/lib/renderContent";
@@ -93,16 +94,42 @@ export default function BlogPost() {
   }
 
   const { post, related } = postData;
-  const category = post.post_categories?.[0]?.categories;
+  const category = post.post_categories?.[0]?.categories ?? post.post_categories;
   const authorName = post.authors?.name || "Equipe Solvefy";
+
+  const articleDescription =
+    post.excerpt ||
+    post.description ||
+    `Leia o artigo "${post.title}" no blog da Solvefy.`;
+  const articleImage =
+    post.cover_image || post.thumbnail || "/og/og-blog.jpg";
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEO
         title={post.title}
-        description={post.excerpt || post.description || `Leia o artigo "${post.title}" no blog da Solvefy.`}
+        description={articleDescription}
         canonical={`/blog/${post.slug}`}
-        ogImage={post.cover_image || post.thumbnail || undefined}
+        ogImage={articleImage}
+        schemas={[
+          articleSchema({
+            title: post.title,
+            description: articleDescription,
+            path: `/blog/${post.slug}`,
+            image: articleImage,
+            datePublished: new Date(post.created_at).toISOString(),
+            dateModified: post.updated_at
+              ? new Date(post.updated_at).toISOString()
+              : new Date(post.created_at).toISOString(),
+            authorName,
+            category: category?.name,
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        ]}
       />
       <Header />
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 md:px-8 py-12 mt-8">

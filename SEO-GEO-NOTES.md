@@ -137,3 +137,41 @@ Este arquivo documenta cada decisão técnica tomada durante a otimização SEO 
 - `dist/index.html` confirmado em pt-BR com todos os favicons, manifest e theme-color
 - Lint reportou 18 erros + 3 warnings, todos pré-existentes (não introduzidos pela Fase 3 — ver `git diff` nas linhas tocadas)
 - Pendente: validar `og:image` em opengraph.xyz e Twitter Card Validator após deploy
+
+### Fase 4 — Schema.org (JSON-LD)
+
+- **4.1** `feat(seo): add Schema.org JSON-LD helpers` — `src/lib/schemas.ts` com:
+  - `SOLVEFY_ORG` (constantes centrais: nome, logo, CNPJ, sede SC, sameAs vazio aguardando URLs reais).
+  - `organizationSchema()` com `@id` canônico (`/#organization`), `taxID`, `address`, `contactPoint` e logo.
+  - `websiteSchema()` com `@id` (`/#website`), referência ao publisher Organization.
+  - `breadcrumbSchema(items)` — gera `BreadcrumbList`.
+  - `serviceSchema({name, description, path, serviceType, offers})` com `provider: { @id: org }`, `areaServed: Brasil`, `inLanguage: pt-BR`.
+  - `faqSchema(items)` — `FAQPage` (pronto pra uso na Fase 5.2).
+  - `articleSchema({title, description, path, image, datePublished, dateModified, authorName, category})` — `BlogPosting` com `mainEntityOfPage`, `publisher` por referência, `inLanguage: pt-BR`.
+
+- **4.2** `feat(seo): wire Organization and WebSite schema on homepage` — `src/pages/Index.tsx` agora passa `schemas={[organizationSchema(), websiteSchema()]}`. Vai aparecer na home e estabelecer a identidade da entidade que LLMs e Knowledge Graph vão referenciar.
+
+- **4.3/4.4** `feat(seo): Service and Breadcrumb schemas on product pages` — Cpaas, Ads, Marketing, Crm, Agents, Cloud passam:
+  - Service schema com `serviceType` específico (CPaaS, Mídia paga, Automação multicanal, CRM omnichannel, Agentes de IA, Hospedagem em nuvem).
+  - `offers` (AggregateOffer) onde já havia preço (Marketing, CRM, Agents, Cloud).
+  - BreadcrumbList Home → Solvefy/X.
+  - O `schema={...}` legacy (SoftwareApplication) é mantido em paralelo via merge no SEO component — Google aceita múltiplos `@type` para o mesmo recurso.
+  - **Agents** ganhou os primeiros schemas (estava sem nada).
+
+- **4.3** `feat(seo): Breadcrumb schema on remaining internal pages` — QuemSomos, Contact, BlogIndex, BlogCategory recebem BreadcrumbList (último com 3 níveis: Home → Blog → Categoria).
+
+- **4.6** `feat(seo): BlogPosting and Breadcrumb on blog post page` — BlogPost.tsx agora gera:
+  - `BlogPosting` com headline, description, image, datePublished/dateModified, author Person, publisher por referência, articleSection (categoria).
+  - BreadcrumbList Home → Blog → Título do post.
+  - Fallback OG image para `/og/og-blog.jpg` quando o post não tem cover.
+  - Compatível com mock-data (`post_categories` object) e Supabase (`post_categories[]` array).
+
+- **4.5** FAQPage — **pendente** (será aplicado na Fase 5.2 junto com componente `<FaqSection>` reusável).
+- **4.7** LocalBusiness — **pendente** (depende de endereço público; a confirmar com usuário).
+- **4.8** Validação no Rich Results Test — depende de deploy.
+
+### Verificação Fase 4
+
+- `npm run build` → "3071 modules transformed, built in 3.63s" sem erros ✓
+- Build verificado pós-Fase 4: todos os schemas serializam para JSON-LD válido (Helmet injeta `<script type="application/ld+json">`).
+- Pendente: testar URLs em `validator.schema.org` e `search.google.com/test/rich-results` após deploy (essas ferramentas precisam de URL pública).
