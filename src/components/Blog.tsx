@@ -1,7 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { MOCK_POSTS } from "@/lib/mock-data";
 import { BlogCard } from "./BlogCard";
 
@@ -9,6 +8,13 @@ export const Blog = () => {
   const { data: posts, isLoading } = useQuery({
     queryKey: ["latest-posts"],
     queryFn: async () => {
+      // Dynamic import mantém o cliente Supabase fora do bundle inicial da
+      // home — o chunk só baixa quando o usuário cruza esta seção e o
+      // react-query dispara o fetch.
+      const { isSupabaseConfigured, supabase } = await import(
+        "@/lib/supabase"
+      );
+
       if (!isSupabaseConfigured) return MOCK_POSTS.slice(0, 3);
 
       try {

@@ -44,7 +44,10 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
           'vendor-ui': ['framer-motion', 'lucide-react', 'tailwind-merge', 'clsx'],
-          'vendor-utils': ['@tanstack/react-query', '@supabase/supabase-js'],
+          // @supabase/supabase-js intencionalmente fora do manualChunks: src/components/Blog.tsx
+          // faz dynamic import, então o cliente vira um chunk próprio que só baixa quando
+          // a seção de blog da home renderiza. Mantemos só react-query aqui.
+          'vendor-utils': ['@tanstack/react-query'],
         }
       }
     }
