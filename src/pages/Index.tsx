@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { organizationSchema, websiteSchema } from "@/lib/schemas";
 import { Hero } from "@/components/Hero";
 import { SocialProof } from "@/components/SocialProof";
 import { Solutions } from "@/components/Solutions";
@@ -17,6 +18,7 @@ const Index = () => {
         description="A Solvefy conecta sua empresa aos clientes por WhatsApp, SMS, e-mail, voz e RCS. CRM, CPaaS, Marketing e Cloud em uma única plataforma."
         canonical="/"
         ogImage="/og/og-home.jpg"
+        schemas={[organizationSchema(), websiteSchema()]}
       />
       <Header />
       <main>
