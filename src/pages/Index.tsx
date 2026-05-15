@@ -1,5 +1,7 @@
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { FaqSection } from "@/components/FaqSection";
+import { homeFaqs } from "@/data/faqs";
 import { organizationSchema, websiteSchema } from "@/lib/schemas";
 import { Hero } from "@/components/Hero";
 import { SocialProof } from "@/components/SocialProof";
@@ -29,6 +31,7 @@ const Index = () => {
         <Values />
         <Blog />
         <PressMedia />
+        <FaqSection items={homeFaqs} />
       </main>
       <Footer />
     </div>

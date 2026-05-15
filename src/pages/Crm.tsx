@@ -12,6 +12,8 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { FaqSection } from "@/components/FaqSection";
+import { crmFaqs } from "@/data/faqs";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
@@ -460,6 +462,7 @@ const Crm = () => {
             </div>
           </div>
         </section>
+        <FaqSection items={crmFaqs} />
       </main>
       <Footer />
     </div>

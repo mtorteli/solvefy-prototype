@@ -23,6 +23,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { FaqSection } from "@/components/FaqSection";
+import { cloudFaqs } from "@/data/faqs";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
@@ -848,6 +850,7 @@ const Cloud = () => {
             </div>
           </div>
         </section>
+        <FaqSection items={cloudFaqs} />
       </main>
 
       <Footer />

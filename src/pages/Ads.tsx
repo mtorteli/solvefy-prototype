@@ -18,6 +18,8 @@ import { useState, type FormEvent } from "react";
 import { AdsStepsFlow } from "@/components/AdsStepsFlow";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { FaqSection } from "@/components/FaqSection";
+import { adsFaqs } from "@/data/faqs";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
@@ -569,6 +571,7 @@ const Ads = () => {
             </div>
           </div>
         </section>
+        <FaqSection items={adsFaqs} />
       </main>
       <Footer />
     </div>

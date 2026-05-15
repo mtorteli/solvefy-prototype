@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { FaqSection } from "@/components/FaqSection";
+import { cpaasFaqs } from "@/data/faqs";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
@@ -316,6 +318,7 @@ const Cpaas = () => {
             />
           </div>
         </section>
+        <FaqSection items={cpaasFaqs} />
       </main>
       <Footer />
     </div>
