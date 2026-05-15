@@ -8,6 +8,7 @@ import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 import { Footer } from "@/components/Footer";
 import { Calendar, User, ArrowLeft, Clock } from "lucide-react";
 import { renderContent } from "@/lib/renderContent";
+import DOMPurify from "dompurify";
 import { motion } from "framer-motion";
 
 export default function BlogPost() {
@@ -132,7 +133,7 @@ export default function BlogPost() {
         ]}
       />
       <Header />
-      <main className="flex-1 w-full max-w-4xl mx-auto px-4 md:px-8 py-12 mt-8">
+      <main id="main" className="flex-1 w-full max-w-4xl mx-auto px-4 md:px-8 py-12 mt-8">
         <div className="mb-8">
           <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
             <ArrowLeft className="h-4 w-4" /> Voltar para o blog
@@ -153,7 +154,30 @@ export default function BlogPost() {
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pb-8 border-b border-border">
             <span className="flex items-center gap-1.5"><User className="h-4 w-4" /> {authorName}</span>
-            <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /> {new Date(post.created_at).toLocaleDateString('pt-BR')}</span>
+            <span className="flex items-center gap-1.5">
+              <Calendar className="h-4 w-4" />
+              <time dateTime={new Date(post.created_at).toISOString()}>
+                {new Date(post.created_at).toLocaleDateString("pt-BR", {
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </time>
+            </span>
+            {post.updated_at &&
+              new Date(post.updated_at).getTime() !==
+                new Date(post.created_at).getTime() && (
+                <span className="flex items-center gap-1.5">
+                  Atualizado em{" "}
+                  <time dateTime={new Date(post.updated_at).toISOString()}>
+                    {new Date(post.updated_at).toLocaleDateString("pt-BR", {
+                      day: "2-digit",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </time>
+                </span>
+              )}
             {post.reading_time && (
               <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {post.reading_time} min de leitura</span>
             )}
@@ -175,7 +199,11 @@ export default function BlogPost() {
             prose-headings:font-light prose-headings:tracking-tight
             prose-a:text-primary prose-a:no-underline hover:prose-a:underline
             prose-img:rounded-xl prose-img:border prose-img:border-border"
-          dangerouslySetInnerHTML={{ __html: renderContent(post.content) }}
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(renderContent(post.content), {
+              ADD_ATTR: ["target", "rel"],
+            }),
+          }}
         />
 
         {related && related.length > 0 && (
