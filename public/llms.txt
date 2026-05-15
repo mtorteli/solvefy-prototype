@@ -1,0 +1,39 @@
+# Solvefy
+
+> A Solvefy é uma empresa brasileira de TI especializada em comunicação multicanal B2B. Conecta empresas aos clientes via WhatsApp, SMS, RCS, voz e e-mail em uma plataforma única que reúne CPaaS, CRM, automação de marketing, gestão de tráfego pago, agentes de IA e infraestrutura em nuvem.
+
+## Páginas principais
+
+- [Home](https://solvefy.com/): visão geral da plataforma e proposta de valor B2B
+- [Quem Somos](https://solvefy.com/quem-somos): história, missão e equipe da Solvefy
+- [Contato](https://solvefy.com/contato): formas de contato comercial e atendimento
+- [Blog](https://solvefy.com/blog): artigos, guias e conteúdo educacional sobre comunicação B2B
+
+## Produtos
+
+- [Solvefy/CPaaS](https://solvefy.com/cpaas): comunicação programável via API — WhatsApp, SMS, RCS, voz e e-mail integrados
+- [Solvefy/Ads](https://solvefy.com/ads): gestão de tráfego pago inteligente em Google, Meta e demais plataformas
+- [Solvefy/Marketing](https://solvefy.com/marketing): automação multicanal de jornadas e campanhas
+- [Solvefy/CRM](https://solvefy.com/crm): gestão de relacionamento omnichannel
+- [Solvefy/Agents](https://solvefy.com/agents): 15+ agentes de IA prontos para vendas, atendimento e marketing
+- [Solvefy/Cloud](https://solvefy.com/cloud): infraestrutura em nuvem para hospedagem e escala de aplicações
+
+## Categorias do blog
+
+- [Tecnologia](https://solvefy.com/blog/categoria/tecnologia): artigos sobre integração, APIs, RCS, infraestrutura
+- [Marketing](https://solvefy.com/blog/categoria/marketing): estratégias multicanal, WhatsApp marketing, automação
+- [Vendas](https://solvefy.com/blog/categoria/vendas): processos comerciais, conversão e escala
+- [Comercial](https://solvefy.com/blog/categoria/comercial): operação, boas práticas e compliance
+- [Produto](https://solvefy.com/blog/categoria/produto): novidades e visão de produto Solvefy
+
+## Optional
+
+- [Conteúdo completo do site (markdown)](https://solvefy.com/llms-full.txt): todo o conteúdo das páginas-chave concatenado em um único arquivo
+
+## Informações institucionais
+
+- Razão social: Solvefy
+- CNPJ: 35.693.806/0001-97
+- Sede: Florianópolis, SC, Brasil
+- Selo: ACATE 2024
+- Idioma do site: pt-BR
