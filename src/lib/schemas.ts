@@ -15,15 +15,19 @@ export const SOLVEFY_ORG = {
   url: SITE_URL,
   logoUrl: `${SITE_URL}/favicon-512x512.png`,
   description:
-    "Plataforma B2B brasileira de comunicação multicanal, CRM, automação de marketing, gestão de tráfego pago, agentes de IA e infraestrutura em nuvem.",
+    "Ecossistema brasileiro de tecnologia que unifica soluções de comunicação multicanal, marketing, CRM, agentes de IA e cloud para gerar performance real às empresas B2B.",
+  slogan: "Próximo. Veloz. Melhor.",
   /** CNPJ público do rodapé. */
   taxID: "35.693.806/0001-97",
-  /** Cidade-sede informada no site. */
-  addressLocality: "Florianópolis",
+  /** Endereço da sede. */
+  streetAddress: "Rua Manoel de Oliveira Ramos, 205",
+  addressLocality: "Estreito",
   addressRegion: "SC",
   addressCountry: "BR",
-  /** Redes sociais. Footer atualmente tem `href="#"`; placeholders abaixo serão
-   * substituídos quando o usuário fornecer URLs reais. */
+  addressArea: "Florianópolis",
+  /** Redes sociais. Footer atualmente tem `href="#"`; vamos preencher quando o
+   * usuário entregar as URLs definitivas das contas Solvefy (rebrand recente,
+   * herdadas/em criação a partir de Ativos Capital). */
   sameAs: [
     // "https://www.linkedin.com/company/solvefy",
     // "https://www.instagram.com/solvefy",
@@ -52,10 +56,12 @@ export function organizationSchema(): JsonLd {
       height: 512,
     },
     description: SOLVEFY_ORG.description,
+    slogan: SOLVEFY_ORG.slogan,
     taxID: SOLVEFY_ORG.taxID,
     address: {
       "@type": "PostalAddress",
-      addressLocality: SOLVEFY_ORG.addressLocality,
+      streetAddress: SOLVEFY_ORG.streetAddress,
+      addressLocality: SOLVEFY_ORG.addressArea,
       addressRegion: SOLVEFY_ORG.addressRegion,
       addressCountry: SOLVEFY_ORG.addressCountry,
     },
