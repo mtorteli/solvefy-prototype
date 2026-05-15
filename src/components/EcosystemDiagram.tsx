@@ -35,6 +35,7 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
             title="Ecossistema Solvefy — fluxo animado"
             onLoad={handleLoad}
             scrolling="no"
+            loading="lazy"
             className="w-full border-0"
             style={{
               height: `${iframeHeight}px`,
