@@ -141,6 +141,7 @@ export default function BlogCategory() {
         title={categoryData?.name ? `${categoryData.name} — Blog` : "Categoria — Blog"}
         description={`Artigos sobre ${categoryData?.name ?? "este tema"} no blog da Solvefy. Conteúdo especializado em comunicação B2B e marketing digital.`}
         canonical={`/blog/categoria/${category}`}
+        ogImage="/og/og-blog.jpg"
       />
       <Header />
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-12 mt-8">

@@ -171,6 +171,7 @@ const Ads = () => {
         title="Ads — Gestão de Tráfego Pago Inteligente"
         description="Gerencie campanhas de mídia paga com inteligência e automação. Maximize o ROI dos seus investimentos em anúncios com a Solvefy Ads."
         canonical="/ads"
+        ogImage="/og/og-ads.jpg"
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",

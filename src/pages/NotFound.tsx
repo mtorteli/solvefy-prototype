@@ -19,6 +19,7 @@ const NotFound = () => {
         title="Página não encontrada"
         description="A página que você procura não existe ou foi movida. Volte para a página inicial da Solvefy."
         canonical="/404"
+        noindex
       />
       <Header />
       <main className="flex-1 flex items-center justify-center py-24 px-6">

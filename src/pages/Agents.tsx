@@ -161,6 +161,7 @@ export default function Agents() {
         title="Solvefy Agents — Copiloto de IA para Vendas e Marketing B2B"
         description="15+ agentes de IA prontos para operar 24/7 no seu time comercial. SDR, deal estratégico, conteúdo e análise de reunião. Comece com 50% OFF."
         canonical="/agents"
+        ogImage="/og/og-agents.jpg"
       />
       <Header />
       <main className="flex-1">

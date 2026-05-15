@@ -169,6 +169,7 @@ const Contact = () => {
         title="Contato — Fale com a Solvefy"
         description="Entre em contato com nossa equipe comercial. Descubra como a Solvefy pode transformar a comunicação da sua empresa."
         canonical="/contato"
+        ogImage="/og/og-contato.jpg"
       />
       <Header />
       <main className="flex-1 pt-12 md:pt-20">

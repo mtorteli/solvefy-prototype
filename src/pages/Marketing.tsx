@@ -158,6 +158,7 @@ const Marketing = () => {
         title="Marketing — Automação Multicanal"
         description="Crie jornadas automatizadas, dispare campanhas e engaje clientes em todos os canais com a plataforma de marketing da Solvefy."
         canonical="/marketing"
+        ogImage="/og/og-marketing.jpg"
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",

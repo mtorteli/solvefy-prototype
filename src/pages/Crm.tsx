@@ -108,6 +108,7 @@ const Crm = () => {
         title="CRM — Gestão de Relacionamento Omnichannel"
         description="Centralize o relacionamento com seus clientes em um CRM omnichannel. Pipeline, automações e histórico completo de interações em um só lugar."
         canonical="/crm"
+        ogImage="/og/og-crm.jpg"
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",

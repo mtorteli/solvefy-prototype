@@ -95,4 +95,45 @@ Este arquivo documenta cada decisão técnica tomada durante a otimização SEO 
 
 - `node scripts/build-sitemap.mjs` → "wrote public/sitemap.xml — 22 URLs (10 static + 7 posts + 5 categories)" ✓
 - `node scripts/build-llms-full.mjs` → "wrote public/llms-full.txt — 9 pages + 7 posts, 50227 chars" ✓
-- Pendente: `npm run build` end-to-end + validação dos endpoints no preview.
+- `npm run build` (pós Fase 3) — prebuild executou ambos os scripts; build do Vite passou sem erros ✓
+
+### Fase 3 — Meta tags por página
+
+- **3.5** `feat(seo): generate favicon set, web manifest and per-page OG images` — scripts `generate-favicons.mjs` e `generate-og-images.mjs` (rodam manualmente via `npm run seo:favicons` / `npm run seo:og`; outputs commitados). Saídas: `public/favicon.svg`, `public/favicon-{32,192,512}x{32,192,512}.png`, `public/apple-touch-icon.png`, `public/site.webmanifest`, `public/og/og-{home,cpaas,ads,marketing,crm,agents,cloud,quem-somos,contato,blog,default}.jpg` (11 imagens 1200×630, ~30 KB cada). Layout OG: gradiente dark + faixa verde inferior + título da página + subtítulo + tagline "PRÓXIMO. VELOZ. MELHOR.".
+
+- **3.2** `feat(seo): rewrite shell HTML with pt-BR meta, favicons and theme color` — `index.html` reescrito:
+  - Title + description em pt-BR (era "Solvefy is a B2B platform..." em inglês)
+  - `<link rel="canonical" href="https://solvefy.com/">`
+  - `<meta name="theme-color" content="#00df71">` + `color-scheme="light dark"`
+  - Cadeia completa de favicons (ico, svg, png 32/192, apple-touch 180, manifest)
+  - Preconnect a CloudFront mantido (RD Station em /contato) — preconnects a Google Fonts removidos (Pacaembu é self-hosted em `/fonts/`)
+  - OG/Twitter fallback em pt-BR (sobrescrito por `<SEO>` em cada rota via Helmet)
+  - `<meta name="format-detection" content="telephone=no">` para evitar autodetect de números no iOS
+
+- **3.1** `feat(seo): extend SEO component with noindex, schemas array, og:locale` — `src/components/SEO.tsx` agora aceita:
+  - `noindex?: boolean` — emite `robots: noindex, nofollow` (default: `index, follow, max-image-preview:large, max-snippet:-1`)
+  - `schemas?: Array<Record>` — múltiplos JSON-LD em uma página (a prop `schema` antiga continua funcionando — backward compat)
+  - `keywords?: string[]` — opcional, emite `<meta name="keywords">`
+  - Adicionados estáticos: `og:locale=pt_BR`, `og:site_name=Solvefy`, `og:image:width/height/alt`, `twitter:site=@Solvefy`, `twitter:image:alt`
+  - `ogImage` agora aceita tanto path relativo quanto URL absoluta (BlogPost continua passando cover_image externo)
+
+- **3.4** `feat(seo): wire per-route ogImage and noindex on 404` — todas as 12 páginas atualizadas para apontar pra sua imagem OG dedicada:
+  - `/` → og-home.jpg
+  - `/cpaas` → og-cpaas.jpg
+  - `/ads` → og-ads.jpg
+  - `/marketing` → og-marketing.jpg
+  - `/crm` → og-crm.jpg
+  - `/agents` → og-agents.jpg
+  - `/cloud` → og-cloud.jpg
+  - `/quem-somos` → og-quem-somos.jpg
+  - `/contato` → og-contato.jpg
+  - `/blog` e `/blog/categoria/:cat` → og-blog.jpg
+  - `/blog/:slug` segue usando `post.cover_image` (mock-data Unsplash) — fallback automático para og-default.jpg
+  - `/404` (NotFound) agora marca `noindex`
+
+### Verificação Fase 3
+
+- `npm run build` passou ✓
+- `dist/index.html` confirmado em pt-BR com todos os favicons, manifest e theme-color
+- Lint reportou 18 erros + 3 warnings, todos pré-existentes (não introduzidos pela Fase 3 — ver `git diff` nas linhas tocadas)
+- Pendente: validar `og:image` em opengraph.xyz e Twitter Card Validator após deploy

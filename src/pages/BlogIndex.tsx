@@ -126,6 +126,7 @@ export default function BlogIndex() {
         title="Blog — Comunicação B2B e Marketing Digital"
         description="Artigos, guias e novidades sobre comunicação multicanal, CRM, CPaaS e marketing digital. Conteúdo especializado da Solvefy."
         canonical="/blog"
+        ogImage="/og/og-blog.jpg"
       />
       <Header />
 

@@ -16,6 +16,7 @@ const Index = () => {
         title="Plataforma B2B de Comunicação Multicanal"
         description="A Solvefy conecta sua empresa aos clientes por WhatsApp, SMS, e-mail, voz e RCS. CRM, CPaaS, Marketing e Cloud em uma única plataforma."
         canonical="/"
+        ogImage="/og/og-home.jpg"
       />
       <Header />
       <main>

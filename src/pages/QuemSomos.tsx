@@ -46,6 +46,7 @@ const QuemSomos = () => {
         title="Quem Somos — A Solvefy"
         description="Conheça a Solvefy, a plataforma B2B que nasceu para simplificar a comunicação entre empresas e seus clientes. Nossa missão, valores e time."
         canonical="/quem-somos"
+        ogImage="/og/og-quem-somos.jpg"
       />
       <Header />
       <main className="flex-1">

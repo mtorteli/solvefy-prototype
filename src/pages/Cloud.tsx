@@ -319,6 +319,7 @@ const Cloud = () => {
         title="Cloud — Infraestrutura em Nuvem para Empresas"
         description="Hospede suas aplicações com performance e segurança na infraestrutura cloud da Solvefy. Escalabilidade sob demanda para empresas B2B."
         canonical="/cloud"
+        ogImage="/og/og-cloud.jpg"
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
