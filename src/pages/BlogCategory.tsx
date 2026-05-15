@@ -6,6 +6,7 @@ import { MOCK_POSTS, MOCK_CATEGORIES } from "@/lib/mock-data";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { breadcrumbSchema } from "@/lib/schemas";
 import { ArrowLeft, Search } from "lucide-react";
 import { BlogCard } from "@/components/BlogCard";
 
@@ -142,6 +143,16 @@ export default function BlogCategory() {
         description={`Artigos sobre ${categoryData?.name ?? "este tema"} no blog da Solvefy. Conteúdo especializado em comunicação B2B e marketing digital.`}
         canonical={`/blog/categoria/${category}`}
         ogImage="/og/og-blog.jpg"
+        schemas={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            {
+              name: categoryData?.name ?? "Categoria",
+              path: `/blog/categoria/${category}`,
+            },
+          ]),
+        ]}
       />
       <Header />
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-12 mt-8">

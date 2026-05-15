@@ -4,6 +4,7 @@ import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { MOCK_POSTS } from "@/lib/mock-data";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { breadcrumbSchema } from "@/lib/schemas";
 import { Footer } from "@/components/Footer";
 import { Search, ChevronLeft, ChevronRight, ArrowRight, User, Calendar } from "lucide-react";
 import { BlogCard } from "@/components/BlogCard";
@@ -127,6 +128,12 @@ export default function BlogIndex() {
         description="Artigos, guias e novidades sobre comunicação multicanal, CRM, CPaaS e marketing digital. Conteúdo especializado da Solvefy."
         canonical="/blog"
         ogImage="/og/og-blog.jpg"
+        schemas={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+          ]),
+        ]}
       />
       <Header />
 
