@@ -36,10 +36,13 @@
   to = "/em-breve/termos-e-politicas.html"
   status = 200
 
-# SPA catch-all (deve ser o último)
+# SPA catch-all (deve ser o último). Aponta para `/200.html` — o shell
+# não-prerendado que o react-snap deixa para rotas que ele não cobriu.
+# Rotas que TÊM HTML prerendado (ex: /cpaas/index.html) são servidas
+# diretamente pelo Netlify antes de cair aqui.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/200.html"
   status = 200
 
 # ──────────────────────────────────────────────────────────

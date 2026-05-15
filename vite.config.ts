@@ -31,6 +31,10 @@ export default defineConfig(({ mode }) => ({
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime", "@tanstack/react-query", "@tanstack/query-core"],
   },
   build: {
+    // es2017 garante compatibilidade com o Chromium antigo que o react-snap
+    // (Puppeteer 1.x) usa no postbuild de pré-renderização. Sem isso o bundle
+    // contém optional chaining (?.) que o Chrome 73 não parseia → SyntaxError.
+    target: "es2017",
     rollupOptions: {
       output: {
         manualChunks: {
