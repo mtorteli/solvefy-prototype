@@ -36,10 +36,10 @@ const linkGroups = [
 export const Footer = () => {
   return (
     <footer className="bg-black text-dark-foreground">
-      <div className="container mx-auto py-16 md:py-20">
-        <div className="grid lg:grid-cols-12 gap-12">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-20">
+        <div className="grid md:grid-cols-12 gap-12">
           {/* Brand */}
-          <div className="lg:col-span-5 flex flex-col items-start">
+          <div className="md:col-span-5 flex flex-col items-start">
             <Link to="/" aria-label="Solvefy" className="block ml-0 pl-0">
               <img
                 src={logoFooter}
@@ -79,7 +79,7 @@ export const Footer = () => {
           </div>
 
           {/* Link columns */}
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {linkGroups.map((group) => (
               <div key={group.title}>
                 <h4 className="text-sm font-bold text-dark-foreground mb-4">

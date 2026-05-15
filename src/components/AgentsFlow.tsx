@@ -126,6 +126,7 @@ export const AgentsFlow = ({
         </div>
 
         {/* Cards */}
+        <div className="relative sm:[mask-image:linear-gradient(to_right,transparent_0%,black_12%,black_88%,transparent_100%)]">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           {AGENTS.map((agent, i) => {
             const isActive = activeIdx === i;
@@ -152,7 +153,7 @@ export const AgentsFlow = ({
 
                 {/* Card */}
                 <div
-                  className="relative flex min-h-[140px] flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border bg-card px-4 py-5 text-center transition-all duration-500"
+                  className="relative flex min-h-[140px] flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border px-4 py-5 text-center transition-all duration-500"
                   style={
                     isActive
                       ? {
@@ -161,11 +162,20 @@ export const AgentsFlow = ({
                           boxShadow: `0 0 0 2px ${accent}30, 0 8px 24px -8px ${accent}40`,
                         }
                       : {
-                          borderColor: "#e5e7eb",
-                          backgroundColor: "transparent",
+                          borderColor: "rgba(229,231,235,0.9)",
+                          backgroundColor: "rgba(255,255,255,0.65)",
+                          boxShadow: "0 1px 4px 0 rgba(0,0,0,0.05)",
                         }
                   }
                 >
+                  {/* Online indicator */}
+                  <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    </span>
+                    <span className="text-[9px] font-semibold text-emerald-600 tracking-wide">Online</span>
+                  </div>
                   <span
                     className="text-[10px] font-bold tracking-widest uppercase transition-colors duration-300"
                     style={{ color: isActive ? accent : "#9ca3af" }}
@@ -194,6 +204,7 @@ export const AgentsFlow = ({
               </div>
             );
           })}
+        </div>
         </div>
 
         {/* Texto dinâmico */}

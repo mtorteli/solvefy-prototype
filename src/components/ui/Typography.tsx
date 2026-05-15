@@ -23,10 +23,10 @@ export const Heading = ({
   
   // Base classes that can be tweaked in one place
   const baseClasses = {
-    h1: "text-4xl md:text-6xl font-bold tracking-tight leading-tight",
-    h2: "text-3xl md:text-5xl font-normal tracking-tight leading-tight",
-    h3: "text-xl md:text-2xl font-normal tracking-tight",
-    h4: "text-lg md:text-xl font-normal tracking-tight",
+    h1: "text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight leading-tight",
+    h2: "text-2xl sm:text-3xl md:text-5xl font-normal tracking-tight leading-tight",
+    h3: "text-lg sm:text-xl md:text-2xl font-normal tracking-tight",
+    h4: "text-base sm:text-lg md:text-xl font-normal tracking-tight",
   };
 
   return (

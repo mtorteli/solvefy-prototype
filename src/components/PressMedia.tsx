@@ -21,7 +21,7 @@ const articles = [
 export const PressMedia = () => {
   return (
     <section className="bg-[hsl(var(--solve-green))] py-20 md:py-24">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="mb-12 md:mb-14">
           <h2 className="tracking-tight">O que a mídia fala sobre nós?</h2>
         </div>

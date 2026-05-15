@@ -154,8 +154,13 @@ const QuemSomos = () => {
                 <X className="h-5 w-5" />
                 <span className="sr-only">Fechar</span>
               </DialogClose>
-              <div className="aspect-video w-full flex items-center justify-center bg-black text-white/60">
-                <p className="text-sm">Espaço reservado para o vídeo institucional</p>
+              <div className="aspect-video w-full bg-black">
+                <video
+                  src="/video-institucional.mp4"
+                  controls
+                  autoPlay
+                  className="w-full h-full object-contain"
+                />
               </div>
             </DialogContent>
           </Dialog>

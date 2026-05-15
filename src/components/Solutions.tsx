@@ -85,7 +85,7 @@ export const Solutions = () => {
 
   return (
     <section id="solucoes" className="py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="max-w-3xl text-left mb-14">
           <Heading className="tracking-tighter text-balance leading-[1.1]">
             Próximo. Veloz. <span className="text-primary">Melhor.</span>
@@ -96,9 +96,9 @@ export const Solutions = () => {
           </SectionSubtitle>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-6 items-stretch">
+        <div className="grid md:grid-cols-12 gap-6 items-stretch">
           {/* Tabs / Cards */}
-          <div className="lg:col-span-5 space-y-3 flex flex-col justify-between">
+          <div className="md:col-span-5 space-y-3 flex flex-col justify-between">
             {solutions.map((s, i) => {
               const isActive = i === active;
               return (
@@ -137,7 +137,7 @@ export const Solutions = () => {
           </div>
 
           {/* Detail panel */}
-          <div className="lg:col-span-7 h-full">
+          <div className="md:col-span-7 h-full">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.key}

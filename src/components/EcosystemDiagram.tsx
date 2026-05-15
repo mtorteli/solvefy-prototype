@@ -1,9 +1,19 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Heading } from "@/components/ui/Typography";
 
 export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [iframeHeight, setIframeHeight] = useState(600);
+  const [cropOffset, setCropOffset] = useState(108);
+
+  useEffect(() => {
+    const updateCrop = () => {
+      setCropOffset(window.innerWidth < 768 ? 40 : 108);
+    };
+    updateCrop();
+    window.addEventListener("resize", updateCrop);
+    return () => window.removeEventListener("resize", updateCrop);
+  }, []);
 
   const handleLoad = () => {
     const doc = iframeRef.current?.contentDocument;
@@ -15,7 +25,7 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
 
   return (
     <section className="py-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="max-w-3xl text-left mb-1">
           <Heading className="text-balance">
             Tecnologia que <span style={{ color: accent }}>simplifica</span>,
@@ -27,7 +37,7 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
 
         <div
           className="w-full overflow-hidden"
-          style={{ height: `${iframeHeight - 108}px` }}
+          style={{ height: `${iframeHeight - cropOffset}px` }}
         >
           <iframe
             ref={iframeRef}
@@ -39,7 +49,7 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
             className="w-full border-0"
             style={{
               height: `${iframeHeight}px`,
-              marginTop: "-108px",
+              marginTop: `-${cropOffset}px`,
               background: "transparent",
               overflow: "hidden",
               display: "block",

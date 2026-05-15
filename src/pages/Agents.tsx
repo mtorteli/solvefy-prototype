@@ -323,12 +323,12 @@ export default function Agents() {
               {PILLARS.map((pillar) => (
                 <div
                   key={pillar.title}
-                  className="rounded-2xl border bg-card p-8 flex gap-5 items-start hover:shadow-elegant transition-all duration-300"
-                  style={{ borderColor: `${ACCENT}20` }}
+                  className="rounded-2xl border bg-white/70 backdrop-blur-md p-8 flex gap-5 items-start transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:[box-shadow:0_16px_40px_-8px_hsl(var(--agents)/0.22)]"
+                  style={{ borderColor: `${ACCENT}25` }}
                 >
                   <div
-                    className="h-11 w-11 rounded-xl flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: `${ACCENT}15`, color: ACCENT }}
+                    className="h-12 w-12 rounded-xl flex items-center justify-center shrink-0"
+                    style={{ backgroundColor: `${ACCENT}20`, color: ACCENT, boxShadow: `0 0 0 6px ${ACCENT}0D` }}
                   >
                     <pillar.Icon className="h-5 w-5" strokeWidth={1.8} />
                   </div>
@@ -397,16 +397,16 @@ export default function Agents() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
-                    className="grid md:grid-cols-2 gap-10 items-center rounded-3xl border bg-card p-8 md:p-12"
+                    className="grid md:grid-cols-2 gap-10 items-center rounded-3xl border bg-card p-10 md:p-12 ring-1 ring-inset ring-gray-100 transition-all duration-300 hover:ring-[hsl(var(--agents)/0.35)]"
                     style={{ borderColor: `${ACCENT}20` }}
                   >
                     {/* Left: copy */}
                     <div>
                       <div
-                        className="h-12 w-12 rounded-xl flex items-center justify-center mb-6"
-                        style={{ backgroundColor: `${ACCENT}15`, color: ACCENT }}
+                        className="h-14 w-14 rounded-2xl flex items-center justify-center mb-6"
+                        style={{ backgroundColor: `${ACCENT}18`, color: ACCENT, boxShadow: `0 0 0 8px ${ACCENT}0A` }}
                       >
-                        <persona.Icon className="h-6 w-6" strokeWidth={1.6} />
+                        <persona.Icon className="h-7 w-7" strokeWidth={1.6} />
                       </div>
                       <h3 className="text-2xl font-bold tracking-tight leading-snug mb-4">
                         {persona.headline}

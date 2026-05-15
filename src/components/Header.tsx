@@ -209,7 +209,7 @@ export const Header = () => {
             exit={{ height: 0, opacity: 0 }}
             className="lg:hidden overflow-hidden bg-background border-t border-border"
           >
-            <div className="container mx-auto py-4 space-y-1">
+            <div className="container mx-auto px-4 py-4 space-y-1">
               <Link to="/" className="block px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium">
                 Início
               </Link>
