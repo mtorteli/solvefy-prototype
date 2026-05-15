@@ -13,7 +13,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "seo:sitemap": "node scripts/build-sitemap.mjs",
-    "seo:llms-full": "node scripts/build-llms-full.mjs"
+    "seo:llms-full": "node scripts/build-llms-full.mjs",
+    "seo:favicons": "node scripts/generate-favicons.mjs",
+    "seo:og": "node scripts/generate-og-images.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
