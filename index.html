@@ -3,26 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solvefy</title>
-    <meta name="description" content="Solvefy is a B2B platform for integrated, multi-channel communication and customer engagement.">
-    <meta name="author" content="Solvefy" />
-    
-    <!-- Preconnect to external domains to speed up connection -->
-    <link rel="preconnect" href="https://d335luupugsy2.cloudfront.net" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://solvefy.com/opengraph.webp">
+    <meta name="format-detection" content="telephone=no" />
 
+    <!-- Fallback meta para crawlers sem JS (sobrescrito por react-helmet-async em cada rota) -->
+    <title>Solvefy — Plataforma B2B de Comunicação Multicanal</title>
+    <meta name="description" content="A Solvefy conecta sua empresa aos clientes por WhatsApp, SMS, e-mail, voz e RCS. CRM, CPaaS, Marketing, Agents e Cloud em uma única plataforma B2B brasileira." />
+    <link rel="canonical" href="https://solvefy.com/" />
+
+    <!-- Identidade visual -->
+    <meta name="theme-color" content="#00df71" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Resource hints -->
+    <!-- CloudFront: RD Station Forms script carregado em /contato -->
+    <link rel="preconnect" href="https://d335luupugsy2.cloudfront.net" crossorigin />
+
+    <!-- Open Graph fallback (sobrescrito por <SEO /> em cada rota) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Solvefy" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Solvefy — Plataforma B2B de Comunicação Multicanal" />
+    <meta property="og:description" content="WhatsApp, SMS, RCS, voz e e-mail integrados ao CRM, automação e infraestrutura em nuvem. Próximo. Veloz. Melhor." />
+    <meta property="og:url" content="https://solvefy.com/" />
+    <meta property="og:image" content="https://solvefy.com/og/og-default.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card fallback -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@Solvefy" />
-    <meta name="twitter:image" content="https://solvefy.com/opengraph.webp">
-    <meta property="og:title" content="Solvefy">
-  <meta name="twitter:title" content="Solvefy">
-  <meta property="og:description" content="Solvefy is a B2B platform for integrated, multi-channel communication and customer engagement.">
-  <meta name="twitter:description" content="Solvefy is a B2B platform for integrated, multi-channel communication and customer engagement.">
-</head>
+    <meta name="twitter:title" content="Solvefy — Plataforma B2B de Comunicação Multicanal" />
+    <meta name="twitter:description" content="WhatsApp, SMS, RCS, voz e e-mail integrados ao CRM, automação e infraestrutura em nuvem. Próximo. Veloz. Melhor." />
+    <meta name="twitter:image" content="https://solvefy.com/og/og-default.jpg" />
+  </head>
 
   <body>
     <div id="root"></div>
