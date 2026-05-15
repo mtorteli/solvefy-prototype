@@ -222,3 +222,33 @@ Este arquivo documenta cada decisão técnica tomada durante a otimização SEO 
   - Home: Organization + ContactPoint + PostalAddress + ImageObject + WebSite + FAQPage (5 Q&A)
   - CPaaS: Service + BreadcrumbList + SoftwareApplication + FAQPage (5 Q&A)
   - Outros produtos: Service + Breadcrumb + SoftwareApplication + FAQPage (idem)
+
+### Fase 6 — Performance & Core Web Vitals
+
+- **6.1 LCP do Hero da home** (`72414cb perf(lcp): remove blocking framer-motion fade...`) — removidas as animações `initial={{ opacity: 0 }}` do chip "Junte-se a 20mil empresas", H1 do hero e subtítulo. Essas motion props deixavam o LCP element invisível por ~600ms após hidratação, atrasando o LCP sem ganho visível significativo. `framer-motion` removido completamente do Hero (ainda usado em outros componentes). `<video>` ganhou `width="380"`/`height="380"` (evita CLS) e `preload="metadata"` (era default, que poderia buscar o MP4 inteiro de 4MB).
+
+- **6.1 CLS imagens de blog** (`533fa72 perf(cls): explicit width/height on blog images...`) — `<img>` da capa do post (`BlogPost.tsx`), thumbs dos relacionados e thumbs de `BlogCard.tsx` agora trazem `width`/`height` explícitos. A capa do post recebeu `fetchPriority="high"` por ser tipicamente o LCP element em `/blog/:slug`. Elimina as três warnings que o react-snap reportava ("An <img> element was lazyloaded with loading=lazy, but had no dimensions specified").
+
+- **6.3 Bundle audit** (`d8d68cf chore(perf): install rollup-plugin-visualizer...`) — `rollup-plugin-visualizer` instalado como devDep (não plugado no build padrão por conflito com react-snap). Análise manual dos chunks identificou supabase no caminho crítico da home.
+
+- **6.3 Lazy load do Supabase** (`40db8a3 perf(bundle): lazy-load @supabase/supabase-js out of the home bundle`) — o maior ganho desta fase. `src/components/Blog.tsx` (renderizado na home) tinha `import { supabase } from "@/lib/supabase"` síncrono, e o `vite.config.ts` forçava `@supabase/supabase-js` em `vendor-utils` via `manualChunks`. Trocado por dynamic import dentro do `queryFn`, e removido do `manualChunks`. Resultado:
+  - `vendor-utils`: 231 KB → 38 KB (gzip: 63 KB → 11 KB)
+  - Novo chunk `supabase-*.js`: 198 KB (gzip 52 KB), só baixa quando a seção Blog renderiza
+  - Economia no path crítico da home: **−194 KB / −52 KB gzip**
+
+- **6.4 Font preload** — já feito na Fase 5/6 (Pacaembu-Regular.woff2).
+
+- **6.2 Critical CSS inline** — não habilitado: `reactSnap.inlineCss` permanece `false` (decisão do usuário). Pode ser revisado depois se quisermos trocar 84KB de CSS externo cacheado por critical CSS inline por rota.
+
+- **6.1 `<picture>` / `srcset` para responsivas** — adiado (refator amplo em todos os componentes; o `vite-plugin-image-optimizer` já reduz tamanho dos PNGs originais em 70-95% via build, então o impacto adicional é menor).
+
+### Verificação Fase 6
+
+- `npm run build` (com prerender) → 25/25 rotas, sem warnings de dimensão de imagem ✓
+- Bundles após split do supabase:
+  - `vendor-react`: 158 KB
+  - `vendor-ui`: 181 KB
+  - `vendor-utils`: 38 KB (era 231 KB)
+  - `index` (home entry): 232 KB
+  - `supabase`: 198 KB (lazy)
+- Para medir CWV reais: usar `npm run preview` + Lighthouse local OU PageSpeed Insights após deploy.
