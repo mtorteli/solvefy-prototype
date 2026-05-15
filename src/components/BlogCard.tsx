@@ -28,6 +28,8 @@ export const BlogCard = ({ post, index }: BlogCardProps) => {
           <img
             src={post.og_image || post.cover_image}
             alt={post.title}
+            width="800"
+            height="450"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
             loading="lazy"
           />

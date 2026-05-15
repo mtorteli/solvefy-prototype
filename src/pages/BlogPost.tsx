@@ -186,9 +186,12 @@ export default function BlogPost() {
 
         {(post.og_image || post.cover_image) && (
           <div className="mb-12 rounded-2xl overflow-hidden aspect-video bg-muted border border-border">
-            <img 
-              src={post.og_image || post.cover_image} 
-              alt={post.title} 
+            <img
+              src={post.og_image || post.cover_image}
+              alt={post.title}
+              width="1600"
+              height="900"
+              fetchPriority="high"
               className="w-full h-full object-cover"
             />
           </div>
@@ -225,6 +228,8 @@ export default function BlogPost() {
                         <img
                           src={p.og_image || p.cover_image}
                           alt={p.title}
+                          width="800"
+                          height="192"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
                         />
