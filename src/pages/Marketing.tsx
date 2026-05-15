@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
@@ -159,6 +160,20 @@ const Marketing = () => {
         description="Crie jornadas automatizadas, dispare campanhas e engaje clientes em todos os canais com a plataforma de marketing da Solvefy."
         canonical="/marketing"
         ogImage="/og/og-marketing.jpg"
+        schemas={[
+          serviceSchema({
+            name: "Solvefy/Marketing",
+            description:
+              "Plataforma de automação de marketing multicanal: jornadas, campanhas, segmentação e A/B testing em WhatsApp, SMS, e-mail e RCS.",
+            path: "/marketing",
+            serviceType: "Automação de marketing multicanal",
+            offers: { lowPrice: "197", highPrice: "1997", priceCurrency: "BRL" },
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Solvefy/Marketing", path: "/marketing" },
+          ]),
+        ]}
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",

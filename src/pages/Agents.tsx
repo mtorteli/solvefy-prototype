@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { AgentsFlow } from "@/components/AgentsFlow";
 import { AgentsHeroMockup } from "@/components/AgentsHeroMockup";
@@ -162,6 +163,20 @@ export default function Agents() {
         description="15+ agentes de IA prontos para operar 24/7 no seu time comercial. SDR, deal estratégico, conteúdo e análise de reunião. Comece com 50% OFF."
         canonical="/agents"
         ogImage="/og/og-agents.jpg"
+        schemas={[
+          serviceSchema({
+            name: "Solvefy/Agents",
+            description:
+              "Conjunto de 15+ agentes de IA prontos para uso em vendas, marketing e atendimento — integrados ao Solvefy/CRM e Solvefy/CPaaS.",
+            path: "/agents",
+            serviceType: "Agentes de IA para times comerciais",
+            offers: { lowPrice: "80", priceCurrency: "BRL" },
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Solvefy/Agents", path: "/agents" },
+          ]),
+        ]}
       />
       <Header />
       <main className="flex-1">

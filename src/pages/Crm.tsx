@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
@@ -109,6 +110,20 @@ const Crm = () => {
         description="Centralize o relacionamento com seus clientes em um CRM omnichannel. Pipeline, automações e histórico completo de interações em um só lugar."
         canonical="/crm"
         ogImage="/og/og-crm.jpg"
+        schemas={[
+          serviceSchema({
+            name: "Solvefy/CRM",
+            description:
+              "CRM omnichannel B2B com pipeline de vendas, histórico unificado de canais e automações integradas ao Solvefy/CPaaS.",
+            path: "/crm",
+            serviceType: "CRM omnichannel",
+            offers: { lowPrice: "47", highPrice: "97", priceCurrency: "BRL" },
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Solvefy/CRM", path: "/crm" },
+          ]),
+        ]}
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",

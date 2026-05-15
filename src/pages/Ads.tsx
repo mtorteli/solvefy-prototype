@@ -18,6 +18,7 @@ import { useState, type FormEvent } from "react";
 import { AdsStepsFlow } from "@/components/AdsStepsFlow";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -172,6 +173,19 @@ const Ads = () => {
         description="Gerencie campanhas de mídia paga com inteligência e automação. Maximize o ROI dos seus investimentos em anúncios com a Solvefy Ads."
         canonical="/ads"
         ogImage="/og/og-ads.jpg"
+        schemas={[
+          serviceSchema({
+            name: "Solvefy/Ads",
+            description:
+              "Gestão de tráfego pago em Google, Meta e demais plataformas com automação, otimização e relatórios unificados.",
+            path: "/ads",
+            serviceType: "Gestão de tráfego pago / Mídia paga",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Solvefy/Ads", path: "/ads" },
+          ]),
+        ]}
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",

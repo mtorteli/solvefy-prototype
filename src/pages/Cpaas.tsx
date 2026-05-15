@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
@@ -85,6 +86,19 @@ const Cpaas = () => {
         description="Integre WhatsApp, SMS, RCS e voz diretamente no seu sistema com a API de comunicação da Solvefy. Alta disponibilidade e escala para o seu negócio."
         canonical="/cpaas"
         ogImage="/og/og-cpaas.jpg"
+        schemas={[
+          serviceSchema({
+            name: "Solvefy/CPaaS",
+            description:
+              "Plataforma B2B de comunicação programável via API: WhatsApp, SMS, RCS, voz e e-mail integrados.",
+            path: "/cpaas",
+            serviceType: "CPaaS — Communications Platform as a Service",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Solvefy/CPaaS", path: "/cpaas" },
+          ]),
+        ]}
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",

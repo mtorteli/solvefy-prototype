@@ -23,6 +23,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -320,6 +321,20 @@ const Cloud = () => {
         description="Hospede suas aplicações com performance e segurança na infraestrutura cloud da Solvefy. Escalabilidade sob demanda para empresas B2B."
         canonical="/cloud"
         ogImage="/og/og-cloud.jpg"
+        schemas={[
+          serviceSchema({
+            name: "Solvefy/Cloud",
+            description:
+              "Infraestrutura cloud para hospedagem e escala de aplicações B2B, com SLA, suporte técnico em pt-BR e migração assistida.",
+            path: "/cloud",
+            serviceType: "Hospedagem em nuvem / VPS / IaaS",
+            offers: { lowPrice: "990", highPrice: "2390", priceCurrency: "BRL" },
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Solvefy/Cloud", path: "/cloud" },
+          ]),
+        ]}
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
