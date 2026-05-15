@@ -203,3 +203,22 @@ Este arquivo documenta cada decisão técnica tomada durante a otimização SEO 
 - `dist/blog/<slug>/index.html`: ~60 KB, 2 schemas (BlogPosting, BreadcrumbList) ✓
 - `dist/200.html`: shell não-prerendado (3.3 KB) para catch-all do Netlify ✓
 - Pendente em deploy: `curl -A "GPTBot" https://solvefy.com/cpaas` deve retornar HTML completo (não shell).
+
+### Fase 4 (extensão 2) — Instagram no Organization sameAs
+
+- **Decisão D6 atualizada**: Instagram oficial fornecido: `https://www.instagram.com/solvefy_/`. Adicionado em `SOLVEFY_ORG.sameAs` no `src/lib/schemas.ts` — agora aparece no JSON-LD Organization da home + via referência por `@id` em todos os outros schemas.
+- Footer limpo: removidos os três stubs `href="#"` (Facebook, LinkedIn, YouTube — contas não migradas/criadas pós-rebrand). Restou só o Instagram com `target="_blank" rel="noopener noreferrer"` e `aria-label` específico. Stubs anteriores eram má UX e SEO ruim (Google penaliza links vazios).
+
+### Fase 4.5 + 5.2 — FAQs por página com schema FAQPage
+
+- Novo arquivo `src/data/faqs.ts` com 6 conjuntos de FAQ (5 Q&A cada): home, cpaas, ads, marketing, crm, agents, cloud. Conteúdo extraído dos docs de produto no vault Obsidian (`03 - Produto/`).
+- `<FaqSection>` plugado no fim do `<main>` de cada página de produto + home. Componente usa `<details>/<summary>` nativo — conteúdo é visível para crawlers de IA sem JS — e injeta `FAQPage` JSON-LD via Helmet.
+- Validação pós-build: `dist/cpaas/index.html` agora ship 4 schemas distintos (Service, BreadcrumbList, SoftwareApplication, FAQPage com 5 Question + 5 Answer). Texto das perguntas confirmado no `<body>` do HTML estático.
+
+### Verificação FAQ + Instagram
+
+- Build completo: 25/25 rotas prerendadas em segunda tentativa (uma corrida transitória do Chromium-73 do react-snap; pattern conhecido — basta retry, documentado em [solvefy-rebrand-history]).
+- Schemas por página confirmados via `grep -oE '"@type":"[^"]+"' dist/*/index.html`:
+  - Home: Organization + ContactPoint + PostalAddress + ImageObject + WebSite + FAQPage (5 Q&A)
+  - CPaaS: Service + BreadcrumbList + SoftwareApplication + FAQPage (5 Q&A)
+  - Outros produtos: Service + Breadcrumb + SoftwareApplication + FAQPage (idem)
