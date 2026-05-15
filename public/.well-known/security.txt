@@ -1,0 +1,4 @@
+Contact: mailto:security@solvefy.com
+Expires: 2027-05-14T23:59:59z
+Preferred-Languages: pt-BR, en
+Canonical: https://solvefy.com/.well-known/security.txt
