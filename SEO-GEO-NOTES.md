@@ -251,4 +251,33 @@ Este arquivo documenta cada decisão técnica tomada durante a otimização SEO 
   - `vendor-utils`: 38 KB (era 231 KB)
   - `index` (home entry): 232 KB
   - `supabase`: 198 KB (lazy)
-- Para medir CWV reais: usar `npm run preview` + Lighthouse local OU PageSpeed Insights após deploy.
+
+### Baseline Lighthouse local (2026-05-15, build prerendado servido via `npx serve dist`)
+
+**Mobile (preset padrão — Slow 4G + CPU 4× simulados):**
+
+| Rota | Perf | A11y | BP | SEO | LCP | FCP | CLS | TBT |
+|---|---|---|---|---|---|---|---|---|
+| `/` | 74 | 97 | 96 | **100** | 4733ms | 3908ms | 0.006 | 17ms |
+| `/cpaas` | 71 | 96 | 96 | **100** | 4809ms | 4215ms | 0.074 | 0ms |
+| `/blog/whatsapp-marketing-guia-definitivo` | 69 | 96 | 96 | **100** | 5535ms | 4209ms | 0.0002 | 0ms |
+
+**Desktop:**
+
+| Rota | Perf | A11y | BP | SEO | LCP | FCP | CLS | TBT |
+|---|---|---|---|---|---|---|---|---|
+| `/` | **96** | 97 | 96 | **100** | 908ms | 768ms | 0.093 | 0ms |
+
+### Análise
+
+- **SEO 100 em todas as rotas.** Antes do fix de dedup de canonical/og no shell, `/cpaas` marcava 92 com erro "Document does not have a valid rel=canonical" (a shell tinha um `<link rel=canonical href="/">` que o react-snap deixava no HTML lado-a-lado com o canonical correto que o Helmet injetava → dois canonicals diferentes na mesma página). Corrigido removendo os fallbacks de description/canonical/OG/Twitter da shell — agora só o Helmet emite.
+- **Acessibilidade 96-97**: erros restantes estão em tap-targets pequenos e contraste de texto em algumas seções (escopo de design, não SEO).
+- **TBT 0-17ms** em todas as medidas → main thread praticamente livre, JS bem chunked.
+- **CLS verde** em todas exceto `/cpaas` no desktop (0.093, no limite). Provável causa: o `<picture>` no mockup hero não tem dimensões fixas. Fora do crítico, mas vale revisar futuramente.
+- **LCP/FCP elevados no mobile**: artefato do throttle Lighthouse contra localhost (não há Brotli, CDN nem rede real). Em produção (Netlify com Brotli/HTTP-2 + CrUX real) o LCP deve cair pra faixa "Good" (<2.5s) na maioria dos usuários. O número desktop (908ms) confirma que o código está bem otimizado — o overhead é da emulação.
+- Maior contribuinte do LCP no mobile emulado: hero `<video>` de 4MB (apesar de `preload="metadata"`, o `autoPlay` faz o browser começar a baixar mais cedo). Para mais ganho, considerar versão WebM/AV1 do mesmo vídeo (~70% menor) ou substituir por animação CSS/Lottie.
+
+### Decisões adicionais documentadas
+
+- **D12**: Lighthouse mobile rodado contra localhost não representa fielmente CWV reais. O número de produção (CrUX no Search Console) é o que conta. Bench definitivo só pós-deploy via `https://pagespeed.web.dev/?url=https://solvefy.com/`.
+- **D13**: Próximo win de Performance se necessário: re-encode do `hero-video-v2.mp4` (4MB) para WebM/AV1 com mesmo bitrate visual. Adiado.
