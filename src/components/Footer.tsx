@@ -1,11 +1,4 @@
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
-  ArrowRight,
-  Award,
-} from "lucide-react";
+import { Instagram, ArrowRight, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logoFooter from "@/assets/logo-solvefy-footer.png";
@@ -73,16 +66,15 @@ export const Footer = () => {
             </Link>
 
             <div className="mt-8 flex items-center gap-3">
-              {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-dark-muted hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
-                  aria-label="Social"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/solvefy_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-dark-muted hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
+                aria-label="Solvefy no Instagram"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
             </div>
           </div>
 

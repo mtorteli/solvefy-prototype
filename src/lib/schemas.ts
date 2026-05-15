@@ -25,15 +25,9 @@ export const SOLVEFY_ORG = {
   addressRegion: "SC",
   addressCountry: "BR",
   addressArea: "Florianópolis",
-  /** Redes sociais. Footer atualmente tem `href="#"`; vamos preencher quando o
-   * usuário entregar as URLs definitivas das contas Solvefy (rebrand recente,
-   * herdadas/em criação a partir de Ativos Capital). */
-  sameAs: [
-    // "https://www.linkedin.com/company/solvefy",
-    // "https://www.instagram.com/solvefy",
-    // "https://www.facebook.com/solvefy",
-    // "https://www.youtube.com/@solvefy",
-  ] as string[],
+  /** Redes sociais oficiais da Solvefy. Outras contas (LinkedIn, Facebook,
+   * YouTube) ainda não foram criadas / fornecidas. */
+  sameAs: ["https://www.instagram.com/solvefy_/"] as string[],
 } as const;
 
 const ORG_ID = `${SITE_URL}/#organization`;
