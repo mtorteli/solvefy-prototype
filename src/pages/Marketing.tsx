@@ -16,8 +16,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
-import { FaqSection } from "@/components/FaqSection";
-import { marketingFaqs } from "@/data/faqs";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
@@ -588,7 +586,6 @@ const Marketing = () => {
             </div>
           </div>
         </section>
-        <FaqSection items={marketingFaqs} />
       </main>
       <Footer />
     </div>

@@ -18,8 +18,6 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
-import { FaqSection } from "@/components/FaqSection";
-import { agentsFaqs } from "@/data/faqs";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { AgentsFlow } from "@/components/AgentsFlow";
@@ -597,8 +595,6 @@ export default function Agents() {
             </p>
           </div>
         </section>
-
-        <FaqSection items={agentsFaqs} />
       </main>
       <Footer />
     </div>
