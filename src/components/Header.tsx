@@ -10,14 +10,20 @@ import iconMarketing from "@/assets/icons/marketing.svg";
 import iconCrm from "@/assets/icons/crm.svg";
 import iconAgents from "@/assets/icons/agents.svg";
 import iconCloud from "@/assets/icons/cloud.svg";
+import logoCpaas from "@/assets/logos/solvefy-cpaas.png";
+import logoAds from "@/assets/logos/solvefy-ads.png";
+import logoMarketing from "@/assets/logos/solvefy-marketing.png";
+import logoCrm from "@/assets/logos/solvefy-crm.png";
+import logoAgents from "@/assets/logos/solvefy-agents.png";
+import logoCloud from "@/assets/logos/solvefy-cloud.png";
 
 const solutions = [
-  { name: "Solvefy/CPaaS", icon: iconCpaas, hover: "hover:bg-[hsl(var(--cpaas))]/10", desc: "Comunicação em Escala", to: "/cpaas" },
-  { name: "Solvefy/Ads", icon: iconAds, hover: "hover:bg-[hsl(var(--ads))]/10", desc: "Tráfego Direto", to: "/ads" },
-  { name: "Solvefy/Marketing", icon: iconMarketing, hover: "hover:bg-[hsl(var(--marketing))]/10", desc: "Jornadas Inteligentes", to: "/marketing" },
-  { name: "Solvefy/CRM", icon: iconCrm, hover: "hover:bg-[hsl(var(--crm))]/10", desc: "Gestão Comercial", to: "/crm" },
-  { name: "Solvefy/Agents", icon: iconAgents, hover: "hover:bg-[hsl(var(--agents))]/10", desc: "Inteligência Artificial", to: "/agents" },
-  { name: "Solvefy/Cloud", icon: iconCloud, hover: "hover:bg-[hsl(var(--cloud))]/10", desc: "Automação de Cloud", to: "/cloud" },
+  { name: "Solvefy/CPaaS", logo: logoCpaas, icon: iconCpaas, hover: "hover:bg-[hsl(var(--cpaas))]/10", desc: "Comunicação em Escala", to: "/cpaas" },
+  { name: "Solvefy/Ads", logo: logoAds, icon: iconAds, hover: "hover:bg-[hsl(var(--ads))]/10", desc: "Tráfego Direto", to: "/ads" },
+  { name: "Solvefy/Marketing", logo: logoMarketing, icon: iconMarketing, hover: "hover:bg-[hsl(var(--marketing))]/10", desc: "Jornadas Inteligentes", to: "/marketing" },
+  { name: "Solvefy/CRM", logo: logoCrm, icon: iconCrm, hover: "hover:bg-[hsl(var(--crm))]/10", desc: "Gestão Comercial", to: "/crm" },
+  { name: "Solvefy/Agents", logo: logoAgents, icon: iconAgents, hover: "hover:bg-[hsl(var(--agents))]/10", desc: "Inteligência Artificial", to: "/agents" },
+  { name: "Solvefy/Cloud", logo: logoCloud, icon: iconCloud, hover: "hover:bg-[hsl(var(--cloud))]/10", desc: "Automação de Cloud", to: "/cloud" },
 ];
 
 const resources = [
@@ -106,11 +112,11 @@ const SolutionsMegaMenu = () => (
             <Link
               key={s.name}
               to={s.to}
-              className={`flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100 shadow-sm transition-colors duration-200 ${s.hover}`}
+              className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white border border-gray-100 shadow-sm transition-colors duration-200 ${s.hover}`}
             >
-              <img src={s.icon} alt={s.name} className="w-8 h-8 object-contain flex-shrink-0" />
-              <div className="flex flex-col justify-center">
-                <div className="text-sm font-bold text-black">{s.name}</div>
+              <img src={s.icon} alt={s.name} className="w-7 h-7 object-contain flex-shrink-0" />
+              <div className="flex flex-col justify-center items-start gap-0.5">
+                <img src={s.logo} alt={s.name} className="h-[13px] w-auto" />
                 <div className="text-xs font-normal text-black/70">{s.desc}</div>
               </div>
             </Link>
@@ -222,7 +228,7 @@ export const Header = () => {
                   className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-muted"
                 >
                   <img src={s.icon} alt={s.name} className="h-5 w-5 object-contain" />
-                  <span className="text-sm font-medium">{s.name}</span>
+                  <img src={s.logo} alt={s.name} className="h-[14px] w-auto object-contain" />
                 </Link>
               ))}
               <Link to="/blog" className="block px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium">

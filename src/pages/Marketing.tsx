@@ -22,6 +22,7 @@ import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import iconMarketing from "@/assets/icons/marketing.svg";
+import logoMarketing from "@/assets/logos/solvefy-marketing.png";
 import { MarketingHeroMockup } from "@/components/MarketingHeroMockup";
 import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
@@ -196,6 +197,7 @@ const Marketing = () => {
           accentVar="--marketing"
           badgeIcon={iconMarketing}
           badgeLabel="Solvefy/Marketing"
+          logoImage={logoMarketing}
           title={<>Impulsione suas vendas com{" "}
             <span className="text-[hsl(var(--marketing))]">jornadas completas e personalizadas.</span></>}
           subtitle="Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você cria jornadas de relacionamento automatizadas e transforma contatos em vendas. Use nossos templates de disparo rápido, acompanhe métricas em tempo real e integre tudo facilmente via API."

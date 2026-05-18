@@ -9,11 +9,18 @@ import iconMarketing from "@/assets/icons/marketing.svg";
 import iconCrm from "@/assets/icons/crm.svg";
 import iconCloud from "@/assets/icons/cloud.svg";
 import iconAgents from "@/assets/icons/agents.svg";
+import logoCpaas from "@/assets/logos/solvefy-cpaas.png";
+import logoAds from "@/assets/logos/solvefy-ads.png";
+import logoMarketing from "@/assets/logos/solvefy-marketing.png";
+import logoCrm from "@/assets/logos/solvefy-crm.png";
+import logoAgents from "@/assets/logos/solvefy-agents.png";
+import logoCloud from "@/assets/logos/solvefy-cloud.png";
 
 const solutions = [
   {
     key: "cpaas",
     name: "Solvefy/CPaaS",
+    logo: logoCpaas,
     color: "hsl(var(--cpaas))",
     panelBg: "hsl(var(--cpaas-surface))",
     icon: iconCpaas,
@@ -25,6 +32,7 @@ const solutions = [
   {
     key: "ads",
     name: "Solvefy/Ads",
+    logo: logoAds,
     color: "hsl(var(--ads))",
     panelBg: "hsl(var(--ads-surface))",
     icon: iconAds,
@@ -36,6 +44,7 @@ const solutions = [
   {
     key: "marketing",
     name: "Solvefy/Marketing",
+    logo: logoMarketing,
     color: "hsl(var(--marketing))",
     panelBg: "hsl(var(--marketing-surface))",
     icon: iconMarketing,
@@ -47,6 +56,7 @@ const solutions = [
   {
     key: "crm",
     name: "Solvefy/CRM",
+    logo: logoCrm,
     color: "hsl(var(--crm))",
     panelBg: "hsl(var(--crm-surface))",
     icon: iconCrm,
@@ -58,6 +68,7 @@ const solutions = [
   {
     key: "agents",
     name: "Solvefy/Agents",
+    logo: logoAgents,
     color: "hsl(var(--agents))",
     panelBg: "hsl(var(--agents-surface))",
     icon: iconAgents,
@@ -69,6 +80,7 @@ const solutions = [
   {
     key: "cloud",
     name: "Solvefy/Cloud",
+    logo: logoCloud,
     color: "hsl(var(--cloud))",
     panelBg: "hsl(var(--cloud-surface))",
     icon: iconCloud,
@@ -121,8 +133,8 @@ export const Solutions = () => {
                       <div className="flex h-10 w-10 items-center justify-center shrink-0 transition-transform group-hover:scale-105">
                         <img src={s.icon} alt={s.name} className="w-9 h-9 object-contain" width="36" height="36" loading="lazy" />
                       </div>
-                      <div className="flex-1">
-                        <div className="font-semibold text-[#000000]">{s.name}</div>
+                      <div className="flex flex-col items-start flex-1">
+                        <img src={s.logo} alt={s.name} className="h-4 w-auto" />
                         <div className="text-sm text-[#1e1e1e]">{s.headline}</div>
                       </div>
                       <ArrowRight
@@ -156,8 +168,7 @@ export const Solutions = () => {
                   className="inline-flex self-start items-center gap-2 rounded-full pr-3 py-1 text-xs font-semibold mb-6 w-fit"
                   style={{ backgroundColor: `${current.color}20`, color: current.color }}
                 >
-                  <img src={current.icon} alt={current.name} className="h-4 w-4 object-contain" width="16" height="16" loading="lazy" />
-                  {current.name}
+                  <img src={current.logo} alt={current.name} className="h-3.5 w-auto" loading="lazy" />
                 </div>
                 <Heading variant="h3" className="mb-4 text-balance text-[#000000]">
                   {current.headline}

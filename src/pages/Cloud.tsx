@@ -28,6 +28,7 @@ import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import iconCloud from "@/assets/icons/cloud.svg";
+import logoCloud from "@/assets/logos/solvefy-cloud.png";
 import { CloudHeroMockup } from "@/components/CloudHeroMockup";
 import roiCalculatorHtml from "@/data/roi-calculator.html?raw";
 
@@ -389,6 +390,7 @@ const Cloud = () => {
           accentVar="--cloud"
           badgeIcon={iconCloud}
           badgeLabel="Solvefy/Cloud"
+          logoImage={logoCloud}
           title={
             <>
               A plataforma para você{" "}

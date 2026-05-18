@@ -18,6 +18,7 @@ import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import iconCrm from "@/assets/icons/crm.svg";
+import logoCrm from "@/assets/logos/solvefy-crm.png";
 import {
   WhatsappChannelIcon,
 } from "@/components/icons/ChannelIcons";
@@ -146,6 +147,7 @@ const Crm = () => {
           accentVar="--crm"
           badgeIcon={iconCrm}
           badgeLabel="Solvefy/CRM"
+          logoImage={logoCrm}
           title={<>Pare de perder vendas no funil.{" "}
             <span className="text-[hsl(var(--crm))]">Assuma o controle absoluto do seu pipeline.</span></>}
           subtitle="Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de vendas definitiva para equipes de alta performance. Elimine o vazamento de leads, automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios em menos tempo."

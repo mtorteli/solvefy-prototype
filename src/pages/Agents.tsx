@@ -24,6 +24,7 @@ import { AgentsFlow } from "@/components/AgentsFlow";
 import { AgentsHeroMockup } from "@/components/AgentsHeroMockup";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import iconAgents from "@/assets/icons/agents.svg";
+import logoAgents from "@/assets/logos/solvefy-agents.png";
 
 const ACCENT      = "hsl(var(--agents))";
 const ACCENT_BG   = "hsl(var(--agents-surface))";
@@ -186,6 +187,7 @@ export default function Agents() {
           accentVar="--agents"
           badgeIcon={iconAgents}
           badgeLabel="Solvefy/Agents"
+          logoImage={logoAgents}
           title={
             <>
               Agentes de IA para{" "}

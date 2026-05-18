@@ -7,6 +7,7 @@ interface ProductHeroProps {
   accentVar: string;
   badgeIcon: string;
   badgeLabel: string;
+  logoImage?: string;
   title: ReactNode;
   subtitle: ReactNode;
   ctaText: string;
@@ -21,6 +22,7 @@ export function ProductHero({
   accentVar,
   badgeIcon,
   badgeLabel,
+  logoImage,
   title,
   subtitle,
   ctaText,
@@ -49,16 +51,24 @@ export function ProductHero({
       <div className="container relative mx-auto px-4 sm:px-6 py-20 md:py-28">
         <div className="grid md:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
           <div>
-            <div
-              className="inline-flex items-center gap-2 rounded-full pr-3 py-1 text-xs font-medium mb-6"
-              style={{
-                backgroundColor: `${accent}1A`,
-                color: accent,
-              }}
-            >
-              <img src={badgeIcon} alt={badgeLabel} className="w-4 h-4 object-contain" />
-              {badgeLabel}
-            </div>
+            {logoImage ? (
+              <img
+                src={logoImage}
+                alt={badgeLabel}
+                className="h-5 w-auto object-contain mb-6"
+              />
+            ) : (
+              <div
+                className="inline-flex items-center gap-2 rounded-full pr-3 py-1 text-xs font-medium mb-6"
+                style={{
+                  backgroundColor: `${accent}1A`,
+                  color: accent,
+                }}
+              >
+                <img src={badgeIcon} alt={badgeLabel} className="w-4 h-4 object-contain" />
+                {badgeLabel}
+              </div>
+            )}
 
             <Heading variant="h1" className="text-balance mb-6">
               {title}

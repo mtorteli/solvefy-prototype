@@ -15,6 +15,7 @@ import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
 import iconCpaas from "@/assets/icons/cpaas.svg";
+import logoCpaas from "@/assets/logos/solvefy-cpaas.png";
 
 import { UseCasesSelector } from "@/components/UseCasesSelector";
 import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
@@ -120,6 +121,7 @@ const Cpaas = () => {
           accentVar="--cpaas"
           badgeIcon={iconCpaas}
           badgeLabel="Solvefy/CPaaS"
+          logoImage={logoCpaas}
           title={<>Se comunique em alta escala e crie{" "}
             <span className="text-[hsl(var(--cpaas))]">conexões em tempo real</span></>}
           subtitle="O coração transacional do ecossistema. É uma plataforma robusta de comunicação via API desenvolvida para empresas que demandam alto volume de disparos. Atua como a engrenagem invisível que também potencializa as outras soluções (como o Solvefy Marketing)."

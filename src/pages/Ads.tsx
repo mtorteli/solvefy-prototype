@@ -24,6 +24,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import iconAds from "@/assets/icons/ads.svg";
+import logoAds from "@/assets/logos/solvefy-ads.png";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
@@ -202,6 +203,7 @@ const Ads = () => {
           accentVar="--ads"
           badgeIcon={iconAds}
           badgeLabel="Solvefy/Ads"
+          logoImage={logoAds}
           title={<>Escale suas vendas com um{" "}
             <span className="text-[hsl(var(--ads))]">CPA até 20% menor</span>{" "}
             que nos outros Ads.</>}
