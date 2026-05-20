@@ -24,6 +24,8 @@ const BlogIndex = lazy(() => import("./pages/BlogIndex.tsx"));
 const BlogPost = lazy(() => import("./pages/BlogPost.tsx"));
 const BlogCategory = lazy(() => import("./pages/BlogCategory.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
+const AdsEmpreendeBrasil = lazy(() => import("./pages/AdsEmpreendeBrasil.tsx"));
+const CpaasEmpreendeBrasil = lazy(() => import("./pages/CpaasEmpreendeBrasil.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -59,6 +61,10 @@ const App = () => {
                 path="/blog/categoria/:category"
                 element={<BlogCategory />}
               />
+
+              {/* Landing Pages */}
+              <Route path="/ads-empreendebrasil" element={<AdsEmpreendeBrasil />} />
+              <Route path="/cpaas-empreendebrasil" element={<CpaasEmpreendeBrasil />} />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
