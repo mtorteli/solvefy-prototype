@@ -12,6 +12,7 @@ interface ProductHeroProps {
   subtitle: ReactNode;
   ctaText: string;
   ctaHref?: string;
+  ctaOnClick?: () => void;
   ctaTextColor?: string;
   ctaSecondary?: { text: string; href?: string; onClick?: () => void };
   trustItems: string[];
@@ -27,6 +28,7 @@ export function ProductHero({
   subtitle,
   ctaText,
   ctaHref,
+  ctaOnClick,
   ctaTextColor = "text-white",
   ctaSecondary,
   trustItems,
@@ -82,6 +84,7 @@ export function ProductHero({
               <Button
                 size="lg"
                 asChild={!!ctaHref}
+                onClick={!ctaHref ? ctaOnClick : undefined}
                 className={`group font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 ${ctaTextColor}`}
                 style={{ backgroundColor: accent }}
                 onMouseEnter={(e) => {

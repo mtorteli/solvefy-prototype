@@ -22,7 +22,7 @@ import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { RDFormModal } from "@/components/RDFormModal";
 import iconAds from "@/assets/icons/ads.svg";
 import logoAds from "@/assets/logos/solvefy-ads.png";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
@@ -130,6 +130,8 @@ const pricing = [
 ];
 
 const Ads = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const [form, setForm] = useState({
     nome: "",
     cnpj: "",
@@ -209,7 +211,7 @@ const Ads = () => {
             que nos outros Ads.</>}
           subtitle="Pare de queimar orçamento em plataformas saturadas e leilões inflacionados. A Solvefy/Ads entrega tráfego qualificado de alta performance com total autonomia. Sem bloqueios injustos, sem vínculo com outras redes. Apenas resultados reais e escaláveis."
           ctaText="Comprar Agora"
-          ctaHref="/contato"
+          ctaOnClick={() => setModalOpen(true)}
           ctaTextColor="text-gray-950"
           trustItems={["CPA até 20% menor", "CTR de até 35%", "Zero Vínculos"]}
           right={<AdsHeroMockup />}
@@ -558,13 +560,11 @@ const Ads = () => {
 
                   <Button
                     size="lg"
-                    asChild
+                    onClick={() => setModalOpen(true)}
                     className="w-full group font-semibold mt-auto bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950"
                   >
-                    <Link to="/contato" className="inline-flex items-center justify-center">
-                      {cta}
-                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                    {cta}
+                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </div>
               ))}
@@ -573,6 +573,7 @@ const Ads = () => {
         </section>
       </main>
       <Footer />
+      <RDFormModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 };
