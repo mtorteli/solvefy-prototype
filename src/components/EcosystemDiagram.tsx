@@ -36,7 +36,7 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
         </div>
 
         <div
-          className="w-full overflow-hidden"
+          className="w-full overflow-x-auto overflow-y-hidden"
           style={{ height: `${iframeHeight - cropOffset}px` }}
         >
           <iframe
@@ -46,9 +46,11 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
             onLoad={handleLoad}
             scrolling="no"
             loading="lazy"
-            className="w-full border-0"
+            className="border-0"
             style={{
               height: `${iframeHeight}px`,
+              width: "100%",
+              minWidth: "680px",
               marginTop: `-${cropOffset}px`,
               background: "transparent",
               overflow: "hidden",
