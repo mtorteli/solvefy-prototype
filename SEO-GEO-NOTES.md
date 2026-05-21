@@ -206,7 +206,7 @@ Este arquivo documenta cada decisão técnica tomada durante a otimização SEO 
 
 ### Fase 4 (extensão 2) — Instagram no Organization sameAs
 
-- **Decisão D6 atualizada**: Instagram oficial fornecido: `https://www.instagram.com/solvefy_/`. Adicionado em `SOLVEFY_ORG.sameAs` no `src/lib/schemas.ts` — agora aparece no JSON-LD Organization da home + via referência por `@id` em todos os outros schemas.
+- **Decisão D6 atualizada**: Instagram oficial fornecido: `https://www.instagram.com/solvefy__/`. Adicionado em `SOLVEFY_ORG.sameAs` no `src/lib/schemas.ts` — agora aparece no JSON-LD Organization da home + via referência por `@id` em todos os outros schemas.
 - Footer limpo: removidos os três stubs `href="#"` (Facebook, LinkedIn, YouTube — contas não migradas/criadas pós-rebrand). Restou só o Instagram com `target="_blank" rel="noopener noreferrer"` e `aria-label` específico. Stubs anteriores eram má UX e SEO ruim (Google penaliza links vazios).
 
 ### Fase 4.5 + 5.2 — FAQs por página com schema FAQPage

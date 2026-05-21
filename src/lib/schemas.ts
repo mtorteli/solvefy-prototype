@@ -27,7 +27,7 @@ export const SOLVEFY_ORG = {
   addressArea: "Florianópolis",
   /** Redes sociais oficiais da Solvefy. Outras contas (LinkedIn, Facebook,
    * YouTube) ainda não foram criadas / fornecidas. */
-  sameAs: ["https://www.instagram.com/solvefy_/"] as string[],
+  sameAs: ["https://www.instagram.com/solvefy__/"] as string[],
 } as const;
 
 const ORG_ID = `${SITE_URL}/#organization`;
