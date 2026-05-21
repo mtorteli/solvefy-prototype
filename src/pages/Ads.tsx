@@ -14,7 +14,7 @@ import {
   Check,
   X,
 } from "lucide-react";
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { AdsStepsFlow } from "@/components/AdsStepsFlow";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
@@ -22,7 +22,7 @@ import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { RDFormModal } from "@/components/RDFormModal";
+import { RDFormModal, RD_SCRIPT_ID, RD_SCRIPT_SRC } from "@/components/RDFormModal";
 import iconAds from "@/assets/icons/ads.svg";
 import logoAds from "@/assets/logos/solvefy-ads.png";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
@@ -131,6 +131,17 @@ const pricing = [
 
 const Ads = () => {
   const [modalOpen, setModalOpen] = useState(false);
+
+  // Pré-carrega o script da RD Station assim que a página monta,
+  // para que o formulário abra instantaneamente quando o usuário clicar.
+  useEffect(() => {
+    if (document.getElementById(RD_SCRIPT_ID)) return;
+    const script = document.createElement("script");
+    script.id = RD_SCRIPT_ID;
+    script.src = RD_SCRIPT_SRC;
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   const [form, setForm] = useState({
     nome: "",
