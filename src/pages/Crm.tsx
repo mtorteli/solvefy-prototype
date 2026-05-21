@@ -151,8 +151,7 @@ const Crm = () => {
           title={<>Pare de perder vendas no funil.{" "}
             <span className="text-[hsl(var(--crm))]">Assuma o controle absoluto do seu pipeline.</span></>}
           subtitle="Sua equipe comercial está deixando dinheiro na mesa? A Solvefy/CRM é a máquina de vendas definitiva para equipes de alta performance. Elimine o vazamento de leads, automatize follow-ups e tenha previsibilidade real de receita. Feche mais negócios em menos tempo."
-          ctaText="Teste Grátis"
-          ctaHref="/contato"
+          ctaText="Em Breve"
           trustItems={["Migração de Dados Gratuita", "Economize 20% vs. Concorrentes", "Implementação em 24h"]}
           right={<CrmHeroMockup />}
         />
@@ -335,10 +334,10 @@ const Crm = () => {
 
                 <Button
                   size="lg"
-                  className="group w-full sm:w-auto bg-[hsl(var(--crm))] hover:bg-[hsl(var(--crm))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  disabled
+                  className="w-full sm:w-auto bg-[hsl(var(--crm))]/60 text-white font-semibold cursor-default"
                 >
-                  Testar Grátis
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Em Breve
                 </Button>
               </div>
             </div>
@@ -430,17 +429,10 @@ const Crm = () => {
 
                   <Button
                     size="lg"
-                    asChild
-                    className={`w-full font-semibold ${
-                      plan.highlight
-                        ? "bg-[hsl(var(--crm))] hover:bg-[hsl(var(--crm))]/90 text-white"
-                        : "bg-foreground/90 hover:bg-foreground text-background"
-                    }`}
+                    disabled
+                    className="w-full font-semibold cursor-default opacity-60"
                   >
-                    <Link to="/contato" className="inline-flex items-center justify-center">
-                      {plan.cta}
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
+                    Em Breve
                   </Button>
                 </div>
               ))}
@@ -453,8 +445,7 @@ const Crm = () => {
                 description={apiPlan.ideal}
                 bullets={apiPlan.features}
                 badgeText={apiPlan.priceTag}
-                ctaText={apiPlan.cta}
-                ctaHref="/contato"
+                ctaText="Em Breve"
                 accordionTitle={apiPlan.accordionTitle}
                 accordionBody={apiPlan.accordionBody}
                 footerText={apiPlan.footerText}

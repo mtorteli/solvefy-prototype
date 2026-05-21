@@ -201,8 +201,7 @@ const Marketing = () => {
           title={<>Impulsione suas vendas com{" "}
             <span className="text-[hsl(var(--marketing))]">jornadas completas e personalizadas.</span></>}
           subtitle="Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você cria jornadas de relacionamento automatizadas e transforma contatos em vendas. Use nossos templates de disparo rápido, acompanhe métricas em tempo real e integre tudo facilmente via API."
-          ctaText="Teste Grátis"
-          ctaHref="/contato"
+          ctaText="Em Breve"
           trustItems={["Todos os Canais", "Construtor Visual de Jornadas", "EasyIA"]}
           right={<MarketingHeroMockup />}
         />
@@ -397,10 +396,10 @@ const Marketing = () => {
 
                 <Button
                   size="lg"
-                  className="group bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                  disabled
+                  className="bg-[hsl(var(--marketing))]/60 text-white font-semibold cursor-default"
                 >
-                  Conhecer a EasyIA
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Em Breve
                 </Button>
               </div>
             </motion.div>
@@ -553,17 +552,10 @@ const Marketing = () => {
 
                   <Button
                     size="lg"
-                    asChild
-                    className={`w-full font-semibold mt-auto ${
-                      plan.highlight
-                        ? "bg-[hsl(var(--marketing))] hover:bg-[hsl(var(--marketing))]/90 text-white"
-                        : "bg-foreground/90 hover:bg-foreground text-background"
-                    }`}
+                    disabled
+                    className="w-full font-semibold mt-auto cursor-default opacity-60"
                   >
-                    <Link to="/contato" className="inline-flex items-center justify-center">
-                      {plan.cta}
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
+                    Em Breve
                   </Button>
                 </div>
               ))}
@@ -581,8 +573,7 @@ const Marketing = () => {
                 description={apiPlan.ideal}
                 bullets={apiPlan.features}
                 badgeText={apiPlan.priceTag}
-                ctaText={apiPlan.cta}
-                ctaHref="/contato"
+                ctaText="Em Breve"
                 footerText={apiPlan.footerText}
               />
             </div>
