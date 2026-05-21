@@ -158,12 +158,14 @@ export const Header = () => {
           <Link to="/contato" className="text-white hover:text-white/80 font-medium transition-colors">
             Fale Conosco
           </Link>
-          <Link
-            to="/"
+          <a
+            href="https://auth.solvefy.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md bg-white px-3 py-1 text-xs font-semibold text-black hover:bg-white/90 transition-colors"
           >
             Entrar
-          </Link>
+          </a>
         </div>
       </div>
 
