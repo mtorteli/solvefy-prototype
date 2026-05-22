@@ -32,6 +32,7 @@
     },
     "skipThirdPartyRequests": true,
     "inlineCss": false,
+    "crawl": false,
     "include": [
       "/",
       "/cpaas",
