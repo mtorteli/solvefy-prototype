@@ -218,7 +218,7 @@ const Ads = () => {
           badgeLabel="Solvefy/Ads"
           logoImage={logoAds}
           title={<>Escale suas vendas com um{" "}
-            <span className="text-[hsl(var(--ads))]">CPA até 20% menor</span>{" "}
+            <span className="text-[hsl(var(--ads))]">custo até 20% menor</span>{" "}
             que nos outros Ads.</>}
           subtitle="Pare de queimar orçamento em plataformas saturadas e leilões inflacionados. A Solvefy/Ads entrega tráfego qualificado de alta performance com total autonomia. Sem bloqueios injustos, sem vínculo com outras redes. Apenas resultados reais e escaláveis."
           ctaText="Comprar Agora"
