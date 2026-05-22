@@ -32,9 +32,10 @@
 # ──────────────────────────────────────────────────────────
 
 [[redirects]]
-  from = "/termos-e-politicas"
-  to = "/em-breve/termos-e-politicas.html"
-  status = 200
+  from = "/em-breve/termos-e-politicas.html"
+  to = "/termos-e-politicas/"
+  status = 301
+  force = true
 
 # SPA catch-all — redireciona para o shell do React (index.html).
 # Rotas com HTML pré-renderizado (ex: /cpaas/index.html) são servidas

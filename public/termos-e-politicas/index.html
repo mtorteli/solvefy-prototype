@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Termos e Políticas | Solvefy</title>
-    <link rel="stylesheet" href="/em-breve/style.css" />
 
     <!-- Google Fonts for Body -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,6 +34,26 @@
       };
     </script>
     <style>
+      @font-face {
+        font-family: 'Pacaembu';
+        src: url('/fonts/Pacaembu-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Pacaembu';
+        src: url('/fonts/Pacaembu-Black.woff2') format('woff2');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       html { scroll-behavior: smooth; }
       .policy-content h3 {
         font-family: "Pacaembu", sans-serif;
@@ -85,7 +104,7 @@
       <div class="max-w-[1240px] mx-auto px-4 md:px-8 h-[72px] md:h-[88px] flex items-center justify-between">
         <a href="/" class="flex items-center" aria-label="Solvefy - Página inicial">
           <img
-            src="/em-breve/public/af_solvefy_logo_white.png"
+            src="/termos-e-politicas/af_solvefy_logo_white.png"
             alt="Solvefy"
             class="h-[28px] md:h-[36px] w-auto select-none"
           />
@@ -1028,7 +1047,7 @@
     <footer class="w-full bg-solve-black text-solve-sand py-10">
       <div class="max-w-[1240px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <img
-          src="public/af_solvefy_logo_white.png"
+          src="/termos-e-politicas/af_solvefy_logo_white.png"
           alt="Solvefy"
           class="h-[22px] w-auto"
         />
