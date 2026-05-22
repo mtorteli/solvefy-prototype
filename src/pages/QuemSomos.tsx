@@ -9,7 +9,6 @@ import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import somosOsSolvers from "@/assets/somos-os-solvers.png";
 import solversHero from "@/assets/solvers-hero.png";
 import logoSolvefyDark from "@/assets/logo-solvefy-dark.png";
-import videoThumbnail from "@/assets/video-thumbnail.jpg";
 import iconCloud from "@/assets/icons/cloud.svg";
 import iconMarketing from "@/assets/icons/marketing.svg";
 import iconCrm from "@/assets/icons/crm.svg";
@@ -133,7 +132,7 @@ const QuemSomos = () => {
                   aria-label="Assistir vídeo institucional Solvefy"
                 >
                   <img
-                    src={videoThumbnail}
+                    src="/images/solvefy-capa.png"
                     alt="Vídeo institucional Solvefy"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
