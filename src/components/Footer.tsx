@@ -67,7 +67,7 @@ export const Footer = () => {
 
             <div className="mt-8 flex items-center gap-3">
               <a
-                href="https://www.instagram.com/solvefy__?igsh=MXI3OXJiYWJnZzg5ag=="
+                href="https://www.instagram.com/solvefy__"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-dark-muted hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"

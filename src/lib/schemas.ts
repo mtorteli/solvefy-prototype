@@ -26,7 +26,7 @@ export const SOLVEFY_ORG = {
   addressCountry: "BR",
   addressArea: "Florianópolis",
   sameAs: [
-    "https://www.instagram.com/solvefy__?igsh=MXI3OXJiYWJnZzg5ag==",
+    "https://www.instagram.com/solvefy__",
     "https://www.linkedin.com/company/brasilfonetelecom/",
   ] as string[],
 } as const;
