@@ -1,0 +1,72 @@
+{
+  "skipLink": "Skip to content",
+  "languageSwitcher": {
+    "label": "Select language",
+    "current": "Current language: {{language}}"
+  },
+  "header": {
+    "topBar": {
+      "languageAria": "Select language: {{language}}",
+      "contact": "Contact Us",
+      "login": "Sign in"
+    },
+    "nav": {
+      "home": "Home",
+      "solutionsLabel": "Solutions",
+      "solutionsAria": "Solutions",
+      "resources": "Resources",
+      "company": "Company"
+    },
+    "solutions": {
+      "cpaas": "Communication at Scale",
+      "ads": "Direct Traffic",
+      "marketing": "Smart Journeys",
+      "crm": "Sales Management",
+      "agents": "Artificial Intelligence",
+      "cloud": "Cloud Automation"
+    },
+    "resources": {
+      "blog": "Blog",
+      "helpCenter": "Help Center"
+    },
+    "company": {
+      "about": "About Us",
+      "careers": "Become a Solver"
+    },
+    "ctaSpecialist": "Talk to a Specialist",
+    "ctaSolutions": "Explore Solutions",
+    "mobileMenu": "Menu"
+  },
+  "footer": {
+    "logoAlt": "Solvefy",
+    "slogan": "Closer<accent>.</accent> Quicker<accent>.</accent> Better<accent>.</accent>",
+    "tagline": "Technology that simplifies, integration that delivers results.",
+    "cta": "Get in Touch",
+    "instagramAria": "Solvefy on Instagram",
+    "linkedinAria": "Solvefy on LinkedIn",
+    "groups": {
+      "solutions": "Solutions",
+      "resources": "Resources",
+      "company": "Company"
+    },
+    "links": {
+      "blog": "Blog",
+      "helpCenter": "Help Center",
+      "docs": "Documentation",
+      "apiRef": "API Reference",
+      "about": "About Us",
+      "careers": "Become a Solver"
+    },
+    "institutional": "<strong>Solvefy</strong> is a Brazilian technology company headquartered in Florianópolis/SC, specialized in B2B multichannel communication, marketing automation, CRM, AI agents and cloud infrastructure. We serve companies across Brazil that need to scale customer service and sales by integrating WhatsApp, SMS, RCS, voice and email into a single operational flow.",
+    "copyright": "© {{year}} Solvefy. All rights reserved. CNPJ 35.693.806/0001-97",
+    "legal": {
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "lgpd": "LGPD"
+    },
+    "seal": {
+      "label": "Seal",
+      "name": "ACATE 2024"
+    }
+  }
+}

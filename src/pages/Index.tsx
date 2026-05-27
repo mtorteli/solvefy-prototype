@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
 import { organizationSchema, websiteSchema } from "@/lib/schemas";
+import { useLocale } from "@/i18n/useLocale";
 import { Hero } from "@/components/Hero";
 import { SocialProof } from "@/components/SocialProof";
 import { Solutions } from "@/components/Solutions";
@@ -11,14 +13,16 @@ import { PressMedia } from "@/components/PressMedia";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
+  const { t } = useTranslation("home");
+  const { locale } = useLocale();
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Plataforma B2B de Comunicação Multicanal"
-        description="A Solvefy conecta sua empresa aos clientes por WhatsApp, SMS, e-mail, voz e RCS. CRM, CPaaS, Marketing e Cloud em uma única plataforma."
+        title={t("meta.title")}
+        description={t("meta.description")}
         canonical="/"
         ogImage="/og/og-home.jpg"
-        schemas={[organizationSchema(), websiteSchema()]}
+        schemas={[organizationSchema(locale), websiteSchema(locale)]}
       />
       <Header />
       <main id="main">

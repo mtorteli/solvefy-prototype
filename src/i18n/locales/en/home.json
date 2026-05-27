@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "title": "B2B Multichannel Communication Platform",
+    "description": "Solvefy connects your company to customers via WhatsApp, SMS, email, voice and RCS. CRM, CPaaS, Marketing and Cloud in a single platform."
+  },
+  "hero": {
+    "badge": "Join 20,000 companies",
+    "title": {
+      "full": "Get <accent>closer</accent><br/>to your customer.<br/>Move <accent>faster</accent> for<br/>your business."
+    },
+    "subtitle": "You don't need multiple software tools — you just need the right platform. With our integrated communication ecosystem, you run the entire customer journey in one place. Attracting, engaging and converting has never been this simple."
+  },
+  "socialProof": {
+    "headline": "More than 20,000 companies already accelerate their results with Solvefy:"
+  },
+  "testimonials": {
+    "ariaLabel": "Customer testimonials",
+    "items": {
+      "chapecoense": {
+        "label": "Chapecoense",
+        "quote": "We realized SMS was a highly efficient channel for our needs. We needed to reach our member fans quickly and effectively to keep them engaged with the Club. Considering the investment, the return was very positive!",
+        "author": "Augusto Dalvit Tonelo",
+        "role": "VP of Marketing at Chapecoense"
+      },
+      "deive": {
+        "label": "Deive Leonardo",
+        "quote": "When we launched the movie A Resposta, Disparo Pro helped us reach all our leads and people who were part of our story. It was the best launch we could have imagined, and we made it to Netflix's Top 10!",
+        "author": "Deive Leonardo",
+        "role": "Evangelist and Digital Influencer"
+      }
+    }
+  },
+  "solutions": {
+    "title": {
+      "before": "Closer. Quicker. ",
+      "highlight": "Better."
+    },
+    "subtitle": "Stop splitting your strategy across multiple tools. Unify your communication, simplify your management and deliver results faster.",
+    "ctaPricing": "See {{name}} pricing",
+    "items": {
+      "cpaas": {
+        "headline": "Communication at Scale.",
+        "desc": "The transactional heart of the ecosystem. A robust API-based communication platform built for companies that demand high-volume messaging. It also acts as the invisible engine powering our other solutions (such as Solvefy Marketing).",
+        "bullets": [
+          "API Integration",
+          "No Setup Fee",
+          "Volume-Based Pricing"
+        ]
+      },
+      "ads": {
+        "headline": "Direct Traffic",
+        "desc": "Stop burning budget on saturated platforms and inflated auctions. Solvefy/Ads delivers high-performance qualified traffic with full autonomy. No unfair blocks, no ties to other networks. Just real, scalable results.",
+        "bullets": [
+          "Up to 20% lower cost",
+          "Up to 35% CTR",
+          "Zero Lock-in"
+        ]
+      },
+      "marketing": {
+        "headline": "Smart Journeys",
+        "desc": "Everything your marketing needs in one place. With Solvefy/Marketing, you build automated relationship journeys and turn contacts into sales. Use our quick-send templates, track metrics in real time and integrate everything easily via API.",
+        "bullets": [
+          "All Channels",
+          "Visual Journey Builder",
+          "EasyAI"
+        ]
+      },
+      "crm": {
+        "headline": "Sales Management",
+        "desc": "Is your sales team leaving money on the table? Solvefy/CRM is the ultimate sales machine for high-performance teams. Eliminate lead leakage, automate follow-ups and gain real revenue predictability. Close more deals in less time.",
+        "bullets": [
+          "Free Data Migration",
+          "Save 20% vs. Competitors",
+          "24-Hour Onboarding"
+        ]
+      },
+      "agents": {
+        "headline": "Artificial Intelligence",
+        "desc": "Put multiple specialists working 24/7 in your operation. From SDRs running market-tailored methodologies to squads creating social media content, Agents handles the operational work so your team can focus on closing deals. All in your language and within a single platform.",
+        "bullets": [
+          "Artificial Intelligence",
+          "Multiple Specialists",
+          "Unlimited Workspace"
+        ]
+      },
+      "cloud": {
+        "headline": "Cloud Automation",
+        "desc": "Turn the idle infrastructure of your Internet Service Provider (ISP) or Data Center into a profitable business. Automate 100% of the sale, provisioning and billing of cloud services under your own brand, without depending on third parties.",
+        "bullets": [
+          "White Label On-Premises Platform",
+          "Official Proxmox Reseller/Partner",
+          "End-to-End Process"
+        ]
+      }
+    }
+  },
+  "ecosystem": {
+    "title": {
+      "full": "Technology that <accent>simplifies</accent>,<br/>integration that delivers <accent>results</accent>."
+    }
+  },
+  "blogTeaser": {
+    "title": "Follow our content!",
+    "viewAll": "View All"
+  },
+  "press": {
+    "title": "What the media says about us"
+  }
+}

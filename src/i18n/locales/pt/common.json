@@ -1,0 +1,72 @@
+{
+  "skipLink": "Pular para o conteúdo",
+  "languageSwitcher": {
+    "label": "Selecionar idioma",
+    "current": "Idioma atual: {{language}}"
+  },
+  "header": {
+    "topBar": {
+      "languageAria": "Selecionar idioma: {{language}}",
+      "contact": "Fale Conosco",
+      "login": "Entrar"
+    },
+    "nav": {
+      "home": "Início",
+      "solutionsLabel": "Soluções",
+      "solutionsAria": "Soluções",
+      "resources": "Recursos",
+      "company": "Institucional"
+    },
+    "solutions": {
+      "cpaas": "Comunicação em Escala",
+      "ads": "Tráfego Direto",
+      "marketing": "Jornadas Inteligentes",
+      "crm": "Gestão Comercial",
+      "agents": "Inteligência Artificial",
+      "cloud": "Automação de Cloud"
+    },
+    "resources": {
+      "blog": "Blog",
+      "helpCenter": "Central de Ajuda"
+    },
+    "company": {
+      "about": "Quem Somos",
+      "careers": "Seja um Solvers"
+    },
+    "ctaSpecialist": "Fale com um Especialista",
+    "ctaSolutions": "Conheça as Soluções",
+    "mobileMenu": "Menu"
+  },
+  "footer": {
+    "logoAlt": "Solvefy",
+    "slogan": "+Perto<accent>.</accent> +Rápido<accent>.</accent> Melhor<accent>.</accent>",
+    "tagline": "Tecnologia que simplifica, integração que gera resultado.",
+    "cta": "Entre em Contato",
+    "instagramAria": "Solvefy no Instagram",
+    "linkedinAria": "Solvefy no LinkedIn",
+    "groups": {
+      "solutions": "Soluções",
+      "resources": "Recursos",
+      "company": "Institucional"
+    },
+    "links": {
+      "blog": "Blog",
+      "helpCenter": "Central de Ajuda",
+      "docs": "Documentação",
+      "apiRef": "API Reference",
+      "about": "Quem Somos",
+      "careers": "Seja um Solvers"
+    },
+    "institutional": "A <strong>Solvefy</strong> é uma empresa brasileira de tecnologia sediada em Florianópolis/SC, especializada em comunicação multicanal B2B, automação de marketing, CRM, agentes de IA e infraestrutura em nuvem. Atende empresas em todo o Brasil que precisam escalar atendimento e vendas integrando WhatsApp, SMS, RCS, voz e e-mail em um único fluxo operacional.",
+    "copyright": "© {{year}} Solvefy. Todos os direitos reservados. CNPJ 35.693.806/0001-97",
+    "legal": {
+      "privacy": "Privacidade",
+      "terms": "Termos",
+      "lgpd": "LGPD"
+    },
+    "seal": {
+      "label": "Selo",
+      "name": "ACATE 2024"
+    }
+  }
+}

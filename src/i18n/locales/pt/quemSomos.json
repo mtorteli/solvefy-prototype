@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "title": "Quem Somos — A Solvefy",
+    "description": "Conheça a Solvefy, a plataforma B2B que nasceu para simplificar a comunicação entre empresas e seus clientes. Nossa missão, valores e time.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Quem Somos"
+  },
+  "hero": {
+    "imgAlt": "Equipe Solvers",
+    "title": "Somos os Solvers",
+    "titleImgAlt": "Somos os Solvers",
+    "subtitle": "Existimos para acelerar resultados reais ao unir tecnologia, estratégia e clareza humana. Eliminamos a burocracia e a frieza para entregar execução ágil e parcerias próximas, transformando complexidade em vantagem competitiva e crescimento direto."
+  },
+  "manifesto": {
+    "srTitle": "Manifesto Solvers",
+    "p1": "Embora a tecnologia, os negócios e as relações tenham se transformado, uma necessidade continua a mesma: contar com quem resolve de verdade. Foi por isso que chegamos até aqui e é por isso que seguimos em frente.",
+    "p2": "A Solvefy nasce como a evolução natural de uma trajetória construída à base de confiança, proximidade e resultados consistentes. Somos uma nova marca criada para representar com ainda mais clareza a nossa essência: simplificar caminhos, aproximar pessoas e entregar soluções eficientes.",
+    "p3": "Acreditamos que a tecnologia importa, mas acreditamos ainda mais em pessoas. São elas que entendem os contextos, antecipam as necessidades e transformam os desafios em decisões melhores. Por isso, usamos a inovação para ganhar velocidade, inteligência e escala sem abrir mão do atendimento próximo e da relação humana.",
+    "p4": "Trabalhamos com senso de dono e agimos com iniciativa. Nossa comunicação é direta e sem barreiras, pois sabemos que a confiança se constrói com transparência e os resultados se alcançam com atitude.",
+    "p5": "Mudamos de nome, evoluímos em estrutura e expandimos nossa visão. Apesar de todo esse movimento, permanecemos fiéis ao que sempre nos trouxe até aqui: a parceria verdadeira, a excelência na execução e o compromisso com cada cliente. Mantemos a mesma essência, agora com um nome que traduz perfeitamente o que fazemos todos os dias.",
+    "tagline": "<dark>Resolvemos com inteligência. </dark><accent>Crescemos com você.</accent>"
+  },
+  "video": {
+    "buttonAria": "Assistir vídeo institucional Solvefy",
+    "thumbnailAlt": "Vídeo institucional Solvefy",
+    "close": "Fechar"
+  },
+  "values": {
+    "title": "Quais são os nossos valores?",
+    "items": {
+      "owner": {
+        "titleStart": "Senso de ",
+        "titleAccent": "Dono",
+        "desc": "Nosso compromisso vai além de entregar tarefas; nós assumimos a responsabilidade pelos resultados. Abraçamos os desafios da empresa e dos nossos clientes como se fossem nossos. É essa postura de quem cuida do negócio, antecipa necessidades e foca na excelência da execução que garante o crescimento de todos. Não terceirizamos problemas: se algo precisa ser resolvido, nós assumimos a frente e resolvemos de verdade."
+      },
+      "initiative": {
+        "titleStart": "Livre ",
+        "titleAccent": "Iniciativa",
+        "desc": "Não esperamos as coisas acontecerem; nós fazemos acontecer. Temos a liberdade, a autonomia e a confiança necessárias para criar soluções reais, simplificar caminhos e agir com inteligência. Valorizamos a atitude de quem usa a inovação para ganhar velocidade e tem a coragem de propor novas ideias. Aqui, transformar a complexidade em decisões melhores é responsabilidade de cada um."
+      },
+      "communication": {
+        "titleStart": "Comunicação ",
+        "titleAccent": "Horizontal",
+        "desc": "Nossas relações são baseadas na proximidade, na clareza e na transparência. Nos comunicamos de forma direta, aberta e sem burocracias ou barreiras. Acreditamos que a inteligência é coletiva e que as melhores soluções nascem quando as pessoas têm voz ativa, independentemente de cargos. O diálogo franco e a visão humana são os alicerces que constroem a verdadeira confiança em nossos times."
+      }
+    }
+  }
+}

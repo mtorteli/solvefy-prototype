@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Contato — Fale com a Solvefy",
+    "description": "Entre em contato com nossa equipe comercial. Descubra como a Solvefy pode transformar a comunicação da sua empresa.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Contato"
+  },
+  "hero": {
+    "badge": "Fale Conosco",
+    "title": "Pronto para <accent>escalar</accent> sua comunicação?",
+    "subtitle": "Estamos prontos para ajudar sua empresa a se conectar melhor com seus clientes. Preencha o formulário e receba um diagnóstico personalizado."
+  }
+}

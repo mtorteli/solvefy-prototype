@@ -1,8 +1,11 @@
 import { Sparkles } from "lucide-react";
+import { Trans, useTranslation } from "react-i18next";
 import heroVideo from "@/assets/hero-video/hero-video-v2.mp4";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 
 export const Hero = () => {
+  const { t } = useTranslation("home");
+
   return (
     <section
       className="relative overflow-hidden py-12 md:py-16"
@@ -16,23 +19,22 @@ export const Hero = () => {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 backdrop-blur-md px-4 py-1.5 text-xs font-medium text-black">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
-              Junte-se a 20mil empresas
+              {t("hero.badge")}
             </div>
 
             <Heading variant="h1" className="mt-6 text-balance">
-              Mais <span className="text-primary">perto</span>
-              <br />
-              do seu cliente.
-              <br />
-              Mais <span className="text-primary">rápido</span> para
-              <br />o seu negócio.
+              <Trans
+                i18nKey="hero.title.full"
+                ns="home"
+                components={{
+                  accent: <span className="text-primary" />,
+                  br: <br />,
+                }}
+              />
             </Heading>
 
             <SectionSubtitle className="mt-6 max-w-[460px] leading-snug">
-              Você não precisa de múltiplos softwares, você só precisa da
-              plataforma certa. Com nosso ecossistema de comunicação integrado,
-              você faz toda a jornada do cliente em um só lugar. Atrair, engajar
-              e converter nunca foi tão simples.
+              {t("hero.subtitle")}
             </SectionSubtitle>
           </div>
 

@@ -1,10 +1,14 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { MOCK_POSTS } from "@/lib/mock-data";
+import { useLocale } from "@/i18n/useLocale";
 import { BlogCard } from "./BlogCard";
 
 export const Blog = () => {
+  const { t } = useTranslation("home");
+  const { localizedPath } = useLocale();
   const { data: posts, isLoading } = useQuery({
     queryKey: ["latest-posts"],
     queryFn: async () => {
@@ -44,13 +48,13 @@ export const Blog = () => {
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-4">
           <h2 className="tracking-tighter leading-[1.1]">
-            Acompanhe nossos conteúdos!
+            {t("blogTeaser.title")}
           </h2>
           <Link
-            to="/blog"
+            to={localizedPath("/blog")}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors group"
           >
-            Ver Todos
+            {t("blogTeaser.viewAll")}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>

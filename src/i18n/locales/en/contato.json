@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Contact — Talk to Solvefy",
+    "description": "Get in touch with our sales team. Discover how Solvefy can transform your company's communication.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Contact"
+  },
+  "hero": {
+    "badge": "Contact Us",
+    "title": "Ready to <accent>scale</accent> your communication?",
+    "subtitle": "We're ready to help your company connect better with its customers. Fill out the form and receive a tailored diagnosis."
+  }
+}

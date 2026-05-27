@@ -99,7 +99,7 @@ Este arquivo documenta cada decisão técnica tomada durante a otimização SEO 
 
 ### Fase 3 — Meta tags por página
 
-- **3.5** `feat(seo): generate favicon set, web manifest and per-page OG images` — scripts `generate-favicons.mjs` e `generate-og-images.mjs` (rodam manualmente via `npm run seo:favicons` / `npm run seo:og`; outputs commitados). Saídas: `public/favicon.svg`, `public/favicon-{32,192,512}x{32,192,512}.png`, `public/apple-touch-icon.png`, `public/site.webmanifest`, `public/og/og-{home,cpaas,ads,marketing,crm,agents,cloud,quem-somos,contato,blog,default}.jpg` (11 imagens 1200×630, ~30 KB cada). Layout OG: gradiente dark + faixa verde inferior + título da página + subtítulo + tagline "PRÓXIMO. VELOZ. MELHOR.".
+- **3.5** `feat(seo): generate favicon set, web manifest and per-page OG images` — scripts `generate-favicons.mjs` e `generate-og-images.mjs` (rodam manualmente via `npm run seo:favicons` / `npm run seo:og`; outputs commitados). Saídas: `public/favicon.svg`, `public/favicon-{32,192,512}x{32,192,512}.png`, `public/apple-touch-icon.png`, `public/site.webmanifest`, `public/og/og-{home,cpaas,ads,marketing,crm,agents,cloud,quem-somos,contato,blog,default}.jpg` (11 imagens 1200×630, ~30 KB cada). Layout OG: gradiente dark + faixa verde inferior + título da página + subtítulo + tagline "+PERTO. +RÁPIDO. MELHOR.".
 
 - **3.2** `feat(seo): rewrite shell HTML with pt-BR meta, favicons and theme color` — `index.html` reescrito:
   - Title + description em pt-BR (era "Solvefy is a B2B platform..." em inglês)
@@ -180,7 +180,7 @@ Este arquivo documenta cada decisão técnica tomada durante a otimização SEO 
 
 - **Decisão D6 atualizada**: Endereço público da sede confirmado pelo usuário: **Rua Manoel de Oliveira Ramos, 205 — Estreito, Florianópolis/SC**. `streetAddress`, `addressLocality` (Florianópolis), `addressRegion` (SC), `addressCountry` (BR) agora populados no schema.
 - Descrição do Organization reescrita a partir do vault Obsidian em `/Users/italo.vca/Documents/Claude/Projects/Solvefy/Solvefy/02 - Marca/Plataforma de Marca Solvefy.md` para refletir o posicionamento oficial pós-rebrand: "ecossistema que unifica soluções de comunicação multicanal, marketing, CRM, agentes de IA e cloud".
-- `slogan: "Próximo. Veloz. Melhor."` adicionado ao schema Organization.
+- `slogan: "+Perto. +Rápido. Melhor."` adicionado ao schema Organization.
 - **Decisão D11**: Solvefy é o rebrand de Ativos Capital — explica o domínio do e-mail do CEO (italo@ativos.capital) e os e-mails internos em @solvefy.cloud. URL canônica do site é solvefy.com (o produto).
 - Decisão D2 confirmada: estratégia de prerender = **react-snap** (item abaixo).
 - Decisões D5 confirmada (security@solvefy.com), pendentes ainda: redes sociais reais (D6 — sameAs vazio, footer com href="#"), ano de fundação, telefone, FAQs por página, bios de equipe.
