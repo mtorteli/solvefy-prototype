@@ -1,9 +1,11 @@
 import { useEffect } from "react";
+import { Trans, useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
 import { breadcrumbSchema } from "@/lib/schemas";
 import { Footer } from "@/components/Footer";
-import { motion } from "framer-motion";
+import { useLocale } from "@/i18n/useLocale";
 
 const RD_FORM_ID = "contato-solvefy-com-58c21822e6ec437325ca";
 const RD_SCRIPT_ID = "rd-station-forms-script";
@@ -11,6 +13,9 @@ const RD_SCRIPT_SRC =
   "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
 
 const Contact = () => {
+  const { t } = useTranslation("contato");
+  const { locale } = useLocale();
+
   useEffect(() => {
     const initForm = () => {
       // @ts-ignore
@@ -38,15 +43,18 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEO
-        title="Contato — Fale com a Solvefy"
-        description="Entre em contato com nossa equipe comercial. Descubra como a Solvefy pode transformar a comunicação da sua empresa."
+        title={t("meta.title")}
+        description={t("meta.description")}
         canonical="/contato"
         ogImage="/og/og-contato.jpg"
         schemas={[
-          breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Contato", path: "/contato" },
-          ]),
+          breadcrumbSchema(
+            [
+              { name: t("meta.breadcrumbHome"), path: "/" },
+              { name: t("meta.breadcrumbSelf"), path: "/contato" },
+            ],
+            locale,
+          ),
         ]}
       />
       <Header />
@@ -61,17 +69,19 @@ const Contact = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary mb-6">
-                  Fale Conosco
+                  {t("hero.badge")}
                 </div>
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
-                  Pronto para{" "}
-                  <span className="text-primary text-glow">escalar</span> sua
-                  comunicação?
+                  <Trans
+                    i18nKey="hero.title"
+                    ns="contato"
+                    components={{
+                      accent: <span className="text-primary text-glow" />,
+                    }}
+                  />
                 </h1>
                 <p className="section-subtitle mb-8 max-w-lg">
-                  Estamos prontos para ajudar sua empresa a se conectar melhor
-                  com seus clientes. Preencha o formulário e receba um
-                  diagnóstico personalizado.
+                  {t("hero.subtitle")}
                 </p>
               </motion.div>
 

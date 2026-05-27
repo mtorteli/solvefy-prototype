@@ -22,8 +22,15 @@ const BASE = "https://solvefy.com";
 const LOCALES = ["pt-BR", "en", "es"];
 const PREFIX = { "pt-BR": "", en: "/en", es: "/es" };
 
-/** Páginas que já têm versões traduzidas em todas as línguas. */
-const TRANSLATED_PATHS = new Set(["/"]);
+/** Páginas indexáveis que já têm versões traduzidas em todas as línguas. */
+const TRANSLATED_PATHS = new Set([
+  "/",
+  "/contato",
+  "/quem-somos",
+  "/cpaas",
+]);
+// Cpaas subpaths (voz/sms/whatsapp/email/rcs) também são traduzidos, mas estão
+// marcados `noindex` e por isso ficam fora do sitemap.
 
 const mock = readFileSync(resolve(root, "src/lib/mock-data.ts"), "utf8");
 

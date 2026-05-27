@@ -1,0 +1,40 @@
+{
+  "common": {
+    "breadcrumbHome": "Home",
+    "breadcrumbCpaas": "Solvefy/CPaaS",
+    "soonHeading": "Coming soon: ",
+    "soonBody": "This page is under construction. Soon you'll find details about the Solvefy/CPaaS {{channel}} channel."
+  },
+  "sms": {
+    "metaTitle": "SMS — Solvefy/CPaaS",
+    "metaDescription": "Solvefy/CPaaS SMS API: transactional and mass messaging with direct carrier routes.",
+    "breadcrumbSelf": "SMS",
+    "badge": "Solvefy/CPaaS · SMS",
+    "soonHighlight": "SMS API",
+    "channelName": "SMS"
+  },
+  "whatsapp": {
+    "metaTitle": "WhatsApp — Solvefy/CPaaS",
+    "metaDescription": "Solvefy/CPaaS WhatsApp API: mass messaging, approved templates and interactive buttons on the #1 channel.",
+    "breadcrumbSelf": "WhatsApp",
+    "badge": "Solvefy/CPaaS · WhatsApp",
+    "soonHighlight": "WhatsApp API",
+    "channelName": "WhatsApp"
+  },
+  "email": {
+    "metaTitle": "Email — Solvefy/CPaaS",
+    "metaDescription": "Solvefy/CPaaS Email API: transactional and marketing journeys with high deliverability.",
+    "breadcrumbSelf": "Email",
+    "badge": "Solvefy/CPaaS · Email",
+    "soonHighlight": "Email API",
+    "channelName": "Email"
+  },
+  "rcs": {
+    "metaTitle": "RCS — Solvefy/CPaaS",
+    "metaDescription": "Solvefy/CPaaS RCS API: SMS 2.0 with rich media, verified profiles and interactive buttons.",
+    "breadcrumbSelf": "RCS",
+    "badge": "Solvefy/CPaaS · RCS",
+    "soonHighlight": "RCS API",
+    "channelName": "RCS"
+  }
+}

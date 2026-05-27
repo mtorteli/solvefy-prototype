@@ -1,22 +1,30 @@
+import { useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { breadcrumbSchema } from "@/lib/schemas";
+import { useLocale } from "@/i18n/useLocale";
 
 const CpaasSms = () => {
+  const { t } = useTranslation("cpaasComingSoon");
+  const { locale } = useLocale();
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
-        title="SMS — Solvefy/CPaaS"
-        description="API de SMS da Solvefy/CPaaS: disparos transacionais e em massa com rotas diretas das operadoras."
+        title={t("sms.metaTitle")}
+        description={t("sms.metaDescription")}
         canonical="/cpaas/sms"
         noindex
         schemas={[
-          breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Solvefy/CPaaS", path: "/cpaas" },
-            { name: "SMS", path: "/cpaas/sms" },
-          ]),
+          breadcrumbSchema(
+            [
+              { name: t("common.breadcrumbHome"), path: "/" },
+              { name: t("common.breadcrumbCpaas"), path: "/cpaas" },
+              { name: t("sms.breadcrumbSelf"), path: "/cpaas/sms" },
+            ],
+            locale,
+          ),
         ]}
       />
       <Header />
@@ -30,15 +38,16 @@ const CpaasSms = () => {
                 color: "hsl(var(--cpaas))",
               }}
             >
-              Solvefy/CPaaS · SMS
+              {t("sms.badge")}
             </div>
             <h1 className="tracking-tight leading-tight text-balance">
-              Em breve:{" "}
-              <span className="text-[hsl(var(--cpaas))]">API de SMS</span>
+              {t("common.soonHeading")}
+              <span className="text-[hsl(var(--cpaas))]">
+                {t("sms.soonHighlight")}
+              </span>
             </h1>
             <p className="section-subtitle mt-4">
-              Esta página está em construção. Em breve, detalhes sobre o canal
-              de SMS da Solvefy/CPaaS.
+              {t("common.soonBody", { channel: t("sms.channelName") })}
             </p>
           </div>
         </section>

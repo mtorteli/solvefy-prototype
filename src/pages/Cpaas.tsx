@@ -8,12 +8,14 @@ import {
   Lock,
   FileCheck2,
 } from "lucide-react";
+import { Trans, useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
+import { useLocale } from "@/i18n/useLocale";
 import iconCpaas from "@/assets/icons/cpaas.svg";
 import logoCpaas from "@/assets/logos/solvefy-cpaas.png";
 
@@ -24,95 +26,61 @@ import { CpaasHeroMockup } from "@/components/CpaasHeroMockup";
 
 const ACCENT = "hsl(var(--cpaas))";
 
-const infraPoints = [
-  {
-    icon: Globe2,
-    title: "Operador Nativo",
-    desc: "Operamos a infraestrutura ponta a ponta com rotas próprias e conexão direta com todas as operadoras.",
-    badge: "Homologado pela Anatel",
-  },
-  {
-    icon: Network,
-    title: "Rotas Diretas",
-    desc: "Conexão direta com as principais operadoras do Brasil para máxima entregabilidade.",
-  },
-  {
-    icon: Headphones,
-    title: "Suporte Humano",
-    desc: "Atendimento 100% humano, em português e inglês, com SLA real para operações críticas.",
-  },
-  {
-    icon: Banknote,
-    title: "Faturamento em BRL",
-    desc: "Sem variação cambial. Contrato e fatura em Reais, com previsibilidade total.",
-  },
-];
+const INFRA_KEYS = [
+  { key: "nativeOperator", Icon: Globe2 },
+  { key: "directRoutes",   Icon: Network },
+  { key: "humanSupport",   Icon: Headphones },
+  { key: "brlBilling",     Icon: Banknote },
+] as const;
 
-const compliance = [
-  {
-    icon: FileCheck2,
-    title: "LGPD Nativa",
-    desc: "Hosting no Brasil, contratos de operador e processos auditáveis em conformidade com a LGPD.",
-  },
-  {
-    icon: Lock,
-    title: "Criptografia ponta-a-ponta",
-    desc: "Tráfego e dados sensíveis criptografados em trânsito e em repouso.",
-  },
-  {
-    icon: KeyRound,
-    title: "Gestão de Consentimento",
-    desc: "Opt-in, opt-out e histórico de consentimento integrados nativamente em cada canal.",
-  },
-];
-
-const enterprisePlan = {
-  title: "Enterprise",
-  desc: "A comunicação moderna exige flexibilidade e rapidez. Com o SolvefyCPaaS, você conecta o seu sistema aos canais favoritos dos seus clientes através de APIs robustas e de fácil implementação. Chega de soluções engessadas: construa a jornada ideal para o seu modelo de negócio.",
-  bullets: [
-    "Omnichannel de Verdade",
-    "Feito para Desenvolvedores",
-    "Casos de Uso Infinitos",
-    "Escalabilidade Inteligente",
-  ],
-  cta: "Falar com um Especialista",
-  footerText: "Integre APIs de WhatsApp, SMS, Voz e E-mail diretamente no seu software e escale suas interações com facilidade.",
-};
+const COMPLIANCE_KEYS = [
+  { key: "lgpd",       Icon: FileCheck2 },
+  { key: "encryption", Icon: Lock },
+  { key: "consent",    Icon: KeyRound },
+] as const;
 
 const Cpaas = () => {
+  const { t } = useTranslation("cpaas");
+  const { locale, localizedPath } = useLocale();
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
-        title="CPaaS — Comunicação Programável via API"
-        description="Integre WhatsApp, SMS, RCS e voz diretamente no seu sistema com a API de comunicação da Solvefy. Alta disponibilidade e escala para o seu negócio."
+        title={t("meta.title")}
+        description={t("meta.description")}
         canonical="/cpaas"
         ogImage="/og/og-cpaas.jpg"
         schemas={[
-          serviceSchema({
-            name: "Solvefy/CPaaS",
-            description:
-              "Plataforma B2B de comunicação programável via API: WhatsApp, SMS, RCS, voz e e-mail integrados.",
-            path: "/cpaas",
-            serviceType: "CPaaS — Communications Platform as a Service",
-          }),
-          breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Solvefy/CPaaS", path: "/cpaas" },
-          ]),
+          serviceSchema(
+            {
+              name: "Solvefy/CPaaS",
+              description: t("meta.description"),
+              path: "/cpaas",
+              serviceType: "CPaaS — Communications Platform as a Service",
+            },
+            locale,
+          ),
+          breadcrumbSchema(
+            [
+              { name: t("meta.breadcrumbHome"), path: "/" },
+              { name: t("meta.breadcrumbSelf"), path: "/cpaas" },
+            ],
+            locale,
+          ),
         ]}
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
-          "name": "Solvefy CPaaS",
-          "applicationCategory": "BusinessApplication",
-          "description": "Plataforma de comunicação programável via API para WhatsApp, SMS, RCS e voz.",
-          "operatingSystem": "Web",
-          "url": "https://solvefy.com/cpaas",
-          "offers": {
+          name: "Solvefy CPaaS",
+          applicationCategory: "BusinessApplication",
+          description: t("meta.description"),
+          operatingSystem: "Web",
+          url: `https://solvefy.com${locale === "pt-BR" ? "/cpaas" : `/${locale === "en" ? "en" : "es"}/cpaas`}`,
+          offers: {
             "@type": "Offer",
-            "priceCurrency": "BRL",
-            "description": "Cobrança por volume de mensagens, sem taxa de setup"
-          }
+            priceCurrency: "BRL",
+            description: t("pricing.plan.footer"),
+          },
         }}
       />
       <Header />
@@ -122,16 +90,21 @@ const Cpaas = () => {
           badgeIcon={iconCpaas}
           badgeLabel="Solvefy/CPaaS"
           logoImage={logoCpaas}
-          title={<>Se comunique em alta escala e crie{" "}
-            <span className="text-[hsl(var(--cpaas))]">conexões em tempo real</span></>}
-          subtitle="O coração transacional do ecossistema. É uma plataforma robusta de comunicação via API desenvolvida para empresas que demandam alto volume de disparos. Atua como a engrenagem invisível que também potencializa as outras soluções (como o Solvefy Marketing)."
-          ctaText="Fale com um Especialista"
-          ctaHref="/contato"
-          trustItems={["Integração via API", "Sem Taxa de Setup", "Cobrança por Volume"]}
+          title={
+            <Trans
+              i18nKey="hero.title"
+              ns="cpaas"
+              components={{ accent: <span className="text-[hsl(var(--cpaas))]" /> }}
+            />
+          }
+          subtitle={t("hero.subtitle")}
+          ctaText={t("hero.cta")}
+          ctaHref={localizedPath("/contato")}
+          trustItems={[t("hero.trust1"), t("hero.trust2"), t("hero.trust3")]}
           right={<CpaasHeroMockup />}
         />
 
-        {/* 20 Anos de Infraestrutura */}
+        {/* História + Infra */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -141,18 +114,16 @@ const Cpaas = () => {
                   style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  Mais de 20 anos de História
+                  {t("history.badge")}
                 </div>
                 <h2 className="tracking-tight leading-tight text-balance mb-5">
-                  Nascemos como telecom e evoluímos para{" "}
-                  <span style={{ color: ACCENT }}>CPaaS</span>.
+                  <Trans
+                    i18nKey="history.title"
+                    ns="cpaas"
+                    components={{ accent: <span style={{ color: ACCENT }} /> }}
+                  />
                 </h2>
-                <p className="section-subtitle mb-6">
-                  Atuamos no mercado de comunicação há duas décadas; por isso,
-                  entregamos rotas próprias, faturamento em reais e suporte
-                  humano em português e inglês, com a estabilidade de quem viu o
-                  mercado mudar várias vezes.
-                </p>
+                <p className="section-subtitle mb-6">{t("history.subtitle")}</p>
                 <div
                   className="rounded-2xl border p-5 flex items-start gap-4"
                   style={{
@@ -167,57 +138,49 @@ const Cpaas = () => {
                     <Layers className="h-5 w-5" />
                   </div>
                   <p className="text-sm text-foreground/80 leading-relaxed">
-                    A{" "}
-                    <span className="font-semibold text-foreground">
-                      única solução de CPaaS
-                    </span>{" "}
-                    nativamente integrada a{" "}
-                    <span className="font-semibold text-foreground">
-                      Marketing, Ads e CRM
-                    </span>
-                    . Um ecossistema robusto com acesso simplificado e
-                    unificado.
+                    <Trans
+                      i18nKey="history.callout"
+                      ns="cpaas"
+                      components={{ strong: <span className="font-semibold text-foreground" /> }}
+                    />
                   </p>
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4 mt-10">
-                {infraPoints.map(({ icon: Icon, title, desc, badge }) => (
-                  <div
-                    key={title}
-                    className="rounded-2xl border border-border bg-card p-5 flex flex-col items-start text-left"
-                    style={{ boxShadow: "var(--shadow-soft)" }}
-                  >
-                    <div className="flex items-center gap-2.5 mb-4">
-                      <div
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg"
-                        style={{
-                          backgroundColor: `${ACCENT}1A`,
-                          color: ACCENT,
-                        }}
-                      >
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      {badge && (
-                        <span
-                          className="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold leading-none"
-                          style={{
-                            backgroundColor: `${ACCENT}1A`,
-                            color: ACCENT,
-                          }}
+                {INFRA_KEYS.map(({ key, Icon }) => {
+                  const badge = key === "nativeOperator" ? t("infra.nativeOperator.badge") : undefined;
+                  return (
+                    <div
+                      key={key}
+                      className="rounded-2xl border border-border bg-card p-5 flex flex-col items-start text-left"
+                      style={{ boxShadow: "var(--shadow-soft)" }}
+                    >
+                      <div className="flex items-center gap-2.5 mb-4">
+                        <div
+                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg"
+                          style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
                         >
-                          {badge}
-                        </span>
-                      )}
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        {badge && (
+                          <span
+                            className="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold leading-none"
+                            style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
+                          >
+                            {badge}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="text-base font-semibold tracking-tight mb-1.5">
+                        {t(`infra.${key}.title`)}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {t(`infra.${key}.desc`)}
+                      </p>
                     </div>
-                    <h3 className="text-base font-semibold tracking-tight mb-1.5">
-                      {title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {desc}
-                    </p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -231,8 +194,11 @@ const Cpaas = () => {
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl text-left mb-12">
               <h2 className="tracking-tight leading-tight text-balance">
-                Casos de uso que{" "}
-                <span style={{ color: ACCENT }}>movem o seu negócio</span>
+                <Trans
+                  i18nKey="useCases.title"
+                  ns="cpaas"
+                  components={{ accent: <span style={{ color: ACCENT }} /> }}
+                />
               </h2>
             </div>
 
@@ -249,22 +215,22 @@ const Cpaas = () => {
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                Segurança & Compliance
+                {t("security.badge")}
               </div>
               <h2 className="tracking-tight leading-tight text-balance">
-                Conformidade{" "}
-                <span style={{ color: ACCENT }}>do dado ao disparo</span>.
+                <Trans
+                  i18nKey="security.title"
+                  ns="cpaas"
+                  components={{ accent: <span style={{ color: ACCENT }} /> }}
+                />
               </h2>
-              <p className="section-subtitle mt-4">
-                Infraestrutura projetada para operar no Brasil, com a régua
-                jurídica brasileira.
-              </p>
+              <p className="section-subtitle mt-4">{t("security.subtitle")}</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-5">
-              {compliance.map(({ icon: Icon, title, desc }) => (
+              {COMPLIANCE_KEYS.map(({ key, Icon }) => (
                 <article
-                  key={title}
+                  key={key}
                   className="rounded-2xl border border-border bg-card p-6"
                   style={{ boxShadow: "var(--shadow-soft)" }}
                 >
@@ -275,10 +241,10 @@ const Cpaas = () => {
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-semibold tracking-tight">
-                    {title}
+                    {t(`security.items.${key}.title`)}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                    {desc}
+                    {t(`security.items.${key}.desc`)}
                   </p>
                 </article>
               ))}
@@ -295,26 +261,33 @@ const Cpaas = () => {
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                Transparência Total
+                {t("pricing.badge")}
               </div>
               <h2 className="tracking-tight leading-tight text-balance">
-                Precificação que{" "}
-                <span style={{ color: ACCENT }}>cabe na sua operação</span>.
+                <Trans
+                  i18nKey="pricing.title"
+                  ns="cpaas"
+                  components={{ accent: <span style={{ color: ACCENT }} /> }}
+                />
               </h2>
-              <p className="section-subtitle mt-4">
-                Do primeiro disparo ao volume Enterprise, sem letra miúda.
-              </p>
+              <p className="section-subtitle mt-4">{t("pricing.subtitle")}</p>
             </div>
 
             <PricingCustomPlan
               accentVar="--cpaas"
-              title={enterprisePlan.title}
-              description={enterprisePlan.desc}
-              bullets={enterprisePlan.bullets}
-              badgeText="Sob Medida"
-              ctaText={enterprisePlan.cta}
-              ctaHref="/contato"
-              footerText={enterprisePlan.footerText}
+              title={t("pricing.plan.title")}
+              description={t("pricing.plan.desc")}
+              bullets={[
+                t("pricing.plan.b1"),
+                t("pricing.plan.b2"),
+                t("pricing.plan.b3"),
+                t("pricing.plan.b4"),
+              ]}
+              badgeText={t("pricing.customBadge")}
+              customPlanLabel={t("pricing.customPlanLabel")}
+              ctaText={t("pricing.plan.cta")}
+              ctaHref={localizedPath("/contato")}
+              footerText={t("pricing.plan.footer")}
             />
           </div>
         </section>

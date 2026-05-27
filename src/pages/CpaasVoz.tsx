@@ -10,6 +10,7 @@ import {
   Check,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Trans, useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -17,135 +18,68 @@ import { SEO } from "@/components/SEO";
 import { ProductHero } from "@/components/ProductHero";
 import { FaqSection } from "@/components/FaqSection";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
+import { useLocale } from "@/i18n/useLocale";
 import iconCpaas from "@/assets/icons/cpaas.svg";
 import logoCpaas from "@/assets/logos/solvefy-cpaas.png";
 
 const ACCENT = "hsl(var(--cpaas))";
 
-const benefits = [
-  {
-    icon: Combine,
-    title: "Voz + SMS no mesmo fluxo",
-    desc: "Combine torpedo de voz e SMS na mesma jornada. Ative o canal certo no momento certo sem trocar de ferramenta.",
-  },
-  {
-    icon: BadgePercent,
-    title: "Pague só pelo atendido",
-    desc: "Cobrança por chamada efetivamente atendida. Caixa postal, ocupado ou não atende não entram na conta.",
-  },
-  {
-    icon: Mic2,
-    title: "Áudios humanizados",
-    desc: "Suba locuções profissionais ou use vozes de influenciadores para aumentar atenção e taxa de escuta da campanha.",
-  },
-];
+const BENEFIT_KEYS = [
+  { key: "combine", Icon: Combine },
+  { key: "billing", Icon: BadgePercent },
+  { key: "audio",   Icon: Mic2 },
+] as const;
 
-const steps = [
-  {
-    icon: LogIn,
-    img: "/images/cpaas/voz/passo-1-cadastro.svg",
-    title: "1. Acesse a plataforma",
-    desc: "Login em segundos. Sem instalação, sem setup.",
-  },
-  {
-    icon: Route,
-    img: "/images/cpaas/voz/passo-2-jornada.svg",
-    title: "2. Monte a jornada",
-    desc: "Escolha o canal de voz, faça upload do áudio e segmente o público.",
-  },
-  {
-    icon: Send,
-    img: "/images/cpaas/voz/passo-3-disparo.svg",
-    title: "3. Dispare ou agende",
-    desc: "Envio imediato ou agendado por data, hora e janela de operação.",
-  },
-];
+const STEP_KEYS = [
+  { key: "login", Icon: LogIn,  img: "/images/cpaas/voz/passo-1-cadastro.svg" },
+  { key: "build", Icon: Route,  img: "/images/cpaas/voz/passo-2-jornada.svg" },
+  { key: "send",  Icon: Send,   img: "/images/cpaas/voz/passo-3-disparo.svg" },
+] as const;
 
-const useCases = [
-  {
-    img: "/images/cpaas/voz/caso-betting.webp",
-    sector: "Apostas (Betting)",
-    desc: "Amplifique ofertas de odds e boas-vindas com áudios curtos e vozes reconhecidas — alto engajamento em tempo real.",
-  },
-  {
-    img: "/images/cpaas/voz/caso-consignado.webp",
-    sector: "Crédito Consignado",
-    desc: "Divulgue propostas pré-aprovadas combinando áudio explicativo e SMS com link de adesão na mesma jornada.",
-  },
-  {
-    img: "/images/cpaas/voz/caso-cobranca.webp",
-    sector: "Cobrança",
-    desc: "Reduza inadimplência com lembretes humanizados antes do vencimento e avisos pós-atraso, com cadência configurável.",
-  },
-  {
-    img: "/images/cpaas/voz/caso-clinicas.webp",
-    sector: "Saúde & Clínicas",
-    desc: "Diminua o no-show confirmando consultas por voz com possibilidade de reagendamento via tom (DTMF).",
-  },
-];
+const USE_CASE_KEYS = [
+  { key: "betting",    img: "/images/cpaas/voz/caso-betting.webp" },
+  { key: "credit",     img: "/images/cpaas/voz/caso-consignado.webp" },
+  { key: "collection", img: "/images/cpaas/voz/caso-cobranca.webp" },
+  { key: "health",     img: "/images/cpaas/voz/caso-clinicas.webp" },
+] as const;
 
-const faq = [
-  {
-    question: "O que é o canal de Voz da Solvefy/CPaaS?",
-    answer:
-      "É a API de voz que dispara chamadas em massa com áudios pré-gravados (torpedo de voz) ou ligações interativas com URA. Permite atingir grandes volumes em minutos, com personalização por contato e relatórios de entrega em tempo real.",
-  },
-  {
-    question: "Posso personalizar a mensagem para cada destinatário?",
-    answer:
-      "Sim. Use variáveis (nome, número de contrato, valor, vencimento, etc.) no script ou em locuções dinâmicas para que cada chamada chegue contextualizada — sem precisar gravar um áudio por pessoa.",
-  },
-  {
-    question: "Qual a diferença entre Voz e os outros canais (SMS, WhatsApp)?",
-    answer:
-      "Voz entrega presença e tom — útil quando o impacto humano da fala converte mais que o texto. Some-se a isso o modelo de cobrança por chamada atendida, que dá previsibilidade. Voz combina bem com SMS/WhatsApp para reforço de mensagem.",
-  },
-  {
-    question: "Qual a taxa de alcance de uma campanha de voz?",
-    answer:
-      "Em bases qualificadas, a taxa de atendimento chega à casa dos 80%. O resultado depende da qualidade do mailing, horário do disparo, perfil do público e da locução. Nosso time apoia a calibragem das campanhas.",
-  },
-  {
-    question: "É difícil de operar? Preciso de equipe técnica?",
-    answer:
-      "Não. A interface é pensada para áreas de marketing, cobrança e relacionamento operarem direto. Para fluxos automatizados a partir do seu sistema, integração via API REST está disponível.",
-  },
-  {
-    question: "Tem suporte humano em português?",
-    answer:
-      "Sim. Suporte humano em português e inglês, com SLA real para operações críticas. Acompanhamento dedicado para clientes Enterprise.",
-  },
-];
+const API_ITEMS = ["auth", "webhooks", "audio", "sandbox"] as const;
+const FAQ_KEYS = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
 
 const CpaasVoz = () => {
+  const { t } = useTranslation("cpaasVoz");
+  const { locale, localizedPath } = useLocale();
+
+  const faqItems = FAQ_KEYS.map((k) => ({
+    question: t(`faq.items.${k}.question`),
+    answer: t(`faq.items.${k}.answer`),
+  }));
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
-        title="API de Voz — Solvefy/CPaaS"
-        description="API de Voz da Solvefy/CPaaS: chamadas em massa, URA programável e torpedo de voz com cobrança por atendimento. Voz humanizada que converte em escala."
+        title={t("meta.title")}
+        description={t("meta.description")}
         canonical="/cpaas/voz"
         ogImage="/og/og-cpaas.jpg"
-        keywords={[
-          "API de voz",
-          "torpedo de voz",
-          "voz em massa",
-          "URA programável",
-          "CPaaS",
-          "comunicação por voz",
-        ]}
         schemas={[
-          serviceSchema({
-            name: "Solvefy/CPaaS — Voz",
-            description:
-              "API de voz programável para chamadas em massa, URA e torpedo de voz com cobrança por atendimento.",
-            path: "/cpaas/voz",
-            serviceType: "Voice API — Voz programável",
-          }),
-          breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Solvefy/CPaaS", path: "/cpaas" },
-            { name: "Voz", path: "/cpaas/voz" },
-          ]),
+          serviceSchema(
+            {
+              name: "Solvefy/CPaaS — Voz",
+              description: t("meta.description"),
+              path: "/cpaas/voz",
+              serviceType: "Voice API",
+            },
+            locale,
+          ),
+          breadcrumbSchema(
+            [
+              { name: t("meta.breadcrumbHome"), path: "/" },
+              { name: t("meta.breadcrumbCpaas"), path: "/cpaas" },
+              { name: t("meta.breadcrumbSelf"), path: "/cpaas/voz" },
+            ],
+            locale,
+          ),
         ]}
       />
       <Header />
@@ -156,23 +90,20 @@ const CpaasVoz = () => {
           badgeLabel="Solvefy/CPaaS · Voz"
           logoImage={logoCpaas}
           title={
-            <>
-              Comunicação por voz que{" "}
-              <span className="text-[hsl(var(--cpaas))]">conecta em escala</span>
-            </>
+            <Trans
+              i18nKey="hero.title"
+              ns="cpaasVoz"
+              components={{ accent: <span className="text-[hsl(var(--cpaas))]" /> }}
+            />
           }
-          subtitle="Dispare milhares de chamadas em minutos com áudios humanizados, URA programável e cobrança apenas pelo atendido. A presença da voz, com a previsibilidade de uma API."
-          ctaText="Fale com um Especialista"
-          ctaHref="/contato"
-          trustItems={[
-            "Cobrança por chamada atendida",
-            "Áudios profissionais",
-            "API REST + plataforma",
-          ]}
+          subtitle={t("hero.subtitle")}
+          ctaText={t("hero.cta")}
+          ctaHref={localizedPath("/contato")}
+          trustItems={[t("hero.trust1"), t("hero.trust2"), t("hero.trust3")]}
           right={
             <img
               src="/images/cpaas/voz/voz-hero.webp"
-              alt="Ilustração de campanha de voz"
+              alt={t("hero.imgAlt")}
               className="w-full h-auto"
               loading="eager"
               decoding="async"
@@ -189,21 +120,22 @@ const CpaasVoz = () => {
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
                 <PhoneCall className="h-3.5 w-3.5" />
-                Por que voz
+                {t("benefits.badge")}
               </div>
               <h2 className="tracking-tight leading-tight text-balance">
-                Engajamento que só a{" "}
-                <span style={{ color: ACCENT }}>voz entrega</span>.
+                <Trans
+                  i18nKey="benefits.title"
+                  ns="cpaasVoz"
+                  components={{ accent: <span style={{ color: ACCENT }} /> }}
+                />
               </h2>
-              <p className="section-subtitle mt-4">
-                Três alavancas que fazem voz performar onde texto satura.
-              </p>
+              <p className="section-subtitle mt-4">{t("benefits.subtitle")}</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-5">
-              {benefits.map(({ icon: Icon, title, desc }) => (
+              {BENEFIT_KEYS.map(({ key, Icon }) => (
                 <article
-                  key={title}
+                  key={key}
                   className="rounded-2xl border border-border bg-card p-6"
                   style={{ boxShadow: "var(--shadow-soft)" }}
                 >
@@ -214,10 +146,10 @@ const CpaasVoz = () => {
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-semibold tracking-tight">
-                    {title}
+                    {t(`benefits.items.${key}.title`)}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                    {desc}
+                    {t(`benefits.items.${key}.desc`)}
                   </p>
                 </article>
               ))}
@@ -233,19 +165,21 @@ const CpaasVoz = () => {
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
-                Como funciona
+                {t("steps.badge")}
               </div>
               <h2 className="tracking-tight leading-tight text-balance">
-                Da primeira chamada ao{" "}
-                <span style={{ color: ACCENT }}>volume Enterprise</span>, em 3
-                passos.
+                <Trans
+                  i18nKey="steps.title"
+                  ns="cpaasVoz"
+                  components={{ accent: <span style={{ color: ACCENT }} /> }}
+                />
               </h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-5">
-              {steps.map(({ img, title, desc }) => (
+              {STEP_KEYS.map(({ key, img }) => (
                 <div
-                  key={title}
+                  key={key}
                   className="rounded-2xl border border-border bg-card p-6 flex flex-col"
                   style={{ boxShadow: "var(--shadow-soft)" }}
                 >
@@ -260,10 +194,10 @@ const CpaasVoz = () => {
                     />
                   </div>
                   <h3 className="text-lg font-semibold tracking-tight">
-                    {title}
+                    {t(`steps.items.${key}.title`)}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                    {desc}
+                    {t(`steps.items.${key}.desc`)}
                   </p>
                 </div>
               ))}
@@ -279,21 +213,22 @@ const CpaasVoz = () => {
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4"
                 style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
               >
-                Casos de uso
+                {t("useCases.badge")}
               </div>
               <h2 className="tracking-tight leading-tight text-balance">
-                Voz que{" "}
-                <span style={{ color: ACCENT }}>move setores inteiros</span>.
+                <Trans
+                  i18nKey="useCases.title"
+                  ns="cpaasVoz"
+                  components={{ accent: <span style={{ color: ACCENT }} /> }}
+                />
               </h2>
-              <p className="section-subtitle mt-4">
-                Quatro frentes onde Voz Solvefy já opera em volume.
-              </p>
+              <p className="section-subtitle mt-4">{t("useCases.subtitle")}</p>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-5">
-              {useCases.map(({ img, sector, desc }) => (
+              {USE_CASE_KEYS.map(({ key, img }) => (
                 <article
-                  key={sector}
+                  key={key}
                   className="rounded-2xl border border-border bg-card overflow-hidden flex flex-col"
                   style={{ boxShadow: "var(--shadow-soft)" }}
                 >
@@ -309,10 +244,10 @@ const CpaasVoz = () => {
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-semibold tracking-tight">
-                      {sector}
+                      {t(`useCases.items.${key}.sector`)}
                     </h3>
                     <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                      {desc}
+                      {t(`useCases.items.${key}.desc`)}
                     </p>
                   </div>
                 </article>
@@ -331,41 +266,28 @@ const CpaasVoz = () => {
                   style={{ backgroundColor: `${ACCENT}1A`, color: ACCENT }}
                 >
                   <Code2 className="h-3.5 w-3.5" />
-                  API REST
+                  {t("api.badge")}
                 </div>
                 <h2 className="tracking-tight leading-tight text-balance">
-                  Voz dentro do seu{" "}
-                  <span style={{ color: ACCENT }}>sistema</span>.
+                  <Trans
+                    i18nKey="api.title"
+                    ns="cpaasVoz"
+                    components={{ accent: <span style={{ color: ACCENT }} /> }}
+                  />
                 </h2>
-                <p className="section-subtitle mt-4">
-                  Integre disparo de voz, URA e callbacks diretamente no seu
-                  software. Documentação clara, SDKs e suporte humano para tirar
-                  o primeiro callback do zero.
-                </p>
+                <p className="section-subtitle mt-4">{t("api.subtitle")}</p>
                 <ul className="mt-6 space-y-3">
-                  {[
-                    "Endpoints REST autenticados por token",
-                    "Webhooks de status (entregue, atendida, finalizada)",
-                    "Upload de áudios ou TTS dinâmico por variável",
-                    "Sandbox para testar antes de produção",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm">
-                      <Check
-                        className="h-5 w-5 shrink-0 mt-0.5"
-                        style={{ color: ACCENT }}
-                      />
-                      <span className="text-foreground/80">{item}</span>
+                  {API_ITEMS.map((k) => (
+                    <li key={k} className="flex items-start gap-2 text-sm">
+                      <Check className="h-5 w-5 shrink-0 mt-0.5" style={{ color: ACCENT }} />
+                      <span className="text-foreground/80">{t(`api.items.${k}`)}</span>
                     </li>
                   ))}
                 </ul>
                 <div className="mt-8">
-                  <Link to="/contato">
-                    <Button
-                      variant="hero"
-                      size="lg"
-                      className="group text-black font-semibold"
-                    >
-                      Falar com um Especialista
+                  <Link to={localizedPath("/contato")}>
+                    <Button variant="hero" size="lg" className="group text-black font-semibold">
+                      {t("api.cta")}
                     </Button>
                   </Link>
                 </div>
@@ -373,7 +295,7 @@ const CpaasVoz = () => {
               <div className="flex items-center justify-center">
                 <img
                   src="/images/cpaas/voz/api-code.svg"
-                  alt="Exemplo de integração com a API de voz"
+                  alt={t("api.imgAlt")}
                   className="w-full h-auto max-w-md"
                   loading="lazy"
                   decoding="async"
@@ -385,9 +307,9 @@ const CpaasVoz = () => {
 
         {/* FAQ */}
         <FaqSection
-          title="Perguntas frequentes sobre Voz"
-          description="Tudo o que costuma vir antes do primeiro disparo."
-          items={faq}
+          title={t("faq.title")}
+          description={t("faq.description")}
+          items={faqItems}
         />
       </main>
       <Footer />

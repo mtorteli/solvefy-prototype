@@ -1,22 +1,30 @@
+import { useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { breadcrumbSchema } from "@/lib/schemas";
+import { useLocale } from "@/i18n/useLocale";
 
 const CpaasRcs = () => {
+  const { t } = useTranslation("cpaasComingSoon");
+  const { locale } = useLocale();
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
-        title="RCS — Solvefy/CPaaS"
-        description="API de RCS da Solvefy/CPaaS: mensagens rich com imagens, vídeos e botões interativos direto na caixa nativa do Android."
+        title={t("rcs.metaTitle")}
+        description={t("rcs.metaDescription")}
         canonical="/cpaas/rcs"
         noindex
         schemas={[
-          breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Solvefy/CPaaS", path: "/cpaas" },
-            { name: "RCS", path: "/cpaas/rcs" },
-          ]),
+          breadcrumbSchema(
+            [
+              { name: t("common.breadcrumbHome"), path: "/" },
+              { name: t("common.breadcrumbCpaas"), path: "/cpaas" },
+              { name: t("rcs.breadcrumbSelf"), path: "/cpaas/rcs" },
+            ],
+            locale,
+          ),
         ]}
       />
       <Header />
@@ -30,15 +38,16 @@ const CpaasRcs = () => {
                 color: "hsl(var(--cpaas))",
               }}
             >
-              Solvefy/CPaaS · RCS
+              {t("rcs.badge")}
             </div>
             <h1 className="tracking-tight leading-tight text-balance">
-              Em breve:{" "}
-              <span className="text-[hsl(var(--cpaas))]">API de RCS</span>
+              {t("common.soonHeading")}
+              <span className="text-[hsl(var(--cpaas))]">
+                {t("rcs.soonHighlight")}
+              </span>
             </h1>
             <p className="section-subtitle mt-4">
-              Esta página está em construção. Em breve, detalhes sobre o canal
-              de RCS da Solvefy/CPaaS.
+              {t("common.soonBody", { channel: t("rcs.channelName") })}
             </p>
           </div>
         </section>

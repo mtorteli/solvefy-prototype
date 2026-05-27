@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "title": "Quiénes Somos — Solvefy",
+    "description": "Conoce Solvefy, la plataforma B2B que nació para simplificar la comunicación entre empresas y sus clientes. Nuestra misión, valores y equipo.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Quiénes Somos"
+  },
+  "hero": {
+    "imgAlt": "Equipo Solvers",
+    "title": "Somos los Solvers",
+    "titleImgAlt": "Somos los Solvers",
+    "subtitle": "Existimos para acelerar resultados reales uniendo tecnología, estrategia y claridad humana. Eliminamos la burocracia y la frialdad para entregar ejecución ágil y alianzas cercanas, transformando la complejidad en ventaja competitiva y crecimiento directo."
+  },
+  "manifesto": {
+    "srTitle": "Manifiesto Solvers",
+    "p1": "Aunque la tecnología, los negocios y las relaciones se hayan transformado, una necesidad sigue siendo la misma: contar con quien resuelve de verdad. Por eso llegamos hasta aquí y por eso seguimos adelante.",
+    "p2": "Solvefy nace como la evolución natural de una trayectoria construida sobre la confianza, la cercanía y los resultados consistentes. Somos una nueva marca creada para representar con aún más claridad nuestra esencia: simplificar caminos, acercar personas y entregar soluciones eficientes.",
+    "p3": "Creemos que la tecnología importa, pero creemos aún más en las personas. Son ellas las que entienden los contextos, anticipan las necesidades y transforman los desafíos en mejores decisiones. Por eso usamos la innovación para ganar velocidad, inteligencia y escala sin renunciar al servicio cercano y a la relación humana.",
+    "p4": "Trabajamos con sentido de dueño y actuamos con iniciativa. Nuestra comunicación es directa y sin barreras, porque sabemos que la confianza se construye con transparencia y los resultados se alcanzan con actitud.",
+    "p5": "Cambiamos de nombre, evolucionamos en estructura y expandimos nuestra visión. A pesar de todo este movimiento, seguimos fieles a lo que siempre nos trajo hasta aquí: la alianza verdadera, la excelencia en la ejecución y el compromiso con cada cliente. Mantenemos la misma esencia, ahora con un nombre que traduce perfectamente lo que hacemos todos los días.",
+    "tagline": "<dark>Resolvemos con inteligencia. </dark><accent>Crecemos contigo.</accent>"
+  },
+  "video": {
+    "buttonAria": "Ver video institucional Solvefy",
+    "thumbnailAlt": "Video institucional Solvefy",
+    "close": "Cerrar"
+  },
+  "values": {
+    "title": "¿Cuáles son nuestros valores?",
+    "items": {
+      "owner": {
+        "titleStart": "Sentido de ",
+        "titleAccent": "Dueño",
+        "desc": "Nuestro compromiso va más allá de entregar tareas; asumimos la responsabilidad por los resultados. Abrazamos los desafíos de la empresa y de nuestros clientes como si fueran nuestros. Es esta postura de quien cuida del negocio, anticipa necesidades y se enfoca en la excelencia de la ejecución la que garantiza el crecimiento de todos. No tercerizamos problemas: si algo necesita resolverse, asumimos el frente y lo resolvemos de verdad."
+      },
+      "initiative": {
+        "titleStart": "Libre ",
+        "titleAccent": "Iniciativa",
+        "desc": "No esperamos a que las cosas sucedan; las hacemos suceder. Tenemos la libertad, la autonomía y la confianza necesarias para crear soluciones reales, simplificar caminos y actuar con inteligencia. Valoramos la actitud de quien usa la innovación para ganar velocidad y tiene el coraje de proponer nuevas ideas. Aquí, transformar la complejidad en mejores decisiones es responsabilidad de cada uno."
+      },
+      "communication": {
+        "titleStart": "Comunicación ",
+        "titleAccent": "Horizontal",
+        "desc": "Nuestras relaciones se basan en la cercanía, la claridad y la transparencia. Nos comunicamos de forma directa, abierta y sin burocracias ni barreras. Creemos que la inteligencia es colectiva y que las mejores soluciones nacen cuando las personas tienen voz activa, independientemente de los cargos. El diálogo franco y la visión humana son los cimientos que construyen la verdadera confianza en nuestros equipos."
+      }
+    }
+  }
+}

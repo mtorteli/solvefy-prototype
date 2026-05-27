@@ -9,6 +9,11 @@ interface PricingCustomPlanProps {
   description: string;
   bullets: string[];
   badgeText?: string;
+  /**
+   * Rótulo do eyebrow acima do título. Default em PT, mas páginas i18n
+   * devem passar o valor traduzido.
+   */
+  customPlanLabel?: string;
   ctaText: string;
   ctaHref?: string;
   footerText?: string;
@@ -22,6 +27,7 @@ export function PricingCustomPlan({
   description,
   bullets,
   badgeText = "Sob Medida",
+  customPlanLabel = "Plano Customizado",
   ctaText,
   ctaHref,
   footerText,
@@ -57,7 +63,7 @@ export function PricingCustomPlan({
               className="text-xs font-bold uppercase tracking-wider"
               style={{ color: accent }}
             >
-              Plano Customizado
+              {customPlanLabel}
             </div>
           </div>
           <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-2">

@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "title": "API de Voz — Solvefy/CPaaS",
+    "description": "API de Voz de Solvefy/CPaaS: llamadas masivas, IVR programable y disparo de voz con cobro por atendimiento. Voz humanizada que convierte a escala.",
+    "breadcrumbHome": "Home",
+    "breadcrumbCpaas": "Solvefy/CPaaS",
+    "breadcrumbSelf": "Voz"
+  },
+  "hero": {
+    "title": "Comunicación por voz que <accent>conecta a escala</accent>",
+    "subtitle": "Dispara miles de llamadas en minutos con audios humanizados, IVR programable y cobro solo por lo atendido. La presencia de la voz, con la previsibilidad de una API.",
+    "cta": "Habla con un Especialista",
+    "imgAlt": "Ilustración de campaña de voz",
+    "trust1": "Cobro por llamada atendida",
+    "trust2": "Audios profesionales",
+    "trust3": "API REST + plataforma"
+  },
+  "benefits": {
+    "badge": "Por qué voz",
+    "title": "Engagement que solo la <accent>voz entrega</accent>.",
+    "subtitle": "Tres palancas que hacen a la voz desempeñarse donde el texto se satura.",
+    "items": {
+      "combine": {
+        "title": "Voz + SMS en el mismo flujo",
+        "desc": "Combina disparo de voz y SMS en la misma jornada. Activa el canal correcto en el momento correcto sin cambiar de herramienta."
+      },
+      "billing": {
+        "title": "Paga solo por lo atendido",
+        "desc": "Cobro por llamada efectivamente atendida. Buzón, ocupado o sin respuesta no entran a la cuenta."
+      },
+      "audio": {
+        "title": "Audios humanizados",
+        "desc": "Sube locuciones profesionales o usa voces de influencers para aumentar atención y tasa de escucha de la campaña."
+      }
+    }
+  },
+  "steps": {
+    "badge": "Cómo funciona",
+    "title": "De la primera llamada al <accent>volumen Enterprise</accent>, en 3 pasos.",
+    "items": {
+      "login": { "title": "1. Accede a la plataforma", "desc": "Login en segundos. Sin instalación, sin setup." },
+      "build": { "title": "2. Arma la jornada", "desc": "Elige el canal de voz, sube el audio y segmenta el público." },
+      "send": { "title": "3. Dispara o agenda", "desc": "Envío inmediato o agendado por fecha, hora y ventana de operación." }
+    }
+  },
+  "useCases": {
+    "badge": "Casos de uso",
+    "title": "Voz que <accent>mueve sectores enteros</accent>.",
+    "subtitle": "Cuatro frentes donde Voz Solvefy ya opera en volumen.",
+    "items": {
+      "betting": { "sector": "Apuestas (Betting)", "desc": "Amplifica ofertas de cuotas y bienvenidas con audios cortos y voces reconocidas — alto engagement en tiempo real." },
+      "credit": { "sector": "Crédito por Descuento de Nómina", "desc": "Divulga propuestas pre-aprobadas combinando audio explicativo y SMS con enlace de adhesión en la misma jornada." },
+      "collection": { "sector": "Cobranza", "desc": "Reduce la morosidad con recordatorios humanizados antes del vencimiento y avisos post-retraso, con cadencia configurable." },
+      "health": { "sector": "Salud & Clínicas", "desc": "Reduce el no-show confirmando consultas por voz con posibilidad de reagendamiento vía tono (DTMF)." }
+    }
+  },
+  "api": {
+    "badge": "API REST",
+    "title": "Voz dentro de tu <accent>sistema</accent>.",
+    "subtitle": "Integra disparo de voz, IVR y callbacks directamente en tu software. Documentación clara, SDKs y soporte humano para hacer despegar el primer callback.",
+    "items": {
+      "auth": "Endpoints REST autenticados por token",
+      "webhooks": "Webhooks de estado (entregada, atendida, finalizada)",
+      "audio": "Carga de audios o TTS dinámico por variable",
+      "sandbox": "Sandbox para probar antes de producción"
+    },
+    "cta": "Habla con un Especialista",
+    "imgAlt": "Ejemplo de integración con la API de voz"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes sobre Voz",
+    "description": "Todo lo que suele surgir antes del primer disparo.",
+    "items": {
+      "q1": { "question": "¿Qué es el canal de Voz de Solvefy/CPaaS?", "answer": "Es la API de voz que dispara llamadas masivas con audios pregrabados (disparo de voz) o llamadas interactivas con IVR. Permite alcanzar grandes volúmenes en minutos, con personalización por contacto y reportes de entrega en tiempo real." },
+      "q2": { "question": "¿Puedo personalizar el mensaje para cada destinatario?", "answer": "Sí. Usa variables (nombre, número de contrato, valor, vencimiento, etc.) en el script o en locuciones dinámicas para que cada llamada llegue contextualizada — sin grabar un audio por persona." },
+      "q3": { "question": "¿Cuál es la diferencia entre Voz y los otros canales (SMS, WhatsApp)?", "answer": "Voz entrega presencia y tono — útil cuando el impacto humano del habla convierte más que el texto. Súmase a esto el modelo de cobro por llamada atendida, que da previsibilidad. Voz combina bien con SMS/WhatsApp para refuerzo de mensaje." },
+      "q4": { "question": "¿Cuál es la tasa de alcance de una campaña de voz?", "answer": "En bases calificadas, la tasa de atendimiento llega cerca del 80%. El resultado depende de la calidad del mailing, horario del disparo, perfil del público y de la locución. Nuestro equipo apoya la calibración de las campañas." },
+      "q5": { "question": "¿Es difícil de operar? ¿Necesito un equipo técnico?", "answer": "No. La interfaz está pensada para que marketing, cobranza y áreas de relación la operen directamente. Para flujos automatizados desde tu sistema, hay integración vía API REST disponible." },
+      "q6": { "question": "¿Hay soporte humano?", "answer": "Sí. Soporte humano en portugués e inglés, con SLA real para operaciones críticas. Acompañamiento dedicado para clientes Enterprise." }
+    }
+  }
+}
