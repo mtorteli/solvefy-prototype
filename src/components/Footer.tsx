@@ -169,7 +169,7 @@ export const Footer = () => {
                 Termos
               </a>
               <a
-                href="/termos-e-politicas#politica-de-privacidade"
+                href="/termos-e-politicas#politica-de-cookies"
                 className="hover:text-primary transition-colors"
               >
                 LGPD
