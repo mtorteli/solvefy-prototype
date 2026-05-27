@@ -6,8 +6,8 @@ export const Logo = ({ variant = "light" }: { variant?: "light" | "dark" }) => {
   return (
     <Link to="/" className="flex items-center group" aria-label="Solvefy">
       <svg
-        width="126"
-        height="39"
+        width="155"
+        height="48"
         viewBox="0 0 129 40"
         xmlns="http://www.w3.org/2000/svg"
         className="transition-transform group-hover:scale-105"
