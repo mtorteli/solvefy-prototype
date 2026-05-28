@@ -161,7 +161,7 @@ function buildSvg({ title, subtitle }) {
   <text font-family="Pacaembu, Inter, system-ui, sans-serif" font-weight="400" font-size="32" fill="#94A3B8">
     ${subtitleTspans}
   </text>
-  <text x="80" y="570" font-family="Pacaembu, Inter, system-ui, sans-serif" font-weight="700" font-size="22" letter-spacing="4" fill="${BRAND_GREEN}">PRÓXIMO. VELOZ. MELHOR.</text>
+  <text x="80" y="570" font-family="Pacaembu, Inter, system-ui, sans-serif" font-weight="700" font-size="22" letter-spacing="4" fill="${BRAND_GREEN}">+Perto. +Rápido. Melhor.</text>
 </svg>`;
 }
 

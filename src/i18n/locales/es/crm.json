@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "CRM — Gestión de Relación Omnichannel",
+    "description": "Centraliza la relación con tus clientes en un CRM omnichannel. Pipeline, automatizaciones e historial completo de interacciones en un solo lugar.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/CRM"
+  },
+  "hero": {
+    "title": "Deja de perder ventas en el embudo. <accent>Toma el control absoluto de tu pipeline.</accent>",
+    "subtitle": "¿Tu equipo comercial está dejando dinero sobre la mesa? Solvefy/CRM es la máquina de ventas definitiva para equipos de alto desempeño. Elimina la fuga de leads, automatiza follow-ups y obtén previsibilidad real de ingresos. Cierra más negocios en menos tiempo.",
+    "cta": "Próximamente",
+    "trust1": "Migración de Datos Gratuita",
+    "trust2": "Ahorra 20% vs. la Competencia",
+    "trust3": "Implementación en 24h"
+  },
+  "problem": {
+    "badge": "El fin de la colcha de retazos",
+    "title": "Un lead, una jornada, <accent>un único historial de cierre.</accent>",
+    "subtitle": "Basta de juntar planillas, integraciones inestables y silos entre marketing y ventas. En el ecosistema Solvefy, el lead nace en Ads, se calienta en Marketing y cae en CRM con todo el historial, clicks, conversaciones y comportamiento; listo para que el vendedor cierre con agresividad.",
+    "before": {
+      "eyebrow": "En Otros CRM",
+      "title": "Planillas y CRMs desconectados. Tú a oscuras.",
+      "p1": "Planillas y CRMs desconectados del marketing.",
+      "p2": "Integraciones vía Zapier que se rompen cada semana.",
+      "p3": "Vendedor sin contexto de la campaña que generó el lead.",
+      "p4": "Mensajes enviados por fuera, sin registro."
+    },
+    "after": {
+      "eyebrow": "Solvefy/CRM",
+      "title": "Tú al mando. Lead con historial completo.",
+      "subtitle": "En el ecosistema Solvefy, el lead nace en Ads, se calienta en Marketing y cae en CRM con todo el historial, listo para que el vendedor cierre con agresividad.",
+      "p1": "El lead entra al CRM con origen, creativo y jornada adjuntos.",
+      "p2": "WhatsApp y SMS nativos, sin APIs externas.",
+      "p3": "El vendedor abre el card y domina todo: clicks, mensajes, perfil.",
+      "p4": "Marketing y ventas en la misma base de datos, en tiempo real."
+    }
+  },
+  "features": {
+    "title": "Funcionalidades creadas para <accent>aplastar metas</accent>.",
+    "subtitle": "Cada recurso de Solvefy/CRM existe para que el vendedor cierre más rápido, sin fricción, sin cambiar de pantalla, sin retrabajo.",
+    "items": {
+      "pipeline": { "title": "Acelera el ciclo de ventas", "desc": "Embudo Kanban visual para mover leads entre etapas con agilidad quirúrgica y ver el pipeline en segundos." },
+      "engagement": { "title": "Mapea el engagement", "desc": "Dispara WhatsApp y SMS directo desde el card del cliente. Registro automático de cada interacción para nunca perder el contexto." },
+      "alerts": { "title": "Aplasta tus metas", "desc": "Automatizaciones de tareas, alertas y follow-ups que eliminan los olvidos y mantienen al equipo siempre al ataque." },
+      "analytics": { "title": "Previsibilidad real de ingresos", "desc": "Tasa de conversión, ticket medio y velocidad del embudo en tiempo real. Decide con datos, no con suposiciones." }
+    }
+  },
+  "trial": {
+    "badge": "Acceso irrestricto · Sin tarjeta de crédito",
+    "title": "Experimenta el poder total <accent>con el trial en el Plan Pro.</accent>",
+    "subtitle": "No creas solo en promesas. Te damos acceso irrestricto a las automatizaciones avanzadas, reportes ejecutivos e inteligencia comercial de nuestro plan más robusto. Prueba Solvefy/CRM Pro gratis y mira despegar tu tasa de conversión.",
+    "cta": "Próximamente"
+  },
+  "pricing": {
+    "badge": "Planes & Precios",
+    "title": "Elige el plan <accent>correcto</accent> para acelerar tus ventas.",
+    "subtitle": "Facturación en reales, sin oscilación cambiaria y sin letra chica.",
+    "idealFor": "Ideal para",
+    "comingSoon": "Próximamente",
+    "plans": {
+      "fast": {
+        "name": "Veloz",
+        "price": "R$ 47",
+        "period": "/usuario/mes",
+        "ideal": "Para equipos comerciales que necesitan acelerar cierres y organizar el embudo ahora.",
+        "f1": "Embudo Kanban ilimitado",
+        "f2": "Click-to-Chat WhatsApp/SMS",
+        "f3": "Hasta 3 usuarios incluidos",
+        "f4": "Migración gratuita del RD CRM",
+        "f5": "Soporte humano por chat"
+      },
+      "best": {
+        "name": "Mejor",
+        "price": "R$ 97",
+        "period": "/usuario/mes",
+        "ideal": "Para equipos de alto desempeño que aplastan metas con automatización e inteligencia comercial.",
+        "badge": "Más Elegido",
+        "f1": "Todo del Veloz",
+        "f2": "Automatización de tareas y alertas",
+        "f3": "Dashboards gerenciales avanzados",
+        "f4": "Integración nativa con Solvefy/Marketing",
+        "f5": "Inteligencia comercial y reportes",
+        "f6": "Soporte prioritario"
+      }
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "priceTag": "Personalizado",
+      "ideal": "Para crecer, tu equipo comercial necesita previsibilidad, no procesos manuales. Solvefy CRM fue diseñado para ser el corazón de tu operación de ventas, garantizando que ninguna oportunidad sea olvidada al fondo del embudo.",
+      "b1": "Visión 360º del Cliente",
+      "b2": "Comunicación Nativa",
+      "b3": "Gestión de Pipeline Inteligente",
+      "b4": "Reportes y Previsibilidad",
+      "cta": "Próximamente",
+      "accordionTitle": "Trae tu base de otro CRM y gana los 2 primeros meses gratis",
+      "accordionBody": "Migración gratuita, mapeo de campos y cero downtime para el equipo comercial.",
+      "footer": "Despídete de las planillas y sistemas desconectados. Ten control total de tu embudo de ventas, integra tus canales de comunicación y cierra más negocios.",
+      "customPlanLabel": "Plan Personalizado"
+    }
+  }
+}

@@ -809,7 +809,7 @@ const Cloud = () => {
                     </button>
                     {openAcc["enterprise"] === 0 && (
                       <div className="px-5 pb-4 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                        Todos os planos (Próximo, Veloz e Melhor) permitem a criação de VMs e VCPUs de forma ilimitada, sem cobrança extra por recurso provisionado. A diferenciação ocorre apenas pelo número de servidores físicos (nodes) e clusters gerenciados.
+                        Todos os planos (+Perto, +Rápido e Melhor) permitem a criação de VMs e VCPUs de forma ilimitada, sem cobrança extra por recurso provisionado. A diferenciação ocorre apenas pelo número de servidores físicos (nodes) e clusters gerenciados.
                       </div>
                     )}
                   </div>

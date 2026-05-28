@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "title": "CPaaS — Comunicação Programável via API",
+    "description": "Integre WhatsApp, SMS, RCS e voz diretamente no seu sistema com a API de comunicação da Solvefy. Alta disponibilidade e escala para o seu negócio.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/CPaaS"
+  },
+  "subNav": {
+    "ariaLabel": "Navegação CPaaS",
+    "overview": "Visão Geral",
+    "voz": "Voz",
+    "sms": "SMS",
+    "whatsapp": "WhatsApp",
+    "email": "E-mail",
+    "rcs": "RCS"
+  },
+  "hero": {
+    "title": "Se comunique em alta escala e crie <accent>conexões em tempo real</accent>",
+    "subtitle": "O coração transacional do ecossistema. É uma plataforma robusta de comunicação via API desenvolvida para empresas que demandam alto volume de disparos. Atua como a engrenagem invisível que também potencializa as outras soluções (como o Solvefy Marketing).",
+    "cta": "Fale com um Especialista",
+    "trust1": "Integração via API",
+    "trust2": "Sem Taxa de Setup",
+    "trust3": "Cobrança por Volume"
+  },
+  "history": {
+    "badge": "Mais de 20 anos de História",
+    "title": "Nascemos como telecom e evoluímos para <accent>CPaaS</accent>.",
+    "subtitle": "Atuamos no mercado de comunicação há duas décadas; por isso, entregamos rotas próprias, faturamento em reais e suporte humano em português e inglês, com a estabilidade de quem viu o mercado mudar várias vezes.",
+    "callout": "A <strong>única solução de CPaaS</strong> nativamente integrada a <strong>Marketing, Ads e CRM</strong>. Um ecossistema robusto com acesso simplificado e unificado."
+  },
+  "infra": {
+    "nativeOperator": {
+      "title": "Operador Nativo",
+      "desc": "Operamos a infraestrutura ponta a ponta com rotas próprias e conexão direta com todas as operadoras.",
+      "badge": "Homologado pela Anatel"
+    },
+    "directRoutes": {
+      "title": "Rotas Diretas",
+      "desc": "Conexão direta com as principais operadoras do Brasil para máxima entregabilidade."
+    },
+    "humanSupport": {
+      "title": "Suporte Humano",
+      "desc": "Atendimento 100% humano, em português e inglês, com SLA real para operações críticas."
+    },
+    "brlBilling": {
+      "title": "Faturamento em BRL",
+      "desc": "Sem variação cambial. Contrato e fatura em Reais, com previsibilidade total."
+    }
+  },
+  "channelFlow": {
+    "title": "Conecte o seu sistema aos <accent>seus clientes</accent>",
+    "subtitle": "Via API ou interface web, gerencie cada canal de comunicação com eficiência e escala.",
+    "channels": {
+      "sms": {
+        "label": "SMS",
+        "badge": "Alta Entrega",
+        "description": "Melhor custo benefício para comunicar com velocidade",
+        "f1": "Personalizável",
+        "f2": "Texto Curto",
+        "f3": "Links Diretos"
+      },
+      "rcs": {
+        "label": "RCS",
+        "badge": "Verificado",
+        "description": "Conheça o SMS 2.0: mais rico, mais atrativo e mais rentável",
+        "f1": "Use Sua Marca",
+        "f2": "Tenha Perfil Verificado",
+        "f3": "Botões Interativos"
+      },
+      "voz": {
+        "label": "Disparo de Voz",
+        "badge": "Alto Engajamento",
+        "description": "Comunicação humanizada com alto engajamento",
+        "f1": "Personalizável",
+        "f2": "Chamada Direta para o Cliente",
+        "f3": "Integra com SMS"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "badge": "#1 Canal",
+        "description": "Conte com o canal favorito das empresas para vender",
+        "f1": "Perfil Verificado",
+        "f2": "Personalizável",
+        "f3": "Botões Interativos"
+      },
+      "email": {
+        "label": "E-mail",
+        "badge": "Automação",
+        "description": "Crie jornadas completas com praticidade e automação",
+        "f1": "Personalizável",
+        "f2": "Botões com Link",
+        "f3": "Multimídia"
+      }
+    }
+  },
+  "useCases": {
+    "title": "Casos de uso que <accent>movem o seu negócio</accent>",
+    "selectLabel": "Selecione seu segmento",
+    "activeUseCase": "Caso de uso ativo",
+    "segments": {
+      "agencias": { "label": "Agências de Marketing",
+        "c1t": "Campanhas RCS", "c1d": "Encante com imagens, vídeos e botões interativos direto na caixa de mensagens nativa.",
+        "c2t": "Qualificação de Leads", "c2d": "Use chatbots no WhatsApp para captar dados e qualificar contatos automaticamente.",
+        "c3t": "Réguas de Nutrição", "c3d": "Crie fluxos de mensagens cadenciadas para aquecer leads até o momento da conversão."
+      },
+      "bets": { "label": "Apostas",
+        "c1t": "Atualização Rápida de Odds", "c1d": "Envie variações de odds imperdíveis diretamente no celular do apostador.",
+        "c2t": "Saque Aprovado", "c2d": "Gere confiança e fidelidade avisando instantaneamente que o dinheiro está na conta.",
+        "c3t": "Verificação (OTP Seguro)", "c3d": "Valide a identidade e proteja transações com senhas temporárias de altíssima entrega."
+      },
+      "ecommerce": { "label": "E-commerce",
+        "c1t": "Recuperação de Carrinho", "c1d": "Envie mensagens automáticas com ofertas irresistíveis minutos após o abandono.",
+        "c2t": "Alertas de Rastreio", "c2d": "Mantenha o cliente seguro com atualizações em tempo real, do despacho à porta.",
+        "c3t": "Confirmação de Compra", "c3d": "Reduza a ansiedade do cliente com comprovantes instantâneos via WhatsApp ou SMS."
+      },
+      "educacao": { "label": "Educação",
+        "c1t": "Lembretes de Rematrícula", "c1d": "Facilite a renovação com links de pagamento e alertas de vencimento pelo WhatsApp.",
+        "c2t": "Avisos de Provas", "c2d": "Mantenha o engajamento dos alunos alto com lembretes automáticos do calendário acadêmico.",
+        "c3t": "Comunicação Ativa", "c3d": "Envie boletins, convites para reuniões e comunicados urgentes de forma centralizada."
+      },
+      "igaming": { "label": "iGaming",
+        "c1t": "Notificação de Bônus", "c1d": "Incentive novos depósitos com alertas de bônus e rodadas grátis em tempo real.",
+        "c2t": "Alertas de Eventos", "c2d": "Avise os jogadores minutos antes do evento começar para impulsionar apostas ao vivo.",
+        "c3t": "Reativação de Jogadores", "c3d": "Traga usuários inativos de volta com ofertas exclusivas via SMS ou WhatsApp."
+      },
+      "saas": { "label": "SaaS",
+        "c1t": "Onboarding Guiado", "c1d": "Reduza o churn enviando dicas de uso e tutoriais nos primeiros dias de assinatura.",
+        "c2t": "Alertas de Faturamento", "c2d": "Evite inadimplência com lembretes amigáveis e links diretos para pagamento via Pix.",
+        "c3t": "Campanhas de Up-sell", "c3d": "Ofereça upgrades de plano no exato momento em que o cliente atinge o limite de uso."
+      },
+      "saude": { "label": "Saúde",
+        "c1t": "Agendamento de Consultas", "c1d": "Zere as faltas (no-show) com lembretes interativos onde o paciente confirma ou reagenda.",
+        "c2t": "Lembretes de Exames", "c2d": "Fidelize pacientes com convites automáticos para check-ups anuais preventivos.",
+        "c3t": "Resultados Disponíveis", "c3d": "Envie links seguros por SMS ou WhatsApp para o paciente acessar laudos sem sair de casa."
+      },
+      "tech": { "label": "Tech",
+        "c1t": "Alertas Críticos (Downtime)", "c1d": "Avise sua equipe e usuários sobre instabilidades em segundos, via SMS de rota crítica.",
+        "c2t": "Autenticação 2FA/OTP", "c2d": "Blinde o acesso às suas plataformas com a API de OTP mais rápida e estável do mercado.",
+        "c3t": "Atualização de Produto", "c3d": "Comunique novas features e release notes diretamente onde o usuário mais engaja."
+      },
+      "varejo": { "label": "Varejo",
+        "c1t": "Ofertas Segmentadas", "c1d": "Dispare campanhas hiper-direcionadas baseadas no histórico de compras do cliente.",
+        "c2t": "Avisos de Estoque", "c2d": "Avise clientes automaticamente quando aquele produto desejado voltar à prateleira.",
+        "c3t": "Pesquisa NPS Pós-venda", "c3d": "Colete feedback valioso por canais de alta taxa de resposta logo após a compra."
+      }
+    }
+  },
+  "security": {
+    "badge": "Segurança & Compliance",
+    "title": "Conformidade <accent>do dado ao disparo</accent>.",
+    "subtitle": "Infraestrutura projetada para operar no Brasil, com a régua jurídica brasileira.",
+    "items": {
+      "lgpd": { "title": "LGPD Nativa", "desc": "Hosting no Brasil, contratos de operador e processos auditáveis em conformidade com a LGPD." },
+      "encryption": { "title": "Criptografia ponta-a-ponta", "desc": "Tráfego e dados sensíveis criptografados em trânsito e em repouso." },
+      "consent": { "title": "Gestão de Consentimento", "desc": "Opt-in, opt-out e histórico de consentimento integrados nativamente em cada canal." }
+    }
+  },
+  "pricing": {
+    "badge": "Transparência Total",
+    "title": "Precificação que <accent>cabe na sua operação</accent>.",
+    "subtitle": "Do primeiro disparo ao volume Enterprise, sem letra miúda.",
+    "customPlanLabel": "Plano Customizado",
+    "customBadge": "Sob Medida",
+    "plan": {
+      "title": "Enterprise",
+      "desc": "A comunicação moderna exige flexibilidade e rapidez. Com o SolvefyCPaaS, você conecta o seu sistema aos canais favoritos dos seus clientes através de APIs robustas e de fácil implementação. Chega de soluções engessadas: construa a jornada ideal para o seu modelo de negócio.",
+      "b1": "Omnichannel de Verdade",
+      "b2": "Feito para Desenvolvedores",
+      "b3": "Casos de Uso Infinitos",
+      "b4": "Escalabilidade Inteligente",
+      "cta": "Falar com um Especialista",
+      "footer": "Integre APIs de WhatsApp, SMS, Voz e E-mail diretamente no seu software e escale suas interações com facilidade."
+    }
+  }
+}

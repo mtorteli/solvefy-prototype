@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import { Trans } from "react-i18next";
 import { Heading } from "@/components/ui/Typography";
 
 export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) => {
@@ -28,10 +29,14 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="max-w-3xl text-left mb-1">
           <Heading className="text-balance">
-            Tecnologia que <span style={{ color: accent }}>simplifica</span>,
-            <br />
-            integração que gera{" "}
-            <span style={{ color: accent }}>resultado</span>.
+            <Trans
+              i18nKey="ecosystem.title.full"
+              ns="home"
+              components={{
+                accent: <span style={{ color: accent }} />,
+                br: <br />,
+              }}
+            />
           </Heading>
         </div>
 
@@ -42,7 +47,7 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
           <iframe
             ref={iframeRef}
             src="/ecosystem-diagram.html"
-            title="Ecossistema Solvefy — fluxo animado"
+            title="Ecossistema Solvefy"
             onLoad={handleLoad}
             scrolling="no"
             loading="lazy"

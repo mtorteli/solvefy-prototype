@@ -25,7 +25,7 @@ const pages = [
       "A Solvefy conecta sua empresa aos clientes por WhatsApp, SMS, e-mail, voz e RCS. CRM, CPaaS, Marketing e Cloud em uma única plataforma.",
     body: `A Solvefy é uma plataforma B2B brasileira que unifica comunicação multicanal, CRM, automação de marketing, gestão de tráfego pago, agentes de IA e infraestrutura em nuvem. Atende empresas que precisam escalar atendimento e vendas integrando WhatsApp, SMS, RCS, voz e e-mail em um único fluxo operacional.
 
-Diferenciais: integração nativa entre canais, infraestrutura própria (Solvefy/Cloud), agentes de IA prontos para uso (Solvefy/Agents) e tagline "Próximo. Veloz. Melhor."`,
+Diferenciais: integração nativa entre canais, infraestrutura própria (Solvefy/Cloud), agentes de IA prontos para uso (Solvefy/Agents) e tagline "+Perto. +Rápido. Melhor."`,
   },
   {
     url: `${BASE}/cpaas`,

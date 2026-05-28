@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import spoleto from "@/assets/logos/spoleto.png";
 import acordocerto from "@/assets/logos/acordocerto.png";
 import agibank from "@/assets/logos/agibank.png";
@@ -15,12 +16,13 @@ const logos = [
 ];
 
 export const SocialProof = () => {
+  const { t } = useTranslation("home");
   const items = [...logos, ...logos];
   return (
     <section className="py-16 md:py-24 border-y border-border bg-card/40">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <p className="text-center text-base md:text-lg text-muted-foreground mb-8">
-          Mais de 20 mil empresas já aceleram seus resultados com a Solvefy:
+          {t("socialProof.headline")}
         </p>
         <div className="relative overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />

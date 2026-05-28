@@ -2,7 +2,7 @@
 
 > Plataforma B2B de comunicação multicanal, CRM, automação de marketing, tráfego pago, agentes de IA e infraestrutura em nuvem.
 > Empresa brasileira sediada em Florianópolis/SC. CNPJ 35.693.806/0001-97. Selo ACATE 2024.
-> Idioma: pt-BR. Atualizado em 2026-05-18.
+> Idioma: pt-BR. Atualizado em 2026-05-27.
 
 ---
 
@@ -15,7 +15,7 @@ Descrição: A Solvefy conecta sua empresa aos clientes por WhatsApp, SMS, e-mai
 
 A Solvefy é uma plataforma B2B brasileira que unifica comunicação multicanal, CRM, automação de marketing, gestão de tráfego pago, agentes de IA e infraestrutura em nuvem. Atende empresas que precisam escalar atendimento e vendas integrando WhatsApp, SMS, RCS, voz e e-mail em um único fluxo operacional.
 
-Diferenciais: integração nativa entre canais, infraestrutura própria (Solvefy/Cloud), agentes de IA prontos para uso (Solvefy/Agents) e tagline "Próximo. Veloz. Melhor."
+Diferenciais: integração nativa entre canais, infraestrutura própria (Solvefy/Cloud), agentes de IA prontos para uso (Solvefy/Agents) e tagline "+Perto. +Rápido. Melhor."
 
 ---
 

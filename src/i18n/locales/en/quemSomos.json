@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "title": "About Us — Solvefy",
+    "description": "Meet Solvefy, the B2B platform built to simplify communication between companies and their customers. Our mission, values and team.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "About Us"
+  },
+  "hero": {
+    "imgAlt": "Solvers team",
+    "title": "We are the Solvers",
+    "titleImgAlt": "We are the Solvers",
+    "subtitle": "We exist to accelerate real results by combining technology, strategy and human clarity. We remove bureaucracy and coldness to deliver fast execution and close partnerships, turning complexity into competitive advantage and direct growth."
+  },
+  "manifesto": {
+    "srTitle": "Solvers Manifesto",
+    "p1": "While technology, business and relationships have changed, one need remains the same: counting on people who actually solve. That's what brought us here, and that's what keeps us moving forward.",
+    "p2": "Solvefy is born as the natural evolution of a journey built on trust, closeness and consistent results. We are a new brand created to represent our essence with even greater clarity: simplify paths, bring people closer and deliver efficient solutions.",
+    "p3": "We believe technology matters, but we believe in people even more. They are the ones who understand contexts, anticipate needs and turn challenges into better decisions. That's why we use innovation to gain speed, intelligence and scale without giving up close service and human connection.",
+    "p4": "We work with ownership and act with initiative. Our communication is direct and barrier-free, because we know trust is built on transparency and results are achieved through action.",
+    "p5": "We changed our name, evolved our structure and expanded our vision. Despite all this movement, we remain faithful to what has always brought us here: true partnership, excellence in execution and commitment to every customer. We keep the same essence, now with a name that perfectly translates what we do every day.",
+    "tagline": "<dark>We solve with intelligence. </dark><accent>We grow with you.</accent>"
+  },
+  "video": {
+    "buttonAria": "Watch Solvefy institutional video",
+    "thumbnailAlt": "Solvefy institutional video",
+    "close": "Close"
+  },
+  "values": {
+    "title": "What are our values?",
+    "items": {
+      "owner": {
+        "titleStart": "Sense of ",
+        "titleAccent": "Ownership",
+        "desc": "Our commitment goes beyond delivering tasks; we take responsibility for outcomes. We embrace the company's and our clients' challenges as if they were our own. It's this posture of caring for the business, anticipating needs and focusing on execution excellence that drives everyone's growth. We don't outsource problems: if something needs to be solved, we step up and truly solve it."
+      },
+      "initiative": {
+        "titleStart": "Free ",
+        "titleAccent": "Initiative",
+        "desc": "We don't wait for things to happen; we make them happen. We have the freedom, autonomy and trust needed to create real solutions, simplify paths and act intelligently. We value the attitude of those who use innovation to gain speed and have the courage to propose new ideas. Here, turning complexity into better decisions is everyone's responsibility."
+      },
+      "communication": {
+        "titleStart": "Horizontal ",
+        "titleAccent": "Communication",
+        "desc": "Our relationships are based on closeness, clarity and transparency. We communicate directly, openly and without bureaucracy or barriers. We believe intelligence is collective and that the best solutions emerge when people have an active voice, regardless of their roles. Frank dialogue and human perspective are the foundations that build real trust in our teams."
+      }
+    }
+  }
+}

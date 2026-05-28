@@ -1,5 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
+// Manchetes ficam em PT em todas as versões — são links externos
+// para matérias publicadas em português.
 const articles = [
   {
     portal: "Acontecendo Aqui",
@@ -19,11 +22,12 @@ const articles = [
 ];
 
 export const PressMedia = () => {
+  const { t } = useTranslation("home");
   return (
     <section className="bg-[hsl(var(--solve-green))] py-20 md:py-24">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="mb-12 md:mb-14">
-          <h2 className="tracking-tight">O que a mídia fala sobre nós?</h2>
+          <h2 className="tracking-tight">{t("press.title")}</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

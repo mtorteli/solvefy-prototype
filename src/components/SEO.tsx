@@ -1,8 +1,23 @@
 import { Helmet } from "react-helmet-async";
 
+import {
+  DEFAULT_LOCALE,
+  HREFLANG,
+  Locale,
+  LOCALE_PREFIX,
+  OG_LOCALE,
+  SUPPORTED_LOCALES,
+  localizePath,
+} from "@/i18n/locales";
+import { useLocale } from "@/i18n/useLocale";
+
 interface SEOProps {
   title: string;
   description: string;
+  /**
+   * Path canônico SEM prefixo de locale, ex: `/`, `/cpaas`. O SEO injeta
+   * o prefixo de cada locale automaticamente (canonical e hreflang).
+   */
   canonical?: string;
   ogImage?: string;
   /** @deprecated use `schemas` */
@@ -10,6 +25,12 @@ interface SEOProps {
   schemas?: Array<Record<string, unknown>>;
   noindex?: boolean;
   keywords?: string[];
+  /**
+   * Quando informado, sobrescreve o locale derivado do contexto. Útil para
+   * páginas que não estão dentro do `LocaleLayout` (catch-all do `/404`,
+   * por exemplo). Default: locale do contexto.
+   */
+  locale?: Locale;
 }
 
 const BASE_URL = "https://solvefy.com";
@@ -26,9 +47,15 @@ export function SEO({
   schemas,
   noindex,
   keywords,
+  locale: localeProp,
 }: SEOProps) {
+  const ctx = useLocale();
+  const locale = localeProp ?? ctx.locale;
+
   const fullTitle = `${title} | ${SITE_NAME}`;
-  const url = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
+  const canonicalPath = canonical ?? "/";
+  const localizedCanonical = localizePath(canonicalPath, locale);
+  const url = `${BASE_URL}${localizedCanonical}`;
   const rawImage = ogImage ?? DEFAULT_OG_IMAGE;
   const image = rawImage.startsWith("http") ? rawImage : `${BASE_URL}${rawImage}`;
 
@@ -37,11 +64,32 @@ export function SEO({
     ...(schema ? [schema] : []),
   ];
 
+  // Alternates apontam para todas as línguas suportadas. x-default → pt-BR.
+  const alternates = SUPPORTED_LOCALES.map((alt) => ({
+    hreflang: HREFLANG[alt],
+    href: `${BASE_URL}${localizePath(canonicalPath, alt)}`,
+  }));
+
   return (
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
+
+      {/* hreflang alternates — sinaliza ao Google as versões equivalentes */}
+      {alternates.map((alt) => (
+        <link
+          key={alt.hreflang}
+          rel="alternate"
+          hrefLang={alt.hreflang}
+          href={alt.href}
+        />
+      ))}
+      <link
+        rel="alternate"
+        hrefLang="x-default"
+        href={`${BASE_URL}${localizePath(canonicalPath, DEFAULT_LOCALE) || "/"}`}
+      />
 
       <meta
         name="robots"
@@ -59,7 +107,10 @@ export function SEO({
       {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:locale" content="pt_BR" />
+      <meta property="og:locale" content={OG_LOCALE[locale]} />
+      {SUPPORTED_LOCALES.filter((l) => l !== locale).map((alt) => (
+        <meta key={alt} property="og:locale:alternate" content={OG_LOCALE[alt]} />
+      ))}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
@@ -84,3 +135,6 @@ export function SEO({
     </Helmet>
   );
 }
+
+// Re-exporta utilitários internos pra evitar import dupla camada nos consumidores
+export { LOCALE_PREFIX };

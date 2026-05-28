@@ -3,20 +3,47 @@
  *
  * Todos os schemas referenciam a Organização via `@id` para que crawlers e LLMs
  * consigam costurar o grafo (a Organization é a "entidade-mãe"). Use sempre
- * `[organizationSchema(), websiteSchema()]` no array `schemas` da home, e
- * `breadcrumbSchema(...)` em todas as páginas internas.
+ * `[organizationSchema(locale), websiteSchema(locale)]` no array `schemas` da
+ * home, e `breadcrumbSchema(items, locale)` em todas as páginas internas.
+ *
+ * O `locale` controla:
+ * - `inLanguage` em cada schema;
+ * - URLs (canonical + IDs) — versões EN/ES ganham prefixo `/en` ou `/es`.
  */
 
+import {
+  DEFAULT_LOCALE,
+  HREFLANG,
+  Locale,
+  localizePath,
+} from "@/i18n/locales";
+
 export const SITE_URL = "https://solvefy.com";
+
+const DESCRIPTIONS: Record<Locale, string> = {
+  "pt-BR":
+    "Ecossistema brasileiro de tecnologia que unifica soluções de comunicação multicanal, marketing, CRM, agentes de IA e cloud para gerar performance real às empresas B2B.",
+  en: "Brazilian technology ecosystem that unifies multichannel communication, marketing, CRM, AI agents and cloud solutions to deliver real performance to B2B companies.",
+  es: "Ecosistema brasileño de tecnología que unifica soluciones de comunicación multicanal, marketing, CRM, agentes de IA y cloud para generar desempeño real a las empresas B2B.",
+};
+
+const SLOGANS: Record<Locale, string> = {
+  "pt-BR": "+Perto. +Rápido. Melhor.",
+  en: "Closer. Quicker. Better.",
+  es: "+Cerca. +Rápido. Mejor.",
+};
+
+const AREA_SERVED: Record<Locale, string> = {
+  "pt-BR": "Brasil",
+  en: "Brazil",
+  es: "Brasil",
+};
 
 export const SOLVEFY_ORG = {
   name: "Solvefy",
   legalName: "Solvefy",
   url: SITE_URL,
   logoUrl: `${SITE_URL}/favicon-512x512.png`,
-  description:
-    "Ecossistema brasileiro de tecnologia que unifica soluções de comunicação multicanal, marketing, CRM, agentes de IA e cloud para gerar performance real às empresas B2B.",
-  slogan: "Próximo. Veloz. Melhor.",
   /** CNPJ público do rodapé. */
   taxID: "35.693.806/0001-97",
   /** Endereço da sede. */
@@ -36,7 +63,12 @@ const WEBSITE_ID = `${SITE_URL}/#website`;
 
 type JsonLd = Record<string, unknown>;
 
-export function organizationSchema(): JsonLd {
+function absUrl(path: string, locale: Locale): string {
+  const localized = localizePath(path, locale);
+  return `${SITE_URL}${localized || "/"}`;
+}
+
+export function organizationSchema(locale: Locale = DEFAULT_LOCALE): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -50,8 +82,8 @@ export function organizationSchema(): JsonLd {
       width: 512,
       height: 512,
     },
-    description: SOLVEFY_ORG.description,
-    slogan: SOLVEFY_ORG.slogan,
+    description: DESCRIPTIONS[locale],
+    slogan: SLOGANS[locale],
     taxID: SOLVEFY_ORG.taxID,
     address: {
       "@type": "PostalAddress",
@@ -65,34 +97,37 @@ export function organizationSchema(): JsonLd {
         "@type": "ContactPoint",
         contactType: "customer service",
         areaServed: "BR",
-        availableLanguage: ["pt-BR"],
-        url: `${SITE_URL}/contato`,
+        availableLanguage: ["pt-BR", "en", "es"],
+        url: absUrl("/contato", locale),
       },
     ],
     ...(SOLVEFY_ORG.sameAs.length > 0 ? { sameAs: SOLVEFY_ORG.sameAs } : {}),
   };
 }
 
-export function websiteSchema(): JsonLd {
+export function websiteSchema(locale: Locale = DEFAULT_LOCALE): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": WEBSITE_ID,
-    url: SITE_URL,
+    url: absUrl("/", locale),
     name: SOLVEFY_ORG.name,
-    description: SOLVEFY_ORG.description,
-    inLanguage: "pt-BR",
+    description: DESCRIPTIONS[locale],
+    inLanguage: HREFLANG[locale],
     publisher: { "@id": ORG_ID },
   };
 }
 
 export interface BreadcrumbItem {
   name: string;
-  /** Path relativo, ex: "/cpaas" (a função prefixa com SITE_URL). */
+  /** Path relativo SEM prefixo de locale, ex: "/cpaas". */
   path: string;
 }
 
-export function breadcrumbSchema(items: BreadcrumbItem[]): JsonLd {
+export function breadcrumbSchema(
+  items: BreadcrumbItem[],
+  locale: Locale = DEFAULT_LOCALE,
+): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -100,7 +135,7 @@ export function breadcrumbSchema(items: BreadcrumbItem[]): JsonLd {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${SITE_URL}${item.path}`,
+      item: absUrl(item.path, locale),
     })),
   };
 }
@@ -110,7 +145,7 @@ export interface ServiceSchemaInput {
   name: string;
   /** Descrição em 1-2 frases. */
   description: string;
-  /** Path relativo da página de serviço (ex: "/cpaas"). */
+  /** Path relativo SEM prefixo de locale (ex: "/cpaas"). */
   path: string;
   /** Categoria do serviço — corresponde a `serviceType` no Schema.org. */
   serviceType?: string;
@@ -122,8 +157,11 @@ export interface ServiceSchemaInput {
   };
 }
 
-export function serviceSchema(input: ServiceSchemaInput): JsonLd {
-  const url = `${SITE_URL}${input.path}`;
+export function serviceSchema(
+  input: ServiceSchemaInput,
+  locale: Locale = DEFAULT_LOCALE,
+): JsonLd {
+  const url = absUrl(input.path, locale);
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -132,8 +170,8 @@ export function serviceSchema(input: ServiceSchemaInput): JsonLd {
     url,
     serviceType: input.serviceType,
     provider: { "@id": ORG_ID },
-    areaServed: { "@type": "Country", name: "Brasil" },
-    inLanguage: "pt-BR",
+    areaServed: { "@type": "Country", name: AREA_SERVED[locale] },
+    inLanguage: HREFLANG[locale],
     ...(input.offers
       ? {
           offers: {
@@ -173,7 +211,7 @@ export function faqSchema(items: FaqItem[]): JsonLd {
 export interface ArticleSchemaInput {
   title: string;
   description: string;
-  /** Path relativo, ex: "/blog/slug-do-post". */
+  /** Path relativo SEM prefixo de locale, ex: "/blog/slug-do-post". */
   path: string;
   image: string;
   datePublished: string;
@@ -184,8 +222,11 @@ export interface ArticleSchemaInput {
   wordCount?: number;
 }
 
-export function articleSchema(input: ArticleSchemaInput): JsonLd {
-  const url = `${SITE_URL}${input.path}`;
+export function articleSchema(
+  input: ArticleSchemaInput,
+  locale: Locale = DEFAULT_LOCALE,
+): JsonLd {
+  const url = absUrl(input.path, locale);
   const img = input.image.startsWith("http")
     ? input.image
     : `${SITE_URL}${input.image}`;
@@ -199,7 +240,7 @@ export function articleSchema(input: ArticleSchemaInput): JsonLd {
     url,
     datePublished: input.datePublished,
     dateModified: input.dateModified ?? input.datePublished,
-    inLanguage: "pt-BR",
+    inLanguage: HREFLANG[locale],
     author: {
       "@type": "Person",
       name: input.authorName,

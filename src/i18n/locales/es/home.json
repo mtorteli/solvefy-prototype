@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "title": "Plataforma B2B de Comunicación Multicanal",
+    "description": "Solvefy conecta a tu empresa con los clientes por WhatsApp, SMS, e-mail, voz y RCS. CRM, CPaaS, Marketing y Cloud en una sola plataforma."
+  },
+  "hero": {
+    "badge": "Únete a 20 mil empresas",
+    "title": {
+      "full": "Más <accent>cerca</accent><br/>de tu cliente.<br/>Más <accent>rápido</accent> para<br/>tu negocio."
+    },
+    "subtitle": "No necesitas múltiples herramientas, solo necesitas la plataforma correcta. Con nuestro ecosistema de comunicación integrado, gestionas todo el recorrido del cliente en un único lugar. Atraer, comprometer y convertir nunca fue tan simple."
+  },
+  "socialProof": {
+    "headline": "Más de 20 mil empresas ya aceleran sus resultados con Solvefy:"
+  },
+  "testimonials": {
+    "ariaLabel": "Testimonios de clientes",
+    "items": {
+      "chapecoense": {
+        "label": "Chapecoense",
+        "quote": "Nos dimos cuenta de que el SMS era un canal muy eficiente para nuestra necesidad. Necesitábamos alcanzar al hincha asociado de forma rápida y eficaz para mantenerlo comprometido con el Club. Considerando la inversión, ¡el retorno fue muy positivo!",
+        "author": "Augusto Dalvit Tonelo",
+        "role": "Vicepresidente de Marketing de Chapecoense"
+      },
+      "deive": {
+        "label": "Deive Leonardo",
+        "quote": "Cuando lanzamos la película La Respuesta, Disparo Pro nos ayudó a llegar a todos nuestros leads y personas que fueron parte de nuestra historia. ¡Fue el mejor lanzamiento que pudimos imaginar y entramos en el Top 10 de Netflix!",
+        "author": "Deive Leonardo",
+        "role": "Evangelista e influencer digital"
+      }
+    }
+  },
+  "solutions": {
+    "title": {
+      "before": "+Cerca. +Rápido. ",
+      "highlight": "Mejor."
+    },
+    "subtitle": "Deja de dividir tu estrategia en varias herramientas. Unifica tu comunicación, simplifica tu gestión y genera resultados más rápido.",
+    "ctaPricing": "Ve los precios de {{name}}",
+    "items": {
+      "cpaas": {
+        "headline": "Comunicación a Escala.",
+        "desc": "El corazón transaccional del ecosistema. Una plataforma robusta de comunicación vía API desarrollada para empresas que demandan alto volumen de envíos. Actúa como el engranaje invisible que también potencia las demás soluciones (como Solvefy Marketing).",
+        "bullets": [
+          "Integración vía API",
+          "Sin Tasa de Setup",
+          "Cobro por Volumen"
+        ]
+      },
+      "ads": {
+        "headline": "Tráfico Directo",
+        "desc": "Deja de quemar presupuesto en plataformas saturadas y subastas infladas. Solvefy/Ads entrega tráfico cualificado de alto desempeño con total autonomía. Sin bloqueos injustos, sin dependencia con otras redes. Solo resultados reales y escalables.",
+        "bullets": [
+          "Costo hasta 20% menor",
+          "CTR de hasta 35%",
+          "Cero Vínculos"
+        ]
+      },
+      "marketing": {
+        "headline": "Jornadas Inteligentes",
+        "desc": "Todo lo que tu marketing necesita en un solo lugar. Con Solvefy/Marketing, creas jornadas de relación automatizadas y transformas contactos en ventas. Usa nuestras plantillas de envío rápido, sigue métricas en tiempo real e intégralo todo fácilmente vía API.",
+        "bullets": [
+          "Todos los Canales",
+          "Constructor Visual de Jornadas",
+          "EasyIA"
+        ]
+      },
+      "crm": {
+        "headline": "Gestión Comercial",
+        "desc": "¿Tu equipo comercial está dejando dinero sobre la mesa? Solvefy/CRM es la máquina de ventas definitiva para equipos de alto desempeño. Elimina la fuga de leads, automatiza los seguimientos y obtén previsibilidad real de ingresos. Cierra más negocios en menos tiempo.",
+        "bullets": [
+          "Migración de Datos Gratuita",
+          "Ahorra 20% vs. la Competencia",
+          "Implementación en 24h"
+        ]
+      },
+      "agents": {
+        "headline": "Inteligencia Artificial",
+        "desc": "Ten múltiples especialistas trabajando 24/7 en tu operación. Desde SDRs ejecutando metodologías adaptadas al mercado hasta squads creando contenido para redes sociales, Agents hace el trabajo operativo para que tu equipo se concentre en cerrar negocios. Todo en tu idioma y dentro de una sola plataforma.",
+        "bullets": [
+          "Inteligencia Artificial",
+          "Múltiples Especialistas",
+          "Workspace Ilimitado"
+        ]
+      },
+      "cloud": {
+        "headline": "Automatización de Cloud",
+        "desc": "Transforma la infraestructura ociosa de tu Proveedor de Internet (ISP) o Data Center en un negocio rentable. Automatiza el 100% de la venta, el aprovisionamiento y la facturación de servicios de cloud con tu propia marca, sin depender de terceros.",
+        "bullets": [
+          "Plataforma White Label On-Premises",
+          "Proxmox Reseller/Partner Oficial",
+          "De principio a fin"
+        ]
+      }
+    }
+  },
+  "ecosystem": {
+    "title": {
+      "full": "Tecnología que <accent>simplifica</accent>,<br/>integración que genera <accent>resultados</accent>."
+    }
+  },
+  "blogTeaser": {
+    "title": "¡Sigue nuestros contenidos!",
+    "viewAll": "Ver Todos"
+  },
+  "press": {
+    "title": "¿Qué dice la prensa sobre nosotros?"
+  }
+}

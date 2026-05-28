@@ -1,32 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import augustoPhoto from "@/assets/photo-augusto.webp";
 import deivePhoto from "@/assets/photo-deive.webp";
 
-const tabs = [
-  {
-    id: "chapecoense",
-    label: "Chapecoense",
-    quote:
-      "Nós percebemos que o SMS era um canal bastante eficiente para a nossa necessidade. Precisávamos alcançar o torcedor associado de forma rápida e eficaz para mantê-lo engajado com o Clube. Considerando o investimento, o retorno foi muito positivo!",
-    author: "Augusto Dalvit Tonelo",
-    role: "Vice-Presidente de Marketing da Chapecoense",
-    image: augustoPhoto,
-  },
-  {
-    id: "deive",
-    label: "Deive Leonardo",
-    quote:
-      "Quando fizemos o lançamento do filme A Resposta, a Disparo Pro nos ajudou a alcançar todos os nossos leads e pessoas que fizeram parte da nossa história. Foi o melhor lançamento que pudemos imaginar, e ficamos no Top 10 da Netflix!",
-    author: "Deive Leonardo",
-    role: "Evangelista e influenciador Digital",
-    image: deivePhoto,
-  },
-];
+const tabImages = {
+  chapecoense: augustoPhoto,
+  deive: deivePhoto,
+} as const;
+
+type TabId = keyof typeof tabImages;
+const TAB_IDS: TabId[] = ["chapecoense", "deive"];
 
 export const Testimonial = () => {
-  const [active, setActive] = useState(tabs[0].id);
-  const current = tabs.find((t) => t.id === active) ?? tabs[0];
+  const { t } = useTranslation("home");
+  const [active, setActive] = useState<TabId>(TAB_IDS[0]);
 
   return (
     <section className="py-16 md:py-24 bg-background">
@@ -43,9 +31,9 @@ export const Testimonial = () => {
             <div className="w-full max-w-xs">
               <AnimatePresence mode="wait">
                 <motion.img
-                  key={current.id}
-                  src={current.image}
-                  alt={current.author}
+                  key={active}
+                  src={tabImages[active]}
+                  alt={t(`testimonials.items.${active}.author`)}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -64,24 +52,24 @@ export const Testimonial = () => {
             {/* Tabs */}
             <div
               role="tablist"
-              aria-label="Depoimentos de clientes"
+              aria-label={t("testimonials.ariaLabel")}
               className="flex flex-wrap gap-x-10 gap-y-3 border-b border-border/60"
             >
-              {tabs.map((t) => {
-                const isActive = t.id === active;
+              {TAB_IDS.map((id) => {
+                const isActive = id === active;
                 return (
                   <button
-                    key={t.id}
+                    key={id}
                     role="tab"
                     aria-selected={isActive}
-                    onClick={() => setActive(t.id)}
+                    onClick={() => setActive(id)}
                     className={`relative pb-4 text-base md:text-lg tracking-tight transition-colors ${
                       isActive
                         ? "font-bold text-foreground"
                         : "font-medium text-gray-500 hover:text-foreground/80"
                     }`}
                   >
-                    {t.label}
+                    {t(`testimonials.items.${id}.label`)}
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
@@ -97,7 +85,7 @@ export const Testimonial = () => {
             <div className="relative min-h-[320px] md:min-h-[280px]">
               <AnimatePresence mode="popLayout">
                 <motion.div
-                  key={current.id}
+                  key={active}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -105,15 +93,15 @@ export const Testimonial = () => {
                   className="w-full"
                 >
                   <blockquote className="mt-8 text-lg md:text-xl font-light leading-snug text-foreground/80 text-balance">
-                    "{current.quote}"
+                    "{t(`testimonials.items.${active}.quote`)}"
                   </blockquote>
 
                   <div className="mt-8">
                     <div className="text-base md:text-lg font-bold text-foreground">
-                      {current.author}
+                      {t(`testimonials.items.${active}.author`)}
                     </div>
                     <div className="text-sm md:text-base font-normal text-muted-foreground mt-1">
-                      {current.role}
+                      {t(`testimonials.items.${active}.role`)}
                     </div>
                   </div>
                 </motion.div>
