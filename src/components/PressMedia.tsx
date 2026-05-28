@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 const articles = [
   {
     portal: "Acontecendo Aqui",
-    title: "Disparo Pro acelera entregas e reduz gargalos com agentes de IA",
-    href: "https://acontecendoaqui.com.br/tech/disparo-pro-acelera-entregas-e-reduz-gargalos-com-agentes-de-ia/",
+    title: "Solvefy investe em IA para integrar operações digitais",
+    href: "https://acontecendoaqui.com.br/inovacao/solvefy-investe-em-ia-para-integrar-operacoes-digitais/",
   },
   {
     portal: "Mobile Time",
