@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
-import { CpaasSubNav } from "./CpaasSubNav";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useLocale } from "@/i18n/useLocale";
 import { AnimatePresence, motion } from "framer-motion";
@@ -236,8 +235,6 @@ export const Header = () => {
           </button>
         </div>
       </div>
-
-      <CpaasSubNav />
 
       <AnimatePresence>
         {open && (

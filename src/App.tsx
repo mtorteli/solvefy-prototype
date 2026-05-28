@@ -15,11 +15,6 @@ import Index from "./pages/Index.tsx";
 // Demais páginas: carregamento sob demanda (chunks separados)
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 const Cpaas = lazy(() => import("./pages/Cpaas.tsx"));
-const CpaasVoz = lazy(() => import("./pages/CpaasVoz.tsx"));
-const CpaasSms = lazy(() => import("./pages/CpaasSms.tsx"));
-const CpaasWhatsapp = lazy(() => import("./pages/CpaasWhatsapp.tsx"));
-const CpaasEmail = lazy(() => import("./pages/CpaasEmail.tsx"));
-const CpaasRcs = lazy(() => import("./pages/CpaasRcs.tsx"));
 const Ads = lazy(() => import("./pages/Ads.tsx"));
 const Marketing = lazy(() => import("./pages/Marketing.tsx"));
 const Crm = lazy(() => import("./pages/Crm.tsx"));
@@ -42,11 +37,6 @@ const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<Index />} />
     <Route path="cpaas" element={<Cpaas />} />
-    <Route path="cpaas/voz" element={<CpaasVoz />} />
-    <Route path="cpaas/sms" element={<CpaasSms />} />
-    <Route path="cpaas/whatsapp" element={<CpaasWhatsapp />} />
-    <Route path="cpaas/email" element={<CpaasEmail />} />
-    <Route path="cpaas/rcs" element={<CpaasRcs />} />
     <Route path="ads" element={<Ads />} />
     <Route path="marketing" element={<Marketing />} />
     <Route path="crm" element={<Crm />} />

@@ -29,8 +29,6 @@ const TRANSLATED_PATHS = new Set([
   "/quem-somos",
   "/cpaas",
 ]);
-// Cpaas subpaths (voz/sms/whatsapp/email/rcs) também são traduzidos, mas estão
-// marcados `noindex` e por isso ficam fora do sitemap.
 
 const mock = readFileSync(resolve(root, "src/lib/mock-data.ts"), "utf8");
 
