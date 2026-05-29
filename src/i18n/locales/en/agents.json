@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "title": "Solvefy Agents — AI Copilot for B2B Sales and Marketing",
+    "description": "15+ AI agents ready to operate 24/7 in your sales team. SDR, strategic deal, content and meeting analysis. Start with 50% OFF.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/Agents"
+  },
+  "hero": {
+    "title": "AI agents for <accent>sales and marketing teams</accent>",
+    "subtitle": "Put multiple specialists working 24/7 in your operation. From SDRs running market-tailored methodologies to squads creating social media content, Agents handles the operational work so your team can focus on closing deals. All in your language and within a single platform.",
+    "cta": "Buy Now",
+    "trust1": "Artificial Intelligence",
+    "trust2": "Multiple Specialists",
+    "trust3": "Unlimited Workspace"
+  },
+  "pain": {
+    "badge": "The reality of scaling teams",
+    "title": "Your team is the front line. <accent>Solvefy/Agents is the operational engine.</accent>",
+    "subtitle": "Prospecting, qualifying, writing proposals and creating content eats up precious hours that should be spent building customer relationships. Solvefy/Agents acts as a copilot alongside your team. It takes on the manual, repetitive work so your people can produce more, focus on strategy and multiply results.",
+    "withoutLabel": "Without Solvefy/Agents",
+    "items": {
+      "inefficiency": { "title": "Operational Inefficiency",   "desc": "High-cost professionals allocated to data mining and repetitive routines, wasting analytical capacity and reducing team ROI." },
+      "latency":      { "title": "Sales Cycle Latency",         "desc": "Manual proposal building creates pipeline friction, cooling high-intent leads and dragging down conversion rates." },
+      "fragmented":   { "title": "Fragmented Efforts",          "desc": "The absence of AI-orchestrated processes forces the operation to split focus between demand gen and closing, throttling scalability." }
+    }
+  },
+  "pillars": {
+    "title": "Why is <accent>Solvefy Agents</accent> different?",
+    "subtitle": "We're not yet another generic AI tool. We're B2B sales specialists.",
+    "items": {
+      "ready":    { "title": "Ready agents, not templates",  "desc": "Don't waste time building. We deliver 15+ configured agents up and running today." },
+      "squads":   { "title": "Visual squads",                "desc": "Orchestrate agents in transparent work pipelines with named personas." },
+      "vendasMkt":{ "title": "Sales + Marketing",            "desc": "SDR, Discovery and Proposal, working side by side with social content creation." },
+      "dna":      { "title": "Local DNA",                    "desc": "Forget robotic translations. Prompts trained for your market, using SPIN and MEDDPICC." }
+    }
+  },
+  "agentsFlow": {
+    "title": "Meet your new <accent>team operating 24/7</accent>",
+    "subtitle": "Four agents ready to run today, covering the entire B2B sales and marketing cycle — no hiring, no onboarding.",
+    "online": "Online",
+    "agents": {
+      "sdr":     { "number": "01", "label": "General SDR",          "badge": "SPIN + MEDDPICC", "description": "Runs research, outreach and qualification based on the best B2B sales playbooks in the market.", "t1": "Prospecting",  "t2": "Qualification", "t3": "Outreach" },
+      "deal":    { "number": "02", "label": "Strategic Deal",       "badge": "Competitive",     "description": "Deep competitive analysis and objection handling to accelerate deal closing.",                       "t1": "Analysis",     "t2": "Objections",    "t3": "Competitors" },
+      "social":  { "number": "03", "label": "Social Squad",         "badge": "10 Agents",       "description": "Research, fact-check and post creation for Instagram and LinkedIn in minutes, no agency.",            "t1": "Instagram",    "t2": "LinkedIn",      "t3": "Content" },
+      "reuniao": { "number": "04", "label": "Meeting Analysis",     "badge": "AI Insights",     "description": "Evaluates transcripts and generates actionable sales insights to prep your team to close.",            "t1": "Transcript",   "t2": "Notes",         "t3": "Insights" }
+    }
+  },
+  "personas": {
+    "title": "Built for <accent>those who need results</accent>",
+    "subtitle": "Different profiles, the same impact: more output with less effort.",
+    "cta": "Start now",
+    "items": {
+      "founders": {
+        "label": "Founders / SMBs",
+        "headline": "Your virtual team to scale without growing the payroll.",
+        "desc": "Hire 15 specialists today for less than a $500 salary. Agents handles prospecting, creates content and follows up with leads while your team focuses on closing.",
+        "b1": "SDR operating 24h alongside your team",
+        "b2": "Complete proposals generated in minutes",
+        "b3": "Social media content without depending on an agency",
+        "m1v": "15×",    "m1l": "more capacity",
+        "m2v": "24/7",   "m2l": "active prospecting",
+        "m3v": "1 plan", "m3l": "15 specialists"
+      },
+      "comercial": {
+        "label": "Head of Sales",
+        "headline": "Double your SDRs' output and ensure 100% prepared sellers.",
+        "desc": "Meeting analysis, automatic seller prep and orchestrated follow-up. Your team focuses on closing — Agents handles the rest.",
+        "b1": "Transcript analysis with actionable insights",
+        "b2": "Automatic prep before every call",
+        "b3": "Follow-up with no silence and no lost leads",
+        "m1v": "2×",   "m1l": "output per SDR",
+        "m2v": "−60%", "m2l": "prep time per call",
+        "m3v": "0",    "m3l": "lost leads"
+      },
+      "marketing": {
+        "label": "Marketing / Agencies",
+        "headline": "Replace expensive freelancers and deliver entire campaigns in minutes.",
+        "desc": "10 specialized content agents working in parallel: research, fact-check, copy, carousel and scheduling — with your brand's tone and voice.",
+        "b1": "10 content agents operating in parallel",
+        "b2": "Posts, carousels and articles in hours, not days",
+        "b3": "Consistent tone and voice across every piece",
+        "m1v": "10",  "m1l": "agents in parallel",
+        "m2v": "min", "m2l": "to create content",
+        "m3v": "∞",   "m3l": "brand consistency"
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Plans & Pricing",
+    "title": "Choose the <accent>right</accent> plan to grow.",
+    "subtitle": "Billed in BRL, no FX swings and no fine print.",
+    "notIncluded": "Not included",
+    "creditNote": "1 credit = R$ 1.00, consumed proportionally to actual AI usage. Additional credits available as needed. No hidden fees.",
+    "plans": {
+      "fast": {
+        "name": "Fast",
+        "price": "$195.80",
+        "period": "/month",
+        "credits": "20 AI credits/month included",
+        "cta": "Start with Fast",
+        "f1": "Workspace users: Unlimited",
+        "f2": "Pre-configured agents: All (15+)",
+        "f3": "Multi-model: Default (Gemini)",
+        "f4": "Analytics, history and attachments",
+        "d1": "Pre-built squads",
+        "d2": "Create your own agents",
+        "d3": "Create your own squads"
+      },
+      "best": {
+        "name": "Best",
+        "price": "$375.80",
+        "period": "/month",
+        "credits": "50 AI credits/month included",
+        "badge": "Most Chosen",
+        "cta": "Start with Best",
+        "f1": "Workspace users: Unlimited",
+        "f2": "Pre-configured agents: All (15+)",
+        "f3": "Pre-built squads",
+        "f4": "Create your own agents",
+        "f5": "Create your own squads",
+        "f6": "Multi-model: Full access (Gemini, Claude and GPT)",
+        "f7": "Analytics, history and attachments"
+      }
+    }
+  },
+  "mockup": {
+    "headerAgent": "Agents LinkedIn",
+    "userMessage": "Lucas, generate an authority post about B2B prospecting.",
+    "aiMessage": "Analyzing market pains... Generating the ideal hook for sales directors.",
+    "squadLabel": "Squad in execution",
+    "squad": {
+      "facebook":  "Agents Facebook",
+      "instagram": "Agents Instagram",
+      "linkedin":  "Agents LinkedIn"
+    }
+  }
+}

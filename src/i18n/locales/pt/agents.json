@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "title": "Solvefy Agents — Copiloto de IA para Vendas e Marketing B2B",
+    "description": "15+ agentes de IA prontos para operar 24/7 no seu time comercial. SDR, deal estratégico, conteúdo e análise de reunião. Comece com 50% OFF.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/Agents"
+  },
+  "hero": {
+    "title": "Agentes de IA para <accent>equipes comerciais e de marketing</accent>",
+    "subtitle": "Tenha múltiplos especialistas trabalhando 24/7 na sua operação. De SDRs rodando metodologias adaptadas ao mercado a squads criando conteúdo para as redes sociais, o Agents faz o trabalho operacional para o seu time focar em fechar negócios. Tudo em português e dentro de uma única plataforma.",
+    "cta": "Comprar Agora",
+    "trust1": "Inteligência Artificial",
+    "trust2": "Múltiplos Especialistas",
+    "trust3": "Workspace Ilimitado"
+  },
+  "pain": {
+    "badge": "A realidade de quem escala",
+    "title": "O seu time é a linha de frente. <accent>O Solvefy/Agents é o motor operacional.</accent>",
+    "subtitle": "Prospectar, qualificar, escrever propostas e criar conteúdo consome horas preciosas que deveriam ser dedicadas a construir relacionamentos com os clientes. O Solvefy/Agents age como um copiloto lado a lado com os seus colaboradores. Ele assume o trabalho manual e repetitivo para que a sua equipe possa produzir mais, focar na estratégia e multiplicar os resultados.",
+    "withoutLabel": "Sem o Solvefy/Agents",
+    "items": {
+      "inefficiency": { "title": "Ineficiência Operacional",      "desc": "Profissionais de alto custo alocados em mineração de dados e rotinas repetitivas, desperdiçando capacidade analítica e reduzindo o ROI da equipe." },
+      "latency":      { "title": "Latência no Ciclo de Vendas",    "desc": "A estruturação manual de propostas comerciais gera atrito no pipeline, esfriando leads de alta intenção e derrubando as taxas de conversão." },
+      "fragmented":   { "title": "Fragmentação de Esforços",       "desc": "A ausência de processos orquestrados por IA obriga a operação a dividir o foco entre a geração de demanda e o fechamento, travando a escalabilidade." }
+    }
+  },
+  "pillars": {
+    "title": "Por que o <accent>Solvefy Agents</accent> é diferente?",
+    "subtitle": "Não somos mais uma ferramenta de IA genérica. Somos especialistas em vendas B2B no Brasil.",
+    "items": {
+      "ready":    { "title": "Agentes prontos, não templates",  "desc": "Não perca tempo a construir. Entregamos 15+ agentes configurados e a rodar hoje." },
+      "squads":   { "title": "Squads visuais",                  "desc": "Orquestre agentes em pipelines de trabalho transparentes com personas nomeadas." },
+      "vendasMkt":{ "title": "Vendas + Marketing",              "desc": "SDR, Discovery e Proposta, a trabalhar lado a lado com criação de conteúdo social." },
+      "dna":      { "title": "DNA Brasileiro",                  "desc": "Esqueça as traduções robóticas. Prompts treinados no nosso mercado, usando SPIN e MEDDPICC." }
+    }
+  },
+  "agentsFlow": {
+    "title": "Conheça a sua nova <accent>equipa a operar 24/7</accent>",
+    "subtitle": "Quatro agentes prontos a rodar hoje, cobrindo todo o ciclo de vendas e marketing B2B — sem contratar, sem onboarding.",
+    "online": "Online",
+    "agents": {
+      "sdr":     { "number": "01", "label": "SDR Geral",          "badge": "SPIN + MEDDPICC", "description": "Faz pesquisa, outreach e qualificação com base nos melhores playbooks de vendas B2B do mercado.", "t1": "Prospecção",  "t2": "Qualificação", "t3": "Outreach" },
+      "deal":    { "number": "02", "label": "Deal Estratégico",   "badge": "Competitivo",     "description": "Análise competitiva profunda e quebra de objeções para acelerar o fechamento de negócios.",      "t1": "Análise",     "t2": "Objeções",     "t3": "Competidores" },
+      "social":  { "number": "03", "label": "Squad Social",       "badge": "10 Agentes",      "description": "Pesquisa, fact-check e criação de posts para Instagram e LinkedIn em minutos, sem agência.",      "t1": "Instagram",   "t2": "LinkedIn",     "t3": "Conteúdo" },
+      "reuniao": { "number": "04", "label": "Análise de Reunião", "badge": "Insights IA",     "description": "Avalia transcrições e gera insights acionáveis de vendas para preparar o seu time para fechar.",   "t1": "Transcrição", "t2": "Notas",        "t3": "Insights" }
+    }
+  },
+  "personas": {
+    "title": "Feito para <accent>quem precisa de resultado</accent>",
+    "subtitle": "Diferentes perfis, o mesmo impacto: mais output com menos esforço.",
+    "cta": "Começar agora",
+    "items": {
+      "founders": {
+        "label": "Founders / PMEs",
+        "headline": "A sua equipa virtual para escalar sem aumentar a folha salarial.",
+        "desc": "Contrate 15 especialistas hoje por menos do que um CLT de R$ 2.500. O Agents faz a prospecção, cria o conteúdo e acompanha os leads enquanto o seu time foca em fechar.",
+        "b1": "SDR operando 24h em paralelo com o seu time",
+        "b2": "Propostas completas geradas em minutos",
+        "b3": "Conteúdo para redes sociais sem depender de agência",
+        "m1v": "15×",     "m1l": "mais capacidade",
+        "m2v": "24/7",    "m2l": "prospecção ativa",
+        "m3v": "1 plano", "m3l": "15 especialistas"
+      },
+      "comercial": {
+        "label": "Head Comercial",
+        "headline": "Duplique o output dos seus SDRs e garanta vendedores 100% preparados.",
+        "desc": "Análise de reuniões, preparação automática de vendedores e follow-up orquestrado. O seu time foca em fechar — o Agents faz tudo o resto.",
+        "b1": "Análise de transcrições com insights acionáveis",
+        "b2": "Preparação automática antes de cada call",
+        "b3": "Follow-up sem silêncio e sem leads perdidos",
+        "m1v": "2×",   "m1l": "output por SDR",
+        "m2v": "−60%", "m2l": "prep time por call",
+        "m3v": "0",    "m3l": "leads perdidos"
+      },
+      "marketing": {
+        "label": "Marketing / Agências",
+        "headline": "Substitua freelancers caros e entregue campanhas inteiras em minutos.",
+        "desc": "10 agentes especializados em conteúdo, trabalhando em paralelo: pesquisa, fact-check, redação, carrossel e scheduling — com o tom e a voz da sua marca.",
+        "b1": "10 agentes de conteúdo operando em paralelo",
+        "b2": "Posts, carrosséis e artigos em horas, não dias",
+        "b3": "Consistência de tom e voz em todas as peças",
+        "m1v": "10",  "m1l": "agentes em paralelo",
+        "m2v": "min", "m2l": "para criar conteúdo",
+        "m3v": "∞",   "m3l": "consistência de marca"
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Planos & Precificação",
+    "title": "Escolha o plano <accent>certo</accent> para crescer.",
+    "subtitle": "Faturamento em reais, sem oscilação cambial e sem letras miúdas.",
+    "notIncluded": "Não incluso",
+    "creditNote": "1 crédito = R$ 1,00, consumido proporcionalmente ao uso real da IA. Créditos adicionais disponíveis conforme necessidade. Sem taxas ocultas.",
+    "plans": {
+      "fast": {
+        "name": "Veloz",
+        "price": "R$ 195,80",
+        "period": "/mês",
+        "credits": "20 créditos de IA/mês inclusos",
+        "cta": "Começar com Veloz",
+        "f1": "Usuários no workspace: Ilimitado",
+        "f2": "Agentes pré-configurados: Todos (15+)",
+        "f3": "Multi-modelo: Padrão (Gemini)",
+        "f4": "Analytics, histórico e anexos",
+        "d1": "Squads pré-prontos",
+        "d2": "Criar agentes próprios",
+        "d3": "Criar squads próprios"
+      },
+      "best": {
+        "name": "Melhor",
+        "price": "R$ 375,80",
+        "period": "/mês",
+        "credits": "50 créditos de IA/mês inclusos",
+        "badge": "Mais Escolhido",
+        "cta": "Começar com Melhor",
+        "f1": "Usuários no workspace: Ilimitado",
+        "f2": "Agentes pré-configurados: Todos (15+)",
+        "f3": "Squads pré-prontos",
+        "f4": "Criar agentes próprios",
+        "f5": "Criar squads próprios",
+        "f6": "Multi-modelo: Acesso total (Gemini, Claude e GPT)",
+        "f7": "Analytics, histórico e anexos"
+      }
+    }
+  },
+  "mockup": {
+    "headerAgent": "Agents LinkedIn",
+    "userMessage": "Lucas, gere um post de autoridade sobre prospecção B2B.",
+    "aiMessage": "Analisando dores do mercado... Gerando o hook ideal para diretores comerciais.",
+    "squadLabel": "Squad em execução",
+    "squad": {
+      "facebook":  "Agents Facebook",
+      "instagram": "Agents Instagram",
+      "linkedin":  "Agents LinkedIn"
+    }
+  }
+}

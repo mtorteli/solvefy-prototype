@@ -28,7 +28,16 @@ const TRANSLATED_PATHS = new Set([
   "/contato",
   "/quem-somos",
   "/cpaas",
+  "/ads",
+  "/marketing",
+  "/crm",
+  "/agents",
+  "/cloud",
+  "/blog",
 ]);
+// As categorias do blog (/blog/categoria/*) também têm UI traduzida; posts
+// individuais (/blog/:slug) ainda têm conteúdo PT-only — fora da lista até
+// a tradução dos posts.
 
 const mock = readFileSync(resolve(root, "src/lib/mock-data.ts"), "utf8");
 
@@ -83,6 +92,9 @@ const blogCategoryPages = categorySlugs.map((slug) => ({
   changefreq: "weekly",
   lastmod: today,
 }));
+
+// As categorias do blog têm UI traduzida em EN/ES, então recebem alternates.
+blogCategoryPages.forEach((p) => TRANSLATED_PATHS.add(p.loc));
 
 const canonicalUrls = [...staticPages, ...blogPostPages, ...blogCategoryPages];
 

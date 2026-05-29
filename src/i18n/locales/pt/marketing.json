@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "title": "Marketing — Automação Multicanal",
+    "description": "Crie jornadas automatizadas, dispare campanhas e engaje clientes em todos os canais com a plataforma de marketing da Solvefy.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/Marketing"
+  },
+  "hero": {
+    "title": "Impulsione suas vendas com <accent>jornadas completas e personalizadas.</accent>",
+    "subtitle": "Tudo o que o seu marketing precisa em um só lugar. Com a Solvefy/Marketing, você cria jornadas de relacionamento automatizadas e transforma contatos em vendas. Use nossos templates de disparo rápido, acompanhe métricas em tempo real e integre tudo facilmente via API.",
+    "cta": "Em Breve",
+    "trust1": "Todos os Canais",
+    "trust2": "Construtor Visual de Jornadas",
+    "trust3": "EasyIA"
+  },
+  "painCards": {
+    "badge": "Por que Solvefy/Marketing",
+    "title": "O marketing que <accent>vende sozinho</accent> e mostra exatamente o que <accent>funciona</accent>.",
+    "items": {
+      "automation":  { "title": "Automação que poupa seu tempo.",          "desc": "Diga adeus aos envios manuais que não escalam. Crie réguas de relacionamento, fluxos de nutrição e jornadas complexas que rodam 24/7 de forma automática." },
+      "conversion":  { "title": "Taxas de conversão imbatíveis.",          "desc": "Chega de ser ignorado. Alcance seu público onde ele realmente está com integrações nativas de WhatsApp Oficial, SMS e RCS (mensagens ricas)." },
+      "centralized": { "title": "Todo o seu marketing em um só lugar.",    "desc": "Pare de gastar com dezenas de ferramentas soltas. Centralize sua base, acompanhe métricas em tempo real e tenha previsibilidade sobre o que realmente gera ROI." }
+    }
+  },
+  "integrations": {
+    "title": "Integrações via API"
+  },
+  "easyIa": {
+    "badge": "Inteligência Artificial Exclusiva",
+    "title": "Conheça a <accent>EasyIA</accent>",
+    "subtitle": "Precisa de ajuda para otimizar seu negócio? Nossa Inteligência Artificial nativa redige copys persuasivas, sugere testes A/B e segmenta sua base em segundos. Deixe a tecnologia trabalhar pela sua conversão enquanto você foca na estratégia.",
+    "pills": {
+      "copy":  "Copywriting Persuasivo",
+      "ab":    "Sugestão de Testes A/B",
+      "seg":   "Segmentação Personalizada"
+    },
+    "cta": "Em Breve"
+  },
+  "pricing": {
+    "badge": "Planos & Precificação",
+    "title": "Escolha o plano <accent>certo</accent> para crescer.",
+    "subtitle": "Faturamento em reais, sem oscilação cambial e sem letras miúdas.",
+    "monthly": "Mensal",
+    "annual": "Anual",
+    "annualSave": "Economize até 39% optando pelo plano anual",
+    "billedAnnually": "Cobrado anualmente",
+    "comingSoonDivider": "Em breve",
+    "comingSoon": "Em Breve",
+    "footerNote": "⚠️ <strong>Importante:</strong> A assinatura dos planos não inclui créditos de envio para os canais. Os disparos são cobrados conforme uso e podem ser adquiridos separadamente em créditos avulsos.",
+    "plans": {
+      "next": {
+        "name": "Próximo",
+        "desc": "Perfeito para começar e estruturar sua comunicação.",
+        "monthly": "R$ 77",
+        "annual":  "R$ 47",
+        "period": "/mês",
+        "f1": "Módulo de disparos simples",
+        "f2": "Upload de arquivos",
+        "f3": "Formulários",
+        "f4": "Histórico de disparos",
+        "f5": "Etiquetas",
+        "f6": "WhatsApp, e-mail, RCS, Voz e SMS",
+        "f7": "Acesso Próximo a API Disparo Pro"
+      },
+      "fast": {
+        "name": "Veloz",
+        "desc": "Ideal para quem quer escalar com organização e integração.",
+        "monthly": "R$ 577",
+        "annual":  "R$ 447",
+        "period": "/mês",
+        "badge": "Recomendado",
+        "f1": "Tudo do plano Próximo",
+        "f2": "Criação de Segmentos",
+        "f3": "Criação de Jornadas de Atendimento",
+        "f4": "Integração com Ecommerce",
+        "f5": "Módulo de produtos",
+        "f6": "Gestão de Clientes",
+        "f7": "Acesso Veloz a API Disparo Pro"
+      },
+      "best": {
+        "name": "Melhor",
+        "desc": "Para operações que exigem performance máxima e inteligência.",
+        "monthly": "R$ 1.987",
+        "annual":  "R$ 1.347",
+        "period": "/mês",
+        "f1": "Tudo do plano Veloz",
+        "f2": "Disparo AI",
+        "f3": "Gestão de Grupos",
+        "f4": "Acesso Melhor a API Disparo Pro",
+        "soon1": "IA Conversacional",
+        "soon2": "Agentes de atendimento IA"
+      }
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "priceTag": "Sob Medida",
+      "ideal": "No marketing digital atual, depender de processos manuais ou dados fragmentados significa perder dinheiro. Com o Solvefy Marketing, você orquestra toda a jornada do seu cliente através de uma plataforma robusta, intuitiva e feita para times de alta performance.",
+      "b1": "Campanhas Omnichannel",
+      "b2": "Automação Inteligente de Funil",
+      "b3": "Dashboards e Analytics Avançados",
+      "b4": "Integração Sem Atritos",
+      "cta": "Em Breve",
+      "footer": "Atraia, engaje e converta. Centralize sua estratégia digital em uma única plataforma de automação com foco em resultados reais.",
+      "customPlanLabel": "Plano Customizado"
+    }
+  },
+  "mockup": {
+    "header": "Jornada: Black Friday",
+    "subheader": "3 automações ativas",
+    "totalLabel": "Conversões esta semana",
+    "totalValue": "189",
+    "totalDelta": "+27%",
+    "funnelLabel": "Funil da jornada",
+    "funnel": {
+      "input":     { "label": "Entrada" },
+      "sent":      { "label": "Email enviado", "pct": "89,9%" },
+      "opened":    { "label": "Abriu",         "pct": "40,0%" },
+      "clicked":   { "label": "Clicou",        "pct": "39,9%" },
+      "converted": { "label": "Converteu",     "pct": "30,8%" }
+    },
+    "kpi": {
+      "open":    { "label": "Taxa de abertura", "value": "40,0%",  "delta": "+5,3pp" },
+      "revenue": { "label": "Receita gerada",   "value": "R$ 47k", "delta": "+18,9%" }
+    }
+  }
+}

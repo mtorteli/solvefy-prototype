@@ -1,19 +1,19 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { 
-  ResponsiveContainer, 
-  Tooltip, 
-  AreaChart, 
-  Area 
+import {
+  ResponsiveContainer,
+  Tooltip,
+  AreaChart,
+  Area,
 } from "recharts";
-import { 
-  Search, 
-  Bell, 
-  Home, 
-  BarChart2, 
-  Users, 
-  Settings 
+import {
+  Search,
+  Bell,
+  Home,
+  BarChart2,
+  Users,
+  Settings,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const data = [
   { value: 80 }, { value: 95 }, { value: 110 }, { value: 125 }, { value: 130 },
@@ -21,22 +21,31 @@ const data = [
   { value: 190 }, { value: 205 }, { value: 198 }, { value: 215 }, { value: 230 },
   { value: 242 }, { value: 255 }, { value: 270 }, { value: 265 }, { value: 285 },
   { value: 300 }, { value: 318 }, { value: 335 }, { value: 350 }, { value: 362 },
-  { value: 380 }, { value: 395 }, { value: 415 }, { value: 440 }, { value: 470 }
+  { value: 380 }, { value: 395 }, { value: 415 }, { value: 440 }, { value: 470 },
 ];
 
+const KPI_KEYS = ["spent", "cpl", "conv", "roas"] as const;
+// "spent" sobe (vermelho); demais descem ou sobem positivo (verde)
+const KPI_DELTA_COLORS: Record<(typeof KPI_KEYS)[number], string> = {
+  spent: "#A32D2D",
+  cpl:   "#0F6E56",
+  conv:  "#0F6E56",
+  roas:  "#0F6E56",
+};
+
 export const AdsHeroMockup = () => {
+  const { t } = useTranslation("ads");
+
   return (
     <div className="flex justify-center">
-      {/* Phone Shell */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-[280px] bg-[#f6f5ef] border border-black/5 rounded-[36px] p-2.5 relative shadow-2xl"
       >
-        {/* Screen */}
         <div className="w-[260px] h-[562px] bg-white rounded-[30px] overflow-hidden border-[0.5px] border-black/5 flex flex-col">
-          
+
           {/* Status Bar */}
           <div className="px-[18px] pt-2.5 pb-0 flex justify-center">
             <span className="text-[12px] font-medium text-[#1e1e1e]">9:41</span>
@@ -46,8 +55,8 @@ export const AdsHeroMockup = () => {
           <div className="px-[18px] pt-3">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[12px] font-semibold text-[#1e1e1e] leading-none">Painel de tráfego</p>
-                <p className="text-[11px] text-[#1e1e1e]/60 mt-0.5">Últimos 30 dias</p>
+                <p className="text-[12px] font-semibold text-[#1e1e1e] leading-none">{t("mockup.header")}</p>
+                <p className="text-[11px] text-[#1e1e1e]/60 mt-0.5">{t("mockup.period")}</p>
               </div>
               <div className="flex gap-1.5">
                 <div className="w-[26px] h-[26px] rounded-full bg-[#f6f5ef] flex items-center justify-center text-[#1e1e1e]/60">
@@ -62,10 +71,10 @@ export const AdsHeroMockup = () => {
 
           {/* Leads Summary */}
           <div className="px-[18px] pt-4 pb-2">
-            <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">Total de leads captados</p>
+            <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">{t("mockup.totalLabel")}</p>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-[22px] font-bold text-[#1e1e1e]">4.827</span>
-              <span className="text-[11px] px-[7px] py-0.5 rounded-full bg-[#E1F5EE] text-[#085041] font-medium">+23,4%</span>
+              <span className="text-[22px] font-bold text-[#1e1e1e]">{t("mockup.totalValue")}</span>
+              <span className="text-[11px] px-[7px] py-0.5 rounded-full bg-[#E1F5EE] text-[#085041] font-medium">{t("mockup.totalDelta")}</span>
             </div>
           </div>
 
@@ -79,22 +88,22 @@ export const AdsHeroMockup = () => {
                     <stop offset="100%" stopColor="#D85A30" stopOpacity={0.01}/>
                   </linearGradient>
                 </defs>
-                <Tooltip 
-                  contentStyle={{ 
-                    borderRadius: '8px', 
-                    border: 'none', 
+                <Tooltip
+                  contentStyle={{
+                    borderRadius: '8px',
+                    border: 'none',
                     boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                    fontSize: '12px'
-                  }} 
-                  labelFormatter={(v) => `Dia ${v + 1}`}
+                    fontSize: '12px',
+                  }}
+                  labelFormatter={(v) => t("mockup.tooltipDay", { n: (v as number) + 1 })}
                 />
-                <Area 
-                  type="monotone" 
-                  dataKey="value" 
-                  stroke="#D85A30" 
+                <Area
+                  type="monotone"
+                  dataKey="value"
+                  stroke="#D85A30"
                   strokeWidth={2.5}
-                  fillOpacity={1} 
-                  fill="url(#leadsC3Gradient)" 
+                  fillOpacity={1}
+                  fill="url(#leadsC3Gradient)"
                   animationDuration={1500}
                 />
               </AreaChart>
@@ -103,39 +112,29 @@ export const AdsHeroMockup = () => {
 
           {/* Timeline Labels */}
           <div className="px-[18px] pt-1 flex justify-between">
-            <span className="text-[11px] text-[#1e1e1e]/40">Sem 1</span>
-            <span className="text-[11px] text-[#1e1e1e]/40">Sem 2</span>
-            <span className="text-[11px] text-[#1e1e1e]/40">Sem 3</span>
-            <span className="text-[11px] text-[#1e1e1e]/40">Sem 4</span>
+            {[1, 2, 3, 4].map((n) => (
+              <span key={n} className="text-[11px] text-[#1e1e1e]/40">
+                {t("mockup.week", { n })}
+              </span>
+            ))}
           </div>
 
           {/* KPI Grid */}
           <div className="px-[18px] pt-4 pb-0">
             <div className="grid grid-cols-2 gap-2">
-              <div className="bg-[#f6f5ef] rounded-2xl p-2.5">
-                <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">Investido</p>
-                <p className="text-[15px] font-bold text-[#1e1e1e]">R$ 12.480</p>
-                <p className="text-[11px] text-[#A32D2D] mt-0.5">+8,2%</p>
-              </div>
-              <div className="bg-[#f6f5ef] rounded-2xl p-2.5">
-                <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">Custo por lead</p>
-                <p className="text-[15px] font-bold text-[#1e1e1e]">R$ 2,58</p>
-                <p className="text-[11px] text-[#0F6E56] mt-0.5">-15,3%</p>
-              </div>
-              <div className="bg-[#f6f5ef] rounded-2xl p-2.5">
-                <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">Conversão</p>
-                <p className="text-[15px] font-bold text-[#1e1e1e]">3,7%</p>
-                <p className="text-[11px] text-[#0F6E56] mt-0.5">+0,8pp</p>
-              </div>
-              <div className="bg-[#f6f5ef] rounded-2xl p-2.5">
-                <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">ROAS</p>
-                <p className="text-[15px] font-bold text-[#1e1e1e]">4,2x</p>
-                <p className="text-[11px] text-[#0F6E56] mt-0.5">+0,6x</p>
-              </div>
+              {KPI_KEYS.map((key) => (
+                <div key={key} className="bg-[#f6f5ef] rounded-2xl p-2.5">
+                  <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">{t(`mockup.kpi.${key}.label`)}</p>
+                  <p className="text-[15px] font-bold text-[#1e1e1e]">{t(`mockup.kpi.${key}.value`)}</p>
+                  <p className="text-[11px] mt-0.5" style={{ color: KPI_DELTA_COLORS[key] }}>
+                    {t(`mockup.kpi.${key}.delta`)}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Spacer to push tab bar down */}
+          {/* Spacer */}
           <div className="flex-1" />
 
           {/* Tab Bar */}

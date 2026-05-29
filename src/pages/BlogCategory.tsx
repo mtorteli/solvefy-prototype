@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { MOCK_POSTS, MOCK_CATEGORIES } from "@/lib/mock-data";
 import { Header } from "@/components/Header";
@@ -9,8 +10,11 @@ import { SEO } from "@/components/SEO";
 import { breadcrumbSchema } from "@/lib/schemas";
 import { ArrowLeft, Search } from "lucide-react";
 import { BlogCard } from "@/components/BlogCard";
+import { useLocale } from "@/i18n/useLocale";
 
 export default function BlogCategory() {
+  const { t } = useTranslation("blog");
+  const { locale, localizedPath } = useLocale();
   const { category } = useParams();
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
@@ -42,7 +46,7 @@ export default function BlogCategory() {
           .select("*")
           .eq("slug", category)
           .single();
-        
+
         if (error) throw error;
         return data;
       } catch (e) {
@@ -55,8 +59,8 @@ export default function BlogCategory() {
     queryKey: ["posts-by-category", category, page, search],
     queryFn: async () => {
       if (!isSupabaseConfigured) {
-        const filtered = MOCK_POSTS.filter(p => 
-          p.post_categories.slug === category && 
+        const filtered = MOCK_POSTS.filter(p =>
+          p.post_categories.slug === category &&
           (search ? p.title.toLowerCase().includes(search.toLowerCase()) : true)
         );
         return { posts: filtered, count: filtered.length };
@@ -69,11 +73,11 @@ export default function BlogCategory() {
           .from("post_categories")
           .select("post_id")
           .eq("category_id", categoryData.id);
-          
+
         if (catError) throw catError;
-        
+
         const postIds = postCats.map(pc => pc.post_id);
-        
+
         if (postIds.length === 0) return { posts: [], count: 0 };
 
         let query = supabase
@@ -89,7 +93,7 @@ export default function BlogCategory() {
         const { data, error, count } = await query
           .order("created_at", { ascending: false })
           .range(page * pageSize, (page + 1) * pageSize - 1);
-        
+
         if (error) throw error;
         return { posts: data, count };
       } catch (e) {
@@ -103,9 +107,9 @@ export default function BlogCategory() {
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const slug = e.target.value;
     if (slug) {
-      navigate(`/blog/categoria/${slug}`);
+      navigate(localizedPath(`/blog/categoria/${slug}`));
     } else {
-      navigate('/blog');
+      navigate(localizedPath("/blog"));
     }
   };
 
@@ -125,10 +129,13 @@ export default function BlogCategory() {
       <div className="min-h-screen flex flex-col bg-background">
         <Header />
         <div className="flex-1 flex flex-col items-center justify-center py-24 text-center px-4">
-          <h1 className="text-4xl mb-4">Categoria não encontrada</h1>
-          <p className="section-subtitle mb-8">A categoria que você está procurando não existe ou foi removida.</p>
-          <button onClick={() => navigate('/blog')} className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">
-            Voltar para o Blog
+          <h1 className="text-4xl mb-4">{t("category.notFound")}</h1>
+          <p className="section-subtitle mb-8">{t("category.notFoundDesc")}</p>
+          <button
+            onClick={() => navigate(localizedPath("/blog"))}
+            className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+          >
+            {t("common.backToBlog")}
           </button>
         </div>
         <Footer />
@@ -136,49 +143,57 @@ export default function BlogCategory() {
     );
   }
 
+  const categoryName = categoryData?.name ?? t("category.fallbackName");
+  const metaTitle = categoryData?.name
+    ? `${categoryData.name}${t("category.metaTitleSuffix")}`
+    : t("category.metaTitleFallback");
+  const metaDescription = categoryData?.name
+    ? t("category.metaDescription", { name: categoryData.name })
+    : t("category.metaDescriptionFallback");
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEO
-        title={categoryData?.name ? `${categoryData.name} — Blog` : "Categoria — Blog"}
-        description={`Artigos sobre ${categoryData?.name ?? "este tema"} no blog da Solvefy. Conteúdo especializado em comunicação B2B e marketing digital.`}
+        title={metaTitle}
+        description={metaDescription}
         canonical={`/blog/categoria/${category}`}
         ogImage="/og/og-blog.jpg"
         schemas={[
-          breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Blog", path: "/blog" },
-            {
-              name: categoryData?.name ?? "Categoria",
-              path: `/blog/categoria/${category}`,
-            },
-          ]),
+          breadcrumbSchema(
+            [
+              { name: t("meta.breadcrumbHome"), path: "/" },
+              { name: t("meta.breadcrumbBlog"), path: "/blog" },
+              { name: categoryName, path: `/blog/categoria/${category}` },
+            ],
+            locale,
+          ),
         ]}
       />
       <Header />
       <main id="main" className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-12 mt-8">
         <div className="mb-8">
-          <Link to="/blog" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-6">
+          <Link to={localizedPath("/blog")} className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-6">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Voltar para todos os posts
+            {t("category.backLabel")}
           </Link>
         </div>
 
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <h1 className="text-4xl md:text-5xl tracking-tight mb-4">
-              Categoria: <span className="text-primary">{categoryData.name}</span>
+              {t("category.heading")}: <span className="text-primary">{categoryData.name}</span>
             </h1>
             {categoryData.description && (
               <p className="section-subtitle max-w-2xl">{categoryData.description}</p>
             )}
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
             <div className="relative w-full sm:w-64">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <input 
-                type="text" 
-                placeholder="Pesquisar nesta categoria..." 
+              <input
+                type="text"
+                placeholder={t("category.searchPlaceholder")}
                 className="w-full pl-9 pr-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary outline-none transition-all"
                 value={search}
                 onChange={(e) => {
@@ -188,12 +203,12 @@ export default function BlogCategory() {
               />
             </div>
             <div className="relative w-full sm:w-48">
-              <select 
+              <select
                 className="w-full pl-4 pr-10 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary outline-none transition-all cursor-pointer appearance-none"
                 onChange={handleCategoryChange}
                 value={category || ""}
               >
-                <option value="">Todas as Categorias</option>
+                <option value="">{t("category.allCategories")}</option>
                 {categories?.map(c => (
                   <option key={c.id} value={c.slug}>{c.name}</option>
                 ))}
@@ -213,7 +228,7 @@ export default function BlogCategory() {
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {postsData?.posts?.length === 0 ? (
-                <p className="text-muted-foreground col-span-3 text-center py-12">Nenhum post encontrado nesta categoria.</p>
+                <p className="text-muted-foreground col-span-3 text-center py-12">{t("category.noPosts")}</p>
               ) : (
                 postsData?.posts?.map((p, i) => (
                   <BlogCard key={p.id} post={p} index={i} />

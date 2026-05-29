@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "Cloud — Infraestructura en la Nube para Empresas",
+    "description": "Hospeda tus aplicaciones con performance y seguridad en la infraestructura cloud de Solvefy. Escalabilidad bajo demanda para empresas B2B.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/Cloud"
+  },
+  "hero": {
+    "title": "La plataforma para que <accent>crees y vendas tu propia Cloud.</accent>",
+    "subtitle": "Transforma la infraestructura ociosa de tu Proveedor de Internet (ISP) o Data Center en un negocio rentable. Automatiza el 100% de la venta, el aprovisionamiento y la facturación de servicios de cloud con tu propia marca, sin depender de terceros.",
+    "cta": "Solicita una Demo",
+    "ctaSecondary": "Simular Retorno (ROI)",
+    "trust1": "Plataforma Whitelabel On-Premises",
+    "trust2": "Proxmox Reseller/Partner Oficial",
+    "trust3": "De principio a fin"
+  },
+  "roiModal": {
+    "closeAria": "Cerrar calculadora",
+    "iframeTitle": "Calculadora de ROI Solvefy Cloud"
+  },
+  "block1": {
+    "badge": "Pionero en Brasil",
+    "title": "Pon la infraestructura, <accent>nosotros entregamos la automatización comercial.</accent>",
+    "subtitle": "Basta de ventas por e-mail y facturación manual. Nuestra plataforma White Label automatiza de punta a punta, entregando una experiencia self-service enterprise para tu cliente final.",
+    "cards": {
+      "whitelabel": { "title": "100% White Label.",                       "desc": "Operación con tu logo, colores y dominio propios." },
+      "billing":    { "title": "Facturación Automática.",                  "desc": "Integración nativa con gateways de pago recurrentes." },
+      "portal":     { "title": "Panel y Portal.",                           "desc": "Un panel administrativo para gestionar recursos y un portal self-service para tu cliente." },
+      "sdn":        { "title": "Gestión Avanzada de Recursos y Red (SDN)", "desc": "Automatización completa de IPs Flotantes y vinculación dinámica entre VMs. Control total de redes privadas vía SDN para entornos multi-tenant." },
+      "security":   { "title": "Seguridad y Resiliencia Nativas",          "desc": "Firewall Proxmox gestionable directamente por el cliente. Soporte 2FA y gestión de snapshots en tiempo real." },
+      "performance":{ "title": "Performance Garantizado",                  "desc": "Actualizaciones mensuales de software incluidas en todos los planes, manteniendo tu plataforma siempre en la última versión estable de Proxmox VE (V8 y V9)." }
+    }
+  },
+  "block2": {
+    "badge": "Infraestructura On-Premises & Proxmox",
+    "title": "Arquitectura Proxmox de <accent>alta disponibilidad</accent> para operaciones críticas.",
+    "subtitle": "No arriesgues la estabilidad de tu negocio. Como Resellers y Partners Oficiales de Proxmox, diseñamos, implementamos y sostenemos clusters hiperconvergentes que garantizan la continuidad de tu operación con hasta 99,999% de uptime.",
+    "items": {
+      "sizing":     { "title": "Dimensionamiento Quirúrgico",                                 "desc": "Consultoría completa en la elección del hardware ideal para evitar degradación silenciosa de performance." },
+      "cluster":    { "title": "Cluster HA & Ceph (Almacenamiento Distribuido)",              "desc": "Elimina puntos únicos de fallo con self-healing automático y cero dependencia de controladoras RAID." },
+      "backup":     { "title": "Backup y Disaster Recovery (PBS)",                            "desc": "Proxmox Backup Server con deduplicación incremental y protección nativa contra pérdida de datos." },
+      "topology":   { "title": "Topología de Red de Alta Performance",                        "desc": "Diseñamos separación de tráfico crítico con redes de 25 Gbps+ para el cluster Ceph y 10 Gbps+ para tráfico público, eliminando cuellos de botella de I/O." },
+      "storage":    { "title": "Arquitectura de Storage Inteligente",                          "desc": "Algoritmos CRUSH para distribución uniforme de datos, evitando dominios de fallo por host o rack. Pools diferenciados por clase de disco (NVMe para performance y HDD para backup)." },
+      "continuity": { "title": "Continuidad de Negocio (PBS Offsite)",                        "desc": "Configuración de Remote Sync entre instancias de Proxmox Backup Server para replicación offsite, manteniendo tus datos seguros incluso en desastres geográficos." }
+    }
+  },
+  "block3": {
+    "badge": "Consultoría Cloud Native & Bases de Datos",
+    "title": "DevOps y DBA bajo demanda: <accent>Escala sin inflar tu nómina.</accent>",
+    "subtitle": "Tu infraestructura no puede ser el límite de tu crecimiento. Tener un equipo senior interno cuesta caro. Entregamos especialistas de élite bajo demanda para optimizar, orquestar (K8s/Docker) y blindar tus Bases de Datos críticas.",
+    "items": {
+      "k8s":     { "title": "Docker & Kubernetes (K8s)",                       "desc": "Migración, contenedorización de aplicaciones legacy, autoscaling dinámico e integración con pipelines CI/CD (GitOps)." },
+      "rdbms":   { "title": "Tuning de Base de Datos Relacional",              "desc": "Optimización profunda, alta disponibilidad y replicación para PostgreSQL y MariaDB (Galera Cluster)." },
+      "mongo":   { "title": "MongoDB (NoSQL)",                                  "desc": "Modelado orientado a performance, Sharding para escalado horizontal y Replica Sets para failover automático." },
+      "observ":  { "title": "Observabilidad y Respuesta a Incidentes",          "desc": "Runbooks operativos y stack de monitoreo completo (Prometheus + Grafana) con alertas proactivas de consumo y fallo." },
+      "patroni": { "title": "Alta Disponibilidad de Datos (Patroni & Galera)",  "desc": "Failover automático para PostgreSQL vía Patroni y replicación síncrona multi-master para MariaDB vía Galera Cluster, garantizando cero pérdida de datos." },
+      "k8sSec":  { "title": "Seguridad en Capas (K8s)",                         "desc": "Políticas RBAC, Network Policies para aislamiento de pods y gestión de secretos vía Vault o Kubernetes Secrets." }
+    }
+  },
+  "block4": {
+    "badge": "Evolución y Proyectos",
+    "title": "Listo para el futuro: <accent>Roadmap 2026 y Onboarding de Élite.</accent>",
+    "subtitle": "No entregamos solo software; entregamos una jornada de crecimiento. Nuestra plataforma nace lista para las demandas de mañana.",
+    "items": {
+      "roadmap":    { "label": "Roadmap de Expansión 2026",   "desc": "Integración prevista con VMware y Hyper-V, además de gestión de servidores Bare Metal y Buckets S3 nativos. Gestión de bases de datos gestionadas directamente desde el Portal del Cliente." },
+      "onboarding": { "label": "Onboarding Estructurado",       "desc": "Proceso estructurado en 5 etapas: Diagnóstico, Arquitectura Técnica, Implantación Dedicada, Pruebas de Validación y Entrenamiento de Equipo." },
+      "knowledge":  { "label": "Transferencia de Conocimiento", "desc": "Todos nuestros proyectos incluyen documentación técnica completa de Benchmark, sugerencia de precios para tu mercado y entrenamiento operativo para hasta 2 personas." }
+    }
+  },
+  "pricing": {
+    "badge": "Planes & Precios",
+    "title": "Planes <accent>escalables</accent> para tu operación.",
+    "plans": {
+      "next": {
+        "name": "Próximo",
+        "price": "R$ 990",
+        "period": "/mes",
+        "cta": "Quiero el Próximo",
+        "f1": "VMs y vCPUs ilimitadas",
+        "f2": "Backups y Snapshots ilimitados",
+        "f3": "Pago Pre o Post-pago",
+        "f4": "Hasta 03 Servidores y hasta 01 Cluster",
+        "f5": "Soporte vía ticket/e-mail en horario comercial",
+        "f6": "Actualizaciones de Software garantizadas"
+      },
+      "fast": {
+        "name": "Veloz",
+        "price": "R$ 1.590",
+        "period": "/mes",
+        "badge": "Más Popular",
+        "cta": "Quiero el Veloz",
+        "f1": "VMs y vCPUs ilimitadas",
+        "f2": "Backups y Snapshots ilimitados",
+        "f3": "Pago Pre o Post-pago",
+        "f4": "Hasta 06 Servidores y hasta 02 Clusters",
+        "f5": "Soporte vía ticket/e-mail en horario comercial",
+        "f6": "Actualizaciones de Software garantizadas",
+        "f7": "Acceso a ADD-ON"
+      },
+      "best": {
+        "name": "Mejor",
+        "price": "R$ 2.390",
+        "period": "/mes",
+        "cta": "Quiero el Mejor",
+        "f1": "VMs y vCPUs ilimitadas",
+        "f2": "Backups y Snapshots ilimitados",
+        "f3": "Pago Pre o Post-pago",
+        "f4": "Hasta 9 Servidores y hasta 03 Clusters",
+        "f5": "Soporte vía ticket/e-mail en horario comercial",
+        "f6": "Actualizaciones de Software garantizadas",
+        "f7": "Acceso a ADD-ON"
+      }
+    },
+    "enterprise": {
+      "customPlanLabel": "Plan Personalizado",
+      "name": "Enterprise",
+      "desc": "Para Proveedores y Data Centers con escala personalizada, servidores y clusters a medida, soporte dedicado y onboarding ajustado a tu escenario.",
+      "b1": "Servidores y clusters personalizados",
+      "b2": "Soporte chat, ticket, e-mail y teléfono",
+      "b3": "Acceso a add-ons + roadmap colaborativo",
+      "b4": "Onboarding y licenciamiento a medida",
+      "accordionTitle": "Infraestructura Ilimitada",
+      "accordionBody": "Todos los planes (+Cerca, +Rápido y Mejor) permiten la creación de VMs y VCPUs de forma ilimitada, sin cobro extra por recurso aprovisionado. La diferenciación ocurre solo por el número de servidores físicos (nodes) y clusters gestionados.",
+      "note": "Costos de Onboarding y Setup de la plataforma cobrados aparte (consulta condiciones). Consultoría técnica adicional disponible desde <strong>R$ 250,00/h</strong>.",
+      "priceTag": "Personalizado",
+      "cta": "Habla con un Especialista"
+    }
+  },
+  "mockup": {
+    "header": "Monitor de infra",
+    "subheader": "En vivo · 4 VMs",
+    "uptimeLabel": "Uptime SLA",
+    "uptimeValue": "99,99%",
+    "uptimeBadge": "Nominal",
+    "chartLabel": "CPU % — Últimas 24h",
+    "tooltipCpu": "CPU",
+    "kpi": {
+      "cpu":  { "label": "CPU media", "value": "12%",       "delta": "Normal" },
+      "ram":  { "label": "RAM usada", "value": "4,8/16GB",  "delta": "30% uso" }
+    },
+    "vmsLabel": "Máquinas virtuales",
+    "paused": "Pausada"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "title": "Marketing — Multichannel Automation",
+    "description": "Build automated journeys, launch campaigns and engage customers across every channel with Solvefy's marketing platform.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/Marketing"
+  },
+  "hero": {
+    "title": "Boost your sales with <accent>complete, personalized journeys.</accent>",
+    "subtitle": "Everything your marketing needs in one place. With Solvefy/Marketing, you build automated relationship journeys and turn contacts into sales. Use our quick-send templates, track metrics in real time and integrate everything easily via API.",
+    "cta": "Coming Soon",
+    "trust1": "All Channels",
+    "trust2": "Visual Journey Builder",
+    "trust3": "EasyAI"
+  },
+  "painCards": {
+    "badge": "Why Solvefy/Marketing",
+    "title": "Marketing that <accent>sells on its own</accent> and shows exactly what <accent>works</accent>.",
+    "items": {
+      "automation":  { "title": "Automation that saves your time.",         "desc": "Say goodbye to manual sends that don't scale. Build relationship cadences, nurture flows and complex journeys that run 24/7 automatically." },
+      "conversion":  { "title": "Unbeatable conversion rates.",             "desc": "Stop being ignored. Reach your audience where they really are with native integrations for Official WhatsApp, SMS and RCS (rich messaging)." },
+      "centralized": { "title": "All your marketing in one place.",          "desc": "Stop paying for dozens of disconnected tools. Centralize your base, track metrics in real time and gain predictability over what truly drives ROI." }
+    }
+  },
+  "integrations": {
+    "title": "API integrations"
+  },
+  "easyIa": {
+    "badge": "Exclusive Artificial Intelligence",
+    "title": "Meet <accent>EasyAI</accent>",
+    "subtitle": "Need help optimizing your business? Our native AI writes persuasive copy, suggests A/B tests and segments your base in seconds. Let technology work for your conversion while you focus on strategy.",
+    "pills": {
+      "copy":  "Persuasive Copywriting",
+      "ab":    "A/B Test Suggestions",
+      "seg":   "Personalized Segmentation"
+    },
+    "cta": "Coming Soon"
+  },
+  "pricing": {
+    "badge": "Plans & Pricing",
+    "title": "Choose the <accent>right</accent> plan to grow.",
+    "subtitle": "Billed in BRL, no FX swings and no fine print.",
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "annualSave": "Save up to 39% by going annual",
+    "billedAnnually": "Billed annually",
+    "comingSoonDivider": "Coming soon",
+    "comingSoon": "Coming Soon",
+    "footerNote": "⚠️ <strong>Important:</strong> Plan subscriptions don't include channel send credits. Broadcasts are billed by usage and can be purchased separately as standalone credits.",
+    "plans": {
+      "next": {
+        "name": "Next",
+        "desc": "Perfect to start and structure your communication.",
+        "monthly": "$77",
+        "annual":  "$47",
+        "period": "/month",
+        "f1": "Simple broadcast module",
+        "f2": "File uploads",
+        "f3": "Forms",
+        "f4": "Broadcast history",
+        "f5": "Tags",
+        "f6": "WhatsApp, email, RCS, Voice and SMS",
+        "f7": "Next-tier access to the Disparo Pro API"
+      },
+      "fast": {
+        "name": "Fast",
+        "desc": "Ideal for those who want to scale with organization and integration.",
+        "monthly": "$577",
+        "annual":  "$447",
+        "period": "/month",
+        "badge": "Recommended",
+        "f1": "Everything in Next",
+        "f2": "Segment builder",
+        "f3": "Service journey builder",
+        "f4": "E-commerce integration",
+        "f5": "Product module",
+        "f6": "Customer management",
+        "f7": "Fast-tier access to the Disparo Pro API"
+      },
+      "best": {
+        "name": "Best",
+        "desc": "For operations that demand maximum performance and intelligence.",
+        "monthly": "$1,987",
+        "annual":  "$1,347",
+        "period": "/month",
+        "f1": "Everything in Fast",
+        "f2": "AI Broadcast",
+        "f3": "Group management",
+        "f4": "Best-tier access to the Disparo Pro API",
+        "soon1": "Conversational AI",
+        "soon2": "AI service agents"
+      }
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "priceTag": "Tailored",
+      "ideal": "In today's digital marketing, depending on manual processes or fragmented data means losing money. With Solvefy Marketing, you orchestrate the whole customer journey through a robust, intuitive platform built for high-performance teams.",
+      "b1": "Omnichannel campaigns",
+      "b2": "Smart funnel automation",
+      "b3": "Advanced dashboards and analytics",
+      "b4": "Frictionless integration",
+      "cta": "Coming Soon",
+      "footer": "Attract, engage and convert. Centralize your digital strategy in a single automation platform focused on real results.",
+      "customPlanLabel": "Custom Plan"
+    }
+  },
+  "mockup": {
+    "header": "Journey: Black Friday",
+    "subheader": "3 active automations",
+    "totalLabel": "Conversions this week",
+    "totalValue": "189",
+    "totalDelta": "+27%",
+    "funnelLabel": "Journey funnel",
+    "funnel": {
+      "input":     { "label": "Entered" },
+      "sent":      { "label": "Email sent",   "pct": "89.9%" },
+      "opened":    { "label": "Opened",       "pct": "40.0%" },
+      "clicked":   { "label": "Clicked",      "pct": "39.9%" },
+      "converted": { "label": "Converted",    "pct": "30.8%" }
+    },
+    "kpi": {
+      "open":    { "label": "Open rate",       "value": "40.0%", "delta": "+5.3pp" },
+      "revenue": { "label": "Revenue generated", "value": "$47K", "delta": "+18.9%" }
+    }
+  }
+}

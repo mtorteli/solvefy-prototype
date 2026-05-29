@@ -1,11 +1,5 @@
 import {
   ArrowRight,
-  Target,
-  Settings2,
-  Wallet,
-  Layers,
-  Users,
-  ImageIcon,
   ShoppingBag,
   Dice5,
   Building2,
@@ -14,7 +8,8 @@ import {
   Check,
   X,
 } from "lucide-react";
-import { useState, useEffect, type FormEvent } from "react";
+import { useState, useEffect } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { AdsStepsFlow } from "@/components/AdsStepsFlow";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
@@ -27,109 +22,30 @@ import iconAds from "@/assets/icons/ads.svg";
 import logoAds from "@/assets/logos/solvefy-ads.png";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
-import { Heading, SectionSubtitle } from "@/components/ui/Typography";
+import { Heading } from "@/components/ui/Typography";
 import { AdsHeroMockup } from "@/components/AdsHeroMockup";
+import { useLocale } from "@/i18n/useLocale";
 
 const ACCENT = "hsl(var(--ads))";
 
-const steps = [
-  {
-    icon: Target,
-    title: "Objetivo",
-    desc: "Defina a meta e nossa IA sugere os criativos certos.",
-  },
-  {
-    icon: Settings2,
-    title: "Setup",
-    desc: "Nome da campanha, período e segmento.",
-  },
-  {
-    icon: Wallet,
-    title: "Orçamento",
-    desc: "Diário ou total, sem surpresas no fechamento.",
-  },
-  {
-    icon: Layers,
-    title: "Posicionamentos",
-    desc: "Distribua sua verba em inventário premium e qualificado.",
-  },
-  {
-    icon: Users,
-    title: "Público",
-    desc: "Segmente por tags e base própria (1st party).",
-  },
-  {
-    icon: ImageIcon,
-    title: "Criativos",
-    desc: "Texto, mídia e CTAs gerados com apoio de IA.",
-  },
-];
+const BEFORE_KEYS = ["p1", "p2", "p3"] as const;
+const AFTER_KEYS  = ["p1", "p2", "p3"] as const;
+const COMPARISON_KEYS = ["traditional", "solvefy"] as const;
+const USE_CASE_KEYS = [
+  { key: "ecommerce", Icon: ShoppingBag },
+  { key: "igaming",   Icon: Dice5 },
+  { key: "agencies",  Icon: Building2 },
+  { key: "saas",      Icon: Cpu },
+] as const;
 
-const useCases = [
-  {
-    icon: ShoppingBag,
-    title: "E-commerce & Varejo",
-    desc: "Campanhas de aquisição e remarketing com CPA controlado, sem leilões inflacionados.",
-  },
-  {
-    icon: Dice5,
-    title: "iGaming & Apostas",
-    desc: "Aquisição de jogadores em escala, sem o risco de bloqueios injustos.",
-  },
-  {
-    icon: Building2,
-    title: "Agências de Marketing",
-    desc: "Diversifique o mix de mídia dos seus clientes e blinde a operação contra dependências.",
-  },
-  {
-    icon: Cpu,
-    title: "SaaS e Tech",
-    desc: "Geração de demanda B2B com tráfego qualificado e atribuição transparente.",
-  },
-];
-
-const comparison = [
-  {
-    name: "Plataformas Tradicionais",
-    cpa: "Leilões inflacionados",
-    autonomy: "Dependência de ecossistemas fechados",
-    stability: "Risco constante de bloqueios",
-    highlight: false,
-  },
-  {
-    name: "Solvefy/Ads",
-    cpa: "Até 20% menor",
-    autonomy: "Controle total, sem vínculo",
-    stability: "Tráfego contínuo",
-    highlight: true,
-  },
-];
-
-const pricing = [
-  {
-    title: "Mais performance",
-    desc: "Para operações que precisam de cada real otimizado. CPA até 20% menor e atribuição transparente em cada conversão.",
-    bullets: [
-      "CPA até 20% menor",
-      "Otimização contínua por IA",
-      "Atribuição em tempo real",
-    ],
-    cta: "Quero performance",
-  },
-  {
-    title: "Alcance mais rápido",
-    desc: "Para quem precisa escalar volume de impressões qualificadas rapidamente, sem competir por scroll de feed saturado.",
-    bullets: [
-      "Inventário premium",
-      "Escala em dias, não meses",
-      "Previsibilidade total",
-    ],
-    cta: "Quero alcance",
-    highlight: true,
-  },
-];
+const PRICING_KEYS = [
+  { key: "performance", bullets: ["b1", "b2", "b3"] as const, highlight: false },
+  { key: "reach",       bullets: ["b1", "b2", "b3"] as const, highlight: true },
+] as const;
 
 const Ads = () => {
+  const { t } = useTranslation("ads");
+  const { locale } = useLocale();
   const [modalOpen, setModalOpen] = useState(false);
 
   // Pré-carrega o script da RD Station assim que a página monta,
@@ -143,71 +59,39 @@ const Ads = () => {
     document.body.appendChild(script);
   }, []);
 
-  const [form, setForm] = useState({
-    nome: "",
-    cnpj: "",
-    email: "",
-    telefone: "",
-    segmento: "",
-    investimento: "",
-  });
-  const [result, setResult] = useState<null | {
-    investido: number;
-    economia: number;
-    novoCusto: number;
-  }>(null);
-
-  const handleChange =
-    (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      setForm((f) => ({ ...f, [field]: e.target.value }));
-    };
-
-  const handleCalc = (e: FormEvent) => {
-    e.preventDefault();
-    const investido = Number(
-      form.investimento.replace(/[^\d.,]/g, "").replace(",", "."),
-    );
-    if (!investido || investido <= 0) return;
-    const economia = investido * 0.2;
-    const novoCusto = investido - economia;
-    setResult({ investido, economia, novoCusto });
-  };
-
-  const formatBRL = (n: number) =>
-    n.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-      maximumFractionDigits: 2,
-    });
-
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
-        title="Ads — Gestão de Tráfego Pago Inteligente"
-        description="Gerencie campanhas de mídia paga com inteligência e automação. Maximize o ROI dos seus investimentos em anúncios com a Solvefy Ads."
+        title={t("meta.title")}
+        description={t("meta.description")}
         canonical="/ads"
         ogImage="/og/og-ads.jpg"
         schemas={[
-          serviceSchema({
-            name: "Solvefy/Ads",
-            description:
-              "Gestão de tráfego pago em Google, Meta e demais plataformas com automação, otimização e relatórios unificados.",
-            path: "/ads",
-            serviceType: "Gestão de tráfego pago / Mídia paga",
-          }),
-          breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Solvefy/Ads", path: "/ads" },
-          ]),
+          serviceSchema(
+            {
+              name: "Solvefy/Ads",
+              description: t("meta.description"),
+              path: "/ads",
+              serviceType: "Paid traffic management",
+            },
+            locale,
+          ),
+          breadcrumbSchema(
+            [
+              { name: t("meta.breadcrumbHome"), path: "/" },
+              { name: t("meta.breadcrumbSelf"), path: "/ads" },
+            ],
+            locale,
+          ),
         ]}
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
-          "name": "Solvefy Ads",
-          "applicationCategory": "BusinessApplication",
-          "description": "Gestão inteligente de tráfego pago e campanhas de mídia para máximo ROI.",
-          "operatingSystem": "Web",
-          "url": "https://solvefy.com/ads"
+          name: "Solvefy Ads",
+          applicationCategory: "BusinessApplication",
+          description: t("meta.description"),
+          operatingSystem: "Web",
+          url: "https://solvefy.com/ads",
         }}
       />
       <Header />
@@ -217,14 +101,18 @@ const Ads = () => {
           badgeIcon={iconAds}
           badgeLabel="Solvefy/Ads"
           logoImage={logoAds}
-          title={<>Escale suas vendas com um{" "}
-            <span className="text-[hsl(var(--ads))]">custo até 20% menor</span>{" "}
-            que nos outros Ads.</>}
-          subtitle="Pare de queimar orçamento em plataformas saturadas e leilões inflacionados. A Solvefy/Ads entrega tráfego qualificado de alta performance com total autonomia. Sem bloqueios injustos, sem vínculo com outras redes. Apenas resultados reais e escaláveis."
-          ctaText="Comprar Agora"
+          title={
+            <Trans
+              i18nKey="hero.title"
+              ns="ads"
+              components={{ accent: <span className="text-[hsl(var(--ads))]" /> }}
+            />
+          }
+          subtitle={t("hero.subtitle")}
+          ctaText={t("hero.cta")}
           ctaOnClick={() => setModalOpen(true)}
           ctaTextColor="text-gray-950"
-          trustItems={["CPA até 20% menor", "CTR de até 35%", "Zero Vínculos"]}
+          trustItems={[t("hero.trust1"), t("hero.trust2"), t("hero.trust3")]}
           right={<AdsHeroMockup />}
         />
 
@@ -233,9 +121,11 @@ const Ads = () => {
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl text-left mb-12">
               <Heading className="text-balance">
-                O fim do dinheiro{" "}
-                <span style={{ color: ACCENT }}>evaporando</span>. Compare o que
-                você paga hoje com o que você poderia estar pagando.
+                <Trans
+                  i18nKey="problem.title"
+                  ns="ads"
+                  components={{ accent: <span style={{ color: ACCENT }} /> }}
+                />
               </Heading>
             </div>
 
@@ -247,31 +137,23 @@ const Ads = () => {
                     <TrendingDown className="h-5 w-5" />
                   </div>
                   <span className="text-xs font-semibold uppercase tracking-widest text-destructive">
-                    A concorrência.
+                    {t("problem.before.eyebrow")}
                   </span>
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-3">
-                  Tráfego tradicional: você paga caro e ainda fica refém.
+                  {t("problem.before.title")}
                 </h3>
                 <ul className="space-y-3 text-base text-foreground/80">
-                  <li className="flex items-start gap-2">
-                    <X className="h-4 w-4 mt-0.5 text-destructive shrink-0" />
-                    Custo por aquisição cresce ano após ano em leilões
-                    inflacionados.
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <X className="h-4 w-4 mt-0.5 text-destructive shrink-0" />
-                    Vínculo obrigatório com ecossistemas fechados e regras
-                    ocultas.
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <X className="h-4 w-4 mt-0.5 text-destructive shrink-0" />
-                    Risco constante de bloqueios injustos travando sua operação.
-                  </li>
+                  {BEFORE_KEYS.map((k) => (
+                    <li key={k} className="flex items-start gap-2">
+                      <X className="h-4 w-4 mt-0.5 text-destructive shrink-0" />
+                      {t(`problem.before.${k}`)}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* Card 2 — Solução com Autonomia Total */}
+              {/* Card 2 — Solução */}
               <div
                 className="relative rounded-2xl p-7 overflow-hidden border border-border transition-all hover:-translate-y-1"
                 style={{
@@ -284,40 +166,22 @@ const Ads = () => {
                     className="text-xs font-semibold uppercase tracking-widest"
                     style={{ color: ACCENT }}
                   >
-                    Solvefy/Ads
+                    {t("problem.after.eyebrow")}
                   </span>
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-3">
-                  Você no comando. Sem vínculos, sem reféns.
+                  {t("problem.after.title")}
                 </h3>
                 <p className="text-sm text-foreground/85 leading-relaxed mb-4">
-                  Não exigimos vínculo com outras plataformas. Mantenha o
-                  controle da sua operação, diversifique seu tráfego e proteja
-                  sua empresa contra bloqueios e regras ocultas do mercado
-                  tradicional.
+                  {t("problem.after.subtitle")}
                 </p>
                 <ul className="space-y-3 text-sm text-foreground/85">
-                  <li className="flex items-start gap-2">
-                    <Check
-                      className="h-4 w-4 mt-0.5 shrink-0"
-                      style={{ color: ACCENT }}
-                    />
-                    CPA até 20% menor que os leilões tradicionais.
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check
-                      className="h-4 w-4 mt-0.5 shrink-0"
-                      style={{ color: ACCENT }}
-                    />
-                    CTR de até 35% em campanhas otimizadas.
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check
-                      className="h-4 w-4 mt-0.5 shrink-0"
-                      style={{ color: ACCENT }}
-                    />
-                    Tráfego contínuo, estável e sem regras ocultas.
-                  </li>
+                  {AFTER_KEYS.map((k) => (
+                    <li key={k} className="flex items-start gap-2">
+                      <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                      {t(`problem.after.${k}`)}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -326,7 +190,7 @@ const Ads = () => {
 
         <AdsStepsFlow />
 
-        {/* ============ CANAIS — Animated Flow ============ */}
+        {/* ============ CANAIS ============ */}
         <CpaasChannelFlow accent="#F0A800" accentBg="#FFF7E5" />
 
         <EcosystemDiagram accent="hsl(var(--ads))" />
@@ -336,135 +200,95 @@ const Ads = () => {
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl text-left mb-12">
               <h2 className="tracking-tight leading-tight text-balance">
-                Solvefy/Ads vs.{" "}
-                <span style={{ color: ACCENT }}>o resto do mercado</span>.
+                <Trans
+                  i18nKey="comparison.title"
+                  ns="ads"
+                  components={{ accent: <span style={{ color: ACCENT }} /> }}
+                />
               </h2>
-              <p className="section-subtitle mt-4">
-                Comparativo direto com o que as plataformas tradicionais
-                oferecem hoje.
-              </p>
+              <p className="section-subtitle mt-4">{t("comparison.subtitle")}</p>
             </div>
 
             <div className="overflow-hidden rounded-2xl border border-border bg-card">
               <div className="hidden md:grid grid-cols-4 gap-4 px-6 py-4 bg-muted/50 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                <div>Plataforma</div>
-                <div>Custo por Aquisição (CPA)</div>
-                <div>Autonomia de Conta</div>
-                <div>Estabilidade</div>
+                <div>{t("comparison.headers.platform")}</div>
+                <div>{t("comparison.headers.cpa")}</div>
+                <div>{t("comparison.headers.autonomy")}</div>
+                <div>{t("comparison.headers.stability")}</div>
               </div>
 
-              {comparison.map((row, i) => (
-                <div
-                  key={row.name}
-                  className={`grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 px-6 py-5 ${
-                    i !== comparison.length - 1 ? "border-b border-border" : ""
-                  }`}
-                  style={
-                    row.highlight
-                      ? { backgroundColor: `${ACCENT}10` }
-                      : undefined
-                  }
-                >
-                  <div className="flex items-center gap-2">
-                    <span
-                      className={`text-base font-bold tracking-tight ${
-                        row.highlight ? "" : "text-foreground"
-                      }`}
-                      style={row.highlight ? { color: ACCENT } : undefined}
-                    >
-                      {row.name}
-                    </span>
-                    {row.highlight && (
+              {COMPARISON_KEYS.map((rowKey, i) => {
+                const isHighlight = rowKey === "solvefy";
+                return (
+                  <div
+                    key={rowKey}
+                    className={`grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 px-6 py-5 ${
+                      i !== COMPARISON_KEYS.length - 1 ? "border-b border-border" : ""
+                    }`}
+                    style={
+                      isHighlight
+                        ? { backgroundColor: `${ACCENT}10` }
+                        : undefined
+                    }
+                  >
+                    <div className="flex items-center gap-2">
                       <span
-                        className="rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider"
-                        style={{ backgroundColor: ACCENT, color: "#0a0a0a" }}
+                        className="text-base font-bold tracking-tight"
+                        style={isHighlight ? { color: ACCENT } : undefined}
                       >
-                        Recomendado
+                        {t(`comparison.rows.${rowKey}.name`)}
                       </span>
-                    )}
+                      {isHighlight && (
+                        <span
+                          className="rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider"
+                          style={{ backgroundColor: ACCENT, color: "#0a0a0a" }}
+                        >
+                          {t("comparison.recommended")}
+                        </span>
+                      )}
+                    </div>
+                    {(["cpa", "autonomy", "stability"] as const).map((col) => (
+                      <div key={col} className="flex items-start gap-2 text-sm">
+                        {isHighlight ? (
+                          <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                        ) : (
+                          <X className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground" />
+                        )}
+                        <span
+                          className={
+                            isHighlight
+                              ? "text-foreground font-medium"
+                              : "text-muted-foreground"
+                          }
+                        >
+                          {t(`comparison.rows.${rowKey}.${col}`)}
+                        </span>
+                      </div>
+                    ))}
                   </div>
-                  <div className="flex items-start gap-2 text-sm">
-                    {row.highlight ? (
-                      <Check
-                        className="h-4 w-4 mt-0.5 shrink-0"
-                        style={{ color: ACCENT }}
-                      />
-                    ) : (
-                      <X className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground" />
-                    )}
-                    <span
-                      className={
-                        row.highlight
-                          ? "text-foreground font-medium"
-                          : "text-muted-foreground"
-                      }
-                    >
-                      {row.cpa}
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2 text-sm">
-                    {row.highlight ? (
-                      <Check
-                        className="h-4 w-4 mt-0.5 shrink-0"
-                        style={{ color: ACCENT }}
-                      />
-                    ) : (
-                      <X className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground" />
-                    )}
-                    <span
-                      className={
-                        row.highlight
-                          ? "text-foreground font-medium"
-                          : "text-muted-foreground"
-                      }
-                    >
-                      {row.autonomy}
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2 text-sm">
-                    {row.highlight ? (
-                      <Check
-                        className="h-4 w-4 mt-0.5 shrink-0"
-                        style={{ color: ACCENT }}
-                      />
-                    ) : (
-                      <X className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground" />
-                    )}
-                    <span
-                      className={
-                        row.highlight
-                          ? "text-foreground font-medium"
-                          : "text-muted-foreground"
-                      }
-                    >
-                      {row.stability}
-                    </span>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
-
-        {/* ============ CALCULADORA DE PERFORMANCE ============ */}
-        {/* <section className="relative py-20 overflow-hidden bg-[#0a0a0f]">
-          ... (contéudo comentado) ...
-        </section> */}
 
         {/* ============ PARA QUEM É ============ */}
         <section className="py-16">
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl text-left mb-12">
               <h2 className="tracking-tight leading-tight text-balance">
-                Operações que vivem de{" "}
-                <span style={{ color: ACCENT }}>conversão real</span>.
+                <Trans
+                  i18nKey="useCases.title"
+                  ns="ads"
+                  components={{ accent: <span style={{ color: ACCENT }} /> }}
+                />
               </h2>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {useCases.map(({ icon: Icon, title, desc }) => (
+              {USE_CASE_KEYS.map(({ key, Icon }) => (
                 <article
-                  key={title}
+                  key={key}
                   className="group rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1"
                   style={{ boxShadow: "var(--shadow-soft)" }}
                   onMouseEnter={(e) => {
@@ -483,10 +307,10 @@ const Ads = () => {
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-semibold tracking-tight">
-                    {title}
+                    {t(`useCases.items.${key}.title`)}
                   </h3>
                   <p className="mt-2 text-base text-muted-foreground leading-relaxed">
-                    {desc}
+                    {t(`useCases.items.${key}.desc`)}
                   </p>
                 </article>
               ))}
@@ -494,23 +318,24 @@ const Ads = () => {
           </div>
         </section>
 
-        {/* ============ PRECIFICAÇÃO (estilo CPaaS) ============ */}
+        {/* ============ PRECIFICAÇÃO ============ */}
         <section className="py-16 bg-[hsl(var(--ads-tint))]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl text-left mb-12">
               <h2 className="tracking-tight leading-tight text-balance">
-                Precificação que{" "}
-                <span style={{ color: ACCENT }}>cabe na sua operação</span>.
+                <Trans
+                  i18nKey="pricing.title"
+                  ns="ads"
+                  components={{ accent: <span style={{ color: ACCENT }} /> }}
+                />
               </h2>
-              <p className="section-subtitle mt-4">
-                Dois modelos para escolher como você quer escalar, sem letras miúdas.
-              </p>
+              <p className="section-subtitle mt-4">{t("pricing.subtitle")}</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 items-stretch">
-              {pricing.map(({ title, desc, bullets, cta, highlight }) => (
+              {PRICING_KEYS.map(({ key, bullets, highlight }) => (
                 <div
-                  key={title}
+                  key={key}
                   className={`relative rounded-3xl p-8 flex flex-col transition-all ${
                     highlight
                       ? "shadow-2xl"
@@ -533,38 +358,31 @@ const Ads = () => {
                       className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-950 shadow-lg"
                       style={{ background: ACCENT }}
                     >
-                      Mais escolhido
+                      {t("pricing.mostChosen")}
                     </span>
                   )}
 
-                  {/* Nome do plano */}
                   <div
                     className="text-xs font-bold uppercase tracking-widest mb-2"
                     style={{ color: ACCENT }}
                   >
-                    {title}
+                    {t(`pricing.plans.${key}.name`)}
                   </div>
 
-                  {/* Título grande */}
                   <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-4">
-                    {desc}
+                    {t(`pricing.plans.${key}.desc`)}
                   </h3>
 
-                  {/* Divisor */}
                   <div
                     className="w-12 h-1 rounded-full mb-6"
                     style={{ background: ACCENT }}
                   />
 
-                  {/* Features */}
                   <ul className="space-y-3 mb-8 text-sm flex-1">
                     {bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2.5">
-                        <Check
-                          className="h-4 w-4 mt-0.5 shrink-0"
-                          style={{ color: ACCENT }}
-                        />
-                        <span className="text-foreground/85">{b}</span>
+                        <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
+                        <span className="text-foreground/85">{t(`pricing.plans.${key}.${b}`)}</span>
                       </li>
                     ))}
                   </ul>
@@ -574,7 +392,7 @@ const Ads = () => {
                     onClick={() => setModalOpen(true)}
                     className="w-full group font-semibold mt-auto bg-[hsl(var(--ads))] hover:bg-[hsl(var(--ads))]/90 text-gray-950"
                   >
-                    {cta}
+                    {t(`pricing.plans.${key}.cta`)}
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </div>

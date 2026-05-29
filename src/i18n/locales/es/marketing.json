@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "title": "Marketing — Automatización Multicanal",
+    "description": "Crea jornadas automatizadas, dispara campañas y engancha clientes en todos los canales con la plataforma de marketing de Solvefy.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/Marketing"
+  },
+  "hero": {
+    "title": "Impulsa tus ventas con <accent>jornadas completas y personalizadas.</accent>",
+    "subtitle": "Todo lo que tu marketing necesita en un solo lugar. Con Solvefy/Marketing, creas jornadas de relación automatizadas y transformas contactos en ventas. Usa nuestras plantillas de envío rápido, sigue métricas en tiempo real e intégralo todo fácilmente vía API.",
+    "cta": "Próximamente",
+    "trust1": "Todos los Canales",
+    "trust2": "Constructor Visual de Jornadas",
+    "trust3": "EasyIA"
+  },
+  "painCards": {
+    "badge": "Por qué Solvefy/Marketing",
+    "title": "El marketing que <accent>vende solo</accent> y muestra exactamente lo que <accent>funciona</accent>.",
+    "items": {
+      "automation":  { "title": "Automatización que ahorra tu tiempo.",         "desc": "Despídete de los envíos manuales que no escalan. Crea reglas de relación, flujos de nutrición y jornadas complejas que corren 24/7 de forma automática." },
+      "conversion":  { "title": "Tasas de conversión imbatibles.",              "desc": "Basta de ser ignorado. Alcanza a tu público donde realmente está con integraciones nativas de WhatsApp Oficial, SMS y RCS (mensajes ricos)." },
+      "centralized": { "title": "Todo tu marketing en un solo lugar.",          "desc": "Deja de gastar en decenas de herramientas sueltas. Centraliza tu base, sigue métricas en tiempo real y obtén previsibilidad sobre lo que realmente genera ROI." }
+    }
+  },
+  "integrations": {
+    "title": "Integraciones vía API"
+  },
+  "easyIa": {
+    "badge": "Inteligencia Artificial Exclusiva",
+    "title": "Conoce <accent>EasyIA</accent>",
+    "subtitle": "¿Necesitas ayuda para optimizar tu negocio? Nuestra IA nativa redacta copys persuasivos, sugiere tests A/B y segmenta tu base en segundos. Deja que la tecnología trabaje por tu conversión mientras tú te enfocas en la estrategia.",
+    "pills": {
+      "copy":  "Copywriting Persuasivo",
+      "ab":    "Sugerencia de Tests A/B",
+      "seg":   "Segmentación Personalizada"
+    },
+    "cta": "Próximamente"
+  },
+  "pricing": {
+    "badge": "Planes & Precios",
+    "title": "Elige el plan <accent>correcto</accent> para crecer.",
+    "subtitle": "Facturación en reales, sin oscilación cambiaria y sin letra chica.",
+    "monthly": "Mensual",
+    "annual": "Anual",
+    "annualSave": "Ahorra hasta 39% optando por el plan anual",
+    "billedAnnually": "Cobrado anualmente",
+    "comingSoonDivider": "Próximamente",
+    "comingSoon": "Próximamente",
+    "footerNote": "⚠️ <strong>Importante:</strong> La suscripción a los planes no incluye créditos de envío para los canales. Los disparos se cobran por uso y pueden adquirirse por separado en créditos sueltos.",
+    "plans": {
+      "next": {
+        "name": "Próximo",
+        "desc": "Perfecto para empezar y estructurar tu comunicación.",
+        "monthly": "R$ 77",
+        "annual":  "R$ 47",
+        "period": "/mes",
+        "f1": "Módulo de disparos simples",
+        "f2": "Carga de archivos",
+        "f3": "Formularios",
+        "f4": "Historial de disparos",
+        "f5": "Etiquetas",
+        "f6": "WhatsApp, e-mail, RCS, Voz y SMS",
+        "f7": "Acceso Próximo a la API Disparo Pro"
+      },
+      "fast": {
+        "name": "Veloz",
+        "desc": "Ideal para quien quiere escalar con organización e integración.",
+        "monthly": "R$ 577",
+        "annual":  "R$ 447",
+        "period": "/mes",
+        "badge": "Recomendado",
+        "f1": "Todo del plan Próximo",
+        "f2": "Creación de Segmentos",
+        "f3": "Creación de Jornadas de Atención",
+        "f4": "Integración con E-commerce",
+        "f5": "Módulo de productos",
+        "f6": "Gestión de Clientes",
+        "f7": "Acceso Veloz a la API Disparo Pro"
+      },
+      "best": {
+        "name": "Mejor",
+        "desc": "Para operaciones que exigen performance máxima e inteligencia.",
+        "monthly": "R$ 1.987",
+        "annual":  "R$ 1.347",
+        "period": "/mes",
+        "f1": "Todo del plan Veloz",
+        "f2": "Disparo AI",
+        "f3": "Gestión de Grupos",
+        "f4": "Acceso Mejor a la API Disparo Pro",
+        "soon1": "IA Conversacional",
+        "soon2": "Agentes de atención IA"
+      }
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "priceTag": "A Medida",
+      "ideal": "En el marketing digital actual, depender de procesos manuales o datos fragmentados significa perder dinero. Con Solvefy Marketing, orquestas toda la jornada de tu cliente mediante una plataforma robusta, intuitiva y hecha para equipos de alto desempeño.",
+      "b1": "Campañas Omnichannel",
+      "b2": "Automatización Inteligente de Embudo",
+      "b3": "Dashboards y Analytics Avanzados",
+      "b4": "Integración Sin Fricción",
+      "cta": "Próximamente",
+      "footer": "Atrae, engancha y convierte. Centraliza tu estrategia digital en una única plataforma de automatización con foco en resultados reales.",
+      "customPlanLabel": "Plan Personalizado"
+    }
+  },
+  "mockup": {
+    "header": "Jornada: Black Friday",
+    "subheader": "3 automatizaciones activas",
+    "totalLabel": "Conversiones esta semana",
+    "totalValue": "189",
+    "totalDelta": "+27%",
+    "funnelLabel": "Embudo de la jornada",
+    "funnel": {
+      "input":     { "label": "Entrada" },
+      "sent":      { "label": "Email enviado", "pct": "89,9%" },
+      "opened":    { "label": "Abierto",       "pct": "40,0%" },
+      "clicked":   { "label": "Click",         "pct": "39,9%" },
+      "converted": { "label": "Convirtió",     "pct": "30,8%" }
+    },
+    "kpi": {
+      "open":    { "label": "Tasa de apertura", "value": "40,0%", "delta": "+5,3pp" },
+      "revenue": { "label": "Ingresos generados", "value": "€47K", "delta": "+18,9%" }
+    }
+  }
+}

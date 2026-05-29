@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { MOCK_POSTS } from "@/lib/mock-data";
 import { Header } from "@/components/Header";
@@ -10,17 +11,10 @@ import { Search, ChevronLeft, ChevronRight, ArrowRight, User, Calendar } from "l
 import { BlogCard } from "@/components/BlogCard";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useLocale } from "@/i18n/useLocale";
 
-const AREAS = [
-  "Comercial",
-  "Marketing",
-  "Tecnologia",
-  "Produto",
-  "Institucional",
-  "Inteligência Artificial",
-];
-
-const SOLUTIONS = ["CPaaS", "Ads", "Marketing", "CRM", "Agents", "Cloud"];
+const AREA_KEYS = ["comercial", "marketing", "tecnologia", "produto", "institucional", "ia"] as const;
+const SOLUTION_KEYS = ["cpaas", "ads", "marketing", "crm", "agents", "cloud"] as const;
 
 const stripHtml = (html: string) => html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");
 
@@ -45,7 +39,6 @@ const postMatchesTerm = (post: any, term: string) => {
   return text.includes(lower);
 };
 
-// Constrói o objeto de resultado paginado a partir de uma lista unificada
 const buildResult = (all: any[], page: number, pageSize: number) => {
   const featured = all[0] ?? null;
   const rest = all.slice(1);
@@ -57,6 +50,8 @@ const buildResult = (all: any[], page: number, pageSize: number) => {
 };
 
 export default function BlogIndex() {
+  const { t, i18n } = useTranslation("blog");
+  const { locale, localizedPath } = useLocale();
   const [page, setPage] = useState(0);
   const [search, setSearch] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
@@ -65,18 +60,14 @@ export default function BlogIndex() {
   const { data, isLoading } = useQuery({
     queryKey: ["blog", page, search, selectedFilter],
     queryFn: async () => {
-
-      // ── 1. Filtra os artigos do mock-data (sempre a fonte primária) ─────────
       let mockFiltered = MOCK_POSTS as any[];
       if (search) mockFiltered = mockFiltered.filter((p) => postMatchesSearch(p, search));
       if (selectedFilter) mockFiltered = mockFiltered.filter((p) => postMatchesTerm(p, selectedFilter));
 
-      // Sem Supabase: usa apenas mock
       if (!isSupabaseConfigured) {
         return buildResult(mockFiltered, page, pageSize);
       }
 
-      // ── 2. Com Supabase: busca artigos antigos e ADICIONA depois do mock ────
       try {
         let query = supabase
           .from("posts")
@@ -97,24 +88,20 @@ export default function BlogIndex() {
           .order("created_at", { ascending: false })
           .limit(50);
 
-        // Remove artigos do Supabase cujo slug já existe no mock (sem duplicatas)
         const mockSlugs = new Set((MOCK_POSTS as any[]).map((p) => p.slug));
         const supabaseOnly = (supabasePosts || []).filter((p) => !mockSlugs.has(p.slug));
 
-        // Mock (novos) em primeiro, Supabase (antigos) em seguida
         const combined = [...mockFiltered, ...supabaseOnly];
         return buildResult(combined, page, pageSize);
-
       } catch {
-        // Fallback: somente mock
         return buildResult(mockFiltered, page, pageSize);
       }
     },
   });
 
   const featuredPost = data?.featured ?? null;
-  const gridPosts   = data?.posts   ?? [];
-  const totalPages  = data?.count ? Math.ceil(data.count / pageSize) : 1;
+  const gridPosts = data?.posts ?? [];
+  const totalPages = data?.count ? Math.ceil(data.count / pageSize) : 1;
 
   const featuredCategory =
     featuredPost?.post_categories?.name ||
@@ -124,15 +111,18 @@ export default function BlogIndex() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEO
-        title="Blog — Comunicação B2B e Marketing Digital"
-        description="Artigos, guias e novidades sobre comunicação multicanal, CRM, CPaaS e marketing digital. Conteúdo especializado da Solvefy."
+        title={t("meta.title")}
+        description={t("meta.description")}
         canonical="/blog"
         ogImage="/og/og-blog.jpg"
         schemas={[
-          breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Blog", path: "/blog" },
-          ]),
+          breadcrumbSchema(
+            [
+              { name: t("meta.breadcrumbHome"), path: "/" },
+              { name: t("meta.breadcrumbBlog"), path: "/blog" },
+            ],
+            locale,
+          ),
         ]}
       />
       <Header />
@@ -140,7 +130,7 @@ export default function BlogIndex() {
       <main id="main" className="flex-1">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 pt-12 pb-20">
 
-          {/* ── POST EM DESTAQUE ──────────────────────────────────────────────── */}
+          {/* FEATURED POST */}
           {featuredPost && (
             <motion.article
               initial={{ opacity: 0, y: 24 }}
@@ -148,9 +138,8 @@ export default function BlogIndex() {
               transition={{ duration: 0.55 }}
               className="group rounded-2xl border border-border overflow-hidden flex flex-col md:flex-row bg-card mb-12"
             >
-              {/* Imagem */}
               <Link
-                to={`/blog/${featuredPost.slug}`}
+                to={localizedPath(`/blog/${featuredPost.slug}`)}
                 className="relative w-full md:w-1/2 aspect-video md:aspect-auto overflow-hidden block shrink-0"
                 style={{ minHeight: "320px" }}
               >
@@ -162,17 +151,16 @@ export default function BlogIndex() {
                   />
                 ) : (
                   <div className="h-full w-full bg-muted flex items-center justify-center">
-                    <span className="text-muted-foreground font-medium">Sem Imagem</span>
+                    <span className="text-muted-foreground font-medium">{t("common.noImage")}</span>
                   </div>
                 )}
                 <div className="absolute top-4 left-4 z-10">
                   <span className="inline-flex items-center rounded-full bg-primary px-3 py-1 text-xs font-bold text-white shadow">
-                    Destaque
+                    {t("index.featuredBadge")}
                   </span>
                 </div>
               </Link>
 
-              {/* Conteúdo */}
               <div className="flex flex-col justify-center p-8 md:p-12 flex-1 gap-4">
                 {featuredCategory && (
                   <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary w-fit">
@@ -180,7 +168,7 @@ export default function BlogIndex() {
                   </span>
                 )}
 
-                <Link to={`/blog/${featuredPost.slug}`} className="block">
+                <Link to={localizedPath(`/blog/${featuredPost.slug}`)} className="block">
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-foreground hover:text-primary transition-colors">
                     {featuredPost.title}
                   </h2>
@@ -196,18 +184,18 @@ export default function BlogIndex() {
                   <div className="flex items-center gap-4 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1.5">
                       <User className="h-3.5 w-3.5" />
-                      {featuredPost.authors?.name || "Equipe Solvefy"}
+                      {featuredPost.authors?.name || t("common.defaultAuthor")}
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Calendar className="h-3.5 w-3.5" />
-                      {new Date(featuredPost.created_at).toLocaleDateString("pt-BR")}
+                      {new Date(featuredPost.created_at).toLocaleDateString(i18n.language)}
                     </span>
                   </div>
                   <Link
-                    to={`/blog/${featuredPost.slug}`}
+                    to={localizedPath(`/blog/${featuredPost.slug}`)}
                     className="flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline shrink-0 ml-4"
                   >
-                    Ler artigo
+                    {t("index.readArticle")}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -215,16 +203,16 @@ export default function BlogIndex() {
             </motion.article>
           )}
 
-          {/* ── BARRA DE FERRAMENTAS: TÍTULO + BUSCA + FILTROS ───────────────── */}
+          {/* TOOLBAR */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
-            <h1 className="text-xl md:text-2xl tracking-tight shrink-0">Artigos</h1>
+            <h1 className="text-xl md:text-2xl tracking-tight shrink-0">{t("index.articlesHeading")}</h1>
 
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <div className="relative flex-1 sm:w-72">
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
                 <input
                   type="text"
-                  placeholder="Pesquisar artigos..."
+                  placeholder={t("index.searchPlaceholder")}
                   className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-primary/30 transition-all"
                   value={search}
                   onChange={(e) => { setSearch(e.target.value); setPage(0); }}
@@ -237,15 +225,15 @@ export default function BlogIndex() {
                   value={selectedFilter}
                   onChange={(e) => { setSelectedFilter(e.target.value); setPage(0); }}
                 >
-                  <option value="">Filtros</option>
-                  <optgroup label="Área">
-                    {AREAS.map((area) => (
-                      <option key={area} value={area}>{area}</option>
+                  <option value="">{t("common.filterLabel")}</option>
+                  <optgroup label={t("index.filterAreaLabel")}>
+                    {AREA_KEYS.map((key) => (
+                      <option key={key} value={t(`index.areas.${key}`)}>{t(`index.areas.${key}`)}</option>
                     ))}
                   </optgroup>
-                  <optgroup label="Solução">
-                    {SOLUTIONS.map((sol) => (
-                      <option key={sol} value={sol}>{sol}</option>
+                  <optgroup label={t("index.filterSolutionLabel")}>
+                    {SOLUTION_KEYS.map((key) => (
+                      <option key={key} value={t(`index.solutions.${key}`)}>{t(`index.solutions.${key}`)}</option>
                     ))}
                   </optgroup>
                 </select>
@@ -258,7 +246,7 @@ export default function BlogIndex() {
             </div>
           </div>
 
-          {/* ── GRID DE ARTIGOS ───────────────────────────────────────────────── */}
+          {/* GRID */}
           {isLoading ? (
             <div className="flex justify-center items-center py-24">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
@@ -268,7 +256,7 @@ export default function BlogIndex() {
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                 {gridPosts.length === 0 ? (
                   <p className="text-muted-foreground col-span-3 text-center py-12">
-                    Nenhum post encontrado.
+                    {t("common.noResults")}
                   </p>
                 ) : (
                   gridPosts.map((p: any, i: number) => (
@@ -285,11 +273,11 @@ export default function BlogIndex() {
                     className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-border text-sm text-muted-foreground disabled:opacity-40 disabled:cursor-not-allowed hover:bg-muted transition-colors"
                   >
                     <ChevronLeft className="h-4 w-4" />
-                    Anterior
+                    {t("index.prev")}
                   </button>
 
                   <span className="text-sm font-medium text-muted-foreground">
-                    Página {page + 1} de {totalPages}
+                    {t("index.pageInfo", { current: page + 1, total: totalPages })}
                   </span>
 
                   <button
@@ -297,7 +285,7 @@ export default function BlogIndex() {
                     disabled={page >= totalPages - 1}
                     className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-border text-sm text-muted-foreground disabled:opacity-40 disabled:cursor-not-allowed hover:bg-muted transition-colors"
                   >
-                    Próximo
+                    {t("index.next")}
                     <ChevronRight className="h-4 w-4" />
                   </button>
                 </div>

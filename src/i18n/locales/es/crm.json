@@ -51,6 +51,26 @@
     "subtitle": "No creas solo en promesas. Te damos acceso irrestricto a las automatizaciones avanzadas, reportes ejecutivos e inteligencia comercial de nuestro plan más robusto. Prueba Solvefy/CRM Pro gratis y mira despegar tu tasa de conversión.",
     "cta": "Próximamente"
   },
+  "mockup": {
+    "header": "Pipeline de ventas",
+    "period": "Julio 2025",
+    "totalLabel": "Valor total en el embudo",
+    "totalValue": "€248K",
+    "totalDelta": "+15%",
+    "stages": {
+      "prospect": "Prospección",
+      "qualify": "Calificación",
+      "proposal": "Propuesta",
+      "won": "Ganado"
+    },
+    "recentLabel": "Negocios recientes",
+    "deals": {
+      "polaris":   { "name": "Polaris S.A.",   "stage": "Propuesta",     "value": "€64K" },
+      "nexus":     { "name": "Nexus Tech",     "stage": "Calificación",  "value": "€28K" },
+      "grupoAbc":  { "name": "Grupo ABC",      "stage": "Cerrando",      "value": "€112K" },
+      "fsLog":     { "name": "FS Logística",   "stage": "Prospección",   "value": "€18K" }
+    }
+  },
   "pricing": {
     "badge": "Planes & Precios",
     "title": "Elige el plan <accent>correcto</accent> para acelerar tus ventas.",
