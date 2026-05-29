@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { MOCK_POSTS } from "@/lib/mock-data";
 import { Header } from "@/components/Header";
@@ -10,8 +11,11 @@ import { Calendar, User, ArrowLeft, Clock } from "lucide-react";
 import { renderContent } from "@/lib/renderContent";
 import DOMPurify from "dompurify";
 import { motion } from "framer-motion";
+import { useLocale } from "@/i18n/useLocale";
 
 export default function BlogPost() {
+  const { t, i18n } = useTranslation("blog");
+  const { locale, localizedPath } = useLocale();
   const { slug } = useParams();
 
   const { data: postData, isLoading } = useQuery({
@@ -30,18 +34,18 @@ export default function BlogPost() {
           .eq("slug", slug)
           .eq("status", "published")
           .single();
-        
+
         if (error) throw error;
 
         let relatedPosts: any[] = [];
         const catId = data.post_categories?.[0]?.category_id;
-        
+
         if (catId) {
           const { data: pivotData } = await supabase
             .from("post_categories")
             .select("post_id")
             .eq("category_id", catId);
-            
+
           if (pivotData) {
             const postIds = pivotData.map(p => p.post_id).filter(id => id !== data.id);
             if (postIds.length > 0) {
@@ -84,9 +88,9 @@ export default function BlogPost() {
       <div className="min-h-screen flex flex-col bg-background">
         <Header />
         <main className="flex-1 flex flex-col justify-center items-center p-4">
-          <h1 className="text-3xl font-bold mb-4">Post não encontrado</h1>
-          <Link to="/blog" className="text-primary hover:underline inline-flex items-center gap-2">
-            <ArrowLeft className="h-4 w-4" /> Voltar para o blog
+          <h1 className="text-3xl font-bold mb-4">{t("post.notFound")}</h1>
+          <Link to={localizedPath("/blog")} className="text-primary hover:underline inline-flex items-center gap-2">
+            <ArrowLeft className="h-4 w-4" /> {t("common.backToBlog")}
           </Link>
         </main>
         <Footer />
@@ -96,14 +100,19 @@ export default function BlogPost() {
 
   const { post, related } = postData;
   const category = post.post_categories?.[0]?.categories ?? post.post_categories;
-  const authorName = post.authors?.name || "Equipe Solvefy";
+  const authorName = post.authors?.name || t("common.defaultAuthor");
 
   const articleDescription =
     post.excerpt ||
     post.description ||
-    `Leia o artigo "${post.title}" no blog da Solvefy.`;
-  const articleImage =
-    post.cover_image || post.thumbnail || "/og/og-blog.jpg";
+    t("post.fallbackDescription", { title: post.title });
+  const articleImage = post.cover_image || post.thumbnail || "/og/og-blog.jpg";
+
+  const dateFormat: Intl.DateTimeFormatOptions = {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -113,35 +122,41 @@ export default function BlogPost() {
         canonical={`/blog/${post.slug}`}
         ogImage={articleImage}
         schemas={[
-          articleSchema({
-            title: post.title,
-            description: articleDescription,
-            path: `/blog/${post.slug}`,
-            image: articleImage,
-            datePublished: new Date(post.created_at).toISOString(),
-            dateModified: post.updated_at
-              ? new Date(post.updated_at).toISOString()
-              : new Date(post.created_at).toISOString(),
-            authorName,
-            category: category?.name,
-          }),
-          breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Blog", path: "/blog" },
-            { name: post.title, path: `/blog/${post.slug}` },
-          ]),
+          articleSchema(
+            {
+              title: post.title,
+              description: articleDescription,
+              path: `/blog/${post.slug}`,
+              image: articleImage,
+              datePublished: new Date(post.created_at).toISOString(),
+              dateModified: post.updated_at
+                ? new Date(post.updated_at).toISOString()
+                : new Date(post.created_at).toISOString(),
+              authorName,
+              category: category?.name,
+            },
+            locale,
+          ),
+          breadcrumbSchema(
+            [
+              { name: t("meta.breadcrumbHome"), path: "/" },
+              { name: t("meta.breadcrumbBlog"), path: "/blog" },
+              { name: post.title, path: `/blog/${post.slug}` },
+            ],
+            locale,
+          ),
         ]}
       />
       <Header />
       <main id="main" className="flex-1 w-full max-w-4xl mx-auto px-4 md:px-8 py-12 mt-8">
         <div className="mb-8">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-            <ArrowLeft className="h-4 w-4" /> Voltar para o blog
+          <Link to={localizedPath("/blog")} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+            <ArrowLeft className="h-4 w-4" /> {t("common.backToBlog")}
           </Link>
-          
+
           {category && (
-            <Link 
-              to={`/blog/categoria/${category.slug || category.name?.toLowerCase().replace(/\s+/g, '-')}`}
+            <Link
+              to={localizedPath(`/blog/categoria/${category.slug || category.name?.toLowerCase().replace(/\s+/g, '-')}`)}
               className="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold mb-6 hover:bg-primary/20 transition-colors"
             >
               {category.name}
@@ -157,29 +172,21 @@ export default function BlogPost() {
             <span className="flex items-center gap-1.5">
               <Calendar className="h-4 w-4" />
               <time dateTime={new Date(post.created_at).toISOString()}>
-                {new Date(post.created_at).toLocaleDateString("pt-BR", {
-                  day: "2-digit",
-                  month: "long",
-                  year: "numeric",
-                })}
+                {new Date(post.created_at).toLocaleDateString(i18n.language, dateFormat)}
               </time>
             </span>
             {post.updated_at &&
               new Date(post.updated_at).getTime() !==
                 new Date(post.created_at).getTime() && (
                 <span className="flex items-center gap-1.5">
-                  Atualizado em{" "}
+                  {t("post.updatedOn")}{" "}
                   <time dateTime={new Date(post.updated_at).toISOString()}>
-                    {new Date(post.updated_at).toLocaleDateString("pt-BR", {
-                      day: "2-digit",
-                      month: "long",
-                      year: "numeric",
-                    })}
+                    {new Date(post.updated_at).toLocaleDateString(i18n.language, dateFormat)}
                   </time>
                 </span>
               )}
             {post.reading_time && (
-              <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {post.reading_time} min de leitura</span>
+              <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {t("post.readingTime", { n: post.reading_time })}</span>
             )}
           </div>
         </div>
@@ -197,7 +204,7 @@ export default function BlogPost() {
           </div>
         )}
 
-        <article 
+        <article
           className="prose prose-slate prose-lg dark:prose-invert max-w-none mb-24
             prose-headings:font-light prose-headings:tracking-tight
             prose-a:text-primary prose-a:no-underline hover:prose-a:underline
@@ -211,7 +218,7 @@ export default function BlogPost() {
 
         {related && related.length > 0 && (
           <div className="border-t border-border pt-16 mb-8">
-            <h2 className="mb-8">Artigos Relacionados</h2>
+            <h2 className="mb-8">{t("post.relatedHeading")}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {related.map((p, i) => {
                 const pCat = p.post_categories?.[0]?.categories;
@@ -223,7 +230,7 @@ export default function BlogPost() {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="group rounded-2xl bg-card border border-border overflow-hidden shadow-soft hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col"
                   >
-                    <Link to={`/blog/${p.slug}`} className="relative h-48 overflow-hidden rounded-t-2xl block">
+                    <Link to={localizedPath(`/blog/${p.slug}`)} className="relative h-48 overflow-hidden rounded-t-2xl block">
                       {p.og_image || p.cover_image ? (
                         <img
                           src={p.og_image || p.cover_image}
@@ -235,7 +242,7 @@ export default function BlogPost() {
                         />
                       ) : (
                         <div className="h-full w-full bg-muted flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                          <span className="text-muted-foreground font-medium text-xs">Sem Imagem</span>
+                          <span className="text-muted-foreground font-medium text-xs">{t("common.noImage")}</span>
                         </div>
                       )}
                       {pCat && (
@@ -247,13 +254,13 @@ export default function BlogPost() {
                       )}
                     </Link>
                     <div className="p-6 flex flex-col flex-1">
-                      <Link to={`/blog/${p.slug}`} className="block mb-3">
+                      <Link to={localizedPath(`/blog/${p.slug}`)} className="block mb-3">
                         <h3 className="text-lg font-bold tracking-tight leading-tight group-hover:text-primary transition-colors text-balance line-clamp-2">
                           {p.title}
                         </h3>
                       </Link>
                       <div className="mt-auto pt-4 flex items-center gap-4 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{new Date(p.created_at).toLocaleDateString('pt-BR')}</span>
+                        <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{new Date(p.created_at).toLocaleDateString(i18n.language)}</span>
                       </div>
                     </div>
                   </motion.article>

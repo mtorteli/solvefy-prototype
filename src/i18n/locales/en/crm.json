@@ -51,6 +51,26 @@
     "subtitle": "Don't just take our word for it. We give you unrestricted access to advanced automations, executive reports and sales intelligence from our most robust plan. Try Solvefy/CRM Pro for free and watch your conversion rate take off.",
     "cta": "Coming Soon"
   },
+  "mockup": {
+    "header": "Sales pipeline",
+    "period": "July 2025",
+    "totalLabel": "Total funnel value",
+    "totalValue": "$248K",
+    "totalDelta": "+15%",
+    "stages": {
+      "prospect": "Prospecting",
+      "qualify": "Qualifying",
+      "proposal": "Proposal",
+      "won": "Won"
+    },
+    "recentLabel": "Recent deals",
+    "deals": {
+      "polaris":   { "name": "Polaris Inc.",   "stage": "Proposal",     "value": "$64K" },
+      "nexus":     { "name": "Nexus Tech",     "stage": "Qualifying",   "value": "$28K" },
+      "grupoAbc":  { "name": "ABC Group",      "stage": "Closing",      "value": "$112K" },
+      "fsLog":     { "name": "FS Logistics",   "stage": "Prospecting",  "value": "$18K" }
+    }
+  },
   "pricing": {
     "badge": "Plans & Pricing",
     "title": "Choose the <accent>right</accent> plan to accelerate your sales.",

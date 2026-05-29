@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "Cloud — Cloud Infrastructure for Companies",
+    "description": "Host your applications with performance and security on Solvefy's cloud infrastructure. On-demand scalability for B2B companies.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/Cloud"
+  },
+  "hero": {
+    "title": "The platform for you to <accent>build and sell your own Cloud.</accent>",
+    "subtitle": "Turn the idle infrastructure of your Internet Service Provider (ISP) or Data Center into a profitable business. Automate 100% of the sale, provisioning and billing of cloud services under your own brand, without depending on third parties.",
+    "cta": "Request a Demo",
+    "ctaSecondary": "Simulate ROI",
+    "trust1": "On-Premises White Label Platform",
+    "trust2": "Official Proxmox Reseller/Partner",
+    "trust3": "End-to-end process"
+  },
+  "roiModal": {
+    "closeAria": "Close calculator",
+    "iframeTitle": "Solvefy Cloud ROI Calculator"
+  },
+  "block1": {
+    "badge": "Pioneering in Brazil",
+    "title": "You bring the infrastructure, <accent>we deliver the commercial automation.</accent>",
+    "subtitle": "No more email-based sales and manual billing. Our White Label platform automates end-to-end, delivering an enterprise self-service experience for your final customer.",
+    "cards": {
+      "whitelabel": { "title": "100% White Label.",                       "desc": "Operate under your own logo, colors and domain." },
+      "billing":    { "title": "Automatic Billing.",                       "desc": "Native integration with recurring payment gateways." },
+      "portal":     { "title": "Dashboard and Portal.",                    "desc": "An admin dashboard for you to manage resources and a self-service portal for your customer." },
+      "sdn":        { "title": "Advanced Resource and Network Management (SDN)", "desc": "Full automation of Floating IPs and dynamic binding between VMs. Total control of private networks via Software Defined Network (SDN) for multi-tenant environments." },
+      "security":   { "title": "Native Security and Resilience",           "desc": "Proxmox Firewall managed directly by the customer. Two-factor authentication (2FA) and real-time snapshot management." },
+      "performance":{ "title": "Guaranteed Performance",                   "desc": "Monthly software updates included in every plan, ensuring your platform always runs on the latest stable Proxmox VE version (V8 and V9)." }
+    }
+  },
+  "block2": {
+    "badge": "On-Premises Infrastructure & Proxmox",
+    "title": "Proxmox <accent>high-availability</accent> architecture for critical operations.",
+    "subtitle": "Don't risk your business stability. As Official Proxmox Resellers and Partners, we design, deploy and sustain hyperconverged clusters that guarantee operation continuity with up to 99.999% uptime.",
+    "items": {
+      "sizing":     { "title": "Surgical Sizing",                                            "desc": "Full consulting on choosing the ideal hardware to prevent silent performance degradation." },
+      "cluster":    { "title": "HA Cluster & Ceph (Distributed Storage)",                    "desc": "Eliminate single points of failure with automatic self-healing and zero dependence on RAID controllers." },
+      "backup":     { "title": "Backup and Disaster Recovery (PBS)",                         "desc": "Proxmox Backup Server with incremental deduplication and native protection against data loss." },
+      "topology":   { "title": "High-Performance Network Topology",                          "desc": "We design critical traffic separation with 25 Gbps+ networks for the Ceph cluster and 10 Gbps+ for public traffic, eliminating I/O bottlenecks." },
+      "storage":    { "title": "Smart Storage Architecture",                                  "desc": "CRUSH algorithms for uniform data distribution, preventing failure domains by host or rack. Differentiated pools per disk class (NVMe for performance and HDD for backup)." },
+      "continuity": { "title": "Business Continuity (PBS Offsite)",                          "desc": "Remote Sync configuration between Proxmox Backup Server instances for offsite replication, keeping your data safe even in geographic disasters." }
+    }
+  },
+  "block3": {
+    "badge": "Cloud Native & Database Consulting",
+    "title": "DevOps and DBA on demand: <accent>Scale without inflating your payroll.</accent>",
+    "subtitle": "Your infrastructure can't be the limit of your growth. Having a senior internal team is expensive. We deliver elite specialists on demand to optimize, orchestrate (K8s/Docker) and shield your critical Databases.",
+    "items": {
+      "k8s":     { "title": "Docker & Kubernetes (K8s)",                          "desc": "Migration, containerization of legacy applications, dynamic autoscaling and integration with CI/CD pipelines (GitOps)." },
+      "rdbms":   { "title": "Relational Database Tuning",                          "desc": "Deep optimization, high availability and replication for PostgreSQL and MariaDB (Galera Cluster)." },
+      "mongo":   { "title": "MongoDB (NoSQL)",                                     "desc": "Performance-oriented modeling, Sharding for horizontal scaling and Replica Sets for automatic failover." },
+      "observ":  { "title": "Observability and Incident Response",                 "desc": "Operational runbooks and a complete monitoring stack (Prometheus + Grafana) with proactive consumption and failure alerts." },
+      "patroni": { "title": "Data High Availability (Patroni & Galera)",           "desc": "Automatic failover for PostgreSQL via Patroni and synchronous multi-master replication for MariaDB via Galera Cluster, ensuring zero data loss." },
+      "k8sSec":  { "title": "Layered Security (K8s)",                              "desc": "RBAC policies, Network Policies for pod isolation and secret management via Vault or Kubernetes Secrets." }
+    }
+  },
+  "block4": {
+    "badge": "Evolution and Projects",
+    "title": "Ready for the future: <accent>2026 Roadmap and Elite Onboarding.</accent>",
+    "subtitle": "We don't just deliver software; we deliver a growth journey. Our platform is born ready for tomorrow's demands.",
+    "items": {
+      "roadmap":    { "label": "2026 Expansion Roadmap",       "desc": "Planned integration with VMware and Hyper-V, plus management of Bare Metal servers and native S3 Buckets. Managed database administration directly via the Customer Portal." },
+      "onboarding": { "label": "Structured Onboarding",         "desc": "Structured 5-step process: Diagnosis, Technical Architecture, Dedicated Deployment, Validation Testing and Team Training." },
+      "knowledge":  { "label": "Knowledge Transfer",            "desc": "All our projects include complete technical Benchmark documentation, pricing suggestions for your market and operational training for up to 2 people." }
+    }
+  },
+  "pricing": {
+    "badge": "Plans & Pricing",
+    "title": "<accent>Scalable</accent> plans for your operation.",
+    "plans": {
+      "next": {
+        "name": "Next",
+        "price": "$990",
+        "period": "/month",
+        "cta": "I want Next",
+        "f1": "Unlimited VMs and vCPUs",
+        "f2": "Unlimited Backups and Snapshots",
+        "f3": "Pre- or Post-paid billing",
+        "f4": "Up to 3 Servers and 1 Cluster",
+        "f5": "Ticket/email support during business hours",
+        "f6": "Guaranteed software updates"
+      },
+      "fast": {
+        "name": "Fast",
+        "price": "$1,590",
+        "period": "/month",
+        "badge": "Most Popular",
+        "cta": "I want Fast",
+        "f1": "Unlimited VMs and vCPUs",
+        "f2": "Unlimited Backups and Snapshots",
+        "f3": "Pre- or Post-paid billing",
+        "f4": "Up to 6 Servers and 2 Clusters",
+        "f5": "Ticket/email support during business hours",
+        "f6": "Guaranteed software updates",
+        "f7": "ADD-ON access"
+      },
+      "best": {
+        "name": "Best",
+        "price": "$2,390",
+        "period": "/month",
+        "cta": "I want Best",
+        "f1": "Unlimited VMs and vCPUs",
+        "f2": "Unlimited Backups and Snapshots",
+        "f3": "Pre- or Post-paid billing",
+        "f4": "Up to 9 Servers and 3 Clusters",
+        "f5": "Ticket/email support during business hours",
+        "f6": "Guaranteed software updates",
+        "f7": "ADD-ON access"
+      }
+    },
+    "enterprise": {
+      "customPlanLabel": "Custom Plan",
+      "name": "Enterprise",
+      "desc": "For Providers and Data Centers with customized scale, tailored servers and clusters, dedicated support and onboarding adjusted to your scenario.",
+      "b1": "Custom servers and clusters",
+      "b2": "Chat, ticket, email and phone support",
+      "b3": "ADD-ON access + collaborative roadmap",
+      "b4": "Onboarding and licensing tailored",
+      "accordionTitle": "Unlimited Infrastructure",
+      "accordionBody": "All plans (+Closer, +Faster and Better) allow you to create VMs and VCPUs with no limits, with no extra charge per provisioned resource. The differentiation is only the number of physical servers (nodes) and managed clusters.",
+      "note": "Onboarding and platform Setup costs are charged separately (consult conditions). Additional technical consulting available starting at <strong>$50/h</strong>.",
+      "priceTag": "Custom",
+      "cta": "Talk to a Specialist"
+    }
+  },
+  "mockup": {
+    "header": "Infra monitor",
+    "subheader": "Live · 4 VMs",
+    "uptimeLabel": "Uptime SLA",
+    "uptimeValue": "99.99%",
+    "uptimeBadge": "Nominal",
+    "chartLabel": "CPU % — Last 24h",
+    "tooltipCpu": "CPU",
+    "kpi": {
+      "cpu":  { "label": "Avg CPU",  "value": "12%",       "delta": "Normal" },
+      "ram":  { "label": "RAM used", "value": "4.8/16GB",  "delta": "30% used" }
+    },
+    "vmsLabel": "Virtual machines",
+    "paused": "Paused"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "title": "Ads — Smart Paid Traffic Management",
+    "description": "Manage paid media campaigns with intelligence and automation. Maximize the ROI of your ad spend with Solvefy Ads.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/Ads"
+  },
+  "hero": {
+    "title": "Scale your sales with a <accent>cost up to 20% lower</accent> than other Ads.",
+    "subtitle": "Stop burning budget on saturated platforms and inflated auctions. Solvefy/Ads delivers high-performance qualified traffic with full autonomy. No unfair blocks, no ties to other networks. Just real, scalable results.",
+    "cta": "Buy Now",
+    "trust1": "Up to 20% lower CPA",
+    "trust2": "Up to 35% CTR",
+    "trust3": "Zero Lock-in"
+  },
+  "problem": {
+    "title": "The end of <accent>evaporating</accent> money. Compare what you pay today to what you could be paying.",
+    "before": {
+      "eyebrow": "The competition.",
+      "title": "Traditional traffic: you pay a premium and still get held hostage.",
+      "p1": "Acquisition cost grows year after year in inflated auctions.",
+      "p2": "Mandatory ties to closed ecosystems and hidden rules.",
+      "p3": "Constant risk of unfair blocks freezing your operation."
+    },
+    "after": {
+      "eyebrow": "Solvefy/Ads",
+      "title": "You in command. No ties, no hostages.",
+      "subtitle": "We don't require ties to other platforms. Stay in control of your operation, diversify your traffic and shield your company from blocks and the hidden rules of the traditional market.",
+      "p1": "CPA up to 20% lower than traditional auctions.",
+      "p2": "CTR up to 35% on optimized campaigns.",
+      "p3": "Continuous, stable traffic with no hidden rules."
+    }
+  },
+  "stepsFlow": {
+    "title": "From goal to launch in <accent>6 steps</accent>.",
+    "subtitle": "A guided flow with AI assisting every critical campaign decision.",
+    "items": {
+      "objetivo":        { "num": "01", "title": "Goal",         "desc": "Set the campaign goal and our AI automatically suggests the right creatives and channels for each objective." },
+      "setup":           { "num": "02", "title": "Setup",        "desc": "Configure the campaign name, run period and target segment in minutes, no technical complexity." },
+      "orcamento":       { "num": "03", "title": "Budget",       "desc": "Set a daily or total cap and track every cent spent in real time, no surprises at closing." },
+      "posicionamentos": { "num": "04", "title": "Placements",   "desc": "Distribute your budget smartly across premium, qualified inventory, maximizing reach with controlled CPA." },
+      "publico":         { "num": "05", "title": "Audience",     "desc": "Target precisely using behavioral tags and your own 1st party data for higher conversions." },
+      "criativos":       { "num": "06", "title": "Creatives",    "desc": "Generate copy, images and CTAs with native generative AI and publish high-performance creatives without an agency." }
+    }
+  },
+  "comparison": {
+    "title": "Solvefy/Ads vs. <accent>the rest of the market</accent>.",
+    "subtitle": "Direct comparison with what traditional platforms offer today.",
+    "headers": {
+      "platform": "Platform",
+      "cpa": "Cost per Acquisition (CPA)",
+      "autonomy": "Account Autonomy",
+      "stability": "Stability"
+    },
+    "recommended": "Recommended",
+    "rows": {
+      "traditional": {
+        "name": "Traditional Platforms",
+        "cpa": "Inflated auctions",
+        "autonomy": "Dependence on closed ecosystems",
+        "stability": "Constant block risk"
+      },
+      "solvefy": {
+        "name": "Solvefy/Ads",
+        "cpa": "Up to 20% lower",
+        "autonomy": "Full control, no ties",
+        "stability": "Continuous traffic"
+      }
+    }
+  },
+  "useCases": {
+    "title": "Operations that live on <accent>real conversion</accent>.",
+    "items": {
+      "ecommerce":  { "title": "E-commerce & Retail",     "desc": "Acquisition and remarketing campaigns with controlled CPA, no inflated auctions." },
+      "igaming":    { "title": "iGaming & Betting",       "desc": "Player acquisition at scale, with no risk of unfair blocks." },
+      "agencies":   { "title": "Marketing Agencies",      "desc": "Diversify your clients' media mix and shield the operation against dependencies." },
+      "saas":       { "title": "SaaS & Tech",             "desc": "B2B demand generation with qualified traffic and transparent attribution." }
+    }
+  },
+  "pricing": {
+    "title": "Pricing that <accent>fits your operation</accent>.",
+    "subtitle": "Two models to choose how you want to scale, no fine print.",
+    "mostChosen": "Most chosen",
+    "plans": {
+      "performance": {
+        "name": "More performance",
+        "desc": "For operations that need every dollar optimized. Up to 20% lower CPA and transparent attribution on every conversion.",
+        "b1": "Up to 20% lower CPA",
+        "b2": "Continuous AI optimization",
+        "b3": "Real-time attribution",
+        "cta": "I want performance"
+      },
+      "reach": {
+        "name": "Faster reach",
+        "desc": "For those who need to scale qualified impressions quickly, without competing for scroll in a saturated feed.",
+        "b1": "Premium inventory",
+        "b2": "Scale in days, not months",
+        "b3": "Full predictability",
+        "cta": "I want reach"
+      }
+    }
+  },
+  "mockup": {
+    "header": "Traffic dashboard",
+    "period": "Last 30 days",
+    "totalLabel": "Total leads captured",
+    "totalValue": "4,827",
+    "totalDelta": "+23.4%",
+    "tooltipDay": "Day {{n}}",
+    "week": "Wk {{n}}",
+    "kpi": {
+      "spent":   { "label": "Spent",          "value": "$12,480", "delta": "+8.2%" },
+      "cpl":     { "label": "Cost per lead",  "value": "$2.58",   "delta": "-15.3%" },
+      "conv":    { "label": "Conversion",     "value": "3.7%",    "delta": "+0.8pp" },
+      "roas":    { "label": "ROAS",           "value": "4.2x",    "delta": "+0.6x" }
+    }
+  }
+}

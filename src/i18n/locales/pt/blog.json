@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Blog — Comunicação B2B e Marketing Digital",
+    "description": "Artigos, guias e novidades sobre comunicação multicanal, CRM, CPaaS e marketing digital. Conteúdo especializado da Solvefy.",
+    "breadcrumbHome": "Home",
+    "breadcrumbBlog": "Blog"
+  },
+  "common": {
+    "noImage": "Sem Imagem",
+    "articleBadge": "Artigo",
+    "defaultAuthor": "Equipe Solvefy",
+    "backToBlog": "Voltar para o blog",
+    "filterLabel": "Filtros",
+    "noResults": "Nenhum post encontrado."
+  },
+  "index": {
+    "featuredBadge": "Destaque",
+    "readArticle": "Ler artigo",
+    "articlesHeading": "Artigos",
+    "searchPlaceholder": "Pesquisar artigos...",
+    "filterAreaLabel": "Área",
+    "filterSolutionLabel": "Solução",
+    "prev": "Anterior",
+    "next": "Próximo",
+    "pageInfo": "Página {{current}} de {{total}}",
+    "areas": {
+      "comercial":     "Comercial",
+      "marketing":     "Marketing",
+      "tecnologia":    "Tecnologia",
+      "produto":       "Produto",
+      "institucional": "Institucional",
+      "ia":            "Inteligência Artificial"
+    },
+    "solutions": {
+      "cpaas":     "CPaaS",
+      "ads":       "Ads",
+      "marketing": "Marketing",
+      "crm":       "CRM",
+      "agents":    "Agents",
+      "cloud":     "Cloud"
+    }
+  },
+  "category": {
+    "metaTitleSuffix": " — Blog",
+    "metaTitleFallback": "Categoria — Blog",
+    "metaDescription": "Artigos sobre {{name}} no blog da Solvefy. Conteúdo especializado em comunicação B2B e marketing digital.",
+    "metaDescriptionFallback": "Artigos do blog da Solvefy. Conteúdo especializado em comunicação B2B e marketing digital.",
+    "backLabel": "Voltar para todos os posts",
+    "heading": "Categoria",
+    "searchPlaceholder": "Pesquisar nesta categoria...",
+    "allCategories": "Todas as Categorias",
+    "notFound": "Categoria não encontrada",
+    "notFoundDesc": "A categoria que você está procurando não existe ou foi removida.",
+    "noPosts": "Nenhum post encontrado nesta categoria.",
+    "fallbackName": "Categoria"
+  },
+  "post": {
+    "notFound": "Post não encontrado",
+    "updatedOn": "Atualizado em",
+    "readingTime": "{{n}} min de leitura",
+    "relatedHeading": "Artigos Relacionados",
+    "fallbackDescription": "Leia o artigo \"{{title}}\" no blog da Solvefy."
+  }
+}

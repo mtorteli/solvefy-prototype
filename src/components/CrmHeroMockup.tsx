@@ -1,22 +1,16 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Home, TrendingUp, Users, Settings } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const stages = [
-  { label: "Prospecção",    count: 8 },
-  { label: "Qualificação",  count: 5 },
-  { label: "Proposta",      count: 3 },
-  { label: "Ganho",         count: 2 },
-];
+const STAGE_KEYS = ["prospect", "qualify", "proposal", "won"] as const;
+const STAGE_COUNTS = [8, 5, 3, 2];
 
-const deals = [
-  { name: "Polaris S.A.",   stage: "Proposta",      value: "R$ 64k",  valueColor: "#E1611C" },
-  { name: "Nexus Tech",     stage: "Qualificação",  value: "R$ 28k",  valueColor: "#E1611C" },
-  { name: "Grupo ABC",      stage: "Fechando",      value: "R$ 112k", valueColor: "#00de71" },
-  { name: "FS Logística",   stage: "Prospecção",    value: "R$ 18k",  valueColor: "#E1611C" },
-];
+const DEAL_KEYS = ["polaris", "nexus", "grupoAbc", "fsLog"] as const;
+const DEAL_COLORS = ["#E1611C", "#E1611C", "#00de71", "#E1611C"];
 
 export const CrmHeroMockup = () => {
+  const { t } = useTranslation("crm");
+
   return (
     <div className="flex justify-center">
       <motion.div
@@ -36,8 +30,8 @@ export const CrmHeroMockup = () => {
           <div className="px-[18px] pt-3">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[12px] font-semibold text-[#1e1e1e] leading-none">Pipeline de vendas</p>
-                <p className="text-[11px] text-[#1e1e1e]/60 mt-0.5">Julho 2025</p>
+                <p className="text-[12px] font-semibold text-[#1e1e1e] leading-none">{t("mockup.header")}</p>
+                <p className="text-[11px] text-[#1e1e1e]/60 mt-0.5">{t("mockup.period")}</p>
               </div>
               <div className="w-[26px] h-[26px] rounded-full bg-[#FFEDE3] flex items-center justify-center">
                 <TrendingUp size={12} className="text-[#E1611C]" />
@@ -47,20 +41,22 @@ export const CrmHeroMockup = () => {
 
           {/* Main Metric */}
           <div className="px-[18px] pt-4 pb-1">
-            <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">Valor total no funil</p>
+            <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">{t("mockup.totalLabel")}</p>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-[22px] font-bold text-[#1e1e1e]">R$ 248k</span>
-              <span className="text-[11px] px-[7px] py-0.5 rounded-full bg-[#E1F5EE] text-[#085041] font-medium">+15%</span>
+              <span className="text-[22px] font-bold text-[#1e1e1e]">{t("mockup.totalValue")}</span>
+              <span className="text-[11px] px-[7px] py-0.5 rounded-full bg-[#E1F5EE] text-[#085041] font-medium">{t("mockup.totalDelta")}</span>
             </div>
           </div>
 
           {/* Pipeline Stages */}
           <div className="px-[18px] pt-3">
             <div className="grid grid-cols-4 gap-1.5">
-              {stages.map((stage) => (
-                <div key={stage.label} className="bg-[#FFEDE3] rounded-xl p-2 flex flex-col items-center">
-                  <span className="text-[16px] font-bold text-[#E1611C] leading-none">{stage.count}</span>
-                  <span className="text-[9px] text-[#1e1e1e]/50 mt-0.5 text-center leading-tight">{stage.label}</span>
+              {STAGE_KEYS.map((key, i) => (
+                <div key={key} className="bg-[#FFEDE3] rounded-xl p-2 flex flex-col items-center">
+                  <span className="text-[16px] font-bold text-[#E1611C] leading-none">{STAGE_COUNTS[i]}</span>
+                  <span className="text-[9px] text-[#1e1e1e]/50 mt-0.5 text-center leading-tight">
+                    {t(`mockup.stages.${key}`)}
+                  </span>
                 </div>
               ))}
             </div>
@@ -69,21 +65,21 @@ export const CrmHeroMockup = () => {
           {/* Recent Deals */}
           <div className="px-[18px] pt-4">
             <p className="text-[10px] font-semibold uppercase tracking-wide text-[#1e1e1e]/40 mb-2">
-              Negócios recentes
+              {t("mockup.recentLabel")}
             </p>
             <div className="flex flex-col gap-1.5">
-              {deals.map((deal) => (
+              {DEAL_KEYS.map((key, i) => (
                 <div
-                  key={deal.name}
+                  key={key}
                   className="flex items-center justify-between rounded-xl px-2.5 py-2"
                   style={{ backgroundColor: "rgba(255, 237, 227, 0.6)" }}
                 >
                   <div>
-                    <p className="text-[11px] font-semibold text-[#1e1e1e] leading-none">{deal.name}</p>
-                    <p className="text-[10px] text-[#1e1e1e]/50 mt-0.5">{deal.stage}</p>
+                    <p className="text-[11px] font-semibold text-[#1e1e1e] leading-none">{t(`mockup.deals.${key}.name`)}</p>
+                    <p className="text-[10px] text-[#1e1e1e]/50 mt-0.5">{t(`mockup.deals.${key}.stage`)}</p>
                   </div>
-                  <span className="text-[12px] font-bold" style={{ color: deal.valueColor }}>
-                    {deal.value}
+                  <span className="text-[12px] font-bold" style={{ color: DEAL_COLORS[i] }}>
+                    {t(`mockup.deals.${key}.value`)}
                   </span>
                 </div>
               ))}

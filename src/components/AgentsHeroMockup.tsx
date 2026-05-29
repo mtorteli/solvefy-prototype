@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Check, Home, BarChart2, MessageSquare, Settings, ArrowLeft } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const AgentIcon = ({ size = 14 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="14 23 69 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,13 +13,14 @@ const AgentIcon = ({ size = 14 }: { size?: number }) => (
   </svg>
 );
 
-const SQUAD = [
-  { name: "Agents Facebook",  done: true },
-  { name: "Agents Instagram", done: true },
-  { name: "Agents LinkedIn", done: false },
-];
+const SQUAD_KEYS = [
+  { key: "facebook",  done: true },
+  { key: "instagram", done: true },
+  { key: "linkedin",  done: false },
+] as const;
 
 export const AgentsHeroMockup = () => {
+  const { t } = useTranslation("agents");
   return (
     <div className="flex justify-center">
       <motion.div
@@ -42,7 +44,7 @@ export const AgentsHeroMockup = () => {
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-[12px] font-semibold text-[#1e1e1e] leading-none truncate">
-                Agents LinkedIn
+                {t("mockup.headerAgent")}
               </p>
             </div>
           </div>
@@ -57,7 +59,7 @@ export const AgentsHeroMockup = () => {
                 style={{ backgroundColor: "#6487C4" }}
               >
                 <p className="text-[11px] text-white leading-[1.45]">
-                  Lucas, gere um post de autoridade sobre prospecção B2B.
+                  {t("mockup.userMessage")}
                 </p>
               </div>
             </div>
@@ -72,7 +74,7 @@ export const AgentsHeroMockup = () => {
                 style={{ backgroundColor: "#FFFFFF", boxShadow: "0 1px 4px rgba(0,0,0,0.07)" }}
               >
                 <p className="text-[11px] text-[#1e1e1e] leading-[1.45]">
-                  Analisando dores do mercado... Gerando o hook ideal para diretores comerciais.
+                  {t("mockup.aiMessage")}
                 </p>
                 {/* Typing indicator */}
                 <div className="flex items-center gap-[3px] mt-1.5">
@@ -100,16 +102,16 @@ export const AgentsHeroMockup = () => {
               }}
             >
               <p className="text-[9px] font-bold text-[#6487C4] uppercase tracking-[0.1em] mb-2">
-                Squad em execução
+                {t("mockup.squadLabel")}
               </p>
               <div className="flex flex-col gap-[7px]">
-                {SQUAD.map((member) => (
-                  <div key={member.name} className="flex items-center justify-between gap-2">
+                {SQUAD_KEYS.map((member) => (
+                  <div key={member.key} className="flex items-center justify-between gap-2">
                     <span
                       className="text-[11px] font-medium leading-none truncate"
                       style={{ color: member.done ? "#1e1e1e80" : "#1e1e1e" }}
                     >
-                      {member.name}
+                      {t(`mockup.squad.${member.key}`)}
                     </span>
 
                     {member.done ? (

@@ -1,7 +1,8 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { User, Calendar } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useLocale } from "@/i18n/useLocale";
 
 interface BlogCardProps {
   post: any;
@@ -9,9 +10,12 @@ interface BlogCardProps {
 }
 
 export const BlogCard = ({ post, index }: BlogCardProps) => {
+  const { t, i18n } = useTranslation("blog");
+  const { localizedPath } = useLocale();
+
   const category =
     post.post_categories?.[0]?.categories || post.post_categories;
-  const authorName = post.authors?.name || "Equipe Solvefy";
+  const authorName = post.authors?.name || t("common.defaultAuthor");
 
   return (
     <motion.article
@@ -21,7 +25,7 @@ export const BlogCard = ({ post, index }: BlogCardProps) => {
       className="group rounded-2xl bg-background border border-border overflow-hidden flex flex-col transition-all duration-300"
     >
       <Link
-        to={`/blog/${post.slug}`}
+        to={localizedPath(`/blog/${post.slug}`)}
         className="relative aspect-video overflow-hidden rounded-t-2xl block"
       >
         {post.og_image || post.cover_image ? (
@@ -36,20 +40,20 @@ export const BlogCard = ({ post, index }: BlogCardProps) => {
         ) : (
           <div className="h-full w-full bg-muted flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
             <span className="text-muted-foreground font-medium">
-              Sem Imagem
+              {t("common.noImage")}
             </span>
           </div>
         )}
         {category && (
           <div className="absolute top-4 left-4 z-10">
             <span className="inline-flex items-center rounded-full bg-background/90 backdrop-blur px-3 py-1 text-xs font-semibold text-foreground">
-              {category.name || category.label || "Artigo"}
+              {category.name || category.label || t("common.articleBadge")}
             </span>
           </div>
         )}
       </Link>
       <div className="p-6 md:p-7 flex flex-col flex-1">
-        <Link to={`/blog/${post.slug}`} className="block mb-3">
+        <Link to={localizedPath(`/blog/${post.slug}`)} className="block mb-3">
           <h3 className="text-lg md:text-xl font-regular tracking-tight leading-tight text-[#000000] transition-colors text-balance">
             {post.title}
           </h3>
@@ -61,7 +65,7 @@ export const BlogCard = ({ post, index }: BlogCardProps) => {
           </span>
           <span className="flex items-center gap-1.5">
             <Calendar className="h-3.5 w-3.5" />
-            {new Date(post.created_at).toLocaleDateString("pt-BR")}
+            {new Date(post.created_at).toLocaleDateString(i18n.language)}
           </span>
         </div>
       </div>

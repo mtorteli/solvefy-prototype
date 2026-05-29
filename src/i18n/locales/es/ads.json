@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "title": "Ads — Gestión Inteligente de Tráfico Pago",
+    "description": "Gestiona campañas de medios pagos con inteligencia y automatización. Maximiza el ROI de tu inversión en anuncios con Solvefy Ads.",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "Solvefy/Ads"
+  },
+  "hero": {
+    "title": "Escala tus ventas con un <accent>costo hasta 20% menor</accent> que los otros Ads.",
+    "subtitle": "Deja de quemar presupuesto en plataformas saturadas y subastas infladas. Solvefy/Ads entrega tráfico cualificado de alta performance con total autonomía. Sin bloqueos injustos, sin dependencia con otras redes. Solo resultados reales y escalables.",
+    "cta": "Comprar Ahora",
+    "trust1": "CPA hasta 20% menor",
+    "trust2": "CTR de hasta 35%",
+    "trust3": "Cero Vínculos"
+  },
+  "problem": {
+    "title": "El fin del dinero que <accent>se evapora</accent>. Compara lo que pagas hoy con lo que podrías estar pagando.",
+    "before": {
+      "eyebrow": "La competencia.",
+      "title": "Tráfico tradicional: pagas caro y encima quedas rehén.",
+      "p1": "El costo por adquisición crece año tras año en subastas infladas.",
+      "p2": "Dependencia obligatoria de ecosistemas cerrados y reglas ocultas.",
+      "p3": "Riesgo constante de bloqueos injustos trabando tu operación."
+    },
+    "after": {
+      "eyebrow": "Solvefy/Ads",
+      "title": "Tú al mando. Sin vínculos, sin rehenes.",
+      "subtitle": "No exigimos vínculo con otras plataformas. Mantén el control de tu operación, diversifica tu tráfico y protege a tu empresa contra bloqueos y reglas ocultas del mercado tradicional.",
+      "p1": "CPA hasta 20% menor que las subastas tradicionales.",
+      "p2": "CTR de hasta 35% en campañas optimizadas.",
+      "p3": "Tráfico continuo, estable y sin reglas ocultas."
+    }
+  },
+  "stepsFlow": {
+    "title": "De la meta al disparo en <accent>6 pasos</accent>.",
+    "subtitle": "Un flujo guiado, con IA asistiendo cada decisión crítica de la campaña.",
+    "items": {
+      "objetivo":        { "num": "01", "title": "Objetivo",       "desc": "Define la meta de la campaña y nuestra IA sugiere automáticamente los creativos y canales más adecuados para cada objetivo." },
+      "setup":           { "num": "02", "title": "Setup",          "desc": "Configura el nombre de la campaña, el período de vigencia y el segmento objetivo en pocos minutos, sin complejidad técnica." },
+      "orcamento":       { "num": "03", "title": "Presupuesto",    "desc": "Define un límite diario o total y acompaña cada centavo invertido en tiempo real, sin sorpresas al cierre." },
+      "posicionamentos": { "num": "04", "title": "Posicionamientos","desc": "Distribuye tu presupuesto de forma inteligente en inventario premium y cualificado, maximizando el alcance con CPA controlado." },
+      "publico":         { "num": "05", "title": "Público",        "desc": "Segmenta con precisión usando tags conductuales y tu propia base de datos (1st party data) para conversiones más altas." },
+      "criativos":       { "num": "06", "title": "Creativos",      "desc": "Genera textos, imágenes y CTAs con apoyo de IA generativa nativa y publica creativos de alta performance sin depender de agencia." }
+    }
+  },
+  "comparison": {
+    "title": "Solvefy/Ads vs. <accent>el resto del mercado</accent>.",
+    "subtitle": "Comparativo directo con lo que las plataformas tradicionales ofrecen hoy.",
+    "headers": {
+      "platform": "Plataforma",
+      "cpa": "Costo por Adquisición (CPA)",
+      "autonomy": "Autonomía de Cuenta",
+      "stability": "Estabilidad"
+    },
+    "recommended": "Recomendado",
+    "rows": {
+      "traditional": {
+        "name": "Plataformas Tradicionales",
+        "cpa": "Subastas infladas",
+        "autonomy": "Dependencia de ecosistemas cerrados",
+        "stability": "Riesgo constante de bloqueos"
+      },
+      "solvefy": {
+        "name": "Solvefy/Ads",
+        "cpa": "Hasta 20% menor",
+        "autonomy": "Control total, sin vínculo",
+        "stability": "Tráfico continuo"
+      }
+    }
+  },
+  "useCases": {
+    "title": "Operaciones que viven de <accent>conversión real</accent>.",
+    "items": {
+      "ecommerce":  { "title": "E-commerce & Retail",       "desc": "Campañas de adquisición y remarketing con CPA controlado, sin subastas infladas." },
+      "igaming":    { "title": "iGaming & Apuestas",        "desc": "Adquisición de jugadores a escala, sin el riesgo de bloqueos injustos." },
+      "agencies":   { "title": "Agencias de Marketing",     "desc": "Diversifica el mix de medios de tus clientes y blinda la operación contra dependencias." },
+      "saas":       { "title": "SaaS y Tech",               "desc": "Generación de demanda B2B con tráfico cualificado y atribución transparente." }
+    }
+  },
+  "pricing": {
+    "title": "Precios que <accent>encajan en tu operación</accent>.",
+    "subtitle": "Dos modelos para elegir cómo quieres escalar, sin letra chica.",
+    "mostChosen": "Más elegido",
+    "plans": {
+      "performance": {
+        "name": "Más performance",
+        "desc": "Para operaciones que necesitan cada real optimizado. CPA hasta 20% menor y atribución transparente en cada conversión.",
+        "b1": "CPA hasta 20% menor",
+        "b2": "Optimización continua por IA",
+        "b3": "Atribución en tiempo real",
+        "cta": "Quiero performance"
+      },
+      "reach": {
+        "name": "Alcance más rápido",
+        "desc": "Para quien necesita escalar volumen de impresiones cualificadas rápidamente, sin competir por scroll de feed saturado.",
+        "b1": "Inventario premium",
+        "b2": "Escala en días, no meses",
+        "b3": "Previsibilidad total",
+        "cta": "Quiero alcance"
+      }
+    }
+  },
+  "mockup": {
+    "header": "Panel de tráfico",
+    "period": "Últimos 30 días",
+    "totalLabel": "Total de leads captados",
+    "totalValue": "4.827",
+    "totalDelta": "+23,4%",
+    "tooltipDay": "Día {{n}}",
+    "week": "Sem {{n}}",
+    "kpi": {
+      "spent":   { "label": "Invertido",       "value": "€12.480", "delta": "+8,2%" },
+      "cpl":     { "label": "Costo por lead",  "value": "€2,58",   "delta": "-15,3%" },
+      "conv":    { "label": "Conversión",      "value": "3,7%",    "delta": "+0,8pp" },
+      "roas":    { "label": "ROAS",            "value": "4,2x",    "delta": "+0,6x" }
+    }
+  }
+}

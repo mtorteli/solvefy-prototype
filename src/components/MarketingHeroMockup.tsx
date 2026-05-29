@@ -1,18 +1,17 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Home, Zap, Users, Settings } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const funnelSteps = [
-  { label: "Entrada",       count: 4280, pct: null,  color: "#E64499" },
-  { label: "Email enviado", count: 3847, pct: "89,9%", color: "#E64499" },
-  { label: "Abriu",         count: 1538, pct: "40,0%", color: "#E64499" },
-  { label: "Clicou",        count: 614,  pct: "39,9%", color: "#E64499" },
-  { label: "Converteu",     count: 189,  pct: "30,8%", color: "#00de71" },
-];
-
+const FUNNEL_KEYS = ["input", "sent", "opened", "clicked", "converted"] as const;
+const FUNNEL_COUNTS = [4280, 3847, 1538, 614, 189];
+const FUNNEL_COLORS = ["#E64499", "#E64499", "#E64499", "#E64499", "#00de71"];
 const MAX = 4280;
 
+const KPI_KEYS = ["open", "revenue"] as const;
+
 export const MarketingHeroMockup = () => {
+  const { t, i18n } = useTranslation("marketing");
+
   return (
     <div className="flex justify-center">
       <motion.div
@@ -32,8 +31,8 @@ export const MarketingHeroMockup = () => {
           <div className="px-[18px] pt-3">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[12px] font-semibold text-[#1e1e1e] leading-none">Jornada: Black Friday</p>
-                <p className="text-[11px] text-[#1e1e1e]/60 mt-0.5">3 automações ativas</p>
+                <p className="text-[12px] font-semibold text-[#1e1e1e] leading-none">{t("mockup.header")}</p>
+                <p className="text-[11px] text-[#1e1e1e]/60 mt-0.5">{t("mockup.subheader")}</p>
               </div>
               <div className="w-[26px] h-[26px] rounded-full bg-[#FFF2FA] flex items-center justify-center">
                 <Zap size={12} className="text-[#E64499]" />
@@ -43,38 +42,40 @@ export const MarketingHeroMockup = () => {
 
           {/* Main Metric */}
           <div className="px-[18px] pt-4 pb-1">
-            <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">Conversões esta semana</p>
+            <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">{t("mockup.totalLabel")}</p>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-[22px] font-bold text-[#1e1e1e]">189</span>
-              <span className="text-[11px] px-[7px] py-0.5 rounded-full bg-[#E1F5EE] text-[#085041] font-medium">+27%</span>
+              <span className="text-[22px] font-bold text-[#1e1e1e]">{t("mockup.totalValue")}</span>
+              <span className="text-[11px] px-[7px] py-0.5 rounded-full bg-[#E1F5EE] text-[#085041] font-medium">{t("mockup.totalDelta")}</span>
             </div>
           </div>
 
           {/* Funnel Section */}
           <div className="px-[18px] pt-3">
             <p className="text-[10px] font-semibold uppercase tracking-wide text-[#1e1e1e]/40 mb-2">
-              Funil da jornada
+              {t("mockup.funnelLabel")}
             </p>
             <div className="flex flex-col gap-[6px]">
-              {funnelSteps.map((step) => {
-                const widthPct = Math.round((step.count / MAX) * 100);
+              {FUNNEL_KEYS.map((key, i) => {
+                const count = FUNNEL_COUNTS[i];
+                const widthPct = Math.round((count / MAX) * 100);
+                const pct = i18n.exists(`marketing:mockup.funnel.${key}.pct`)
+                  ? t(`mockup.funnel.${key}.pct`)
+                  : null;
                 return (
-                  <div key={step.label}>
+                  <div key={key}>
                     <div className="flex justify-between items-center mb-[3px]">
-                      <span className="text-[11px] text-[#1e1e1e]/70">{step.label}</span>
+                      <span className="text-[11px] text-[#1e1e1e]/70">{t(`mockup.funnel.${key}.label`)}</span>
                       <div className="flex items-center gap-1.5">
                         <span className="text-[11px] font-semibold text-[#1e1e1e]">
-                          {step.count.toLocaleString("pt-BR")}
+                          {count.toLocaleString(i18n.language)}
                         </span>
-                        {step.pct && (
-                          <span className="text-[10px] text-[#1e1e1e]/40">{step.pct}</span>
-                        )}
+                        {pct && <span className="text-[10px] text-[#1e1e1e]/40">{pct}</span>}
                       </div>
                     </div>
                     <div className="w-full h-[5px] bg-black/5 rounded-full overflow-hidden">
                       <div
                         className="h-full rounded-full"
-                        style={{ width: `${widthPct}%`, backgroundColor: step.color }}
+                        style={{ width: `${widthPct}%`, backgroundColor: FUNNEL_COLORS[i] }}
                       />
                     </div>
                   </div>
@@ -86,16 +87,13 @@ export const MarketingHeroMockup = () => {
           {/* 1x2 KPI Cards */}
           <div className="px-[18px] pt-3">
             <div className="grid grid-cols-2 gap-2">
-              <div className="bg-[#FFF2FA] rounded-2xl p-2.5">
-                <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">Taxa de abertura</p>
-                <p className="text-[15px] font-bold text-[#1e1e1e]">40,0%</p>
-                <p className="text-[11px] text-[#0F6E56] mt-0.5">+5,3pp</p>
-              </div>
-              <div className="bg-[#FFF2FA] rounded-2xl p-2.5">
-                <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">Receita gerada</p>
-                <p className="text-[15px] font-bold text-[#1e1e1e]">R$ 47k</p>
-                <p className="text-[11px] text-[#0F6E56] mt-0.5">+18,9%</p>
-              </div>
+              {KPI_KEYS.map((key) => (
+                <div key={key} className="bg-[#FFF2FA] rounded-2xl p-2.5">
+                  <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">{t(`mockup.kpi.${key}.label`)}</p>
+                  <p className="text-[15px] font-bold text-[#1e1e1e]">{t(`mockup.kpi.${key}.value`)}</p>
+                  <p className="text-[11px] text-[#0F6E56] mt-0.5">{t(`mockup.kpi.${key}.delta`)}</p>
+                </div>
+              ))}
             </div>
           </div>
 

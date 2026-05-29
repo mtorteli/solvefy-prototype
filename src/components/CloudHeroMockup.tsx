@@ -1,7 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer, AreaChart, Area, Tooltip } from "recharts";
 import { Home, Activity, Server, Settings } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const cpuData = [
   { value: 14 }, { value: 12 }, { value: 15 }, { value: 11 }, { value: 13 },
@@ -11,14 +11,19 @@ const cpuData = [
   { value: 12 }, { value: 15 }, { value: 13 }, { value: 11 }, { value: 12 },
 ];
 
-const vms = [
-  { name: "vm-prod-sp-01", cpu: "12%",    dotColor: "#00de71", paused: false },
-  { name: "vm-prod-sp-02", cpu: "8%",     dotColor: "#00de71", paused: false },
-  { name: "vm-staging",    cpu: "3%",     dotColor: "#00de71", paused: false },
-  { name: "vm-backup",     cpu: "0%",     dotColor: "#9ca3af", paused: true  },
+// VMs têm nomes técnicos universais — não traduzidos
+const VMS = [
+  { name: "vm-prod-sp-01", cpu: "12%", dotColor: "#00de71", paused: false },
+  { name: "vm-prod-sp-02", cpu: "8%",  dotColor: "#00de71", paused: false },
+  { name: "vm-staging",    cpu: "3%",  dotColor: "#00de71", paused: false },
+  { name: "vm-backup",     cpu: "0%",  dotColor: "#9ca3af", paused: true  },
 ];
 
+const KPI_KEYS = ["cpu", "ram"] as const;
+
 export const CloudHeroMockup = () => {
+  const { t } = useTranslation("cloud");
+
   return (
     <div className="flex justify-center">
       <motion.div
@@ -38,8 +43,8 @@ export const CloudHeroMockup = () => {
           <div className="px-[18px] pt-3">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[12px] font-semibold text-[#1e1e1e] leading-none">Monitor de infra</p>
-                <p className="text-[11px] text-[#1e1e1e]/60 mt-0.5">Ao vivo · 4 VMs</p>
+                <p className="text-[12px] font-semibold text-[#1e1e1e] leading-none">{t("mockup.header")}</p>
+                <p className="text-[11px] text-[#1e1e1e]/60 mt-0.5">{t("mockup.subheader")}</p>
               </div>
               <div className="w-[26px] h-[26px] rounded-full bg-[#E0F5FB] flex items-center justify-center">
                 <Activity size={12} className="text-[#00CBFF]" />
@@ -49,16 +54,16 @@ export const CloudHeroMockup = () => {
 
           {/* Main Metric */}
           <div className="px-[18px] pt-4 pb-1">
-            <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">Uptime SLA</p>
+            <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">{t("mockup.uptimeLabel")}</p>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-[22px] font-bold text-[#1e1e1e]">99,99%</span>
-              <span className="text-[11px] px-[7px] py-0.5 rounded-full bg-[#E1F5EE] text-[#085041] font-medium">Nominal</span>
+              <span className="text-[22px] font-bold text-[#1e1e1e]">{t("mockup.uptimeValue")}</span>
+              <span className="text-[11px] px-[7px] py-0.5 rounded-full bg-[#E1F5EE] text-[#085041] font-medium">{t("mockup.uptimeBadge")}</span>
             </div>
           </div>
 
           {/* Chart Label */}
           <div className="px-[18px] pt-2">
-            <p className="text-[10px] text-[#1e1e1e]/40 font-medium">CPU % — Últimas 24h</p>
+            <p className="text-[10px] text-[#1e1e1e]/40 font-medium">{t("mockup.chartLabel")}</p>
           </div>
 
           {/* Chart */}
@@ -78,7 +83,7 @@ export const CloudHeroMockup = () => {
                     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                     fontSize: "12px",
                   }}
-                  formatter={(v: number) => [`${v}%`, "CPU"]}
+                  formatter={(v: number) => [`${v}%`, t("mockup.tooltipCpu")]}
                 />
                 <Area
                   type="monotone"
@@ -96,26 +101,23 @@ export const CloudHeroMockup = () => {
           {/* 2-col KPI Cards */}
           <div className="px-[18px] pt-2">
             <div className="grid grid-cols-2 gap-2">
-              <div className="bg-[#E0F5FB] rounded-2xl p-2.5">
-                <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">CPU média</p>
-                <p className="text-[15px] font-bold text-[#1e1e1e]">12%</p>
-                <p className="text-[11px] text-[#0F6E56] mt-0.5">Normal</p>
-              </div>
-              <div className="bg-[#E0F5FB] rounded-2xl p-2.5">
-                <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">RAM usada</p>
-                <p className="text-[15px] font-bold text-[#1e1e1e]">4,8/16GB</p>
-                <p className="text-[11px] text-[#0F6E56] mt-0.5">30% uso</p>
-              </div>
+              {KPI_KEYS.map((key) => (
+                <div key={key} className="bg-[#E0F5FB] rounded-2xl p-2.5">
+                  <p className="text-[11px] text-[#1e1e1e]/60 mb-0.5">{t(`mockup.kpi.${key}.label`)}</p>
+                  <p className="text-[15px] font-bold text-[#1e1e1e]">{t(`mockup.kpi.${key}.value`)}</p>
+                  <p className="text-[11px] text-[#0F6E56] mt-0.5">{t(`mockup.kpi.${key}.delta`)}</p>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* VM List */}
           <div className="px-[18px] pt-3">
             <p className="text-[10px] font-semibold uppercase tracking-wide text-[#1e1e1e]/40 mb-2">
-              Máquinas virtuais
+              {t("mockup.vmsLabel")}
             </p>
             <div className="flex flex-col gap-1.5">
-              {vms.map((vm) => (
+              {VMS.map((vm) => (
                 <div
                   key={vm.name}
                   className="flex items-center justify-between rounded-xl px-2.5 py-1.5"
@@ -131,7 +133,7 @@ export const CloudHeroMockup = () => {
                   <div className="flex items-center gap-1">
                     <span className="text-[11px] font-semibold text-[#1e1e1e]">{vm.cpu}</span>
                     {vm.paused && (
-                      <span className="text-[9px] text-[#1e1e1e]/40 ml-0.5">Pausado</span>
+                      <span className="text-[9px] text-[#1e1e1e]/40 ml-0.5">{t("mockup.paused")}</span>
                     )}
                   </div>
                 </div>
