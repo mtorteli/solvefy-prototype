@@ -16,115 +16,114 @@ const CookieIcon = () => (
   </svg>
 );
 
+type State = "idle" | "banner" | "fab";
+
 export const CookieBanner = () => {
-  const [visible, setVisible] = useState(false);
-  const [fabVisible, setFabVisible] = useState(false);
+  const [state, setState] = useState<State>("idle");
 
   useEffect(() => {
     const saved = localStorage.getItem(CONSENT_KEY);
-    if (saved) {
-      setFabVisible(true);
-    } else {
-      setVisible(true);
-    }
+    setState(saved ? "fab" : "banner");
   }, []);
 
-  const closeModal = () => {
-    setVisible(false);
-    setFabVisible(true);
-  };
-
-  const openModal = () => {
-    setVisible(true);
-    setFabVisible(false);
-  };
-
-  const handleAccept = () => {
+  const accept = () => {
     localStorage.setItem(CONSENT_KEY, "accepted");
-    closeModal();
+    setState("fab");
   };
 
-  const handleReject = () => {
+  const reject = () => {
     localStorage.setItem(CONSENT_KEY, "rejected");
-    closeModal();
+    setState("fab");
   };
 
-  return (
-    <>
-      {/* ── Banner fixo no canto inferior direito ── */}
-      <div
-        role="region"
-        aria-label="Preferências de cookies"
-        className={[
-          "fixed bottom-5 right-5 z-[9000]",
-          "w-[340px] max-w-[calc(100vw-40px)]",
-          "bg-white rounded-2xl",
-          "shadow-[0_8px_32px_-4px_rgba(0,0,0,0.18),0_2px_12px_-2px_rgba(0,0,0,0.10)]",
-          "border border-[#e5e7eb]",
-          "p-5 flex flex-col gap-4",
-          "transition-[transform,opacity] duration-300 ease-out",
-          visible
-            ? "translate-y-0 opacity-100 pointer-events-auto"
-            : "translate-y-4 opacity-0 pointer-events-none",
-        ].join(" ")}
-      >
-        {/* Header */}
-        <div className="flex items-center gap-2">
-          <span className="text-[20px] leading-none" aria-hidden="true">🍪</span>
-          <span className="text-[14px] font-bold text-[#111827]">
-            Este site usa cookies
-          </span>
-        </div>
+  if (state === "idle") return null;
 
-        {/* Description */}
-        <p className="text-[12.5px] text-[#6b7280] leading-[1.6]">
-          Usamos cookies para análise, publicidade e personalização de anúncios.
-          Saiba mais na nossa{" "}
-          <Link
-            to="/termos-e-politicas#politica-de-cookies"
-            className="text-[#00c063] underline hover:opacity-75 transition-opacity"
-          >
-            Política de Cookies
-          </Link>
-          .
-        </p>
-
-        {/* Buttons */}
-        <div className="flex gap-2">
-          <button
-            onClick={handleReject}
-            className="flex-1 text-[12.5px] font-semibold py-2 px-3 rounded-lg cursor-pointer transition-all duration-150 bg-white text-[#374151] border border-[#d1d5db] hover:bg-[#f9fafb] hover:border-[#9ca3af]"
-          >
-            Rejeitar
-          </button>
-          <button
-            onClick={handleAccept}
-            className="flex-1 text-[12.5px] font-semibold py-2 px-3 rounded-lg cursor-pointer transition-all duration-150 bg-[#00DF71] text-white border border-[#00DF71] hover:bg-[#00c063] hover:border-[#00c063]"
-          >
-            Aceitar
-          </button>
-        </div>
-      </div>
-
-      {/* ── Floating cookie button (após consentimento) ── */}
+  if (state === "fab") {
+    return (
       <button
-        onClick={openModal}
+        onClick={() => setState("banner")}
         title="Preferências de cookies"
         aria-label="Abrir preferências de cookies"
+        style={{ animation: "cookieFabIn 0.25s ease-out both" }}
         className={[
-          "fixed bottom-5 right-5 z-[8999] w-[48px] h-[48px] rounded-full",
+          "fixed bottom-5 right-5 z-[9000]",
+          "w-[48px] h-[48px] rounded-full",
           "bg-[#00DF71] border-none cursor-pointer",
           "shadow-[0_4px_16px_-2px_rgba(0,223,113,0.55),0_2px_6px_rgba(0,0,0,0.10)]",
           "flex items-center justify-center",
-          "transition-[transform,box-shadow,opacity] duration-200",
+          "transition-[transform,box-shadow] duration-200",
           "hover:scale-[1.08] hover:shadow-[0_8px_24px_-4px_rgba(0,223,113,0.65)]",
-          fabVisible
-            ? "opacity-100 pointer-events-auto scale-100"
-            : "opacity-0 pointer-events-none scale-[0.8]",
         ].join(" ")}
       >
         <CookieIcon />
+        <style>{`
+          @keyframes cookieFabIn {
+            from { opacity: 0; transform: scale(0.75); }
+            to   { opacity: 1; transform: scale(1); }
+          }
+        `}</style>
       </button>
-    </>
+    );
+  }
+
+  // state === "banner"
+  return (
+    <div
+      role="region"
+      aria-label="Preferências de cookies"
+      style={{ animation: "cookieBannerIn 0.3s ease-out both" }}
+      className={[
+        "fixed bottom-5 right-5 z-[9000]",
+        "w-[340px] max-w-[calc(100vw-40px)]",
+        "bg-white rounded-2xl",
+        "shadow-[0_8px_32px_-4px_rgba(0,0,0,0.18),0_2px_12px_-2px_rgba(0,0,0,0.10)]",
+        "border border-[#e5e7eb]",
+        "p-5 flex flex-col gap-4",
+      ].join(" ")}
+    >
+      <style>{`
+        @keyframes cookieBannerIn {
+          from { opacity: 0; transform: translateY(12px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+
+      {/* Header */}
+      <div className="flex items-center gap-2">
+        <span className="text-[20px] leading-none" aria-hidden="true">🍪</span>
+        <span className="text-[14px] font-bold text-[#111827]">
+          Este site usa cookies
+        </span>
+      </div>
+
+      {/* Description */}
+      <p className="text-[12.5px] text-[#6b7280] leading-[1.6]">
+        Usamos cookies para análise, publicidade e personalização de anúncios.
+        Saiba mais na nossa{" "}
+        <Link
+          to="/termos-e-politicas#politica-de-cookies"
+          className="text-[#00c063] underline hover:opacity-75 transition-opacity"
+        >
+          Política de Cookies
+        </Link>
+        .
+      </p>
+
+      {/* Buttons */}
+      <div className="flex gap-2">
+        <button
+          onClick={reject}
+          className="flex-1 text-[12.5px] font-semibold py-2 px-3 rounded-lg cursor-pointer transition-all duration-150 bg-white text-[#374151] border border-[#d1d5db] hover:bg-[#f9fafb] hover:border-[#9ca3af]"
+        >
+          Rejeitar
+        </button>
+        <button
+          onClick={accept}
+          className="flex-1 text-[12.5px] font-semibold py-2 px-3 rounded-lg cursor-pointer transition-all duration-150 bg-[#00DF71] text-white border border-[#00DF71] hover:bg-[#00c063] hover:border-[#00c063]"
+        >
+          Aceitar
+        </button>
+      </div>
+    </div>
   );
 };
