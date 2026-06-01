@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { ArrowRight } from "lucide-react";
 import photoAugusto from "@/assets/photo-augusto.webp";
 import photoDeive from "@/assets/photo-deive.webp";
-import solversHero from "@/assets/solvers-hero.jpg";
+import solversHero from "@/assets/solvers-hero.png";
 import logoAgents from "@/assets/logos/solvefy-agents.png";
 
 const CampanhaAgentsCopa50 = () => {
