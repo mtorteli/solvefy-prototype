@@ -8,6 +8,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
 import { LocaleLayout } from "@/i18n/LocaleLayout";
+import { CookieBanner } from "@/components/CookieBanner";
 
 // Carregado imediatamente — é a entrada do site
 import Index from "./pages/Index.tsx";
@@ -72,6 +73,7 @@ const App = () => {
         <BrowserRouter>
           <SkipLink />
           <ScrollToTop />
+          <CookieBanner />
           <Suspense fallback={<div className="min-h-screen bg-background" />}>
             <Routes>
               <Route

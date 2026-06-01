@@ -154,16 +154,10 @@ export const Footer = () => {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-4 text-xs text-dark-foreground/50">
               <a
-                href="/termos-e-politicas#politica-de-privacidade"
+                href="/termos-e-politicas"
                 className="hover:text-primary transition-colors"
               >
-                {t("footer.legal.privacy")}
-              </a>
-              <a
-                href="/termos-e-politicas#termos-de-uso"
-                className="hover:text-primary transition-colors"
-              >
-                {t("footer.legal.terms")}
+                {t("footer.legal.termsAndPolicies")}
               </a>
               <a
                 href="/termos-e-politicas#politica-de-cookies"
