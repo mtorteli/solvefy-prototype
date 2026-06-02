@@ -197,6 +197,7 @@ const CampanhaAgentsCopa50 = () => {
               <div className="scarcity scarcity--hero">
                 <div className="scarcity__top">
                   <span className="mono">Vagas Limitadas</span>
+                  <b>50 vagas disponíveis</b>
                 </div>
                 <div className="scarcity__bar">
                   <div className="scarcity__fill" style={{ width: "76%" }}></div>
