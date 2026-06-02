@@ -29,6 +29,7 @@ const Contact = lazy(() => import("./pages/Contact.tsx"));
 const AdsEmpreendeBrasil = lazy(() => import("./pages/AdsEmpreendeBrasil.tsx"));
 const CpaasEmpreendeBrasil = lazy(() => import("./pages/CpaasEmpreendeBrasil.tsx"));
 const CampanhaAgentsCopa50 = lazy(() => import("./pages/CampanhaAgentsCopa50.tsx"));
+const Campanha2AgentsCopa50 = lazy(() => import("./pages/Campanha2AgentsCopa50.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const AppRoutes = () => (
     <Route path="ads-empreendebrasil" element={<AdsEmpreendeBrasil />} />
     <Route path="cpaas-empreendebrasil" element={<CpaasEmpreendeBrasil />} />
     <Route path="campanha-agents-copa50" element={<CampanhaAgentsCopa50 />} />
+    <Route path="campanha2-agents-copa50" element={<Campanha2AgentsCopa50 />} />
 
     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
     <Route path="*" element={<NotFound />} />
