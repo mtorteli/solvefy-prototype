@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const CONSENT_KEY = "solvefy_cookie_consent";
 
@@ -100,12 +99,14 @@ export const CookieBanner = () => {
       <p className="text-[12.5px] text-[#6b7280] leading-[1.6]">
         Usamos cookies para análise, publicidade e personalização de anúncios.
         Saiba mais na nossa{" "}
-        <Link
-          to="https://solvefy.com/termos-e-politicas/#politica-de-cookies"
+        <a
+          href="https://solvefy.com/termos-e-politicas/#politica-de-cookies"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-[#00c063] underline hover:opacity-75 transition-opacity"
         >
           Política de Cookies
-        </Link>
+        </a>
         .
       </p>
 
