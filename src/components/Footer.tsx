@@ -160,7 +160,7 @@ export const Footer = () => {
                 {t("footer.legal.termsAndPolicies")}
               </a>
               <a
-                href="/termos-e-politicas#politica-de-cookies"
+                href="https://solvefy.com/termos-e-politicas/#politica-de-cookies"
                 className="hover:text-primary transition-colors"
               >
                 {t("footer.legal.lgpd")}

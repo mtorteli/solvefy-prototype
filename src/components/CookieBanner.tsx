@@ -101,7 +101,7 @@ export const CookieBanner = () => {
         Usamos cookies para análise, publicidade e personalização de anúncios.
         Saiba mais na nossa{" "}
         <Link
-          to="/termos-e-politicas#politica-de-cookies"
+          to="https://solvefy.com/termos-e-politicas/#politica-de-cookies"
           className="text-[#00c063] underline hover:opacity-75 transition-opacity"
         >
           Política de Cookies
