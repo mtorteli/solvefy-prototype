@@ -8,6 +8,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import { useReveal } from "@/hooks/useReveal";
 import {
   ShoppingCart,
   Store,
@@ -43,6 +44,7 @@ const SEGMENT_META: Array<{
 export const UseCasesSelector = () => {
   const { t } = useTranslation("cpaas");
   const [activeId, setActiveId] = useState<string>("ecommerce");
+  const reveal = useReveal();
   const active = SEGMENT_META.find((s) => s.id === activeId) ?? SEGMENT_META[0];
 
   return (
@@ -141,7 +143,7 @@ export const UseCasesSelector = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={active.id}
-              initial={{ opacity: 0, y: 12 }}
+              initial={reveal ? { opacity: 0, y: 12 } : false}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
@@ -154,7 +156,7 @@ export const UseCasesSelector = () => {
                 return (
                   <motion.article
                     key={`${active.id}-${n}`}
-                    initial={{ opacity: 0, y: 16 }}
+                    initial={reveal ? { opacity: 0, y: 16 } : false}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
                     className="group relative h-full flex flex-col overflow-hidden rounded-2xl border border-white/10 p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1"

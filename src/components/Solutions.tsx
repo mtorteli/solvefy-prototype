@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 import { useLocale } from "@/i18n/useLocale";
+import { useReveal } from "@/hooks/useReveal";
 import iconCpaas from "@/assets/icons/cpaas.svg";
 import iconAds from "@/assets/icons/ads.svg";
 import iconMarketing from "@/assets/icons/marketing.svg";
@@ -35,6 +36,7 @@ export const Solutions = () => {
   const { t } = useTranslation("home");
   const { localizedPath } = useLocale();
   const [active, setActive] = useState(0);
+  const reveal = useReveal();
   const current = solutionMeta[active];
   // returnObjects: arrays vêm como string[] do JSON em vez de string única
   const bullets = t(`solutions.items.${current.key}.bullets`, {
@@ -101,7 +103,7 @@ export const Solutions = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.key}
-                initial={{ opacity: 0, y: 12 }}
+                initial={reveal ? { opacity: 0, y: 12 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.3 }}

@@ -14,6 +14,7 @@ import {
   Settings,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useReveal } from "@/hooks/useReveal";
 
 const data = [
   { value: 80 }, { value: 95 }, { value: 110 }, { value: 125 }, { value: 130 },
@@ -35,11 +36,12 @@ const KPI_DELTA_COLORS: Record<(typeof KPI_KEYS)[number], string> = {
 
 export const AdsHeroMockup = () => {
   const { t } = useTranslation("ads");
+  const reveal = useReveal();
 
   return (
     <div className="flex justify-center">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={reveal ? { opacity: 0, scale: 0.95 } : false}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-[280px] bg-[#f6f5ef] border border-black/5 rounded-[36px] p-2.5 relative shadow-2xl"

@@ -11,12 +11,14 @@ import { Calendar, User, ArrowLeft, Clock } from "lucide-react";
 import { renderContent } from "@/lib/renderContent";
 import DOMPurify from "dompurify";
 import { motion } from "framer-motion";
+import { useReveal } from "@/hooks/useReveal";
 import { useLocale } from "@/i18n/useLocale";
 
 export default function BlogPost() {
   const { t, i18n } = useTranslation("blog");
   const { locale, localizedPath } = useLocale();
   const { slug } = useParams();
+  const reveal = useReveal();
 
   const { data: postData, isLoading } = useQuery({
     queryKey: ["post", slug],
@@ -225,7 +227,7 @@ export default function BlogPost() {
                 return (
                   <motion.article
                     key={p.id}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={reveal ? { opacity: 0, y: 20 } : false}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="group rounded-2xl bg-card border border-border overflow-hidden shadow-soft hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col"

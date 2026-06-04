@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
@@ -6,39 +5,15 @@ import { SEO } from "@/components/SEO";
 import { breadcrumbSchema } from "@/lib/schemas";
 import { Footer } from "@/components/Footer";
 import { useLocale } from "@/i18n/useLocale";
-
-const RD_FORM_ID = "contato-solvefy-com-58c21822e6ec437325ca";
-const RD_SCRIPT_ID = "rd-station-forms-script";
-const RD_SCRIPT_SRC =
-  "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
+import { RD_FORM_ID, useRdStationForm } from "@/lib/rdStation";
+import { useReveal } from "@/hooks/useReveal";
 
 const Contact = () => {
   const { t } = useTranslation("contato");
   const { locale } = useLocale();
+  const reveal = useReveal();
 
-  useEffect(() => {
-    const initForm = () => {
-      // @ts-ignore
-      new window.RDStationForms(RD_FORM_ID, "null").createForm();
-    };
-
-    const existing = document.getElementById(RD_SCRIPT_ID);
-    if (existing) {
-      initForm();
-    } else {
-      const script = document.createElement("script");
-      script.id = RD_SCRIPT_ID;
-      script.src = RD_SCRIPT_SRC;
-      script.async = true;
-      script.onload = initForm;
-      document.body.appendChild(script);
-    }
-
-    return () => {
-      const container = document.getElementById(RD_FORM_ID);
-      if (container) container.innerHTML = "";
-    };
-  }, []);
+  useRdStationForm(true);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -64,7 +39,7 @@ const Contact = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Left Side: Content */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
+                initial={reveal ? { opacity: 0, x: -20 } : false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
@@ -87,7 +62,7 @@ const Contact = () => {
 
               {/* Right Side: Form */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={reveal ? { opacity: 0, y: 20 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-card rounded-[2rem] border border-border p-6 md:p-10 shadow-elegant relative overflow-hidden"

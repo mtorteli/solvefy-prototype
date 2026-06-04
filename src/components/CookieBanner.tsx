@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { isPrerender } from "@/hooks/useReveal";
 
 const CONSENT_KEY = "solvefy_cookie_consent";
 
@@ -21,6 +22,9 @@ export const CookieBanner = () => {
   const [state, setState] = useState<State>("idle");
 
   useEffect(() => {
+    // Não exibir durante o prerender (react-snap): manter "idle"/null para que o
+    // HTML capturado bata com o primeiro render do cliente e não quebre a hidratação.
+    if (isPrerender) return;
     const saved = localStorage.getItem(CONSENT_KEY);
     setState(saved ? "fab" : "banner");
   }, []);

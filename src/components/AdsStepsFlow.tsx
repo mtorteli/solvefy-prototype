@@ -15,6 +15,7 @@ import {
   Users,
   ImageIcon,
 } from "lucide-react";
+import { useReveal } from "@/hooks/useReveal";
 
 const ACCENT    = "#F0A800";
 const ACCENT_BG = "#FFF7E5";
@@ -33,6 +34,7 @@ const STEPS = [
 export const AdsStepsFlow = () => {
   const { t } = useTranslation("ads");
   const [activeIdx, setActiveIdx] = useState(0);
+  const reveal = useReveal();
   const lastIdxRef = useRef(-1);
   const rafRef     = useRef<number>(0);
   const t0Ref      = useRef<number>(0);
@@ -131,7 +133,7 @@ export const AdsStepsFlow = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={active.id}
-              initial={{ opacity: 0, y: 8 }}
+              initial={reveal ? { opacity: 0, y: 8 } : false}
               animate={{ opacity: 1, y: 0 }}
               exit={{    opacity: 0, y: -8 }}
               transition={{ duration: 0.22, ease: "easeOut" }}

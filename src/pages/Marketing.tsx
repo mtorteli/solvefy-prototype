@@ -26,6 +26,7 @@ import { MarketingHeroMockup } from "@/components/MarketingHeroMockup";
 import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
+import { useReveal } from "@/hooks/useReveal";
 import { useLocale } from "@/i18n/useLocale";
 
 import logoContaAzul from "@/assets/integrations/conta-azul.svg";
@@ -74,6 +75,7 @@ const Marketing = () => {
   const { t } = useTranslation("marketing");
   const { locale } = useLocale();
   const [isAnnual, setIsAnnual] = useState(false);
+  const reveal = useReveal();
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -165,7 +167,7 @@ const Marketing = () => {
               {PAIN_KEYS.map(({ key, Icon }, i) => (
                 <motion.article
                   key={key}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={reveal ? { opacity: 0, y: 20 } : false}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
@@ -271,7 +273,7 @@ const Marketing = () => {
 
           <div className="container relative mx-auto px-4">
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={reveal ? { opacity: 0, y: 24 } : false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7 }}

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ResponsiveContainer, AreaChart, Area, Tooltip } from "recharts";
 import { Home, Activity, Server, Settings } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useReveal } from "@/hooks/useReveal";
 
 const cpuData = [
   { value: 14 }, { value: 12 }, { value: 15 }, { value: 11 }, { value: 13 },
@@ -23,11 +24,12 @@ const KPI_KEYS = ["cpu", "ram"] as const;
 
 export const CloudHeroMockup = () => {
   const { t } = useTranslation("cloud");
+  const reveal = useReveal();
 
   return (
     <div className="flex justify-center">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={reveal ? { opacity: 0, scale: 0.95 } : false}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-[280px] bg-[#C6E8F1] border border-black/5 rounded-[36px] p-2.5 relative shadow-2xl"

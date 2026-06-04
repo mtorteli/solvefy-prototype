@@ -1,6 +1,7 @@
 ﻿import { useEffect, useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
+import { useReveal } from "@/hooks/useReveal";
 import showcase1 from "@/assets/showcase/showcase-1.jpg";
 import showcase2 from "@/assets/showcase/showcase-2.jpg";
 import showcase3 from "@/assets/showcase/showcase-3.jpg";
@@ -95,6 +96,7 @@ export const StackedCardsCarousel = ({
   className,
 }: Props) => {
   const [slideIndex, setSlideIndex] = useState(0);
+  const reveal = useReveal();
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -240,7 +242,7 @@ export const StackedCardsCarousel = ({
             return (
               <motion.div
                 key={`${n.title}-${idx}`}
-                initial={{ opacity: 0, y: 8 }}
+                initial={reveal ? { opacity: 0, y: 8 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + idx * 0.25 }}
                 className={`relative w-full ${
@@ -275,7 +277,7 @@ export const StackedCardsCarousel = ({
 
           {badge && (
             <motion.div
-              initial={{ opacity: 0, y: 4 }}
+              initial={reveal ? { opacity: 0, y: 4 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 + notifications.length * 0.25 + 0.2 }}
               className="inline-flex items-center gap-2 rounded-full border backdrop-blur-xl px-3 py-1.5 text-[11px] font-medium shadow-lg"

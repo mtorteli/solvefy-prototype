@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useReveal } from "@/hooks/useReveal";
 import augustoPhoto from "@/assets/photo-augusto.webp";
 import deivePhoto from "@/assets/photo-deive.webp";
 
@@ -15,12 +16,13 @@ const TAB_IDS: TabId[] = ["chapecoense", "deive"];
 export const Testimonial = () => {
   const { t } = useTranslation("home");
   const [active, setActive] = useState<TabId>(TAB_IDS[0]);
+  const reveal = useReveal();
 
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reveal ? { opacity: 0, y: 20 } : false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
@@ -34,7 +36,7 @@ export const Testimonial = () => {
                   key={active}
                   src={tabImages[active]}
                   alt={t(`testimonials.items.${active}.author`)}
-                  initial={{ opacity: 0 }}
+                  initial={reveal ? { opacity: 0 } : false}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
@@ -86,7 +88,7 @@ export const Testimonial = () => {
               <AnimatePresence mode="popLayout">
                 <motion.div
                   key={active}
-                  initial={{ opacity: 0 }}
+                  initial={reveal ? { opacity: 0 } : false}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}

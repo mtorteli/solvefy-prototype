@@ -11,6 +11,7 @@ import { Search, ChevronLeft, ChevronRight, ArrowRight, User, Calendar } from "l
 import { BlogCard } from "@/components/BlogCard";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useReveal } from "@/hooks/useReveal";
 import { useLocale } from "@/i18n/useLocale";
 
 const AREA_KEYS = ["comercial", "marketing", "tecnologia", "produto", "institucional", "ia"] as const;
@@ -55,6 +56,7 @@ export default function BlogIndex() {
   const [page, setPage] = useState(0);
   const [search, setSearch] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
+  const reveal = useReveal();
   const pageSize = 6;
 
   const { data, isLoading } = useQuery({
@@ -133,7 +135,7 @@ export default function BlogIndex() {
           {/* FEATURED POST */}
           {featuredPost && (
             <motion.article
-              initial={{ opacity: 0, y: 24 }}
+              initial={reveal ? { opacity: 0, y: 24 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
               className="group rounded-2xl border border-border overflow-hidden flex flex-col md:flex-row bg-card mb-12"

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Home, Zap, Users, Settings } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useReveal } from "@/hooks/useReveal";
 
 const FUNNEL_KEYS = ["input", "sent", "opened", "clicked", "converted"] as const;
 const FUNNEL_COUNTS = [4280, 3847, 1538, 614, 189];
@@ -11,11 +12,12 @@ const KPI_KEYS = ["open", "revenue"] as const;
 
 export const MarketingHeroMockup = () => {
   const { t, i18n } = useTranslation("marketing");
+  const reveal = useReveal();
 
   return (
     <div className="flex justify-center">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={reveal ? { opacity: 0, scale: 0.95 } : false}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-[280px] bg-[#FFE9F5] border border-black/5 rounded-[36px] p-2.5 relative shadow-2xl"

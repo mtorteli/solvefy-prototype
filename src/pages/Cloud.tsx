@@ -27,6 +27,7 @@ import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { useReveal } from "@/hooks/useReveal";
 import { useLocale } from "@/i18n/useLocale";
 import iconCloud from "@/assets/icons/cloud.svg";
 import logoCloud from "@/assets/logos/solvefy-cloud.png";
@@ -128,6 +129,7 @@ const Cloud = () => {
   const [roiOpen, setRoiOpen] = useState(false);
   const [openAcc, setOpenAcc] = useState<Record<string, number | null>>({});
   const [openCard, setOpenCard] = useState<number | null>(null);
+  const reveal = useReveal();
 
   const toggle = (section: string, i: number) =>
     setOpenAcc((prev) => ({ ...prev, [section]: prev[section] === i ? null : i }));
@@ -259,7 +261,7 @@ const Cloud = () => {
               {BLOCK1_CARD_KEYS.map(({ key, iconEl }, i) => (
                 <motion.div
                   key={key}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={reveal ? { opacity: 0, y: 16 } : false}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.45, delay: i * 0.06 }}
@@ -386,7 +388,7 @@ const Cloud = () => {
               {BLOCK3_KEYS.map(({ key, icon }, i) => (
                 <motion.article
                   key={key}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={reveal ? { opacity: 0, y: 20 } : false}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.45, delay: i * 0.07 }}

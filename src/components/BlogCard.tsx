@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { User, Calendar } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocale } from "@/i18n/useLocale";
+import { useReveal } from "@/hooks/useReveal";
 
 interface BlogCardProps {
   post: any;
@@ -12,6 +13,7 @@ interface BlogCardProps {
 export const BlogCard = ({ post, index }: BlogCardProps) => {
   const { t, i18n } = useTranslation("blog");
   const { localizedPath } = useLocale();
+  const reveal = useReveal();
 
   const category =
     post.post_categories?.[0]?.categories || post.post_categories;
@@ -19,7 +21,7 @@ export const BlogCard = ({ post, index }: BlogCardProps) => {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
+      initial={reveal ? { opacity: 0, y: 20 } : false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group rounded-2xl bg-background border border-border overflow-hidden flex flex-col transition-all duration-300"

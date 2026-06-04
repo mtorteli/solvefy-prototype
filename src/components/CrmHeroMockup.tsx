@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Home, TrendingUp, Users, Settings } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useReveal } from "@/hooks/useReveal";
 
 const STAGE_KEYS = ["prospect", "qualify", "proposal", "won"] as const;
 const STAGE_COUNTS = [8, 5, 3, 2];
@@ -10,11 +11,12 @@ const DEAL_COLORS = ["#E1611C", "#E1611C", "#00de71", "#E1611C"];
 
 export const CrmHeroMockup = () => {
   const { t } = useTranslation("crm");
+  const reveal = useReveal();
 
   return (
     <div className="flex justify-center">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={reveal ? { opacity: 0, scale: 0.95 } : false}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-[280px] bg-[#FFDAC6] border border-black/5 rounded-[36px] p-2.5 relative shadow-2xl"

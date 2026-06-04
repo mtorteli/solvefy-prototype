@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, Home, BarChart2, MessageSquare, Settings, ArrowLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useReveal } from "@/hooks/useReveal";
 
 const AgentIcon = ({ size = 14 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="14 23 69 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,10 +22,11 @@ const SQUAD_KEYS = [
 
 export const AgentsHeroMockup = () => {
   const { t } = useTranslation("agents");
+  const reveal = useReveal();
   return (
     <div className="flex justify-center">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={reveal ? { opacity: 0, scale: 0.95 } : false}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-[280px] bg-[#C8D8F0] border border-black/5 rounded-[36px] p-2.5 relative shadow-2xl"

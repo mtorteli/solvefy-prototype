@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ResponsiveContainer, AreaChart, Area, Tooltip } from "recharts";
 import { Home, BarChart2, MessageSquare, Settings } from "lucide-react";
+import { useReveal } from "@/hooks/useReveal";
 
 const data = [
   { value: 320 }, { value: 410 }, { value: 380 }, { value: 520 }, { value: 610 },
@@ -12,10 +13,11 @@ const data = [
 ];
 
 export const CpaasHeroMockup = () => {
+  const reveal = useReveal();
   return (
     <div className="flex justify-center">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={reveal ? { opacity: 0, scale: 0.95 } : false}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-[280px] bg-[#E7DBFF] border border-black/5 rounded-[36px] p-2.5 relative shadow-2xl"

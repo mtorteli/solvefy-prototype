@@ -23,6 +23,7 @@ import { ProductHero } from "@/components/ProductHero";
 import { AgentsFlow } from "@/components/AgentsFlow";
 import { AgentsHeroMockup } from "@/components/AgentsHeroMockup";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
+import { useReveal } from "@/hooks/useReveal";
 import { useLocale } from "@/i18n/useLocale";
 import iconAgents from "@/assets/icons/agents.svg";
 import logoAgents from "@/assets/logos/solvefy-agents.png";
@@ -55,6 +56,7 @@ export default function Agents() {
   const { t } = useTranslation("agents");
   const { locale, localizedPath } = useLocale();
   const [activePersona, setActivePersona] = useState(0);
+  const reveal = useReveal();
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -279,7 +281,7 @@ export default function Agents() {
                 return (
                   <motion.div
                     key={persona.key}
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={reveal ? { opacity: 0, y: 10 } : false}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}

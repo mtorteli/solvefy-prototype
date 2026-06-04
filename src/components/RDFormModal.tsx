@@ -1,14 +1,16 @@
-import { useEffect } from "react";
 import {
   Dialog,
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  RD_FORM_ID,
+  RD_SCRIPT_ID,
+  RD_SCRIPT_SRC,
+  useRdStationForm,
+} from "@/lib/rdStation";
 
-export const RD_FORM_ID = "contato-solvefy-com-58c21822e6ec437325ca";
-export const RD_SCRIPT_ID = "rd-station-forms-script";
-export const RD_SCRIPT_SRC =
-  "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
+export { RD_FORM_ID, RD_SCRIPT_ID, RD_SCRIPT_SRC };
 
 interface RDFormModalProps {
   open: boolean;
@@ -16,38 +18,7 @@ interface RDFormModalProps {
 }
 
 export const RDFormModal = ({ open, onClose }: RDFormModalProps) => {
-  useEffect(() => {
-    if (!open) return;
-
-    let retryId: ReturnType<typeof setTimeout>;
-
-    const tryInit = () => {
-      // @ts-ignore
-      if (typeof window.RDStationForms === "undefined") {
-        // Script ainda carregando — tenta novamente em 100 ms
-        retryId = setTimeout(tryInit, 100);
-        return;
-      }
-
-      const container = document.getElementById(RD_FORM_ID);
-      if (!container) {
-        retryId = setTimeout(tryInit, 100);
-        return;
-      }
-
-      container.innerHTML = "";
-      // @ts-ignore
-      new window.RDStationForms(RD_FORM_ID, "null").createForm();
-    };
-
-    tryInit();
-
-    return () => {
-      clearTimeout(retryId);
-      const container = document.getElementById(RD_FORM_ID);
-      if (container) container.innerHTML = "";
-    };
-  }, [open]);
+  useRdStationForm(open);
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
