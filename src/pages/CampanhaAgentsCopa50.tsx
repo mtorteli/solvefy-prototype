@@ -382,16 +382,22 @@ const CampanhaAgentsCopa50 = () => {
             </p>
           </div>
 
+          {/* ── Cupom ── */}
+          <div className="coupon-box">
+            <span className="coupon-label">🏷️ Adicione o cupom ao assinar para ativar o desconto:</span>
+            <span className="coupon-code">SELECAOAGENTS50</span>
+          </div>
+
           <div className="plans">
             {/* ── Basic ── */}
             <article className="plan">
               <h3 className="plan__name">Basic</h3>
               <p className="plan__tier">Para times que buscam uma IA pronta para uso.</p>
               <div className="plan__price">
-                <span className="plan__from"><span className="plan__currency">R$</span> 391,60</span>
-                <span className="plan__now"><span className="plan__currency">R$</span> 195,80<small>/mês</small></span>
+                <span className="plan__from"><span className="plan__currency">R$</span> 195,80</span>
+                <span className="plan__now"><span className="plan__currency">R$</span> 97,90<small>/mês</small></span>
               </div>
-              <p className="plan__per">por workspace · nos 3 primeiros meses</p>
+              <p className="plan__per">por workspace · nos 3 primeiros meses · com cupom</p>
               <span className="plan__badge">
                 <svg width="14" height="14"><use href="#i-check" /></svg>{" "}
                 50% OFF aplicado
@@ -419,10 +425,10 @@ const CampanhaAgentsCopa50 = () => {
               <h3 className="plan__name">Pro</h3>
               <p className="plan__tier">Para times que precisam de IA sob medida e automação.</p>
               <div className="plan__price">
-                <span className="plan__from"><span className="plan__currency">R$</span> 751,60</span>
-                <span className="plan__now"><span className="plan__currency">R$</span> 375,80<small>/mês</small></span>
+                <span className="plan__from"><span className="plan__currency">R$</span> 375,80</span>
+                <span className="plan__now"><span className="plan__currency">R$</span> 187,90<small>/mês</small></span>
               </div>
-              <p className="plan__per">por workspace · nos 3 primeiros meses</p>
+              <p className="plan__per">por workspace · nos 3 primeiros meses · com cupom</p>
               <span className="plan__badge">
                 <svg width="14" height="14"><use href="#i-check" /></svg>{" "}
                 50% OFF aplicado

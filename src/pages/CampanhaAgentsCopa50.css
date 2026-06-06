@@ -3,6 +3,42 @@
    Ported from the Anthropic prototype (campaign.css)
    All rules scoped under .copa50 to avoid conflicts with the
    main site CSS.
+
+   ── Cupom ──────────────────────────────────────────────────
+*/
+.copa50 .coupon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: rgba(255,212,0,.08);
+  border: 2px dashed var(--yellow);
+  border-radius: 14px;
+  padding: 16px 24px;
+  margin: 0 auto 28px;
+  max-width: 680px;
+  text-align: center;
+}
+.copa50 .coupon-label {
+  font-size: 13px;
+  color: rgba(255,255,255,.78);
+  font-weight: 500;
+}
+.copa50 .coupon-code {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: 17px;
+  letter-spacing: .12em;
+  color: var(--yellow);
+  background: rgba(255,212,0,.14);
+  padding: 5px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,212,0,.35);
+  user-select: all;
+  cursor: text;
+}
+/*
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');

@@ -884,6 +884,40 @@
   margin-top: 6px;
 }
 
+/* ── Cupom ── */
+.lp2 .coupon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: rgba(0,223,113,.06);
+  border: 2px dashed var(--green);
+  border-radius: 14px;
+  padding: 16px 24px;
+  margin: 0 auto 28px;
+  max-width: 680px;
+  text-align: center;
+}
+.lp2 .coupon-label {
+  font-size: 13px;
+  color: rgba(255,255,255,.78);
+  font-weight: 500;
+}
+.lp2 .coupon-code {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 17px;
+  letter-spacing: .12em;
+  color: var(--green);
+  background: rgba(0,223,113,.12);
+  padding: 5px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,223,113,.35);
+  user-select: all;
+  cursor: text;
+}
+
 /* ════════════════ RESPONSIVE ════════════════ */
 @media (max-width: 980px) {
   .lp2 .hero__in { grid-template-columns: 1fr; gap: 34px; }
