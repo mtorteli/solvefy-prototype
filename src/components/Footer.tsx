@@ -40,7 +40,7 @@ export const Footer = () => {
       title: t("footer.groups.company"),
       links: [
         { name: t("footer.links.about"), to: localizedPath("/quem-somos") },
-        { name: t("footer.links.careers"), to: "https://ativoscapital.rhgestor.com.br/" },
+        { name: t("footer.links.careers"), to: "https://solvefy.rhgestor.com.br/" },
       ],
     },
   ];

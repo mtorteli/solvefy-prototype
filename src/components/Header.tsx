@@ -162,7 +162,7 @@ export const Header = () => {
 
   const companyLinks = [
     { name: t("header.company.about"), to: localizedPath("/quem-somos") },
-    { name: t("header.company.careers"), to: "https://ativoscapital.rhgestor.com.br/" },
+    { name: t("header.company.careers"), to: "https://solvefy.rhgestor.com.br/" },
   ];
 
   return (
