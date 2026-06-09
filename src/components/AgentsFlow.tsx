@@ -109,7 +109,12 @@ export const AgentsFlow = ({
 
                   {/* Card */}
                   <div
-                    className="relative flex min-h-[140px] flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border px-4 py-5 text-center transition-all duration-500"
+                    className="relative flex min-h-[140px] flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border px-4 py-5 text-center transition-all duration-500 cursor-pointer"
+                    onClick={() => {
+                      setActiveIdx(i);
+                      lastIdxRef.current = i;
+                      t0Ref.current = performance.now() - (i / AGENTS.length) * CYCLE_MS;
+                    }}
                     style={
                       isActive
                         ? {
