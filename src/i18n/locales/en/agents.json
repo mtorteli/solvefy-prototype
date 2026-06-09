@@ -90,13 +90,12 @@
     "title": "Choose the <accent>right</accent> plan to grow.",
     "subtitle": "Billed in BRL, no FX swings and no fine print.",
     "notIncluded": "Not included",
-    "creditNote": "1 credit = R$ 1.00, consumed proportionally to actual AI usage. Additional credits available as needed. No hidden fees.",
     "plans": {
       "fast": {
         "name": "Fast",
         "price": "$195.80",
         "period": "/month",
-        "credits": "20 AI credits/month included",
+        "credits": "50 AI credits/month included",
         "cta": "Start with Fast",
         "f1": "Workspace users: Unlimited",
         "f2": "Pre-configured agents: All (15+)",
@@ -110,7 +109,7 @@
         "name": "Best",
         "price": "$375.80",
         "period": "/month",
-        "credits": "50 AI credits/month included",
+        "credits": "100 AI credits/month included",
         "badge": "Most Chosen",
         "cta": "Start with Best",
         "f1": "Workspace users: Unlimited",

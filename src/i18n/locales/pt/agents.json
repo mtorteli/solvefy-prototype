@@ -90,13 +90,12 @@
     "title": "Escolha o plano <accent>certo</accent> para crescer.",
     "subtitle": "Faturamento em reais, sem oscilação cambial e sem letras miúdas.",
     "notIncluded": "Não incluso",
-    "creditNote": "1 crédito = R$ 1,00, consumido proporcionalmente ao uso real da IA. Créditos adicionais disponíveis conforme necessidade. Sem taxas ocultas.",
     "plans": {
       "fast": {
         "name": "Veloz",
         "price": "R$ 195,80",
         "period": "/mês",
-        "credits": "20 créditos de IA/mês inclusos",
+        "credits": "50 créditos de IA/mês inclusos",
         "cta": "Começar com Veloz",
         "f1": "Usuários no workspace: Ilimitado",
         "f2": "Agentes pré-configurados: Todos (15+)",
@@ -110,7 +109,7 @@
         "name": "Melhor",
         "price": "R$ 375,80",
         "period": "/mês",
-        "credits": "50 créditos de IA/mês inclusos",
+        "credits": "100 créditos de IA/mês inclusos",
         "badge": "Mais Escolhido",
         "cta": "Começar com Melhor",
         "f1": "Usuários no workspace: Ilimitado",
