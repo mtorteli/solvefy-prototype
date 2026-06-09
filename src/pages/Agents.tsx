@@ -469,10 +469,6 @@ export default function Agents() {
                 </div>
               ))}
             </div>
-
-            <p className="text-center text-xs text-muted-foreground/60 mt-8 max-w-lg mx-auto leading-relaxed">
-              {t("pricing.creditNote")}
-            </p>
           </div>
         </section>
       </main>
