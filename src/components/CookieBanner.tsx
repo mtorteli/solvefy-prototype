@@ -3,6 +3,23 @@ import { isPrerender } from "@/hooks/useReveal";
 
 const CONSENT_KEY = "solvefy_cookie_consent";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+    loadContentsquare?: () => void;
+  }
+}
+
+// Atualiza o Google Consent Mode v2 (default fica como "denied" no index.html).
+const setConsent = (value: "granted" | "denied") => {
+  window.gtag?.("consent", "update", {
+    ad_storage: value,
+    ad_user_data: value,
+    ad_personalization: value,
+    analytics_storage: value,
+  });
+};
+
 const CookieIcon = () => (
   <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[26px] h-[26px]">
     <circle cx="16" cy="16" r="13" fill="white" opacity="0.95" />
@@ -31,11 +48,14 @@ export const CookieBanner = () => {
 
   const accept = () => {
     localStorage.setItem(CONSENT_KEY, "accepted");
+    setConsent("granted");
+    window.loadContentsquare?.();
     setState("fab");
   };
 
   const reject = () => {
     localStorage.setItem(CONSENT_KEY, "rejected");
+    setConsent("denied");
     setState("fab");
   };
 

@@ -5,17 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Google Analytics 4 (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA4_ID%"></script>
+    <!--
+      Consentimento de cookies (LGPD) + Google Consent Mode v2.
+      Default = tudo negado até o visitante decidir no banner (CookieBanner.tsx).
+      Em visitas seguintes, reaplica a escolha salva ANTES de qualquer hit do GA.
+      O gtag.js carrega mesmo negado: nesse estado o GA não grava cookies
+      (envia apenas pings sem cookie), conforme orientação do Consent Mode.
+    -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      });
+      try {
+        if (localStorage.getItem('solvefy_cookie_consent') === 'accepted') {
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted',
+          });
+        }
+      } catch (e) {}
+    </script>
+
+    <!-- Google Analytics 4 (gtag.js) — respeita o Consent Mode acima -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA4_ID%"></script>
+    <script>
       gtag('js', new Date());
       gtag('config', '%VITE_GA4_ID%');
     </script>
 
-    <!-- Contentsquare — analytics e heatmap -->
-    <script src="https://t.contentsquare.net/uxa/a53aefff5fd6e.js" async></script>
+    <!--
+      Contentsquare — analytics e heatmap. Sem Consent Mode próprio, então só
+      injetamos o script quando há consentimento. window.loadContentsquare é
+      chamado pelo CookieBanner no clique em "Aceitar".
+    -->
+    <script>
+      (function () {
+        function loadContentsquare() {
+          if (window.__csqLoaded) return;
+          window.__csqLoaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://t.contentsquare.net/uxa/a53aefff5fd6e.js';
+          s.async = true;
+          document.head.appendChild(s);
+        }
+        window.loadContentsquare = loadContentsquare;
+        try {
+          if (localStorage.getItem('solvefy_cookie_consent') === 'accepted') {
+            loadContentsquare();
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <!-- Google Search Console — verificação de propriedade do domínio -->
     <meta name="google-site-verification" content="qGA_pfU4wWRF79hbtxgsUsw-c9-PnffVE9hxITHX1hg" />
