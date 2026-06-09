@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
-const CYCLE_MS = 18_000;
+const CYCLE_MS = 8_000;
 
 const AGENTS = [
   { id: "sdr",     Icon: Target,    BadgeIcon: TrendingUp },
