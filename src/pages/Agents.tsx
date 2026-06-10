@@ -235,9 +235,6 @@ export default function Agents() {
         {/* ── 4. AGENTS FLOW ── */}
         <AgentsFlow accent={ACCENT} accentBg={ACCENT_BG} />
 
-        {/* ── 5. SQUAD AO VIVO ── */}
-        <SquadAoVivo accent={ACCENT} accentBg={ACCENT_BG} />
-
         {/* ── 6. PERSONAS ── */}
         <section className="py-16 md:py-24" style={{ backgroundColor: ACCENT_TINT }}>
           <div className="max-w-6xl mx-auto px-6">
