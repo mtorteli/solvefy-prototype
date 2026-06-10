@@ -90,13 +90,14 @@
     "title": "Escolha o plano <accent>certo</accent> para crescer.",
     "subtitle": "Faturamento em reais, sem oscilação cambial e sem letras miúdas.",
     "notIncluded": "Não incluso",
+    "footnote": "Todos os planos incluem suporte em português e workspace com usuários ilimitados.",
     "plans": {
       "fast": {
-        "name": "Veloz",
+        "name": "Basic",
         "price": "R$ 195,80",
         "period": "/mês",
         "credits": "50 créditos de IA/mês inclusos",
-        "cta": "Começar com Veloz",
+        "cta": "Começar com Basic",
         "f1": "Usuários no workspace: Ilimitado",
         "f2": "Agentes pré-configurados: Todos (15+)",
         "f3": "Multi-modelo: Padrão (Gemini)",
@@ -106,12 +107,12 @@
         "d3": "Criar squads próprios"
       },
       "best": {
-        "name": "Melhor",
+        "name": "Pro",
         "price": "R$ 375,80",
         "period": "/mês",
         "credits": "100 créditos de IA/mês inclusos",
         "badge": "Mais Escolhido",
-        "cta": "Começar com Melhor",
+        "cta": "Começar com Pro",
         "f1": "Usuários no workspace: Ilimitado",
         "f2": "Agentes pré-configurados: Todos (15+)",
         "f3": "Squads pré-prontos",
@@ -120,6 +121,50 @@
         "f6": "Multi-modelo: Acesso total (Gemini, Claude e GPT)",
         "f7": "Analytics, histórico e anexos"
       }
+    }
+  },
+  "squadLive": {
+    "eyebrow": "Squad Social em ação",
+    "title": "Veja o squad trabalhando em tempo real",
+    "subtitle": "Escale seu negócio com times montados exclusivamente para você.",
+    "leadLabel": "Gatilho",
+    "replay": "Rodar de novo",
+    "status": {
+      "idle":       "Na fila",
+      "processing": "Processando",
+      "done":       "Concluído"
+    },
+    "steps": {
+      "orchestrator": {
+        "label":  "Agente Orquestrador",
+        "role":   "Orquestração",
+        "detail": "Segmento identificado: Indústria / Manufatura B2B. Delegando missões ao squad especialista."
+      },
+      "nadia": {
+        "label":  "Nadia Notícias",
+        "role":   "Pesquisa",
+        "detail": "Mapeando presença digital, cargo e sinais de intenção do lead.",
+        "directive": "Mapear gargalos de inbound: identificar se a empresa sofre com baixo volume de leads qualificados ou com ciclos longos de conversão no segmento de manufatura."
+      },
+      "felipe": {
+        "label":  "Felipe Fatos",
+        "role":   "Redação",
+        "detail": "Construindo mensagem ABM com gancho setorial, dor mapeada e prova social.",
+        "directive": "Foco em ABM: redigir mensagem personalizada para o segmento de manufatura B2B, usando linguagem de resultado (redução de ciclo de venda, aumento de pipeline qualificado)."
+      },
+      "linkedin": {
+        "label":  "Agente LinkedIn",
+        "role":   "Abordagem",
+        "detail": "Preparando envio via LinkedIn com timing e formato otimizados.",
+        "directive": "Preparar envio de estudo de caso: anexar case de indústria similar com resultado mensurável e sugerir conexão para uma call de 20 minutos."
+      }
+    },
+    "directiveLabel": "Diretriz do Orquestrador",
+    "output": {
+      "label": "Mensagem gerada",
+      "hook":  "Carlos, vi que você se interessa por prospecção B2B estruturada — exatamente o que resolvemos para equipes como a sua.",
+      "pain":  "Muitos diretores perdem horas qualificando leads manualmente. O Solvefy Agents faz isso em segundos, 24/7.",
+      "cta":   "Posso te mostrar como funciona em 15 minutos esta semana?"
     }
   },
   "mockup": {

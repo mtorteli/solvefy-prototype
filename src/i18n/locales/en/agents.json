@@ -90,13 +90,14 @@
     "title": "Choose the <accent>right</accent> plan to grow.",
     "subtitle": "Billed in BRL, no FX swings and no fine print.",
     "notIncluded": "Not included",
+    "footnote": "All plans include Portuguese support and workspace with unlimited users.",
     "plans": {
       "fast": {
-        "name": "Fast",
+        "name": "Basic",
         "price": "$195.80",
         "period": "/month",
         "credits": "50 AI credits/month included",
-        "cta": "Start with Fast",
+        "cta": "Start with Basic",
         "f1": "Workspace users: Unlimited",
         "f2": "Pre-configured agents: All (15+)",
         "f3": "Multi-model: Default (Gemini)",
@@ -106,12 +107,12 @@
         "d3": "Create your own squads"
       },
       "best": {
-        "name": "Best",
+        "name": "Pro",
         "price": "$375.80",
         "period": "/month",
         "credits": "100 AI credits/month included",
         "badge": "Most Chosen",
-        "cta": "Start with Best",
+        "cta": "Start with Pro",
         "f1": "Workspace users: Unlimited",
         "f2": "Pre-configured agents: All (15+)",
         "f3": "Pre-built squads",
@@ -120,6 +121,50 @@
         "f6": "Multi-model: Full access (Gemini, Claude and GPT)",
         "f7": "Analytics, history and attachments"
       }
+    }
+  },
+  "squadLive": {
+    "eyebrow": "Social Squad in action",
+    "title": "Watch the squad working in real time",
+    "subtitle": "One trigger comes in, four specialists act in sequence, and the finished message appears in seconds.",
+    "leadLabel": "Trigger",
+    "replay": "Run again",
+    "status": {
+      "idle":       "Queued",
+      "processing": "Processing",
+      "done":       "Done"
+    },
+    "steps": {
+      "orchestrator": {
+        "label":  "Orchestrator Agent",
+        "role":   "Orchestration",
+        "detail": "Segment identified: Industry / Manufacturing B2B. Delegating missions to the specialist squad."
+      },
+      "nadia": {
+        "label":  "Nadia News",
+        "role":   "Research",
+        "detail": "Mapping digital presence, role and intent signals of the lead.",
+        "directive": "Map inbound bottlenecks: identify if the company struggles with low qualified lead volume or long conversion cycles in the manufacturing segment."
+      },
+      "felipe": {
+        "label":  "Felipe Facts",
+        "role":   "Copywriting",
+        "detail": "Building an ABM message with sector hook, mapped pain and social proof.",
+        "directive": "ABM focus: write a personalized message for B2B manufacturing, using outcome language (shorter sales cycle, larger qualified pipeline)."
+      },
+      "linkedin": {
+        "label":  "LinkedIn Agent",
+        "role":   "Outreach",
+        "detail": "Preparing LinkedIn send with optimized timing and format.",
+        "directive": "Prepare case study send: attach a similar industry case with measurable results and suggest a connection for a 20-minute call."
+      }
+    },
+    "directiveLabel": "Orchestrator Directive",
+    "output": {
+      "label": "Generated message",
+      "hook":  "Carlos, I saw you're interested in structured B2B prospecting — exactly what we solve for teams like yours.",
+      "pain":  "Many directors waste hours qualifying leads manually. Solvefy Agents does it in seconds, 24/7.",
+      "cta":   "Can I show you how it works in 15 minutes this week?"
     }
   },
   "mockup": {

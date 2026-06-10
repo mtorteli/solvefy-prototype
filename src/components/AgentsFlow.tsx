@@ -4,7 +4,7 @@
  * texto descritivo centralizado abaixo.
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trans, useTranslation } from "react-i18next";
 import {
@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
-const CYCLE_MS = 18_000;
+const CYCLE_MS = 8_000;
 
 const AGENTS = [
   { id: "sdr",     Icon: Target,    BadgeIcon: TrendingUp },
@@ -87,6 +87,11 @@ export const AgentsFlow = ({
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {AGENTS.map((agent, i) => {
               const isActive = activeIdx === i;
+              const selectCard = () => {
+                setActiveIdx(i);
+                lastIdxRef.current = i;
+                t0Ref.current = performance.now() - (i / AGENTS.length) * CYCLE_MS;
+              };
               return (
                 <div key={agent.id} className="relative pt-8">
                   {/* Badge */}
@@ -109,19 +114,33 @@ export const AgentsFlow = ({
 
                   {/* Card */}
                   <div
-                    className="relative flex min-h-[140px] flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border px-4 py-5 text-center transition-all duration-500"
+                    role="button"
+                    tabIndex={0}
+                    aria-pressed={isActive}
+                    aria-label={t(`agentsFlow.agents.${agent.id}.label`)}
+                    className="relative flex min-h-[140px] flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border px-4 py-5 text-center transition-all duration-500 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                    onClick={selectCard}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        selectCard();
+                      }
+                    }}
                     style={
-                      isActive
-                        ? {
-                            borderColor: accent,
-                            backgroundColor: `${accent}0D`,
-                            boxShadow: `0 0 0 2px ${accent}30, 0 8px 24px -8px ${accent}40`,
-                          }
-                        : {
-                            borderColor: "rgba(229,231,235,0.9)",
-                            backgroundColor: "rgba(255,255,255,0.65)",
-                            boxShadow: "0 1px 4px 0 rgba(0,0,0,0.05)",
-                          }
+                      {
+                        "--tw-ring-color": accent,
+                        ...(isActive
+                          ? {
+                              borderColor: accent,
+                              backgroundColor: `${accent}0D`,
+                              boxShadow: `0 0 0 2px ${accent}30, 0 8px 24px -8px ${accent}40`,
+                            }
+                          : {
+                              borderColor: "rgba(229,231,235,0.9)",
+                              backgroundColor: "rgba(255,255,255,0.65)",
+                              boxShadow: "0 1px 4px 0 rgba(0,0,0,0.05)",
+                            }),
+                      } as CSSProperties
                     }
                   >
                     {/* Online indicator */}
