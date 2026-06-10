@@ -21,16 +21,28 @@
         ad_personalization: 'denied',
         analytics_storage: 'denied',
       });
-      try {
-        if (localStorage.getItem('solvefy_cookie_consent') === 'accepted') {
-          gtag('consent', 'update', {
-            ad_storage: 'granted',
-            ad_user_data: 'granted',
-            ad_personalization: 'granted',
-            analytics_storage: 'granted',
-          });
-        }
-      } catch (e) {}
+      // Escolha salva: JSON granular {"analytics":bool,"ads":bool} ou os
+      // formatos legados "accepted"/"rejected" (tudo ou nada).
+      function readCookiePrefs() {
+        try {
+          var raw = localStorage.getItem('solvefy_cookie_consent');
+          if (!raw || raw === 'rejected') return null;
+          if (raw === 'accepted') return { analytics: true, ads: true };
+          var parsed = JSON.parse(raw);
+          return { analytics: !!parsed.analytics, ads: !!parsed.ads };
+        } catch (e) { return null; }
+      }
+      (function () {
+        var prefs = readCookiePrefs();
+        if (!prefs || (!prefs.analytics && !prefs.ads)) return;
+        var ads = prefs.ads ? 'granted' : 'denied';
+        gtag('consent', 'update', {
+          ad_storage: ads,
+          ad_user_data: ads,
+          ad_personalization: ads,
+          analytics_storage: prefs.analytics ? 'granted' : 'denied',
+        });
+      })();
     </script>
 
     <!-- Google Analytics 4 (gtag.js) — respeita o Consent Mode acima -->
@@ -42,8 +54,8 @@
 
     <!--
       Contentsquare — analytics e heatmap. Sem Consent Mode próprio, então só
-      injetamos o script quando há consentimento. window.loadContentsquare é
-      chamado pelo CookieBanner no clique em "Aceitar".
+      injetamos o script quando a categoria de análise é aceita.
+      window.loadContentsquare é chamado pelo CookieBanner ao salvar a escolha.
     -->
     <script>
       (function () {
@@ -56,11 +68,8 @@
           document.head.appendChild(s);
         }
         window.loadContentsquare = loadContentsquare;
-        try {
-          if (localStorage.getItem('solvefy_cookie_consent') === 'accepted') {
-            loadContentsquare();
-          }
-        } catch (e) {}
+        var prefs = readCookiePrefs();
+        if (prefs && prefs.analytics) loadContentsquare();
       })();
     </script>
 

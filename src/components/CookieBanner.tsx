@@ -10,14 +10,35 @@ declare global {
   }
 }
 
-// Atualiza o Google Consent Mode v2 (default fica como "denied" no index.html).
-const setConsent = (value: "granted" | "denied") => {
+// Preferências granulares por categoria. "Necessários" não entra aqui porque
+// é sempre ativo. O valor é salvo como JSON no localStorage; os formatos
+// legados "accepted"/"rejected" continuam sendo lidos (aqui e no index.html).
+type Prefs = { analytics: boolean; ads: boolean };
+
+const readPrefs = (): Prefs | null => {
+  try {
+    const raw = localStorage.getItem(CONSENT_KEY);
+    if (!raw) return null;
+    if (raw === "accepted") return { analytics: true, ads: true };
+    if (raw === "rejected") return { analytics: false, ads: false };
+    const parsed = JSON.parse(raw);
+    return { analytics: !!parsed.analytics, ads: !!parsed.ads };
+  } catch {
+    return null;
+  }
+};
+
+// Atualiza o Google Consent Mode v2 (default fica como "denied" no index.html)
+// e carrega o Contentsquare quando a categoria de análise é aceita.
+const applyPrefs = (prefs: Prefs) => {
+  const ads = prefs.ads ? "granted" : "denied";
   window.gtag?.("consent", "update", {
-    ad_storage: value,
-    ad_user_data: value,
-    ad_personalization: value,
-    analytics_storage: value,
+    ad_storage: ads,
+    ad_user_data: ads,
+    ad_personalization: ads,
+    analytics_storage: prefs.analytics ? "granted" : "denied",
   });
+  if (prefs.analytics) window.loadContentsquare?.();
 };
 
 const CookieIcon = () => (
@@ -33,30 +54,62 @@ const CookieIcon = () => (
   </svg>
 );
 
-type State = "idle" | "banner" | "fab";
+const Toggle = ({
+  checked,
+  disabled,
+  label,
+  onChange,
+}: {
+  checked: boolean;
+  disabled?: boolean;
+  label: string;
+  onChange?: (checked: boolean) => void;
+}) => (
+  <button
+    type="button"
+    role="switch"
+    aria-checked={checked}
+    aria-label={label}
+    disabled={disabled}
+    onClick={() => onChange?.(!checked)}
+    className={[
+      "relative shrink-0 w-[36px] h-[20px] rounded-full border-none transition-colors duration-150",
+      checked ? "bg-[#00DF71]" : "bg-[#d1d5db]",
+      disabled ? "opacity-60 cursor-not-allowed" : "cursor-pointer",
+    ].join(" ")}
+  >
+    <span
+      className={[
+        "absolute top-[2px] w-[16px] h-[16px] rounded-full bg-white",
+        "shadow-[0_1px_3px_rgba(0,0,0,0.25)] transition-[left] duration-150",
+        checked ? "left-[18px]" : "left-[2px]",
+      ].join(" ")}
+    />
+  </button>
+);
+
+type State = "idle" | "banner" | "prefs" | "fab";
 
 export const CookieBanner = () => {
   const [state, setState] = useState<State>("idle");
+  const [prefs, setPrefs] = useState<Prefs>({ analytics: false, ads: false });
 
   useEffect(() => {
     // Não exibir durante o prerender (react-snap): manter "idle"/null para que o
     // HTML capturado bata com o primeiro render do cliente e não quebre a hidratação.
     if (isPrerender) return;
-    const saved = localStorage.getItem(CONSENT_KEY);
-    setState(saved ? "fab" : "banner");
+    setState(readPrefs() ? "fab" : "banner");
   }, []);
 
-  const accept = () => {
-    localStorage.setItem(CONSENT_KEY, "accepted");
-    setConsent("granted");
-    window.loadContentsquare?.();
+  const save = (next: Prefs) => {
+    localStorage.setItem(CONSENT_KEY, JSON.stringify(next));
+    applyPrefs(next);
     setState("fab");
   };
 
-  const reject = () => {
-    localStorage.setItem(CONSENT_KEY, "rejected");
-    setConsent("denied");
-    setState("fab");
+  const openPrefs = () => {
+    setPrefs(readPrefs() ?? { analytics: false, ads: false });
+    setState("prefs");
   };
 
   if (state === "idle") return null;
@@ -89,27 +142,106 @@ export const CookieBanner = () => {
     );
   }
 
+  const panelClass = [
+    "fixed bottom-5 right-5 z-[9000]",
+    "w-[340px] max-w-[calc(100vw-40px)]",
+    "bg-white rounded-2xl",
+    "shadow-[0_8px_32px_-4px_rgba(0,0,0,0.18),0_2px_12px_-2px_rgba(0,0,0,0.10)]",
+    "border border-[#e5e7eb]",
+    "p-5 flex flex-col gap-4",
+  ].join(" ");
+
+  const panelAnimation = (
+    <style>{`
+      @keyframes cookieBannerIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+    `}</style>
+  );
+
+  if (state === "prefs") {
+    const categories = [
+      {
+        name: "Necessários",
+        description: "Essenciais para o funcionamento do site. Sempre ativos.",
+        checked: true,
+        disabled: true,
+      },
+      {
+        name: "Análise",
+        description: "Nos ajudam a entender como o site é usado (GA4, Contentsquare).",
+        checked: prefs.analytics,
+        onChange: (v: boolean) => setPrefs((p) => ({ ...p, analytics: v })),
+      },
+      {
+        name: "Publicidade",
+        description: "Usados para medir e personalizar anúncios.",
+        checked: prefs.ads,
+        onChange: (v: boolean) => setPrefs((p) => ({ ...p, ads: v })),
+      },
+    ];
+
+    return (
+      <div
+        role="region"
+        aria-label="Preferências de cookies"
+        style={{ animation: "cookieBannerIn 0.3s ease-out both" }}
+        className={panelClass}
+      >
+        {panelAnimation}
+
+        <div className="flex items-center gap-2">
+          <span className="text-[20px] leading-none" aria-hidden="true">🍪</span>
+          <span className="text-[14px] font-bold text-[#111827]">
+            Preferências de cookies
+          </span>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          {categories.map((cat) => (
+            <div key={cat.name} className="flex items-start justify-between gap-3">
+              <div className="flex flex-col gap-0.5">
+                <span className="text-[12.5px] font-semibold text-[#111827]">{cat.name}</span>
+                <span className="text-[11.5px] text-[#6b7280] leading-[1.5]">{cat.description}</span>
+              </div>
+              <Toggle
+                checked={cat.checked}
+                disabled={cat.disabled}
+                label={`Cookies de ${cat.name.toLowerCase()}`}
+                onChange={cat.onChange}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="flex gap-2">
+          <button
+            onClick={() => setState("banner")}
+            className="flex-1 text-[12.5px] font-semibold py-2 px-3 rounded-lg cursor-pointer transition-all duration-150 bg-white text-[#374151] border border-[#d1d5db] hover:bg-[#f9fafb] hover:border-[#9ca3af]"
+          >
+            Voltar
+          </button>
+          <button
+            onClick={() => save(prefs)}
+            className="flex-1 text-[12.5px] font-semibold py-2 px-3 rounded-lg cursor-pointer transition-all duration-150 bg-[#00DF71] text-white border border-[#00DF71] hover:bg-[#00c063] hover:border-[#00c063]"
+          >
+            Salvar preferências
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   // state === "banner"
   return (
     <div
       role="region"
       aria-label="Preferências de cookies"
       style={{ animation: "cookieBannerIn 0.3s ease-out both" }}
-      className={[
-        "fixed bottom-5 right-5 z-[9000]",
-        "w-[340px] max-w-[calc(100vw-40px)]",
-        "bg-white rounded-2xl",
-        "shadow-[0_8px_32px_-4px_rgba(0,0,0,0.18),0_2px_12px_-2px_rgba(0,0,0,0.10)]",
-        "border border-[#e5e7eb]",
-        "p-5 flex flex-col gap-4",
-      ].join(" ")}
+      className={panelClass}
     >
-      <style>{`
-        @keyframes cookieBannerIn {
-          from { opacity: 0; transform: translateY(12px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
+      {panelAnimation}
 
       {/* Header */}
       <div className="flex items-center gap-2">
@@ -137,18 +269,25 @@ export const CookieBanner = () => {
       {/* Buttons */}
       <div className="flex gap-2">
         <button
-          onClick={reject}
+          onClick={() => save({ analytics: false, ads: false })}
           className="flex-1 text-[12.5px] font-semibold py-2 px-3 rounded-lg cursor-pointer transition-all duration-150 bg-white text-[#374151] border border-[#d1d5db] hover:bg-[#f9fafb] hover:border-[#9ca3af]"
         >
           Rejeitar
         </button>
         <button
-          onClick={accept}
+          onClick={() => save({ analytics: true, ads: true })}
           className="flex-1 text-[12.5px] font-semibold py-2 px-3 rounded-lg cursor-pointer transition-all duration-150 bg-[#00DF71] text-white border border-[#00DF71] hover:bg-[#00c063] hover:border-[#00c063]"
         >
           Aceitar
         </button>
       </div>
+
+      <button
+        onClick={openPrefs}
+        className="text-[12px] font-semibold text-[#6b7280] bg-transparent border-none cursor-pointer underline underline-offset-2 hover:text-[#374151] transition-colors self-center"
+      >
+        Gerenciar preferências
+      </button>
     </div>
   );
 };
