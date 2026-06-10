@@ -83,9 +83,11 @@ GA4 não está configurado neste momento. Para ativar:
 2. Adicionar slot opcional em [src/components/SEO.tsx](src/components/SEO.tsx)
    ou diretamente em [index.html](index.html) (recomendado, pra capturar
    page view do shell antes da hidratação React).
-3. Implementar gate de consentimento LGPD: já existe
-   [public/cookie-consent.html](public/cookie-consent.html) (provavelmente
-   embed iframe) — confirmar e plumbar o GA4 para só disparar após "accept".
+3. ~~Implementar gate de consentimento LGPD.~~ **Feito:** Google Consent Mode v2
+   com default `denied` em [index.html](index.html); o banner
+   [src/components/CookieBanner.tsx](src/components/CookieBanner.tsx) dá
+   `consent: update` no "Aceitar"/"Rejeitar". Contentsquare só injeta com aceite
+   (`window.loadContentsquare`). O `public/cookie-consent.html` legado foi removido.
 4. Configurar conversões: clique em "Entre em contato", envio de formulário
    RD Station, leitura completa de post de blog.
 
