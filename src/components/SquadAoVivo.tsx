@@ -63,7 +63,7 @@ export const SquadAoVivo = ({
     if (fill) fill.style.height = `${Math.min(100, Math.max(0, pct))}%`;
   };
 
-  const showOutput = (root: HTMLDivElement) => {
+  const showOutput = useCallback((root: HTMLDivElement) => {
     const out = root.querySelector<HTMLElement>("[data-output]");
     if (!out) return;
     out.dataset.visible = "true";
@@ -72,7 +72,7 @@ export const SquadAoVivo = ({
       after(D.OUTPUT_LINE * (i + 1), () => { l.dataset.visible = "true"; });
     });
     return lines.length;
-  };
+  }, [after]);
 
   /* ── Reset visual ── */
   const reset = useCallback((root: HTMLDivElement) => {
@@ -134,7 +134,7 @@ export const SquadAoVivo = ({
 
     /* inicia no lead */
     after(200, activateNext);
-  }, [after, clearAll, reset]);
+  }, [after, clearAll, reset, showOutput]);
 
   /* ── IntersectionObserver ── */
   useEffect(() => {

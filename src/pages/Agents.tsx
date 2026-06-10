@@ -21,6 +21,7 @@ import { SEO } from "@/components/SEO";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { AgentsFlow } from "@/components/AgentsFlow";
+import { SquadAoVivo } from "@/components/SquadAoVivo";
 import { AgentsHeroMockup } from "@/components/AgentsHeroMockup";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { useReveal } from "@/hooks/useReveal";
@@ -234,7 +235,10 @@ export default function Agents() {
         {/* ── 4. AGENTS FLOW ── */}
         <AgentsFlow accent={ACCENT} accentBg={ACCENT_BG} />
 
-{/* ── 5. PERSONAS ── */}
+        {/* ── 5. SQUAD AO VIVO ── */}
+        <SquadAoVivo accent={ACCENT} accentBg={ACCENT_BG} />
+
+        {/* ── 6. PERSONAS ── */}
         <section className="py-16 md:py-24" style={{ backgroundColor: ACCENT_TINT }}>
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-12">
@@ -347,7 +351,7 @@ export default function Agents() {
           </div>
         </section>
 
-        {/* ── 6. PRICING ── */}
+        {/* ── 7. PRICING ── */}
         <section id="pricing" className="py-20 md:py-28 bg-white">
           <div className="max-w-6xl mx-auto px-6">
 
