@@ -135,6 +135,7 @@ const Marketing = () => {
           }
           subtitle={t("hero.subtitle")}
           ctaText={t("hero.cta")}
+          ctaHref="https://disparopro.com.br/cadastro"
           trustItems={[t("hero.trust1"), t("hero.trust2"), t("hero.trust3")]}
           right={<MarketingHeroMockup />}
         />
