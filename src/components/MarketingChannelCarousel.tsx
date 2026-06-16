@@ -8,26 +8,26 @@ import imgVoz from "@/assets/marketing-channels/voz.png";
 
 const CHANNELS = [
   { key: "whatsapp", label: "WhatsApp", img: imgWhatsapp },
-  { key: "rcs",      label: "RCS",      img: imgRcs },
   { key: "sms",      label: "SMS",      img: imgSms },
+  { key: "rcs",      label: "RCS",      img: imgRcs },
   { key: "voz",      label: "Voz",      img: imgVoz },
 ] as const;
 
 const ACCENT = "hsl(var(--marketing))";
-const INTERVAL = 3500;
+const INTERVAL = 5000;
 
 export const MarketingChannelCarousel = () => {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setActive((p) => (p + 1) % CHANNELS.length), INTERVAL);
-    return () => clearInterval(id);
-  }, []);
+    const id = setTimeout(() => setActive((p) => (p + 1) % CHANNELS.length), INTERVAL);
+    return () => clearTimeout(id);
+  }, [active]);
 
   return (
     <div className="flex flex-col items-center gap-4">
       {/* Image area */}
-      <div className="relative w-[280px] h-[312px] sm:w-[320px] sm:h-[356px]">
+      <div className="relative w-[360px] sm:w-[440px] lg:w-[500px]" style={{ aspectRatio: "580/760" }}>
         <AnimatePresence mode="wait">
           <motion.img
             key={active}
