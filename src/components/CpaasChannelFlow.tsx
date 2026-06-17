@@ -14,13 +14,11 @@ import { Trans, useTranslation } from "react-i18next";
 import {
   MessageSquare,
   PhoneCall,
-  Mail,
   Layers2,
   Zap,
   ShieldCheck,
   Mic2,
   Star,
-  Sparkles,
 } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
@@ -36,7 +34,7 @@ const WhatsAppIcon = ({ className, ...rest }: React.SVGProps<SVGSVGElement>) => 
   </svg>
 );
 
-const CYCLE_MS = 18_000;
+const CYCLE_MS = 8_000;
 
 interface CpaasChannelFlowProps {
   accent?: string;
@@ -48,7 +46,6 @@ const CHANNEL_META = [
   { id: "rcs",      Icon: Layers2,       BadgeIcon: ShieldCheck },
   { id: "voz",      Icon: PhoneCall,     BadgeIcon: Mic2 },
   { id: "whatsapp", Icon: WhatsAppIcon,  BadgeIcon: Star },
-  { id: "email",    Icon: Mail,          BadgeIcon: Sparkles },
 ] as const;
 
 export const CpaasChannelFlow = ({
@@ -78,6 +75,13 @@ export const CpaasChannelFlow = ({
     return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
+  const handleCardClick = (i: number) => {
+    const now = performance.now();
+    t0Ref.current = now - (i / CHANNEL_META.length) * CYCLE_MS;
+    lastIdxRef.current = i;
+    setActiveIdx(i);
+  };
+
   const active = CHANNEL_META[activeIdx];
   const features = [
     t(`channelFlow.channels.${active.id}.f1`),
@@ -101,11 +105,11 @@ export const CpaasChannelFlow = ({
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4">
           {CHANNEL_META.map((ch, i) => {
             const isActive = activeIdx === i;
             return (
-              <div key={ch.id} className="relative pt-8">
+              <div key={ch.id} className="relative pt-8" onClick={() => handleCardClick(i)}>
                 <AnimatePresence>
                   {isActive && (
                     <motion.div
@@ -124,7 +128,7 @@ export const CpaasChannelFlow = ({
                 </AnimatePresence>
 
                 <div
-                  className="relative flex min-h-[140px] flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border bg-card px-4 py-5 text-center transition-all duration-500"
+                  className="relative flex min-h-[140px] cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border bg-card px-4 py-5 text-center transition-all duration-500"
                   style={
                     isActive
                       ? {
