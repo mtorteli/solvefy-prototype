@@ -15,11 +15,11 @@
   },
   "painCards": {
     "badge": "Por qué Solvefy/Marketing",
-    "title": "El marketing que <accent>vende solo</accent> y muestra exactamente lo que <accent>funciona</accent>.",
+    "title": "La tecnología que <accent>simplifica tu envío</accent> y garantiza el resultado.",
     "items": {
-      "automation":  { "title": "Automatización que ahorra tu tiempo.",         "desc": "Despídete de los envíos manuales que no escalan. Crea reglas de relación, flujos de nutrición y jornadas complejas que corren 24/7 de forma automática." },
-      "conversion":  { "title": "Tasas de conversión imbatibles.",              "desc": "Basta de ser ignorado. Alcanza a tu público donde realmente está con integraciones nativas de WhatsApp Oficial, SMS y RCS (mensajes ricos)." },
-      "centralized": { "title": "Todo tu marketing en un solo lugar.",          "desc": "Deja de gastar en decenas de herramientas sueltas. Centraliza tu base, sigue métricas en tiempo real y obtén previsibilidad sobre lo que realmente genera ROI." }
+      "automation":  { "title": "Lista Calificada.",    "desc": "Evita el desperdicio de créditos en números inexistentes o desactivados. Nuestra plataforma valida automáticamente los números activos antes de iniciar el disparo, garantizando que tu mensaje llegue a usuarios reales." },
+      "conversion":  { "title": "Métricas Reales.",     "desc": "Ten control absoluto sobre la entrega de cada campaña. Monitorea tasas exactas de envío, recepción y lectura en tiempo real para entender el comportamiento del público sin margen para suposiciones." },
+      "centralized": { "title": "Canales Rentables.",   "desc": "Descubre qué canal trae el mejor retorno para tu negocio. Prueba el rendimiento entre WhatsApp, SMS, RCS o Voz en la misma plataforma y dirige tu inversión al canal que genera más engagement y conversión real." }
     }
   },
   "integrations": {
