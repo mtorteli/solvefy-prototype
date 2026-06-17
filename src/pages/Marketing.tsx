@@ -142,6 +142,48 @@ const Marketing = () => {
           right={<MarketingChannelCarousel />}
         />
 
+        {/* ============ INTEGRAÇÕES VIA API ============ */}
+        <section className="py-12 md:py-16 bg-white border-y border-border/60">
+          <div className="container mx-auto px-4">
+            <p className="text-center text-sm md:text-base font-normal text-muted-foreground/60 mb-8">
+              {t("integrations.title")}
+            </p>
+
+            <div className="relative overflow-hidden">
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-muted/30 to-transparent z-10" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-muted/30 to-transparent z-10" />
+
+              <div className="flex w-max animate-[scroll_40s_linear_infinite] gap-16 px-8 items-center">
+                {[...integrationLogos, ...integrationLogos, ...integrationLogos].map(
+                  (logo, idx) => (
+                    <div
+                      key={`${logo.alt}-${idx}`}
+                      className="flex h-10 w-32 shrink-0 items-center justify-center"
+                      title={logo.alt}
+                      aria-label={logo.alt}
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        loading="lazy"
+                        className="max-h-8 w-auto max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                        style={{ filter: "grayscale(1) brightness(0.55) contrast(1.1)" }}
+                      />
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+          </div>
+
+          <style>{`
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-33.333%); }
+            }
+          `}</style>
+        </section>
+
         {/* ============ DORES & POSICIONAMENTO ============ */}
         <section className="relative py-16 md:py-20 overflow-hidden bg-white">
           <div
@@ -210,48 +252,6 @@ const Marketing = () => {
 
         {/* ============ ECOSSISTEMA ============ */}
         <EcosystemDiagram accent={ACCENT} />
-
-        {/* ============ INTEGRAÇÕES VIA API ============ */}
-        <section className="py-12 md:py-16 bg-white border-y border-border/60">
-          <div className="container mx-auto px-4">
-            <p className="text-center text-sm md:text-base font-semibold tracking-wider uppercase text-muted-foreground mb-8">
-              {t("integrations.title")}
-            </p>
-
-            <div className="relative overflow-hidden">
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-muted/30 to-transparent z-10" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-muted/30 to-transparent z-10" />
-
-              <div className="flex w-max animate-[scroll_40s_linear_infinite] gap-16 px-8 items-center">
-                {[...integrationLogos, ...integrationLogos, ...integrationLogos].map(
-                  (logo, idx) => (
-                    <div
-                      key={`${logo.alt}-${idx}`}
-                      className="flex h-10 w-32 shrink-0 items-center justify-center"
-                      title={logo.alt}
-                      aria-label={logo.alt}
-                    >
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        loading="lazy"
-                        className="max-h-8 w-auto max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-                        style={{ filter: "grayscale(1) brightness(0.55) contrast(1.1)" }}
-                      />
-                    </div>
-                  ),
-                )}
-              </div>
-            </div>
-          </div>
-
-          <style>{`
-            @keyframes scroll {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-33.333%); }
-            }
-          `}</style>
-        </section>
 
         {/* ============ EASY IA ============ */}
         <section className="relative py-24 md:py-32 overflow-hidden bg-[#0a0a0f]">
