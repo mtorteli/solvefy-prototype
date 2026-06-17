@@ -22,7 +22,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import iconMarketing from "@/assets/icons/marketing.svg";
 import logoMarketing from "@/assets/logos/solvefy-marketing.png";
-import { MarketingHeroMockup } from "@/components/MarketingHeroMockup";
+import { MarketingChannelCarousel } from "@/components/MarketingChannelCarousel";
 import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
@@ -137,7 +137,7 @@ const Marketing = () => {
           ctaText={t("hero.cta")}
           ctaHref="https://disparopro.com.br/cadastro"
           trustItems={[t("hero.trust1"), t("hero.trust2"), t("hero.trust3")]}
-          right={<MarketingHeroMockup />}
+          right={<MarketingChannelCarousel />}
         />
 
         {/* ============ DORES & POSICIONAMENTO ============ */}

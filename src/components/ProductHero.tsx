@@ -17,6 +17,7 @@ interface ProductHeroProps {
   ctaSecondary?: { text: string; href?: string; onClick?: () => void };
   trustItems: string[];
   right: ReactNode;
+  bg?: string;
 }
 
 export function ProductHero({
@@ -33,13 +34,14 @@ export function ProductHero({
   ctaSecondary,
   trustItems,
   right,
+  bg,
 }: ProductHeroProps) {
   const accent = `hsl(var(${accentVar}))`;
 
   return (
     <section
       className="relative overflow-hidden"
-      style={{ background: `hsl(var(${accentVar}-surface))` }}
+      style={{ background: bg ?? `hsl(var(${accentVar}-surface))` }}
     >
       <div
         className="pointer-events-none absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full blur-3xl opacity-10"
