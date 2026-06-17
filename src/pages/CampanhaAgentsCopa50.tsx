@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import "./CampanhaAgentsCopa50.css";
 import logoSolvefy from "@/assets/logo-solvefy-white.png";
 import { Footer } from "@/components/Footer";
@@ -39,6 +40,9 @@ const CampanhaAgentsCopa50 = () => {
 
   return (
     <div className="copa50">
+      <Helmet>
+        <title>Solvefy Agents com 90% de Desconto</title>
+      </Helmet>
       {/* ── Icon sprite ── */}
       <svg
         width="0"

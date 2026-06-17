@@ -1,4 +1,5 @@
 ﻿import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import "./Campanha2AgentsCopa50.css";
 import logoSolvefy from "@/assets/logo-solvefy-white.png";
 import mulherImg from "@/assets/lp2-mulher.png";
@@ -33,6 +34,9 @@ export default function Campanha2AgentsCopa50() {
 
   return (
     <div className="lp2">
+      <Helmet>
+        <title>Solvefy Agents com 90% de Desconto</title>
+      </Helmet>
       {/* ── Icon Sprite ── */}
       <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
         <defs>
