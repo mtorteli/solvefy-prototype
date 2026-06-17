@@ -22,7 +22,7 @@ const CampanhaAgentsCopa50 = () => {
   });
 
   useEffect(() => {
-    const target = new Date("2026-06-30T23:59:59-03:00").getTime();
+    const target = new Date("2026-07-19T23:59:59-03:00").getTime();
     const pad = (n: number) => String(n).padStart(2, "0");
     const tick = () => {
       const diff = Math.max(0, target - Date.now());
@@ -94,7 +94,7 @@ const CampanhaAgentsCopa50 = () => {
             rel="noopener noreferrer"
             className="topbar__cta"
           >
-            Garanta os 50% OFF{" "}
+            Garanta os 90% OFF{" "}
             <svg width="14" height="14">
               <use href="#i-arr" />
             </svg>
@@ -187,7 +187,7 @@ const CampanhaAgentsCopa50 = () => {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                Garanta os 50% OFF agora{" "}
+                Garanta os 90% OFF agora{" "}
                 <span className="arr">
                   <svg width="20" height="20" style={{ verticalAlign: "-3px" }}>
                     <use href="#i-arr" />
@@ -209,7 +209,7 @@ const CampanhaAgentsCopa50 = () => {
               <svg width="16" height="16" style={{ color: "var(--hero-accent)" }}>
                 <use href="#i-bolt" />
               </svg>
-              Oferta com <b>Vagas Limitadas,</b> <b>50% OFF</b> nos 3 primeiros meses.
+              Oferta com <b>Vagas Limitadas,</b> <b>90% OFF</b> nos 3 primeiros meses.
             </p>
           </div>
 
@@ -221,7 +221,7 @@ const CampanhaAgentsCopa50 = () => {
               </span>
               <div className="badge__shape">
                 <div className="badge__fifty">
-                  50<span className="pct">%</span>
+                  90<span className="pct">%</span>
                 </div>
                 <div className="badge__off">OFF</div>
                 <div className="badge__sub">nos 3 primeiros meses</div>
@@ -375,9 +375,9 @@ const CampanhaAgentsCopa50 = () => {
             <span className="eyebrow">
               <span className="bar"></span>Tabela de classificação
             </span>
-            <h2>ENTRE EM CAMPO COM 50% OFF</h2>
+            <h2>ENTRE EM CAMPO COM 90% OFF</h2>
             <p>
-              50% de desconto nos 3 primeiros meses, exclusivo para os primeiros
+              90% de desconto nos 3 primeiros meses, exclusivo para os primeiros
               assinantes da Copa 50.
             </p>
           </div>
@@ -395,12 +395,12 @@ const CampanhaAgentsCopa50 = () => {
               <p className="plan__tier">Para times que buscam uma IA pronta para uso.</p>
               <div className="plan__price">
                 <span className="plan__from"><span className="plan__currency">R$</span> 195,80</span>
-                <span className="plan__now"><span className="plan__currency">R$</span> 97,90<small>/mês</small></span>
+                <span className="plan__now"><span className="plan__currency">R$</span> 19,00<small>/mês</small></span>
               </div>
               <p className="plan__per">por workspace · nos 3 primeiros meses · com cupom</p>
               <span className="plan__badge">
                 <svg width="14" height="14"><use href="#i-check" /></svg>{" "}
-                50% OFF aplicado
+                90% OFF aplicado
               </span>
               <ul>
                 <li><svg><use href="#i-check" /></svg> 50 créditos / mês inclusos</li>
@@ -426,12 +426,12 @@ const CampanhaAgentsCopa50 = () => {
               <p className="plan__tier">Para times que precisam de IA sob medida e automação.</p>
               <div className="plan__price">
                 <span className="plan__from"><span className="plan__currency">R$</span> 375,80</span>
-                <span className="plan__now"><span className="plan__currency">R$</span> 187,90<small>/mês</small></span>
+                <span className="plan__now"><span className="plan__currency">R$</span> 37,00<small>/mês</small></span>
               </div>
               <p className="plan__per">por workspace · nos 3 primeiros meses · com cupom</p>
               <span className="plan__badge">
                 <svg width="14" height="14"><use href="#i-check" /></svg>{" "}
-                50% OFF aplicado
+                90% OFF aplicado
               </span>
               <ul>
                 <li><svg><use href="#i-check" /></svg> Tudo do Basic</li>
@@ -448,7 +448,7 @@ const CampanhaAgentsCopa50 = () => {
                 rel="noopener noreferrer"
                 className="plan__cta plan__cta--primary"
               >
-                Garanta 50% OFF
+                Garanta 90% OFF
               </a>
             </article>
           </div>
@@ -466,7 +466,7 @@ const CampanhaAgentsCopa50 = () => {
             Não fique no <span className="pop">banco</span>.
           </h2>
           <p>
-            As vagas com 50% OFF acabam quando o relógio zerar. Convoque seus
+            As vagas com 90% OFF acabam quando o relógio zerar. Convoque seus
             agentes antes do apito final.
           </p>
 
@@ -487,7 +487,7 @@ const CampanhaAgentsCopa50 = () => {
               rel="noopener noreferrer"
               className="btn-primary"
             >
-              Garanta os 50% OFF agora{" "}
+              Garanta os 90% OFF agora{" "}
               <span className="arr">
                 <svg width="22" height="22" style={{ verticalAlign: "-4px" }}>
                   <use href="#i-arr" />
@@ -496,7 +496,7 @@ const CampanhaAgentsCopa50 = () => {
             </a>
           </div>
           <p className="finale__fineprint">
-            <small>50% OFF</small>
+            <small>90% OFF</small>
             {" · "}
             <small>3 primeiros meses</small>
             {" · "}
