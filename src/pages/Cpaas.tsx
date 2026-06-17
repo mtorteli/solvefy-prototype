@@ -11,6 +11,7 @@ import {
 import { Trans, useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { useRdStationLoader } from "@/lib/rdStation";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
@@ -41,6 +42,7 @@ const COMPLIANCE_KEYS = [
 
 const Cpaas = () => {
   const { t } = useTranslation("cpaas");
+  useRdStationLoader();
   const { locale, localizedPath } = useLocale();
 
   return (

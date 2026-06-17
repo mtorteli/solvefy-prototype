@@ -13,6 +13,7 @@ import { Trans, useTranslation } from "react-i18next";
 import { AdsStepsFlow } from "@/components/AdsStepsFlow";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { useRdStationLoader } from "@/lib/rdStation";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
@@ -45,6 +46,7 @@ const PRICING_KEYS = [
 
 const Ads = () => {
   const { t } = useTranslation("ads");
+  useRdStationLoader();
   const { locale } = useLocale();
   const [modalOpen, setModalOpen] = useState(false);
 

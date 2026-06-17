@@ -4,6 +4,7 @@ import "./Campanha2AgentsCopa50.css";
 import logoSolvefy from "@/assets/logo-solvefy-white.png";
 import mulherImg from "@/assets/lp2-mulher.png";
 import { Footer } from "@/components/Footer";
+import { useRdStationLoader } from "@/lib/rdStation";
 
 const UTM_URL =
   "https://agents.solvefy.com/cadastro?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-agents-copa&utm_content=campannhacopa50";
@@ -25,6 +26,7 @@ function getCountdown() {
 }
 
 export default function Campanha2AgentsCopa50() {
+  useRdStationLoader();
   const [cd, setCd] = useState(getCountdown());
 
   useEffect(() => {
