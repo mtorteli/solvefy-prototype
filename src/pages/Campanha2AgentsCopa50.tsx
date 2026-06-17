@@ -1,4 +1,5 @@
 ﻿import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import "./Campanha2AgentsCopa50.css";
 import logoSolvefy from "@/assets/logo-solvefy-white.png";
 import mulherImg from "@/assets/lp2-mulher.png";
@@ -7,7 +8,7 @@ import { Footer } from "@/components/Footer";
 const UTM_URL =
   "https://agents.solvefy.com/cadastro?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-agents-copa&utm_content=campannhacopa50";
 
-const TARGET = new Date("2026-06-30T23:59:59-03:00").getTime();
+const TARGET = new Date("2026-07-19T23:59:59-03:00").getTime();
 
 function pad(n: number) {
   return String(n).padStart(2, "0");
@@ -33,6 +34,9 @@ export default function Campanha2AgentsCopa50() {
 
   return (
     <div className="lp2">
+      <Helmet>
+        <title>Solvefy Agents com 90% de Desconto</title>
+      </Helmet>
       {/* ── Icon Sprite ── */}
       <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
         <defs>
@@ -78,10 +82,10 @@ export default function Campanha2AgentsCopa50() {
           <a href="https://solvefy.com" target="_blank" rel="noopener noreferrer" className="topbar__logo-link">
             <img src={logoSolvefy} alt="Solvefy" className="topbar__logo" />
           </a>
-          <span className="topbar__tag">Oferta de lançamento · 50% OFF</span>
+          <span className="topbar__tag">Oferta de lançamento · 90% OFF</span>
           <span className="topbar__spacer"></span>
           <a href={UTM_URL} target="_blank" rel="noopener noreferrer" className="topbar__cta">
-            Garantir 50% OFF{" "}
+            Garantir 90% OFF{" "}
             <svg width="14" height="14"><use href="#lp2-i-arr" /></svg>
           </a>
         </div>
@@ -140,7 +144,7 @@ export default function Campanha2AgentsCopa50() {
 
             <div className="hero__cta-row">
               <a href={UTM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                Garantir 50% OFF agora{" "}
+                Garantir 90% OFF agora{" "}
                 <svg width="20" height="20"><use href="#lp2-i-arr" /></svg>
               </a>
               <div className="scarcity scarcity--hero">
@@ -156,7 +160,7 @@ export default function Campanha2AgentsCopa50() {
 
             <p className="hero__meta">
               <svg width="16" height="16"><use href="#lp2-i-bolt" /></svg>
-              Para os <b>50 primeiros</b> assinantes: <b>50% OFF</b> nos 3 primeiros meses.
+              Para os <b>50 primeiros</b> assinantes: <b>90% OFF</b> nos 3 primeiros meses.
             </p>
           </div>
 
@@ -166,7 +170,7 @@ export default function Campanha2AgentsCopa50() {
               <div className="disc__card">
                 <span className="disc__tag">oferta de lançamento</span>
                 <div className="disc__num">
-                  <span className="fifty">50</span>
+                  <span className="fifty">90</span>
                   <span className="disc__stack">
                     <span className="pct">%</span>
                     <span className="disc__off">OFF</span>
@@ -181,7 +185,7 @@ export default function Campanha2AgentsCopa50() {
                     <span className="disc__currency">R$</span> 195,80
                   </span>
                   <span className="disc__now">
-                    <span className="disc__currency">R$</span> 97,90<small>/mês</small>
+                    <span className="disc__currency">R$</span> 19,00<small>/mês</small>
                   </span>
                 </div>
               </div>
@@ -361,10 +365,10 @@ export default function Campanha2AgentsCopa50() {
             <span className="eyebrow"><span className="bar"></span>Planos de lançamento</span>
             <h2>
               Escolha seu plano<br />
-              com 50% OFF
+              com 90% OFF
             </h2>
             <p>
-              50% de desconto nos 3 primeiros meses, exclusivo para os primeiros assinantes
+              90% de desconto nos 3 primeiros meses, exclusivo para os primeiros assinantes
               do lançamento. O decisor é você: assine com cartão e comece hoje.
             </p>
           </div>
@@ -395,13 +399,13 @@ export default function Campanha2AgentsCopa50() {
                   <span className="plan__currency">R$</span> 195,80
                 </span>
                 <span className="plan__now">
-                  <span className="plan__currency">R$</span> 97,90<small>/mês</small>
+                  <span className="plan__currency">R$</span> 19,00<small>/mês</small>
                 </span>
               </div>
               <p className="plan__per">por workspace · nos 3 primeiros meses · com cupom</p>
               <span className="plan__badge">
                 <svg width="14" height="14"><use href="#lp2-i-check" /></svg>{" "}
-                50% OFF aplicado
+                90% OFF aplicado
               </span>
               <ul>
                 <li><svg><use href="#lp2-i-check" /></svg> 50 créditos / mês inclusos</li>
@@ -430,13 +434,13 @@ export default function Campanha2AgentsCopa50() {
                   <span className="plan__currency">R$</span> 375,80
                 </span>
                 <span className="plan__now">
-                  <span className="plan__currency">R$</span> 187,90<small>/mês</small>
+                  <span className="plan__currency">R$</span> 37,00<small>/mês</small>
                 </span>
               </div>
               <p className="plan__per">por workspace · nos 3 primeiros meses · com cupom</p>
               <span className="plan__badge">
                 <svg width="14" height="14"><use href="#lp2-i-check" /></svg>{" "}
-                50% OFF aplicado
+                90% OFF aplicado
               </span>
               <ul>
                 <li><svg><use href="#lp2-i-check" /></svg> Tudo do Basic</li>
@@ -453,7 +457,7 @@ export default function Campanha2AgentsCopa50() {
                 rel="noopener noreferrer"
                 className="plan__cta plan__cta--primary"
               >
-                Garantir 50% OFF
+                Garantir 90% OFF
               </a>
             </article>
           </div>
@@ -477,7 +481,7 @@ export default function Campanha2AgentsCopa50() {
             <span className="pop">automatizou</span>.
           </h2>
           <p>
-            As 50 licenças com 50% OFF acabam quando o cronômetro zerar. Coloque 15
+            As 50 licenças com 90% OFF acabam quando o cronômetro zerar. Coloque 15
             especialistas de IA no seu time hoje, por menos do que custa um estagiário.
           </p>
 
@@ -493,12 +497,12 @@ export default function Campanha2AgentsCopa50() {
 
           <div className="finale__cta-wrap">
             <a href={UTM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              Garantir 50% OFF agora{" "}
+              Garantir 90% OFF agora{" "}
               <svg width="22" height="22"><use href="#lp2-i-arr" /></svg>
             </a>
           </div>
           <p className="finale__fineprint">
-            50% OFF · 3 primeiros meses · 50 primeiros assinantes · sem fidelidade
+            90% OFF · 3 primeiros meses · 50 primeiros assinantes · sem fidelidade
           </p>
         </div>
       </section>

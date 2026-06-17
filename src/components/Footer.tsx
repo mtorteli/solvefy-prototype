@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logoFooter from "@/assets/logo-solvefy-footer.png";
 import { useLocale } from "@/i18n/useLocale";
+import { openCookiePreferences } from "@/components/CookieBanner";
 
 type FooterLink = {
   name: string;
@@ -165,6 +166,13 @@ export const Footer = () => {
               >
                 {t("footer.legal.lgpd")}
               </a>
+              <button
+                type="button"
+                onClick={openCookiePreferences}
+                className="bg-transparent border-none p-0 cursor-pointer text-xs text-dark-foreground/50 hover:text-primary transition-colors"
+              >
+                {t("footer.legal.cookiePrefs")}
+              </button>
             </div>
             {/* ACATE seal */}
             <div className="flex items-center gap-2 rounded-lg border border-[#F8FAFC99] bg-[#F8FAFC99] px-4 py-2.5">
