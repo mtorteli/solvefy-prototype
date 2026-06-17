@@ -8,6 +8,7 @@ interface ProductHeroProps {
   badgeIcon: string;
   badgeLabel: string;
   logoImage?: string;
+  topSlot?: ReactNode;
   title: ReactNode;
   subtitle: ReactNode;
   ctaText: string;
@@ -24,6 +25,7 @@ export function ProductHero({
   badgeIcon,
   badgeLabel,
   logoImage,
+  topSlot,
   title,
   subtitle,
   ctaText,
@@ -50,14 +52,16 @@ export function ProductHero({
         style={{ background: accent }}
       />
 
-      <div className="container relative mx-auto px-4 sm:px-6 py-20 md:py-28">
+      <div className="container relative mx-auto px-4 sm:px-6 pt-10 pb-20 md:pt-14 md:pb-28">
         <div className="grid md:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
           <div>
+            {topSlot && <div className="mb-5">{topSlot}</div>}
+
             {logoImage ? (
               <img
                 src={logoImage}
                 alt={badgeLabel}
-                className="h-5 w-auto object-contain mb-6"
+                className="h-5 w-auto object-contain mb-12"
               />
             ) : (
               <div

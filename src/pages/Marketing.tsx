@@ -17,6 +17,7 @@ import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
+import { SocialProofBanner } from "@/components/SocialProofBanner";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -126,6 +127,7 @@ const Marketing = () => {
           badgeIcon={iconMarketing}
           badgeLabel="Solvefy/Marketing"
           logoImage={logoMarketing}
+          topSlot={<SocialProofBanner />}
           title={
             <Trans
               i18nKey="hero.title"
