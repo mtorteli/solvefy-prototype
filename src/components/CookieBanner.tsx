@@ -13,6 +13,7 @@ declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     loadContentsquare?: () => void;
+    loadMetaPixel?: () => void;
   }
 }
 
@@ -34,8 +35,9 @@ const readPrefs = (): Prefs | null => {
   }
 };
 
-// Atualiza o Google Consent Mode v2 (default fica como "denied" no index.html)
-// e carrega o Contentsquare quando a categoria de análise é aceita.
+// Atualiza o Google Consent Mode v2 (default fica como "denied" no index.html),
+// carrega o Contentsquare quando a categoria de análise é aceita e o Meta Pixel
+// quando a categoria de publicidade é aceita.
 const applyPrefs = (prefs: Prefs) => {
   const ads = prefs.ads ? "granted" : "denied";
   window.gtag?.("consent", "update", {
@@ -45,6 +47,7 @@ const applyPrefs = (prefs: Prefs) => {
     analytics_storage: prefs.analytics ? "granted" : "denied",
   });
   if (prefs.analytics) window.loadContentsquare?.();
+  if (prefs.ads) window.loadMetaPixel?.();
 };
 
 const Toggle = ({
