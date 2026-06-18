@@ -126,7 +126,7 @@
   background: rgba(156,123,255,.14); border: 1px solid rgba(156,123,255,.5); color: var(--purple-soft);
   font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 22px;
 }
-.c261-hero__title { font-weight: 900; font-size: clamp(34px,6vw,64px); line-height: .96; letter-spacing: -.015em; color: var(--text); margin-bottom: 20px; }
+.c261-hero__title { font-weight: 900; font-size: clamp(34px,6vw,64px); line-height: 1.02; letter-spacing: -.015em; color: var(--text); margin-bottom: 24px; padding-bottom: 2px; }
 .c261-hero__title .pop { color: var(--purple); }
 .c261-hero__lede { font-size: clamp(16px,1.9vw,18px); line-height: 1.6; color: var(--text-soft); margin: 0 0 32px; max-width: 30em; }
 .c261-hero__lede strong { color: var(--text); font-weight: 700; }
