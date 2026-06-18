@@ -1,9 +1,49 @@
 import { useEffect } from "react";
+import { isPrerender } from "@/hooks/useReveal";
+import { CONSENT_UPDATED_EVENT, readConsent } from "@/lib/consent";
 
 export const RD_FORM_ID = "contato-solvefy-com-58c21822e6ec437325ca";
 export const RD_SCRIPT_ID = "rd-station-forms-script";
 export const RD_SCRIPT_SRC =
   "https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js";
+
+export const RD_LOADER_SCRIPT_ID = "rd-station-loader-script";
+export const RD_LOADER_SRC =
+  "https://d335luupugsy2.cloudfront.net/js/loader-scripts/e6cade46-582b-4d8d-9c92-e298a07c179d-loader.js";
+
+/**
+ * Injeta o código de monitoramento do RD Station Marketing (rastreio de visitas
+ * e conversões). Diferente do script de Forms, este é um loader de tracking.
+ *
+ * Escopo: chamado apenas nas páginas de produto e landing pages de oferta — não
+ * é global. Respeita o consentimento de cookies (categoria "Publicidade"/`ads`)
+ * e injeta uma única vez. Se o visitante aceitar os cookies enquanto está na
+ * página, o evento `solvefy:consent-updated` (disparado pelo `CookieBanner`)
+ * dispara a injeção na hora, cobrindo conversões já na primeira página.
+ */
+export function useRdStationLoader() {
+  useEffect(() => {
+    // Não injetar durante o prerender (react-snap) para não "assar" a tag de
+    // tracking no HTML estático — só carrega para visitantes reais.
+    if (isPrerender) return;
+
+    const inject = () => {
+      const prefs = readConsent();
+      if (!prefs || !prefs.ads) return;
+      if (document.getElementById(RD_LOADER_SCRIPT_ID)) return;
+      const script = document.createElement("script");
+      script.id = RD_LOADER_SCRIPT_ID;
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = RD_LOADER_SRC;
+      document.head.appendChild(script);
+    };
+
+    inject();
+    window.addEventListener(CONSENT_UPDATED_EVENT, inject);
+    return () => window.removeEventListener(CONSENT_UPDATED_EVENT, inject);
+  }, []);
+}
 
 /**
  * Carrega o script de Forms do RD Station (uma única vez) e instancia o

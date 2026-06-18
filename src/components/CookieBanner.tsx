@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { isPrerender } from "@/hooks/useReveal";
+import {
+  CONSENT_KEY,
+  CONSENT_UPDATED_EVENT,
+  ConsentPrefs,
+  readConsent,
+} from "@/lib/consent";
 
-const CONSENT_KEY = "solvefy_cookie_consent";
 const OPEN_PREFS_EVENT = "solvefy:open-cookie-prefs";
 
 // Reabre o painel de preferências de qualquer lugar do site (ex.: link no footer).
@@ -17,28 +22,10 @@ declare global {
   }
 }
 
-// Preferências granulares por categoria. "Necessários" não entra aqui porque
-// é sempre ativo. O valor é salvo como JSON no localStorage; os formatos
-// legados "accepted"/"rejected" continuam sendo lidos (aqui e no index.html).
-type Prefs = { analytics: boolean; ads: boolean };
-
-const readPrefs = (): Prefs | null => {
-  try {
-    const raw = localStorage.getItem(CONSENT_KEY);
-    if (!raw) return null;
-    if (raw === "accepted") return { analytics: true, ads: true };
-    if (raw === "rejected") return { analytics: false, ads: false };
-    const parsed = JSON.parse(raw);
-    return { analytics: !!parsed.analytics, ads: !!parsed.ads };
-  } catch {
-    return null;
-  }
-};
-
 // Atualiza o Google Consent Mode v2 (default fica como "denied" no index.html),
 // carrega o Contentsquare quando a categoria de análise é aceita e o Meta Pixel
 // quando a categoria de publicidade é aceita.
-const applyPrefs = (prefs: Prefs) => {
+const applyPrefs = (prefs: ConsentPrefs) => {
   const ads = prefs.ads ? "granted" : "denied";
   window.gtag?.("consent", "update", {
     ad_storage: ads,
@@ -88,32 +75,35 @@ type State = "idle" | "banner" | "prefs";
 
 export const CookieBanner = () => {
   const [state, setState] = useState<State>("idle");
-  const [prefs, setPrefs] = useState<Prefs>({ analytics: false, ads: false });
+  const [prefs, setPrefs] = useState<ConsentPrefs>({ analytics: false, ads: false });
 
   useEffect(() => {
     // Não exibir durante o prerender (react-snap): manter "idle"/null para que o
     // HTML capturado bata com o primeiro render do cliente e não quebre a hidratação.
     if (isPrerender) return;
-    if (!readPrefs()) setState("banner");
+    if (!readConsent()) setState("banner");
   }, []);
 
   useEffect(() => {
     const onOpen = () => {
-      setPrefs(readPrefs() ?? { analytics: false, ads: false });
+      setPrefs(readConsent() ?? { analytics: false, ads: false });
       setState("prefs");
     };
     window.addEventListener(OPEN_PREFS_EVENT, onOpen);
     return () => window.removeEventListener(OPEN_PREFS_EVENT, onOpen);
   }, []);
 
-  const save = (next: Prefs) => {
+  const save = (next: ConsentPrefs) => {
     localStorage.setItem(CONSENT_KEY, JSON.stringify(next));
     applyPrefs(next);
+    // Notifica hooks de tracking montados na página (ex.: loader RD Station)
+    // para que carreguem imediatamente após o aceite, sem exigir navegação.
+    window.dispatchEvent(new Event(CONSENT_UPDATED_EVENT));
     setState("idle");
   };
 
   const openPrefs = () => {
-    setPrefs(readPrefs() ?? { analytics: false, ads: false });
+    setPrefs(readConsent() ?? { analytics: false, ads: false });
     setState("prefs");
   };
 

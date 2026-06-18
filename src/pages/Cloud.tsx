@@ -23,6 +23,7 @@ import { Link } from "react-router-dom";
 import { Trans, useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { useRdStationLoader } from "@/lib/rdStation";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
@@ -125,6 +126,7 @@ const PLAN_KEYS = [
 
 const Cloud = () => {
   const { t } = useTranslation("cloud");
+  useRdStationLoader();
   const { locale, localizedPath } = useLocale();
   const [roiOpen, setRoiOpen] = useState(false);
   const [openAcc, setOpenAcc] = useState<Record<string, number | null>>({});

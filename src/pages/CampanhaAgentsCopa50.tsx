@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import "./CampanhaAgentsCopa50.css";
 import logoSolvefy from "@/assets/logo-solvefy-white.png";
 import { Footer } from "@/components/Footer";
+import { useRdStationLoader } from "@/lib/rdStation";
 
 interface Countdown {
   d: string;
@@ -15,6 +16,7 @@ const UTM_URL =
   "https://agents.solvefy.com/cadastro?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-agents-copa&utm_content=campannhacopa50";
 
 const CampanhaAgentsCopa50 = () => {
+  useRdStationLoader();
   const [countdown, setCountdown] = useState<Countdown>({
     d: "00",
     h: "00",

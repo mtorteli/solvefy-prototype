@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { useRdStationLoader } from "@/lib/rdStation";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { AgentsFlow } from "@/components/AgentsFlow";
@@ -54,6 +55,7 @@ const PLAN_KEYS = [
 
 export default function Agents() {
   const { t } = useTranslation("agents");
+  useRdStationLoader();
   const { locale, localizedPath } = useLocale();
   const [activePersona, setActivePersona] = useState(0);
   const reveal = useReveal();

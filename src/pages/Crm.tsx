@@ -11,6 +11,7 @@ import {
 import { Trans, useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { useRdStationLoader } from "@/lib/rdStation";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { PricingCustomPlan } from "@/components/PricingCustomPlan";
@@ -43,6 +44,7 @@ const PLAN_KEYS = [
 
 const Crm = () => {
   const { t } = useTranslation("crm");
+  useRdStationLoader();
   const { locale } = useLocale();
 
   return (

@@ -15,6 +15,7 @@ import { motion } from "framer-motion";
 import { Trans, useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
+import { useRdStationLoader } from "@/lib/rdStation";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { SocialProofBanner } from "@/components/SocialProofBanner";
@@ -74,6 +75,7 @@ const PLAN_KEYS = [
 
 const Marketing = () => {
   const { t } = useTranslation("marketing");
+  useRdStationLoader();
   const { locale } = useLocale();
   const [isAnnual, setIsAnnual] = useState(false);
   const reveal = useReveal();
