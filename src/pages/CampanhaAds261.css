@@ -34,7 +34,7 @@
   min-height: 100vh;
 }
 .ads261 *, .ads261 *::before, .ads261 *::after { box-sizing: border-box; }
-.ads261 h1, .ads261 h2, .ads261 h3 { margin: 0; }
+.ads261 h1, .ads261 h2, .ads261 h3 { margin-top: 0; }
 .ads261 img { display: block; max-width: 100%; }
 
 @keyframes a261glow { 0%,100%{opacity:.5;} 50%{opacity:.95;} }

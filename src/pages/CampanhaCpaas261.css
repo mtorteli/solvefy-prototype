@@ -35,7 +35,7 @@
   min-height: 100vh;
 }
 .cpaas261 *, .cpaas261 *::before, .cpaas261 *::after { box-sizing: border-box; }
-.cpaas261 h1, .cpaas261 h2, .cpaas261 h3 { margin: 0; }
+.cpaas261 h1, .cpaas261 h2, .cpaas261 h3 { margin-top: 0; }
 .cpaas261 img { display: block; max-width: 100%; }
 .c261-display { font-family: var(--font); }
 
