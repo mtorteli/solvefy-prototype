@@ -5,10 +5,6 @@ import {
   Workflow,
   Layers,
   TrendingUp,
-  Bot,
-  Wand2,
-  FlaskConical,
-  Users,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Trans, useTranslation } from "react-i18next";
@@ -25,6 +21,7 @@ import iconMarketing from "@/assets/icons/marketing.svg";
 import logoMarketing from "@/assets/logos/solvefy-marketing.png";
 import { MarketingChannelCarousel } from "@/components/MarketingChannelCarousel";
 import { CpaasChannelFlow } from "@/components/CpaasChannelFlow";
+import { MarketingChannelUseCase } from "@/components/MarketingChannelUseCase";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
 import { Heading, SectionSubtitle } from "@/components/ui/Typography";
 import { useReveal } from "@/hooks/useReveal";
@@ -59,12 +56,6 @@ const integrationLogos = [
   { src: logoSpg, alt: "SPG" },
   { src: logoZapier, alt: "Zapier" },
 ];
-
-const EASY_IA_PILLS = [
-  { key: "copy", Icon: Wand2 },
-  { key: "ab",   Icon: FlaskConical },
-  { key: "seg",  Icon: Users },
-] as const;
 
 const PLAN_KEYS = [
   { key: "next", featureKeys: ["f1","f2"] as const,           soonKeys: [] as readonly string[], highlight: false, hasBadge: false },
@@ -185,7 +176,10 @@ const Marketing = () => {
         </section>
 
         {/* ============ DORES & POSICIONAMENTO ============ */}
-        <section className="relative py-16 md:py-20 overflow-hidden bg-white">
+        <section
+          className="relative py-12 md:py-16 overflow-hidden"
+          style={{ backgroundImage: "radial-gradient(ellipse 140% 100% at 100% 0%, hsl(329 76% 58% / 0.07) 0%, transparent 65%)" }}
+        >
           <div
             className="pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] rounded-full blur-3xl opacity-10"
             style={{ background: ACCENT }}
@@ -253,92 +247,14 @@ const Marketing = () => {
         {/* ============ ECOSSISTEMA ============ */}
         <EcosystemDiagram accent={ACCENT} />
 
-        {/* ============ EASY IA ============ */}
-        <section className="relative py-24 md:py-32 overflow-hidden bg-[#0a0a0f]">
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.07]"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-              backgroundSize: "48px 48px",
-              maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-              WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-            }}
-          />
-          <div
-            className="pointer-events-none absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-3xl opacity-10"
-            style={{ background: ACCENT }}
-          />
-          <div
-            className="pointer-events-none absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full blur-3xl opacity-10"
-            style={{ background: "#7c3aed" }}
-          />
-
-          <div className="container relative mx-auto px-4">
-            <motion.div
-              initial={reveal ? { opacity: 0, y: 24 } : false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7 }}
-              className="relative max-w-4xl mx-auto rounded-[2rem] p-[1.5px]"
-              style={{
-                background: `linear-gradient(135deg, ${ACCENT} 0%, transparent 40%, transparent 60%, ${ACCENT} 100%)`,
-                boxShadow: `0 30px 90px -30px ${ACCENT}80`,
-              }}
-            >
-              <div className="relative rounded-[2rem] bg-[#0a0a0f]/95 p-10 md:p-14 backdrop-blur-xl text-white">
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 border border-white/10 bg-white/5 text-white/80">
-                  <Bot className="h-3.5 w-3.5" style={{ color: ACCENT }} />
-                  {t("easyIa.badge")}
-                </div>
-
-                <Heading className="text-white mb-6">
-                  <Trans
-                    i18nKey="easyIa.title"
-                    ns="marketing"
-                    components={{
-                      accent: (
-                        <span
-                          className="bg-clip-text text-transparent"
-                          style={{
-                            backgroundImage: `linear-gradient(135deg, ${ACCENT} 0%, #fff 100%)`,
-                          }}
-                        />
-                      ),
-                    }}
-                  />
-                </Heading>
-
-                <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mb-8">
-                  {t("easyIa.subtitle")}
-                </p>
-
-                <div className="flex flex-wrap gap-3 mb-10">
-                  {EASY_IA_PILLS.map(({ key, Icon }) => (
-                    <span
-                      key={key}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 backdrop-blur"
-                    >
-                      <Icon className="h-4 w-4" style={{ color: ACCENT }} />
-                      {t(`easyIa.pills.${key}`)}
-                    </span>
-                  ))}
-                </div>
-
-                <Button
-                  size="lg"
-                  disabled
-                  className="bg-[hsl(var(--marketing))]/60 text-white font-semibold cursor-default"
-                >
-                  {t("easyIa.cta")}
-                </Button>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        {/* ============ CASO DE USO POR CANAL ============ */}
+        <MarketingChannelUseCase accent={ACCENT} />
 
         {/* ============ PRICING ============ */}
-        <section className="py-20 md:py-28 bg-white">
+        <section
+          className="py-12 md:py-16"
+          style={{ backgroundImage: "radial-gradient(ellipse 140% 100% at 100% 0%, hsl(329 76% 58% / 0.07) 0%, transparent 65%)" }}
+        >
           <div className="max-w-6xl mx-auto px-6">
             <div className="max-w-4xl text-left mb-10">
               <div

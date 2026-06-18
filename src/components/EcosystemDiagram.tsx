@@ -25,7 +25,7 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
   };
 
   return (
-    <section className="py-20">
+    <section className="py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="max-w-3xl text-left mb-1">
           <Heading className="text-balance">

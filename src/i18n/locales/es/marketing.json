@@ -25,16 +25,48 @@
   "integrations": {
     "title": "Más de 20.000 empresas ya aceleran sus resultados con Solvefy:"
   },
-  "easyIa": {
-    "badge": "Inteligencia Artificial Exclusiva",
-    "title": "Conoce <accent>EasyIA</accent>",
-    "subtitle": "¿Necesitas ayuda para optimizar tu negocio? Nuestra IA nativa redacta copys persuasivos, sugiere tests A/B y segmenta tu base en segundos. Deja que la tecnología trabaje por tu conversión mientras tú te enfocas en la estrategia.",
-    "pills": {
-      "copy":  "Copywriting Persuasivo",
-      "ab":    "Sugerencia de Tests A/B",
-      "seg":   "Segmentación Personalizada"
+  "channelUseCase": {
+    "heading1": "Mensajes que generan <accent>conexiones</accent>",
+    "heading2": "Contactos que generan <accent>ventas</accent>",
+    "subtitle": "Mira en pantalla cómo tus clientes reciben las interacciones y entiende por qué nuestros formatos convierten más que los disparos tradicionales.",
+    "tabs": { "whatsapp": "WhatsApp", "sms": "SMS", "rcs": "RCS", "voz": "Voz" },
+    "cta": {
+      "whatsapp": "¡Crea tu cuenta ahora!",
+      "sms": "¡Explora las posibilidades!",
+      "rcs": "¡Crea tu cuenta ahora!",
+      "voz": "¡Explora las posibilidades!"
     },
-    "cta": "Próximamente"
+    "audio": {
+      "play": "Reproducir audio",
+      "pause": "Pausar audio",
+      "seek": "Buscar posición del audio"
+    },
+    "cases": {
+      "whatsapp": {
+        "ecommerce":      { "title": "E-Commerce",      "desc": "Recupera carritos y convierte con cupones personalizados." },
+        "educacao":       { "title": "Educación",       "desc": "Notifica a los alumnos sobre matrículas y plazos con botón de acción." },
+        "infoprodutores": { "title": "Infoproductores", "desc": "Promociona lives e involucra a tu audiencia con confirmación directa." },
+        "saude":          { "title": "Salud",           "desc": "Confirma citas y reduce ausencias con recordatorios automáticos." }
+      },
+      "sms": {
+        "betting":    { "title": "Betting",            "desc": "Dispara alertas sobre juegos y ventajas." },
+        "consignado": { "title": "Crédito Consignado", "desc": "Promociona condiciones especiales con enlaces directos." },
+        "cobranca":   { "title": "Cobranza",           "desc": "Reduce la morosidad con recordatorios certeros." },
+        "clinicas":   { "title": "Clínicas",           "desc": "Garantiza 100% de asistencia con recordatorios automáticos." }
+      },
+      "rcs": {
+        "ecommerce":      { "title": "E-Commerce",      "desc": "Campañas con imágenes, carrusel y botones interactivos." },
+        "saude":          { "title": "Salud",           "desc": "Confirmaciones de citas y recordatorios con rich cards." },
+        "educacao":       { "title": "Educación",       "desc": "Recordatorios, comunicados y matrículas con botones enriquecidos." },
+        "infoprodutores": { "title": "Infoproductores", "desc": "Lanzamientos, lives y ofertas exclusivas con rich cards." }
+      },
+      "voz": {
+        "betting":    { "title": "Betting",            "desc": "Alcanza a los apostadores con audios de influencers." },
+        "consignado": { "title": "Crédito Consignado", "desc": "Promociona ofertas y diferenciales uniendo Voz y SMS." },
+        "cobranca":   { "title": "Cobranza",           "desc": "Reduce la morosidad con recordatorios certeros." },
+        "clinicas":   { "title": "Clínicas",           "desc": "Garantiza 100% de asistencia con recordatorios de Voz." }
+      }
+    }
   },
   "pricing": {
     "badge": "Planes & Precios",

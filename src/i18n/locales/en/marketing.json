@@ -25,16 +25,48 @@
   "integrations": {
     "title": "More than 20,000 companies are already accelerating their results with Solvefy:"
   },
-  "easyIa": {
-    "badge": "Exclusive Artificial Intelligence",
-    "title": "Meet <accent>EasyAI</accent>",
-    "subtitle": "Need help optimizing your business? Our native AI writes persuasive copy, suggests A/B tests and segments your base in seconds. Let technology work for your conversion while you focus on strategy.",
-    "pills": {
-      "copy":  "Persuasive Copywriting",
-      "ab":    "A/B Test Suggestions",
-      "seg":   "Personalized Segmentation"
+  "channelUseCase": {
+    "heading1": "Messages that build <accent>connections</accent>",
+    "heading2": "Contacts that drive <accent>sales</accent>",
+    "subtitle": "See on screen how your customers receive each interaction and understand why our formats convert more than traditional broadcasts.",
+    "tabs": { "whatsapp": "WhatsApp", "sms": "SMS", "rcs": "RCS", "voz": "Voice" },
+    "cta": {
+      "whatsapp": "Create your account now!",
+      "sms": "Explore the possibilities!",
+      "rcs": "Create your account now!",
+      "voz": "Explore the possibilities!"
     },
-    "cta": "Coming Soon"
+    "audio": {
+      "play": "Play audio",
+      "pause": "Pause audio",
+      "seek": "Seek audio position"
+    },
+    "cases": {
+      "whatsapp": {
+        "ecommerce":      { "title": "E-Commerce", "desc": "Recover carts and convert with personalized coupons." },
+        "educacao":       { "title": "Education",  "desc": "Notify students about enrollments and deadlines with an action button." },
+        "infoprodutores": { "title": "Creators",   "desc": "Promote live streams and engage your audience with direct confirmation." },
+        "saude":          { "title": "Healthcare", "desc": "Confirm appointments and reduce no-shows with automatic reminders." }
+      },
+      "sms": {
+        "betting":    { "title": "Betting",      "desc": "Send alerts about games and offers." },
+        "consignado": { "title": "Payroll Loans", "desc": "Promote special terms with direct links." },
+        "cobranca":   { "title": "Collections",  "desc": "Reduce defaults with precise reminders." },
+        "clinicas":   { "title": "Clinics",      "desc": "Ensure 100% attendance with automatic reminders." }
+      },
+      "rcs": {
+        "ecommerce":      { "title": "E-Commerce", "desc": "Campaigns with images, carousels and interactive buttons." },
+        "saude":          { "title": "Healthcare", "desc": "Appointment confirmations and reminders with rich cards." },
+        "educacao":       { "title": "Education",  "desc": "Reminders, announcements and enrollments with rich buttons." },
+        "infoprodutores": { "title": "Creators",   "desc": "Launches, live streams and exclusive offers with rich cards." }
+      },
+      "voz": {
+        "betting":    { "title": "Betting",      "desc": "Reach bettors with influencer audio messages." },
+        "consignado": { "title": "Payroll Loans", "desc": "Promote offers and differentials combining Voice and SMS." },
+        "cobranca":   { "title": "Collections",  "desc": "Reduce defaults with precise reminders." },
+        "clinicas":   { "title": "Clinics",      "desc": "Ensure 100% attendance with Voice reminders." }
+      }
+    }
   },
   "pricing": {
     "badge": "Plans & Pricing",
