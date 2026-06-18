@@ -64,7 +64,7 @@ export default function CampanhaCpaas261() {
         <title>Solvefy CPaaS · SMS a R$0,06 travado na Copa</title>
         <meta
           name="description"
-          content="Deposite R$1k e trave o R$0,06 por SMS em massa durante a Copa — 40% mais barato que o mercado, mantido depois da final."
+          content="Deposite R$1.000 e trave o R$0,06 por SMS em massa durante a Copa: 40% mais barato que o mercado e mantido depois da final."
         />
       </Helmet>
 
@@ -94,8 +94,7 @@ export default function CampanhaCpaas261() {
               <div>do SMS.<br /><span className="pop">A gente travou.</span></div>
             </h1>
             <p className="c261-hero__lede">
-              Menor preço pra você fazer um <strong>golaço</strong> nessa Copa.<br />
-              Deposite R$1k e trave o <strong>R$0,06 por SMS</strong> no seu volume — mesmo depois que o mercado subir de novo.
+              Menor preço pra você fazer um <strong>golaço</strong> nessa Copa. Deposite R$1.000 e trave o <strong>R$0,06 por SMS em massa</strong> no seu volume, mesmo depois que o mercado subir de novo.
             </p>
             <div className="c261-hero__cta-row">
               <a href={FORM_URL} target="_blank" rel="noopener noreferrer" className="c261-btn">
@@ -105,7 +104,7 @@ export default function CampanhaCpaas261() {
             </div>
           </div>
           <div className="c261-hero__art">
-            <img className="c261-hero__img" src={heroImg} alt="SMS a R$0,06 travado — Copa Solvefy CPaaS" />
+            <img className="c261-hero__img" src={heroImg} alt="SMS a R$0,06 travado na Copa, Solvefy CPaaS" />
             <div className="c261-ball"><SoccerBall size={58} spin="18s" /></div>
             <div className="c261-sticker">#OGOLAÇOÉSEU</div>
             <div className="c261-pricecard">
@@ -149,7 +148,7 @@ export default function CampanhaCpaas261() {
           <div className="c261-head rv">
             <div className="c261-kicker">Como a trava funciona</div>
             <h2 className="c261-h2">Trave hoje. Continue no R$0,06.</h2>
-            <p>A trava não é só durante a Copa. Quem deposita R$1k+ garante a tarifa no volume contratado — mesmo quando o mercado subir de novo.</p>
+            <p>A trava não é só durante a Copa. Quem deposita R$1.000 ou mais garante a tarifa no volume contratado, mesmo quando o mercado subir de novo.</p>
           </div>
           <div className="c261-steps-shell rv">
             <div className="c261-steps-ball"><SoccerBall size={50} spin="16s" /></div>
@@ -166,7 +165,7 @@ export default function CampanhaCpaas261() {
                 <div className="c261-step__n">Passo 02</div>
                 <div className="c261-step__big">R$0,06</div>
                 <div className="c261-step__t">Trave o preço por SMS</div>
-                <div className="c261-step__d">Congelado enquanto o Brasil joga — e até a final, 19/07.</div>
+                <div className="c261-step__d">Congelado enquanto o Brasil joga, e até a final, em 19/07.</div>
               </div>
               <div className="c261-step c261-step--3">
                 <div className="c261-step__n">Passo 03</div>
@@ -189,7 +188,7 @@ export default function CampanhaCpaas261() {
           <div className="c261-compare__copy rv">
             <div className="c261-compare__kicker">O preço por SMS</div>
             <h2 className="c261-compare__h2">O mercado subiu.<br />A gente travou.</h2>
-            <p>Seu fornecedor de SMS aumentou? O nosso não.<br /><br />Mesma régua de envio, 40% mais barato — e a tarifa que você travar continua travada depois da Copa.</p>
+            <p>Seu fornecedor de SMS aumentou? O nosso não.<br /><br />Mesma régua de envio, 40% mais barato, e a tarifa que você travar continua valendo depois da Copa.</p>
           </div>
           <div className="c261-compare__card rv">
             <svg className="c261-compare__pitch" viewBox="0 0 460 300" preserveAspectRatio="xMidYMid slice">
@@ -216,7 +215,7 @@ export default function CampanhaCpaas261() {
                 <div className="c261-bar-head"><span className="name is-strong">Solvefy CPaaS</span><span><span className="pct">−40%</span><span className="val">R$ 0,06</span></span></div>
                 <div className="c261-bar"><div className="c261-bar__fill is-solvefy" /></div>
               </div>
-              <div className="c261-compare__foot">40% mais barato pela mesma régua de envio — e travado no seu volume durante toda a Copa.</div>
+              <div className="c261-compare__foot">40% mais barato pela mesma régua de envio, e travado no seu volume durante toda a Copa.</div>
             </div>
           </div>
         </div>
@@ -234,15 +233,15 @@ export default function CampanhaCpaas261() {
               <div className="c261-diff__ic">
                 <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#9c7bff" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>
               </div>
-              <h3>API na hora</h3>
-              <p>Sem setup e sem fidelidade. Sua operação de SMS sobe em minutos, com rotas inteligentes e fallback de canal.</p>
+              <h3>No ar em minutos</h3>
+              <p>Sem setup e sem fidelidade. Sua operação de SMS sobe pela API em minutos, com rotas inteligentes e fallback de canal pra garantir a entrega.</p>
             </div>
             <div className="c261-diff">
               <div className="c261-diff__ic">
                 <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#9c7bff" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
               </div>
-              <h3>Uma só API</h3>
-              <p>SMS, WhatsApp, voz e e-mail transacional integrados. Cobrança por volume, sem mensalidade.</p>
+              <h3>Multicanal de verdade</h3>
+              <p>SMS, WhatsApp, voz e e-mail transacional na mesma API. Cobrança por volume, sem mensalidade e sem custo por canal.</p>
             </div>
             <div className="c261-diff">
               <div className="c261-diff__ic">
