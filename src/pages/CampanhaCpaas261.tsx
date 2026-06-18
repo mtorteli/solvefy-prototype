@@ -3,10 +3,9 @@ import { Helmet } from "react-helmet-async";
 import "./CampanhaCpaas261.css";
 import logoCpaas from "@/assets/logos/solvefy-cpaas.png";
 import heroImg from "@/assets/cpaas261-hero.webp";
-import { useRdStationLoader, useRdStationForm } from "@/lib/rdStation";
+import { useRdStationLoader } from "@/lib/rdStation";
 
 const FORM_URL = "https://solvefy.rds.land/sfy-formulario?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-de-solvefy-cpaas";
-const RD_FORM_ID = "contato-solvefy-cpaas-99bdecb32971d7c56214";
 const TARGET = new Date("2026-07-19T23:59:59-03:00").getTime();
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -52,7 +51,6 @@ const Arrow = ({ s = 18 }: { s?: number }) => (
 
 export default function CampanhaCpaas261() {
   useRdStationLoader();
-  useRdStationForm(true, RD_FORM_ID);
   const [cd, setCd] = useState(getCountdown());
 
   useEffect(() => {
@@ -78,7 +76,7 @@ export default function CampanhaCpaas261() {
         <div className="c261-nav__right">
           <a href="#trava" className="c261-nav__link c261-nav__links-hide">A trava</a>
           <a href="#diffs" className="c261-nav__link c261-nav__links-hide">Por que Solvefy</a>
-          <a href="#form" className="c261-nav__cta">Travar meu R$0,06</a>
+          <a href={FORM_URL} target="_blank" rel="noopener noreferrer" className="c261-nav__cta">Travar meu R$0,06</a>
         </div>
       </nav>
 
@@ -99,7 +97,7 @@ export default function CampanhaCpaas261() {
               Menor preço pra você fazer um <strong>golaço</strong> nessa Copa. Deposite R$1.000 e trave o <strong>R$0,06 por SMS em massa</strong> no seu volume, mesmo depois que o mercado subir de novo.
             </p>
             <div className="c261-hero__cta-row">
-              <a href="#form" className="c261-btn">
+              <a href={FORM_URL} target="_blank" rel="noopener noreferrer" className="c261-btn">
                 Travar meu R$0,06 <Arrow />
               </a>
               <a href="#trava" className="c261-btn c261-btn--ghost">Como funciona a trava</a>
@@ -317,7 +315,7 @@ export default function CampanhaCpaas261() {
             <span className="c261-cd__unit"><b>{cd.m}</b><span>MIN</span></span>
             <span className="c261-cd__unit is-sec"><b>{cd.s}</b><span>SEG</span></span>
           </div>
-          <a href="#form" className="c261-btn c261-btn--gold">
+          <a href={FORM_URL} target="_blank" rel="noopener noreferrer" className="c261-btn c261-btn--gold">
             Travar meu R$0,06 <Arrow />
           </a>
         </div>
@@ -330,13 +328,12 @@ export default function CampanhaCpaas261() {
             <h2>Quero travar meu R$0,06</h2>
             <p>Deixe seus dados e um especialista Solvefy CPaaS ativa sua trava antes do apito final.</p>
           </div>
-          <div className="c261-form__embed rv">
-            <div role="main" id={RD_FORM_ID} />
+          <div className="c261-form__cta rv">
+            <a href={FORM_URL} target="_blank" rel="noopener noreferrer" className="c261-btn">
+              Travar meu R$0,06 <Arrow />
+            </a>
+            <p className="c261-form__fine">Abre o formulário seguro do Solvefy CPaaS em nova aba.</p>
           </div>
-          <p className="c261-form__fallback">
-            Problemas para ver o formulário?{" "}
-            <a href={FORM_URL} target="_blank" rel="noopener noreferrer">Abrir em nova aba</a>
-          </p>
         </div>
       </section>
 

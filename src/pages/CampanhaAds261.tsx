@@ -5,7 +5,7 @@ import logoAds from "@/assets/ads261-logo.png";
 import heroImg from "@/assets/ads261-hero.webp";
 import { useRdStationLoader } from "@/lib/rdStation";
 
-const FORM_URL = "https://solvefy.rds.land/sfy-formulario";
+const FORM_URL = "https://solvefy.rds.land/sfy-formulario?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-de-solvefy-ads";
 const TARGET = new Date("2026-07-19T23:59:59-03:00").getTime();
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -76,7 +76,7 @@ export default function CampanhaAds261() {
         <div className="a261-nav__right">
           <a href="#bonus" className="a261-nav__link a261-nav__links-hide">O bônus</a>
           <a href="#diffs" className="a261-nav__link a261-nav__links-hide">Por que Solvefy</a>
-          <a href="#form" className="a261-nav__cta">Quero entrar em campo</a>
+          <a href={FORM_URL} target="_blank" rel="noopener noreferrer" className="a261-nav__cta">Quero entrar em campo</a>
         </div>
       </nav>
 
@@ -95,7 +95,7 @@ export default function CampanhaAds261() {
               Cada real que você joga em tráfego, a <strong>Solvefy joga junto</strong>. Deposite saldo no Solvefy/Ads até 19/07 e dobre sua munição na reta mais quente do ano.
             </p>
             <div className="a261-hero__cta-row">
-              <a href="#form" className="a261-btn">Quero entrar em campo <Arrow /></a>
+              <a href={FORM_URL} target="_blank" rel="noopener noreferrer" className="a261-btn">Quero entrar em campo <Arrow /></a>
               <a href="#bonus" className="a261-btn a261-btn--ghost">Ver como funciona o bônus</a>
             </div>
           </div>
@@ -308,7 +308,7 @@ export default function CampanhaAds261() {
             <span className="a261-cd__unit"><b>{cd.m}</b><span>MIN</span></span>
             <span className="a261-cd__unit is-sec"><b>{cd.s}</b><span>SEG</span></span>
           </div>
-          <a href="#form" className="a261-btn a261-btn--gold">Quero entrar em campo <Arrow /></a>
+          <a href={FORM_URL} target="_blank" rel="noopener noreferrer" className="a261-btn a261-btn--gold">Quero entrar em campo <Arrow /></a>
         </div>
       </section>
 
