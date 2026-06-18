@@ -1,8 +1,7 @@
-import { useState } from "react";
 import {
   Sparkles,
   Check,
-  Clock,
+  ArrowRight,
   Workflow,
   Layers,
   TrendingUp,
@@ -68,16 +67,15 @@ const EASY_IA_PILLS = [
 ] as const;
 
 const PLAN_KEYS = [
-  { key: "next", featureKeys: ["f1","f2","f3","f4","f5","f6","f7"] as const, soonKeys: [] as readonly string[],         highlight: false, hasBadge: false },
-  { key: "fast", featureKeys: ["f1","f2","f3","f4","f5","f6","f7"] as const, soonKeys: [] as readonly string[],         highlight: true,  hasBadge: true },
-  { key: "best", featureKeys: ["f1","f2","f3","f4"] as const,                soonKeys: ["soon1","soon2"] as readonly string[], highlight: false, hasBadge: false },
+  { key: "next", featureKeys: ["f1","f2"] as const,           soonKeys: [] as readonly string[], highlight: false, hasBadge: false },
+  { key: "fast", featureKeys: ["f1","f2","f3","f4"] as const, soonKeys: [] as readonly string[], highlight: true,  hasBadge: true  },
+  { key: "best", featureKeys: ["f1","f2","f3","f4"] as const, soonKeys: [] as readonly string[], highlight: false, hasBadge: false },
 ] as const;
 
 const Marketing = () => {
   const { t } = useTranslation("marketing");
   useRdStationLoader();
   const { locale } = useLocale();
-  const [isAnnual, setIsAnnual] = useState(false);
   const reveal = useReveal();
 
   return (
@@ -365,40 +363,6 @@ const Marketing = () => {
               </SectionSubtitle>
             </div>
 
-            {/* Toggle mensal / anual */}
-            <div className="flex flex-col items-center gap-3 mb-12">
-              <div className="flex items-center gap-1 rounded-full p-1 bg-muted">
-                <button
-                  onClick={() => setIsAnnual(false)}
-                  className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                    !isAnnual
-                      ? "bg-white text-foreground shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {t("pricing.monthly")}
-                </button>
-                <button
-                  onClick={() => setIsAnnual(true)}
-                  className="px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 text-white"
-                  style={{
-                    backgroundColor: isAnnual ? ACCENT : "transparent",
-                    color: isAnnual ? "#fff" : undefined,
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isAnnual) (e.currentTarget as HTMLButtonElement).style.color = "var(--foreground)";
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isAnnual) (e.currentTarget as HTMLButtonElement).style.color = "";
-                  }}
-                >
-                  {t("pricing.annual")}
-                </button>
-              </div>
-              <p className="text-sm font-semibold" style={{ color: ACCENT }}>
-                {t("pricing.annualSave")}
-              </p>
-            </div>
 
             {/* Cards */}
             <div className="grid md:grid-cols-3 gap-6 items-stretch">
@@ -432,64 +396,47 @@ const Marketing = () => {
                   )}
 
                   <div className="mb-5">
-                    <div
-                      className="text-sm font-bold uppercase tracking-wider mb-1"
-                      style={{ color: ACCENT }}
-                    >
+                    <h3 className="text-2xl md:text-3xl tracking-tighter mb-1" style={{ color: "#000" }}>
                       {t(`pricing.plans.${key}.name`)}
-                    </div>
-                    <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                       {t(`pricing.plans.${key}.desc`)}
                     </p>
                     <div className="flex items-baseline gap-1">
                       <span className="text-4xl font-bold tracking-tight">
-                        {isAnnual ? t(`pricing.plans.${key}.annual`) : t(`pricing.plans.${key}.monthly`)}
+                        {t(`pricing.plans.${key}.monthly`)}
                       </span>
                       <span className="text-sm text-muted-foreground">{t(`pricing.plans.${key}.period`)}</span>
                     </div>
-                    {isAnnual && (
-                      <p className="mt-1 text-xs font-medium" style={{ color: ACCENT }}>
-                        {t("pricing.billedAnnually")}
-                      </p>
-                    )}
                   </div>
 
-                  <ul className="space-y-2.5 mb-4 text-sm flex-1">
-                    {featureKeys.map((fk) => (
-                      <li key={fk} className="flex items-start gap-2">
-                        <Check className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
-                        <span className="text-foreground/85">{t(`pricing.plans.${key}.${fk}`)}</span>
-                      </li>
-                    ))}
+                  <ul className="space-y-3 mb-4 text-sm flex-1">
+                    {featureKeys.map((fk) => {
+                      const [title, sub] = t(`pricing.plans.${key}.${fk}`).split("|");
+                      return (
+                        <li key={fk} className="flex items-start gap-2">
+                          <Check className="h-4 w-4 mt-1 shrink-0" style={{ color: ACCENT }} />
+                          <div>
+                            <p className="font-semibold leading-snug">{title}</p>
+                            {sub && <p className="text-xs text-muted-foreground">{sub}</p>}
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ul>
 
-                  {soonKeys.length > 0 && (
-                    <>
-                      <div className="flex items-center gap-2 my-3">
-                        <div className="flex-1 border-t border-dashed border-border" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-1">
-                          {t("pricing.comingSoonDivider")}
-                        </span>
-                        <div className="flex-1 border-t border-dashed border-border" />
-                      </div>
-                      <ul className="space-y-2.5 mb-5 text-sm">
-                        {soonKeys.map((sk) => (
-                          <li key={sk} className="flex items-start gap-2 opacity-55">
-                            <Clock className="h-4 w-4 mt-0.5 shrink-0" style={{ color: ACCENT }} />
-                            <span className="text-foreground/70">{t(`pricing.plans.${key}.${sk}`)}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
+                  <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                    {t("pricing.cardNote")}
+                  </p>
 
-                  <Button
-                    size="lg"
-                    disabled
-                    className="w-full font-semibold mt-auto cursor-default opacity-60"
+                  <a
+                    href="https://disparopro.com.br/cadastro"
+                    className="w-full font-semibold mt-auto flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-sm text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                    style={{ backgroundColor: ACCENT }}
                   >
-                    {t("pricing.comingSoon")}
-                  </Button>
+                    {t("pricing.cta")}
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
               ))}
             </div>
