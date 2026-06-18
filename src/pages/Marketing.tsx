@@ -1,8 +1,6 @@
-import { useState } from "react";
 import {
   Sparkles,
   Check,
-  Clock,
   ArrowRight,
   Workflow,
   Layers,
@@ -76,7 +74,6 @@ const PLAN_KEYS = [
 const Marketing = () => {
   const { t } = useTranslation("marketing");
   const { locale } = useLocale();
-  const [isAnnual, setIsAnnual] = useState(false);
   const reveal = useReveal();
 
   return (
@@ -405,15 +402,10 @@ const Marketing = () => {
                     </p>
                     <div className="flex items-baseline gap-1">
                       <span className="text-4xl font-bold tracking-tight">
-                        {isAnnual ? t(`pricing.plans.${key}.annual`) : t(`pricing.plans.${key}.monthly`)}
+                        {t(`pricing.plans.${key}.monthly`)}
                       </span>
                       <span className="text-sm text-muted-foreground">{t(`pricing.plans.${key}.period`)}</span>
                     </div>
-                    {isAnnual && (
-                      <p className="mt-1 text-xs font-medium" style={{ color: ACCENT }}>
-                        {t("pricing.billedAnnually")}
-                      </p>
-                    )}
                   </div>
 
                   <ul className="space-y-3 mb-4 text-sm flex-1">
