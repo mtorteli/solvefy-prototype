@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { ArrowRight, ShoppingBag, Building2, GraduationCap, LayoutGrid, CreditCard, MessageSquare, PhoneCall, Layers2, Tag, Receipt, Play, Pause } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Trans, useTranslation } from "react-i18next";
 
 import wppEcommerce    from "@/assets/marketing-channels/wpp-ecommerce.png";
 import wppEducacao     from "@/assets/marketing-channels/wpp-educacao.png";
@@ -25,51 +26,52 @@ const WhatsAppIcon = ({ className, ...rest }: React.SVGProps<SVGSVGElement>) => 
   </svg>
 );
 
+// Os textos (label da aba, título e descrição de cada caso, CTA e título da
+// seção) vêm do i18n — ver a chave "channelUseCase" em marketing.json. Aqui
+// guardamos apenas ícone, chave de tradução e os assets de cada caso.
 interface UseCase {
   Icon: LucideIcon;
-  title: string;
-  desc: string;
+  key: string;
   image: string;
   audio?: string;
 }
 
 interface ChannelTab {
   id: string;
-  label: string;
   Icon: LucideIcon | React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 const CHANNEL_TABS: ChannelTab[] = [
-  { id: "whatsapp", label: "WhatsApp", Icon: WhatsAppIcon as LucideIcon },
-  { id: "sms",      label: "SMS",       Icon: MessageSquare },
-  { id: "rcs",      label: "RCS",       Icon: Layers2 },
-  { id: "voz",      label: "Voz",       Icon: PhoneCall },
+  { id: "whatsapp", Icon: WhatsAppIcon as LucideIcon },
+  { id: "sms",      Icon: MessageSquare },
+  { id: "rcs",      Icon: Layers2 },
+  { id: "voz",      Icon: PhoneCall },
 ];
 
 const CHANNEL_CASES: Record<string, UseCase[]> = {
   whatsapp: [
-    { Icon: ShoppingBag,   title: "E-Commerce",    desc: "Recupere carrinhos e converta com cupons personalizados.",        image: wppEcommerce },
-    { Icon: GraduationCap, title: "Educação",       desc: "Notifique alunos sobre matrículas e prazos com botão de ação.",  image: wppEducacao },
-    { Icon: LayoutGrid,    title: "Infoprodutores", desc: "Divulgue lives e engaje sua audiência com confirmação direta.",   image: wppInfoprodutor },
-    { Icon: Building2,     title: "Saúde",          desc: "Confirme consultas e reduza faltas com lembretes automáticos.",   image: wppSaude },
+    { Icon: ShoppingBag,   key: "ecommerce",      image: wppEcommerce },
+    { Icon: GraduationCap, key: "educacao",       image: wppEducacao },
+    { Icon: LayoutGrid,    key: "infoprodutores", image: wppInfoprodutor },
+    { Icon: Building2,     key: "saude",          image: wppSaude },
   ],
   sms: [
-    { Icon: CreditCard,  title: "Betting",             desc: "Dispare alertas sobre jogos e vantagens.",                      image: smsBetting },
-    { Icon: Tag,         title: "Crédito Consignado",  desc: "Divulgue condições especiais com links diretos.",               image: smsConsignado },
-    { Icon: Receipt,     title: "Cobrança",            desc: "Reduza a inadimplência com lembretes certeiros.",               image: smsCobranca },
-    { Icon: Building2,   title: "Clínicas",            desc: "Garanta 100% de presença com lembretes automáticos.",           image: smsClinicas },
+    { Icon: CreditCard,  key: "betting",     image: smsBetting },
+    { Icon: Tag,         key: "consignado",  image: smsConsignado },
+    { Icon: Receipt,     key: "cobranca",    image: smsCobranca },
+    { Icon: Building2,   key: "clinicas",    image: smsClinicas },
   ],
   rcs: [
-    { Icon: ShoppingBag,   title: "E-Commerce",    desc: "Campanhas com imagens, carrossel e botões interativos.", image: rcsEcommerce },
-    { Icon: Building2,     title: "Saúde",          desc: "Confirmações de consultas e lembretes com rich cards.",  image: rcsSaude },
-    { Icon: GraduationCap, title: "Educação",       desc: "Lembretes, comunicados e matrículas com botões ricos.",  image: rcsEducacao },
-    { Icon: LayoutGrid,    title: "Infoprodutores", desc: "Lançamentos, lives e ofertas exclusivas com rich cards.", image: rcsInfoprodutor },
+    { Icon: ShoppingBag,   key: "ecommerce",      image: rcsEcommerce },
+    { Icon: Building2,     key: "saude",          image: rcsSaude },
+    { Icon: GraduationCap, key: "educacao",       image: rcsEducacao },
+    { Icon: LayoutGrid,    key: "infoprodutores", image: rcsInfoprodutor },
   ],
   voz: [
-    { Icon: CreditCard,  title: "Betting",             desc: "Alcance apostadores com áudios de influencers.",    image: smsBetting,    audio: vozBettingAudio },
-    { Icon: Tag,         title: "Crédito Consignado",  desc: "Divulgue ofertas e diferenciais unindo Voz e SMS.", image: smsConsignado,  audio: vozConsignadoAudio },
-    { Icon: Receipt,     title: "Cobrança",            desc: "Reduza a inadimplência com lembretes certeiros.",   image: smsCobranca,    audio: vozCobrancaAudio },
-    { Icon: Building2,   title: "Clínicas",            desc: "Garanta 100% de presença com lembretes de Voz.",   image: smsClinicas,    audio: vozClinicasAudio },
+    { Icon: CreditCard,  key: "betting",     image: smsBetting,    audio: vozBettingAudio },
+    { Icon: Tag,         key: "consignado",  image: smsConsignado,  audio: vozConsignadoAudio },
+    { Icon: Receipt,     key: "cobranca",    image: smsCobranca,    audio: vozCobrancaAudio },
+    { Icon: Building2,   key: "clinicas",    image: smsClinicas,    audio: vozClinicasAudio },
   ],
 };
 
@@ -80,21 +82,10 @@ const CHANNEL_GRADIENT: Record<string, string> = {
   voz:      "linear-gradient(135deg, #e3f2fd 0%, #64b5f6 100%)",
 };
 
-const CHANNEL_CTA: Record<string, string> = {
-  whatsapp: "Crie sua conta agora!",
-  sms:      "Desbrave possibilidades!",
-  rcs:      "Crie sua conta agora!",
-  voz:      "Desbrave possibilidades!",
-};
-
-const CHANNEL_TITLE: Record<string, string> = {
-  whatsapp: "Com WhatsApp, o retorno é garantido!",
-  sms:      "Com SMS, você melhora sua comunicação em diferentes segmentos de mercado",
-  rcs:      "Escolha o formato ideal para seu RCS!",
-  voz:      "Crie campanhas interativas unindo Disparos de Voz e SMS",
-};
+const SEEK_STEP = 5; // segundos por tecla de seta
 
 function AudioPlayer({ src, accent }: { src: string; accent: string }) {
+  const { t } = useTranslation("marketing");
   const [playing, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -105,8 +96,15 @@ function AudioPlayer({ src, accent }: { src: string; accent: string }) {
   const toggle = () => {
     const el = ref.current;
     if (!el) return;
-    playing ? el.pause() : el.play();
+    if (playing) el.pause();
+    else el.play();
     setPlaying(p => !p);
+  };
+
+  const seekTo = (time: number) => {
+    const el = ref.current;
+    if (!el || !el.duration) return;
+    el.currentTime = Math.min(el.duration, Math.max(0, time));
   };
 
   const fmt = (s: number) =>
@@ -122,7 +120,9 @@ function AudioPlayer({ src, accent }: { src: string; accent: string }) {
         onEnded={() => setPlaying(false)}
       />
       <button
+        type="button"
         onClick={toggle}
+        aria-label={playing ? t("channelUseCase.audio.pause") : t("channelUseCase.audio.play")}
         className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white transition-transform active:scale-95"
         style={{ backgroundColor: accent }}
       >
@@ -130,12 +130,29 @@ function AudioPlayer({ src, accent }: { src: string; accent: string }) {
       </button>
       <div className="flex flex-1 flex-col gap-1.5">
         <div
-          className="relative h-1.5 w-full rounded-full bg-black/10 cursor-pointer"
+          role="slider"
+          tabIndex={0}
+          aria-label={t("channelUseCase.audio.seek")}
+          aria-valuemin={0}
+          aria-valuemax={Math.floor(duration)}
+          aria-valuenow={Math.floor(currentTime)}
+          aria-valuetext={`${fmt(currentTime)} / ${fmt(duration)}`}
+          className="relative h-1.5 w-full rounded-full bg-black/10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+          style={{ "--tw-ring-color": accent } as React.CSSProperties}
           onClick={(e) => {
             const el = ref.current;
             if (!el || !el.duration) return;
             const rect = e.currentTarget.getBoundingClientRect();
-            el.currentTime = ((e.clientX - rect.left) / rect.width) * el.duration;
+            seekTo(((e.clientX - rect.left) / rect.width) * el.duration);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowRight" || e.key === "ArrowUp") {
+              e.preventDefault();
+              seekTo(currentTime + SEEK_STEP);
+            } else if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
+              e.preventDefault();
+              seekTo(currentTime - SEEK_STEP);
+            }
           }}
         >
           <div
@@ -157,6 +174,7 @@ interface MarketingChannelUseCaseProps {
 }
 
 export function MarketingChannelUseCase({ accent = "#E64499" }: MarketingChannelUseCaseProps) {
+  const { t } = useTranslation("marketing");
   const [activeChannelId, setActiveChannelId] = useState("whatsapp");
   const [activeCaseIdx, setActiveCaseIdx] = useState(0);
 
@@ -168,7 +186,7 @@ export function MarketingChannelUseCase({ accent = "#E64499" }: MarketingChannel
   const cases = CHANNEL_CASES[activeChannelId] ?? CHANNEL_CASES.whatsapp;
   const activeCase = cases[activeCaseIdx];
   const bgGradient = CHANNEL_GRADIENT[activeChannelId];
-  const ctaLabel = CHANNEL_CTA[activeChannelId] ?? "Crie sua conta agora!";
+  const caseTitle = (uc: UseCase) => t(`channelUseCase.cases.${activeChannelId}.${uc.key}.title`);
 
   return (
     <section className="py-12 md:py-16 overflow-hidden">
@@ -177,11 +195,15 @@ export function MarketingChannelUseCase({ accent = "#E64499" }: MarketingChannel
         {/* Section heading */}
         <div className="mb-10 max-w-2xl">
           <h2 className="tracking-tighter leading-tight">
-            <span className="block whitespace-nowrap">Mensagens que geram <span style={{ color: accent }}>conexões</span></span>
-            <span className="block whitespace-nowrap">Contatos que geram <span style={{ color: accent }}>vendas</span></span>
+            <span className="block whitespace-nowrap">
+              <Trans i18nKey="channelUseCase.heading1" ns="marketing" components={{ accent: <span style={{ color: accent }} /> }} />
+            </span>
+            <span className="block whitespace-nowrap">
+              <Trans i18nKey="channelUseCase.heading2" ns="marketing" components={{ accent: <span style={{ color: accent }} /> }} />
+            </span>
           </h2>
           <p className="section-subtitle mt-4">
-            Veja na tela como os seus clientes recebem as interações e entenda por que nossos formatos convertem mais do que disparos tradicionais.
+            {t("channelUseCase.subtitle")}
           </p>
         </div>
 
@@ -192,7 +214,9 @@ export function MarketingChannelUseCase({ accent = "#E64499" }: MarketingChannel
             return (
               <button
                 key={tab.id}
+                type="button"
                 onClick={() => handleChannelChange(tab.id)}
+                aria-pressed={isActive}
                 className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200"
                 style={
                   isActive
@@ -201,7 +225,7 @@ export function MarketingChannelUseCase({ accent = "#E64499" }: MarketingChannel
                 }
               >
                 <tab.Icon className="h-4 w-4" />
-                {tab.label}
+                {t(`channelUseCase.tabs.${tab.id}`)}
               </button>
             );
           })}
@@ -219,7 +243,7 @@ export function MarketingChannelUseCase({ accent = "#E64499" }: MarketingChannel
               <img
                 key={activeCase.image + activeCaseIdx}
                 src={activeCase.image}
-                alt={activeCase.title}
+                alt={caseTitle(activeCase)}
                 className="absolute inset-0 w-full h-full object-cover object-top drop-shadow-2xl"
               />
               {activeCase.audio && (
@@ -236,8 +260,10 @@ export function MarketingChannelUseCase({ accent = "#E64499" }: MarketingChannel
               const isActive = activeCaseIdx === i;
               return (
                 <button
-                  key={uc.title}
+                  key={uc.key}
+                  type="button"
                   onClick={() => setActiveCaseIdx(i)}
+                  aria-pressed={isActive}
                   className="flex items-start gap-4 rounded-2xl px-4 py-4 text-left transition-colors duration-150 hover:bg-muted/40"
                   style={isActive ? { backgroundColor: `${accent}0D` } : {}}
                 >
@@ -255,10 +281,10 @@ export function MarketingChannelUseCase({ accent = "#E64499" }: MarketingChannel
                       className="text-sm leading-snug tracking-tight transition-colors duration-150"
                       style={{ fontWeight: isActive ? 700 : 500, color: isActive ? accent : "inherit" }}
                     >
-                      {uc.title}
+                      {caseTitle(uc)}
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed mt-0.5">
-                      {uc.desc}
+                      {t(`channelUseCase.cases.${activeChannelId}.${uc.key}.desc`)}
                     </p>
                   </div>
                 </button>
@@ -270,7 +296,7 @@ export function MarketingChannelUseCase({ accent = "#E64499" }: MarketingChannel
               className="inline-flex items-center gap-2 self-start mt-4 ml-4 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
               style={{ backgroundColor: accent }}
             >
-              {ctaLabel}
+              {t(`channelUseCase.cta.${activeChannelId}`)}
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
