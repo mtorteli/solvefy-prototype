@@ -334,3 +334,10 @@
   .c261-pricecard { left: -8px; }
   .c261-marketbadge { right: 0; }
 }
+
+/* Formulario embutido (RD Station Forms) */
+.cpaas261 section[id] { scroll-margin-top: 78px; }
+.c261-form__embed { max-width: 520px; margin: 0 auto; background: #fff; border: 1px solid #d9caff; border-radius: 18px; padding: clamp(20px,4vw,28px); box-shadow: 0 26px 56px -26px rgba(111,88,182,.45); }
+.c261-form__embed :where(input, textarea, select, button) { font-family: var(--font); }
+.c261-form__fallback { text-align: center; font-size: 12px; color: #737373; margin: 18px auto 0; }
+.c261-form__fallback a { color: var(--purple-2); font-weight: 600; }

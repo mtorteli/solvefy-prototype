@@ -319,13 +319,12 @@ export default function CampanhaAds261() {
             <h2>Quero entrar em campo</h2>
             <p>Deixe seus dados e um especialista Solvefy/Ads ativa seu bônus antes do apito final.</p>
           </div>
-          <div className="a261-form__frame rv">
-            <iframe src={FORM_URL} title="Formulário Solvefy/Ads, Brasil na Copa" loading="lazy" />
+          <div className="a261-form__cta rv">
+            <a href={FORM_URL} target="_blank" rel="noopener noreferrer" className="a261-btn">
+              Quero entrar em campo <Arrow />
+            </a>
+            <p className="a261-form__fine">Abre o formulário seguro do Solvefy/Ads em nova aba.</p>
           </div>
-          <p className="a261-form__fallback">
-            Não carregou?{" "}
-            <a href={FORM_URL} target="_blank" rel="noopener noreferrer">Abrir formulário em nova aba</a>
-          </p>
         </div>
       </section>
 

@@ -54,8 +54,10 @@ export function useRdStationLoader() {
  * container estarem disponíveis, em vez de chamar `new` direto no `onload`.
  *
  * @param enabled quando `false`, não injeta o script nem cria o formulário.
+ * @param formId id do container/formulário RD a renderizar. Default: `RD_FORM_ID`
+ *   (formulário de Contato). Landing pages de campanha passam o seu próprio id.
  */
-export function useRdStationForm(enabled: boolean) {
+export function useRdStationForm(enabled: boolean, formId: string = RD_FORM_ID) {
   useEffect(() => {
     if (!enabled) return;
 
@@ -69,7 +71,7 @@ export function useRdStationForm(enabled: boolean) {
         return;
       }
 
-      const container = document.getElementById(RD_FORM_ID);
+      const container = document.getElementById(formId);
       if (!container) {
         retryId = setTimeout(tryInit, 100);
         return;
@@ -77,7 +79,7 @@ export function useRdStationForm(enabled: boolean) {
 
       container.innerHTML = "";
       // @ts-ignore
-      new window.RDStationForms(RD_FORM_ID, "null").createForm();
+      new window.RDStationForms(formId, "null").createForm();
     };
 
     if (!document.getElementById(RD_SCRIPT_ID)) {
@@ -92,8 +94,8 @@ export function useRdStationForm(enabled: boolean) {
 
     return () => {
       clearTimeout(retryId);
-      const container = document.getElementById(RD_FORM_ID);
+      const container = document.getElementById(formId);
       if (container) container.innerHTML = "";
     };
-  }, [enabled]);
+  }, [enabled, formId]);
 }
