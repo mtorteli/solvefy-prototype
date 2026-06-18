@@ -39,6 +39,7 @@ const CYCLE_MS = 8_000;
 interface CpaasChannelFlowProps {
   accent?: string;
   accentBg?: string;
+  onChannelChange?: (id: string) => void;
 }
 
 const CHANNEL_META = [
@@ -51,6 +52,7 @@ const CHANNEL_META = [
 export const CpaasChannelFlow = ({
   accent   = "#9C7BFF",
   accentBg = "#E7DBFF",
+  onChannelChange,
 }: CpaasChannelFlowProps = {}) => {
   const { t } = useTranslation("cpaas");
   const [activeIdx, setActiveIdx] = useState(0);
@@ -58,6 +60,8 @@ export const CpaasChannelFlow = ({
   const lastIdxRef                = useRef(-1);
   const rafRef                    = useRef<number>(0);
   const t0Ref                     = useRef<number>(0);
+  const onChannelChangeRef        = useRef(onChannelChange);
+  onChannelChangeRef.current      = onChannelChange;
 
   useEffect(() => {
     const loop = (now: number) => {
@@ -67,6 +71,7 @@ export const CpaasChannelFlow = ({
       if (idx !== lastIdxRef.current) {
         lastIdxRef.current = idx;
         setActiveIdx(idx);
+        onChannelChangeRef.current?.(CHANNEL_META[idx].id);
       }
       rafRef.current = requestAnimationFrame(loop);
     };
@@ -80,6 +85,7 @@ export const CpaasChannelFlow = ({
     t0Ref.current = now - (i / CHANNEL_META.length) * CYCLE_MS;
     lastIdxRef.current = i;
     setActiveIdx(i);
+    onChannelChangeRef.current?.(CHANNEL_META[i].id);
   };
 
   const active = CHANNEL_META[activeIdx];
@@ -90,7 +96,7 @@ export const CpaasChannelFlow = ({
   ];
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="mb-12 max-w-2xl">
