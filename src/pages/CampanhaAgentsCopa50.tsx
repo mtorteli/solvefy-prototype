@@ -4,6 +4,7 @@ import "./CampanhaAgentsCopa50.css";
 import logoSolvefy from "@/assets/logo-solvefy-white.png";
 import { Footer } from "@/components/Footer";
 import { useRdStationLoader } from "@/lib/rdStation";
+import { trackCampaignCta } from "@/lib/posthog";
 
 interface Countdown {
   d: string;
@@ -12,6 +13,7 @@ interface Countdown {
   s: string;
 }
 
+const CAMPAIGN = "agents_copa50";
 const UTM_URL =
   "https://agents.solvefy.com/cadastro?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-agents-copa&utm_content=campannhacopa50";
 
@@ -99,6 +101,7 @@ const CampanhaAgentsCopa50 = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="topbar__cta"
+            onClick={() => trackCampaignCta(CAMPAIGN, "topbar")}
           >
             Garanta os 90% OFF{" "}
             <svg width="14" height="14">
@@ -192,6 +195,7 @@ const CampanhaAgentsCopa50 = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
+                onClick={() => trackCampaignCta(CAMPAIGN, "hero")}
               >
                 Garanta os 90% OFF agora{" "}
                 <span className="arr">
@@ -420,6 +424,7 @@ const CampanhaAgentsCopa50 = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="plan__cta plan__cta--ghost"
+                onClick={() => trackCampaignCta(CAMPAIGN, "plan_basic")}
               >
                 Assinar Basic
               </a>
@@ -453,6 +458,7 @@ const CampanhaAgentsCopa50 = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="plan__cta plan__cta--primary"
+                onClick={() => trackCampaignCta(CAMPAIGN, "plan_pro")}
               >
                 Garanta 90% OFF
               </a>
@@ -492,6 +498,7 @@ const CampanhaAgentsCopa50 = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
+              onClick={() => trackCampaignCta(CAMPAIGN, "finale")}
             >
               Garanta os 90% OFF agora{" "}
               <span className="arr">

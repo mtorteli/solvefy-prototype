@@ -5,7 +5,9 @@ import logoSolvefy from "@/assets/logo-solvefy-white.png";
 import mulherImg from "@/assets/lp2-mulher.png";
 import { Footer } from "@/components/Footer";
 import { useRdStationLoader } from "@/lib/rdStation";
+import { trackCampaignCta } from "@/lib/posthog";
 
+const CAMPAIGN = "agents_copa50_v2";
 const UTM_URL =
   "https://agents.solvefy.com/cadastro?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-agents-copa&utm_content=campannhacopa50";
 
@@ -86,7 +88,7 @@ export default function Campanha2AgentsCopa50() {
           </a>
           <span className="topbar__tag">Oferta de lançamento · 90% OFF</span>
           <span className="topbar__spacer"></span>
-          <a href={UTM_URL} target="_blank" rel="noopener noreferrer" className="topbar__cta">
+          <a href={UTM_URL} target="_blank" rel="noopener noreferrer" className="topbar__cta" onClick={() => trackCampaignCta(CAMPAIGN, "topbar")}>
             Garantir 90% OFF{" "}
             <svg width="14" height="14"><use href="#lp2-i-arr" /></svg>
           </a>
@@ -145,7 +147,7 @@ export default function Campanha2AgentsCopa50() {
             </p>
 
             <div className="hero__cta-row">
-              <a href={UTM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a href={UTM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" onClick={() => trackCampaignCta(CAMPAIGN, "hero")}>
                 Garantir 90% OFF agora{" "}
                 <svg width="20" height="20"><use href="#lp2-i-arr" /></svg>
               </a>
@@ -421,6 +423,7 @@ export default function Campanha2AgentsCopa50() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="plan__cta plan__cta--ghost"
+                onClick={() => trackCampaignCta(CAMPAIGN, "plan_basic")}
               >
                 Assinar Basic
               </a>
@@ -458,6 +461,7 @@ export default function Campanha2AgentsCopa50() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="plan__cta plan__cta--primary"
+                onClick={() => trackCampaignCta(CAMPAIGN, "plan_pro")}
               >
                 Garantir 90% OFF
               </a>
@@ -498,7 +502,7 @@ export default function Campanha2AgentsCopa50() {
           </div>
 
           <div className="finale__cta-wrap">
-            <a href={UTM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a href={UTM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" onClick={() => trackCampaignCta(CAMPAIGN, "finale")}>
               Garantir 90% OFF agora{" "}
               <svg width="22" height="22"><use href="#lp2-i-arr" /></svg>
             </a>

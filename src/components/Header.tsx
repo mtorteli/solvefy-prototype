@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { usePostHog } from "@posthog/react";
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -138,8 +139,14 @@ const SolutionsMegaMenu = ({
 export const Header = () => {
   const { t } = useTranslation("common");
   const { localizedPath } = useLocale();
+  const posthog = usePostHog();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  // Evento de conversão: clique no CTA "Fale com especialista" do header.
+  // Só é enviado se o visitante aceitou cookies de análise (ver src/lib/posthog.ts).
+  const trackSpecialistCta = (location: string) =>
+    posthog.capture("cta_specialist_clicked", { location });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -218,7 +225,7 @@ export const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center">
-            <Link to={localizedPath("/contato")}>
+            <Link to={localizedPath("/contato")} onClick={() => trackSpecialistCta("header_desktop")}>
               <Button variant="hero" size="lg" className="group text-black font-semibold">
                 {t("header.ctaSpecialist")}
                 <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />

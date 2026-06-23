@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { isPrerender } from "@/hooks/useReveal";
 import { CONSENT_UPDATED_EVENT, readConsent } from "@/lib/consent";
+import { posthog } from "@/lib/posthog";
 
 export const RD_FORM_ID = "contato-solvefy-com-58c21822e6ec437325ca";
 export const RD_SCRIPT_ID = "rd-station-forms-script";
@@ -64,7 +65,7 @@ export function useRdStationForm(enabled: boolean, formId: string = RD_FORM_ID) 
     let retryId: ReturnType<typeof setTimeout>;
 
     const tryInit = () => {
-      // @ts-ignore — RDStationForms é injetado pelo script externo
+      // @ts-expect-error — RDStationForms é injetado pelo script externo
       if (typeof window.RDStationForms === "undefined") {
         // Script ainda carregando — tenta novamente em 100 ms
         retryId = setTimeout(tryInit, 100);
@@ -78,7 +79,7 @@ export function useRdStationForm(enabled: boolean, formId: string = RD_FORM_ID) 
       }
 
       container.innerHTML = "";
-      // @ts-ignore
+      // @ts-expect-error — RDStationForms é injetado pelo script externo
       new window.RDStationForms(formId, "null").createForm();
     };
 
@@ -92,8 +93,22 @@ export function useRdStationForm(enabled: boolean, formId: string = RD_FORM_ID) 
 
     tryInit();
 
+    // Conversão: o formulário é renderizado pelo script externo do RD, então não
+    // há handler React de submit. Ouvimos o evento `submit` nativo (fase de
+    // captura) e filtramos pelo container do formulário. A validação HTML5
+    // (`required`) impede o submit quando há campos obrigatórios vazios, então
+    // isso aproxima bem um envio efetivo. No-op se a análise não foi consentida.
+    const onSubmit = (e: Event) => {
+      const container = document.getElementById(formId);
+      if (container && e.target instanceof Node && container.contains(e.target)) {
+        posthog.capture("contact_form_submitted", { form_id: formId });
+      }
+    };
+    document.addEventListener("submit", onSubmit, true);
+
     return () => {
       clearTimeout(retryId);
+      document.removeEventListener("submit", onSubmit, true);
       const container = document.getElementById(formId);
       if (container) container.innerHTML = "";
     };

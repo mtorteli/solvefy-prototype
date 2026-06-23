@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { isPrerender } from "@/hooks/useReveal";
+import { syncPostHogConsent } from "@/lib/posthog";
 import {
   CONSENT_KEY,
   CONSENT_UPDATED_EVENT,
@@ -35,6 +36,8 @@ const applyPrefs = (prefs: ConsentPrefs) => {
   });
   if (prefs.analytics) window.loadContentsquare?.();
   if (prefs.ads) window.loadMetaPixel?.();
+  // PostHog (análise): ativa/retoma quando aceito, opt-out quando recusado.
+  syncPostHogConsent();
 };
 
 const Toggle = ({
@@ -137,7 +140,7 @@ export const CookieBanner = () => {
       },
       {
         name: "Análise",
-        description: "Nos ajudam a entender como o site é usado (GA4, Contentsquare).",
+        description: "Nos ajudam a entender como o site é usado (GA4, Contentsquare, PostHog).",
         checked: prefs.analytics,
         onChange: (v: boolean) => setPrefs((p) => ({ ...p, analytics: v })),
       },
