@@ -41,8 +41,13 @@ const postMatchesTerm = (post: any, term: string) => {
 };
 
 const buildResult = (all: any[], page: number, pageSize: number) => {
-  const featured = all[0] ?? null;
-  const rest = all.slice(1);
+  // O destaque (hero) é o primeiro post que não optou por sair (`featured: false`).
+  // Posts com `featured: false` continuam publicados e listados na grade,
+  // apenas não ocupam o card de destaque.
+  const featuredIdx = all.findIndex((p) => p.featured !== false);
+  const idx = featuredIdx === -1 ? 0 : featuredIdx;
+  const featured = all[idx] ?? null;
+  const rest = all.filter((_, i) => i !== idx);
   return {
     featured,
     posts: rest.slice(page * pageSize, (page + 1) * pageSize),

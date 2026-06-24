@@ -37,6 +37,57 @@
   status = 301
   force = true
 
+# ──────────────────────────────────────────────────────────
+# Migração de marca: DisparoPro → Solvefy/Marketing (301 permanente)
+# Estas regras só entram em vigor se disparopro.com.br estiver apontado
+# para ESTE site Netlify (domain alias). Mapeamentos 1:1 de posts antigos
+# devem ser adicionados ACIMA da regra geral, conforme os slugs forem
+# confirmados — nada deve cair genericamente na home.
+# ──────────────────────────────────────────────────────────
+
+# (1:1) Posts do blog antigo → equivalentes em solvefy.com/blog.
+#       Exemplo a adicionar quando o slug antigo for confirmado:
+#       from = "https://disparopro.com.br/blog/<slug-antigo>"
+#       to   = "https://solvefy.com/blog/<slug-novo>"
+
+# Blog antigo (sem mapeamento específico) → índice do blog da Solvefy.
+[[redirects]]
+  from = "https://disparopro.com.br/blog/*"
+  to = "https://solvefy.com/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.disparopro.com.br/blog/*"
+  to = "https://solvefy.com/blog"
+  status = 301
+  force = true
+
+# Apex e demais caminhos → página do produto Solvefy/Marketing.
+[[redirects]]
+  from = "https://disparopro.com.br/*"
+  to = "https://solvefy.com/marketing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.disparopro.com.br/*"
+  to = "https://solvefy.com/marketing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://disparopro.com.br/*"
+  to = "https://solvefy.com/marketing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.disparopro.com.br/*"
+  to = "https://solvefy.com/marketing"
+  status = 301
+  force = true
+
 # SPA catch-all — redireciona para o shell do React (index.html).
 # Rotas com HTML pré-renderizado (ex: /cpaas/index.html) são servidas
 # diretamente pelo Netlify antes de cair aqui.

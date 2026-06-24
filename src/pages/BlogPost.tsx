@@ -119,7 +119,7 @@ export default function BlogPost() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEO
-        title={post.title}
+        title={post.meta_title || post.title}
         description={articleDescription}
         canonical={`/blog/${post.slug}`}
         ogImage={articleImage}

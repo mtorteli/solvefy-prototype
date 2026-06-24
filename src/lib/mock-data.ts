@@ -1,5 +1,107 @@
 export const MOCK_POSTS = [
   {
+    id: "8",
+    featured: false,
+    title: "DisparoPro agora é Solvefy/Marketing: a mesma plataforma de disparos, com um ecossistema inteiro por trás",
+    meta_title: "DisparoPro agora é Solvefy/Marketing | Mesma plataforma, novo ecossistema",
+    slug: "disparopro-agora-e-solvefy-marketing",
+    excerpt: "A DisparoPro agora é Solvefy/Marketing. As mesmas APIs de WhatsApp, SMS, RCS e Voz, o mesmo acesso e suporte, agora dentro de um ecossistema de comunicação, CRM e tráfego.",
+    cover_image: "/images/blog/disparopro-solvefy-marketing-capa.webp",
+    created_at: new Date("2026-06-24").toISOString(),
+    authors: {
+      name: "Chris Dornellas",
+      avatar_url: "https://github.com/shadcn.png"
+    },
+    post_categories: {
+      name: "Produto",
+      slug: "produto"
+    },
+    content: `<p>DisparoPro agora é Solvefy/Marketing. A mudança é de marca, e não de plataforma. As mesmas APIs de WhatsApp, SMS, RCS e Voz, a mesma equipe de suporte 100% humana e a mesma estabilidade de envio em escala continuam exatamente onde estavam. O que muda é o tamanho do que vem junto, porque agora você não contrata só uma ferramenta de disparo, mas a porta de entrada de um ecossistema de comunicação, CRM e tráfego.</p>
+
+<p>Toda transição de marca gera a mesma pergunta legítima: "vou perder alguma coisa?". A resposta curta é não. Seu login, suas campanhas, seus contatos e suas integrações seguem funcionando. A resposta longa é mais interessante, porque você ganha acesso a um conjunto de soluções que antes exigiria contratar três ou quatro fornecedores diferentes, agora coordenadas sob uma mesma camada de dados.</p>
+
+<p>Neste artigo, explicamos o que está mudando, o que permanece igual, e por que reunir disparo, jornada, CRM e tráfego sob a mesma marca representa uma mudança na forma como sua comunicação escala.</p>
+
+<p><strong>Por: Chris Dornellas</strong><br/><em>Especialista em SEO e marketing de conteúdo, com mais de 10 anos de experiência, planejando e criando estratégias que geram resultados.</em></p>
+
+<nav aria-label="Índice">
+  <p><strong>Índice</strong></p>
+  <ul>
+    <li><a href="#o-que-muda">O que muda e o que permanece igual na transição</a></li>
+    <li><a href="#por-que">Por que a DisparoPro virou Solvefy/Marketing</a></li>
+    <li><a href="#ecossistema">Solvefy como ecossistema: o que você passa a ter ao redor do disparo</a></li>
+    <li><a href="#marketing">Solvefy/Marketing: o disparo multicanal continua sendo o coração</a></li>
+    <li><a href="#nao-muda">O que não muda: acesso, dados, suporte e preços</a></li>
+    <li><a href="#clientes">Para clientes atuais: o que fazer (e o que ignorar)</a></li>
+    <li><a href="#resumindo">Resumindo</a></li>
+  </ul>
+</nav>
+
+<h2 id="o-que-muda" style="scroll-margin-top:96px">O que muda e o que permanece igual na transição</h2>
+
+<p>A forma mais simples de entender essa transição é separar <strong>identidade</strong> de <strong>infraestrutura</strong>.</p>
+
+<p>A <strong>identidade</strong> muda. O nome DisparoPro passa a ser Solvefy/Marketing, o endereço disparopro.com.br redireciona para <a href="https://solvefy.com/marketing">solvefy.com/marketing</a>, e a comunicação visual se alinha ao restante do ecossistema Solvefy. Para quem busca "DisparoPro" no Google, o caminho continua claro, com sinalização explícita de que a marca agora é Solvefy, justamente para que ninguém se perca no meio do caminho.</p>
+
+<p>A <strong>infraestrutura</strong> permanece. A plataforma de envio é a mesma, as APIs mantêm os mesmos endpoints e a lógica de campanhas não muda. É uma evolução de marca por cima de uma base técnica estável, o cenário de menor risco possível para quem já é cliente, porque o que você usa no dia a dia não é refeito do zero.</p>
+
+<p>Essa distinção importa porque transições mal conduzidas costumam mexer em tudo ao mesmo tempo, mudando nome, plataforma e estrutura de uma vez, e forçando o cliente a reaprender o produto. Aqui o princípio é o contrário. Muda o rótulo e o que vem ao redor dele, não o que está dentro.</p>
+
+<h2 id="por-que" style="scroll-margin-top:96px">Por que a DisparoPro virou Solvefy/Marketing</h2>
+
+<p>A DisparoPro sempre resolveu bem uma parte específica do problema: levar a mensagem certa, no canal certo, em escala. Mas comunicação raramente vive isolada. Ela depende de dados que estão no CRM, de tráfego que vem de campanhas pagas e de jornadas que precisam ser desenhadas com cuidado.</p>
+
+<p>A Solvefy nasceu para reunir essas peças. É uma empresa brasileira de tecnologia, sediada em Florianópolis, especializada em comunicação multicanal B2B, automação de marketing, CRM e infraestrutura em nuvem. Trazer a DisparoPro para dentro desse guarda-chuva significa que o disparo deixa de ser um produto avulso e passa a ser <strong>um módulo de um sistema maior</strong>, que conversa de forma nativa com os outros.</p>
+
+<p>Na prática, a marca principal Solvefy organiza suas soluções como um ecossistema. <a href="https://solvefy.com/cpaas">Solvefy/CPaaS</a> para comunicação em escala, <a href="https://solvefy.com/ads">Solvefy/Ads</a> para tráfego direto, <a href="https://solvefy.com/crm">Solvefy/CRM</a> para gestão comercial, <a href="https://solvefy.com/cloud">Solvefy/Cloud</a> para infraestrutura, <a href="https://solvefy.com/agents">Solvefy/Agents</a> para inteligência artificial, e <strong><a href="https://solvefy.com/marketing">Solvefy/Marketing</a></strong>, que é exatamente onde a antiga DisparoPro passa a viver, com as jornadas inteligentes e os disparos de alta escala.</p>
+
+<h2 id="ecossistema" style="scroll-margin-top:96px">Solvefy como ecossistema: o que você passa a ter ao redor do disparo</h2>
+
+<p>Aqui está a diferença mais concreta da transição. Antes, integrar disparo com CRM, tráfego e dados exigia conectar ferramentas de fornecedores distintos, cada uma com sua própria API, seu próprio painel e seu próprio suporte. Dentro do ecossistema Solvefy, essas peças já nascem pensadas para trabalhar juntas.</p>
+
+<img src="/images/blog/disparopro-solvefy-marketing-corpo.webp" alt="Profissional sorrindo enquanto trabalha em um laptop em um escritório, com a identidade visual da Solvefy" width="1020" height="720" loading="lazy" />
+
+<h3>Dados que circulam entre as soluções</h3>
+
+<p>O maior ganho de um ecossistema está em fazer com que os produtos compartilhem a mesma base de dados. Um lead capturado em uma campanha de tráfego pode acionar uma jornada de mensagens. Um evento registrado no CRM pode disparar uma notificação no canal preferido do cliente. Quando disparo, CRM e tráfego falam a mesma língua, a comunicação para de ser fragmentada.</p>
+
+<h3>Uma só camada de orquestração</h3>
+
+<p>Em vez de coordenar manualmente o que acontece em cada ferramenta, a lógica passa a seguir um caminho único, no qual os dados geram gatilhos, os gatilhos acionam mensagens e os canais entram em cena de acordo com o momento. É o mesmo princípio que sempre sustentou a automação multicanal eficiente, agora dentro de um ambiente único, sem as costuras que ferramentas desconectadas exigem.</p>
+
+<h3>Um único ponto de relacionamento</h3>
+
+<p>Suporte humano qualificado, faturamento centralizado e uma só conta para gerenciar tudo. Isso reduz o custo operacional invisível de quem precisa administrar vários fornecedores ao mesmo tempo.</p>
+
+<h2 id="marketing" style="scroll-margin-top:96px">Solvefy/Marketing: o disparo multicanal continua sendo o coração</h2>
+
+<p>Para que não reste dúvida, a especialidade que fez a DisparoPro continua sendo o centro de tudo no <a href="https://solvefy.com/marketing">Solvefy/Marketing</a>. Os quatro canais seguem disponíveis, cada um com o papel que sempre teve na jornada.</p>
+
+<p>O <strong>WhatsApp</strong> continua como o canal de maior proximidade, com envio automatizado de campanhas como parceira oficial, indicado para atendimento, notificações e conversas guiadas. O <strong>SMS</strong> permanece imbatível em alcance e taxa de leitura, ideal para alertas críticos, confirmações e mensagens transacionais. O <strong>RCS</strong> segue ampliando as experiências com elementos visuais, botões e interações ricas para converter os melhores leads. A <strong>Voz</strong> continua entrando nos casos de alto impacto, com o modelo de pagar apenas pelas chamadas atendidas.</p>
+
+<p>A diferença é que agora esses canais não vivem sozinhos. Eles se conectam ao CRM e ao tráfego do ecossistema, transformando uma plataforma de envio em uma plataforma de jornada completa.</p>
+
+<h2 id="nao-muda" style="scroll-margin-top:96px">O que não muda: acesso, dados, suporte e preços</h2>
+
+<p>Transições de marca geram ansiedade justamente nos pontos práticos. Então, de forma direta:</p>
+
+<p>Seu <strong>acesso</strong> continua o mesmo, com login, senha e painel funcionando durante e depois da transição. Seus <strong>dados</strong> permanecem intactos, e contatos, históricos de campanha e relatórios não são apagados nem migrados de forma destrutiva. Suas <strong>integrações e APIs</strong> seguem ativas, com os mesmos endpoints, então nada que você já automatizou precisa ser refeito às pressas. E o <strong>suporte humano</strong> que sempre foi um diferencial da casa continua disponível, agora dentro de uma estrutura maior.</p>
+
+<h2 id="clientes" style="scroll-margin-top:96px">Para clientes atuais: o que fazer (e o que ignorar)</h2>
+
+<p>Se você já é cliente, a maior parte da transição acontece nos bastidores e não exige nada da sua parte. Ainda assim, vale ter clareza sobre o que merece atenção e o que pode ser ignorado.</p>
+
+<p>Pode ignorar a urgência de "migrar" qualquer coisa. Seus acessos e campanhas continuam no lugar, e os redirecionamentos garantem que links antigos levem ao destino certo. Vale a pena, quando for conveniente, atualizar os favoritos e as referências de domínio nos seus próprios sistemas para solvefy.com, sem pressa. E se você usa a API, atualize as referências para o novo domínio dentro do seu próprio cronograma, já que os redirecionamentos permanentes mantêm a continuidade durante o período de transição.</p>
+
+<h2 id="resumindo" style="scroll-margin-top:96px">Resumindo</h2>
+
+<p>DisparoPro agora é Solvefy/Marketing, e a frase que melhor descreve a mudança é "a mesma plataforma, com um ecossistema inteiro por trás". O disparo multicanal, com WhatsApp, SMS, RCS e Voz, continua sendo o coração da solução, com a mesma estabilidade, o mesmo suporte e o mesmo acesso de sempre.</p>
+
+<p>O que você ganha é o entorno, com dados que circulam entre disparo, CRM e tráfego, e uma única camada de orquestração que coordena tudo. Em vez de somar fornecedores, você passa a operar dentro de um sistema integrado.</p>
+
+<p>Quer entender como a sua operação atual se encaixa no novo ecossistema Solvefy? <a href="https://solvefy.com/contato"><strong>Fale com um especialista da Solvefy</strong></a> e descubra como conectar seus disparos, seu CRM e sua estratégia de dados em uma só plataforma.</p>`
+  },
+  {
     id: "7",
     title: "Como escalar vendas de infoprodutos com estratégias multicanal e automação",
     slug: "como-escalar-vendas-infoprodutos-multicanal-automacao",
