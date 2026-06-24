@@ -63,6 +63,30 @@ export function useRdStationForm(enabled: boolean, formId: string = RD_FORM_ID) 
     if (!enabled) return;
 
     let retryId: ReturnType<typeof setTimeout>;
+    let submitted = false;
+    let converted = false;
+    let observer: MutationObserver | undefined;
+
+    // Conversão concluída: o RD Station Forms não expõe callback público de
+    // sucesso, então observamos o container. Ao converter, o RD substitui o
+    // `<form>` pela mensagem de confirmação — quando o `<form>` deixa de existir
+    // (mas o container ainda tem conteúdo) após um envio válido, contamos o lead.
+    // Dispara uma única vez. No-op se a análise não foi consentida.
+    const watchConversion = (container: HTMLElement) => {
+      observer?.disconnect();
+      observer = new MutationObserver(() => {
+        if (converted || !submitted) return;
+        if (!container.querySelector("form") && container.childElementCount > 0) {
+          converted = true;
+          observer?.disconnect();
+          posthog.capture("lead_rdstation", {
+            form_id: formId,
+            page: window.location.pathname,
+          });
+        }
+      });
+      observer.observe(container, { childList: true, subtree: true });
+    };
 
     const tryInit = () => {
       // @ts-expect-error — RDStationForms é injetado pelo script externo
@@ -81,6 +105,7 @@ export function useRdStationForm(enabled: boolean, formId: string = RD_FORM_ID) 
       container.innerHTML = "";
       // @ts-expect-error — RDStationForms é injetado pelo script externo
       new window.RDStationForms(formId, "null").createForm();
+      watchConversion(container);
     };
 
     if (!document.getElementById(RD_SCRIPT_ID)) {
@@ -93,14 +118,15 @@ export function useRdStationForm(enabled: boolean, formId: string = RD_FORM_ID) 
 
     tryInit();
 
-    // Conversão: o formulário é renderizado pelo script externo do RD, então não
-    // há handler React de submit. Ouvimos o evento `submit` nativo (fase de
-    // captura) e filtramos pelo container do formulário. A validação HTML5
-    // (`required`) impede o submit quando há campos obrigatórios vazios, então
-    // isso aproxima bem um envio efetivo. No-op se a análise não foi consentida.
+    // Tentativa de envio: o formulário é renderizado pelo script externo do RD,
+    // então não há handler React de submit. Ouvimos o evento `submit` nativo
+    // (fase de captura) e filtramos pelo container. A validação HTML5
+    // (`required`) impede o submit com campos obrigatórios vazios, então isso
+    // marca a intenção de envio — o `lead_rdstation` acima confirma a conversão.
     const onSubmit = (e: Event) => {
       const container = document.getElementById(formId);
       if (container && e.target instanceof Node && container.contains(e.target)) {
+        submitted = true;
         posthog.capture("contact_form_submitted", { form_id: formId });
       }
     };
@@ -108,6 +134,7 @@ export function useRdStationForm(enabled: boolean, formId: string = RD_FORM_ID) 
 
     return () => {
       clearTimeout(retryId);
+      observer?.disconnect();
       document.removeEventListener("submit", onSubmit, true);
       const container = document.getElementById(formId);
       if (container) container.innerHTML = "";
