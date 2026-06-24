@@ -5,7 +5,7 @@ import logoSolvefy from "@/assets/logo-solvefy-white.png";
 import mulherImg from "@/assets/lp2-mulher.png";
 import { Footer } from "@/components/Footer";
 import { useRdStationLoader } from "@/lib/rdStation";
-import { trackCampaignCta } from "@/lib/posthog";
+import { trackCampaignCta, useCampaignAnalytics } from "@/lib/posthog";
 
 const CAMPAIGN = "agents_copa50_v2";
 const UTM_URL =
@@ -29,6 +29,7 @@ function getCountdown() {
 
 export default function Campanha2AgentsCopa50() {
   useRdStationLoader();
+  useCampaignAnalytics();
   const [cd, setCd] = useState(getCountdown());
 
   useEffect(() => {

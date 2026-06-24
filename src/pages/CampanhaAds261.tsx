@@ -4,7 +4,7 @@ import "./CampanhaAds261.css";
 import logoAds from "@/assets/ads261-logo.png";
 import heroImg from "@/assets/ads261-hero.webp";
 import { useRdStationLoader } from "@/lib/rdStation";
-import { trackCampaignCta } from "@/lib/posthog";
+import { trackCampaignCta, useCampaignAnalytics } from "@/lib/posthog";
 
 const CAMPAIGN = "ads_261";
 const FORM_URL = "https://solvefy.rds.land/sfy-formulario?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-de-solvefy-ads";
@@ -53,6 +53,7 @@ const Arrow = ({ s = 18 }: { s?: number }) => (
 
 export default function CampanhaAds261() {
   useRdStationLoader();
+  useCampaignAnalytics();
   const [cd, setCd] = useState(getCountdown());
 
   useEffect(() => {

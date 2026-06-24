@@ -4,7 +4,7 @@ import "./CampanhaAgentsCopa50.css";
 import logoSolvefy from "@/assets/logo-solvefy-white.png";
 import { Footer } from "@/components/Footer";
 import { useRdStationLoader } from "@/lib/rdStation";
-import { trackCampaignCta } from "@/lib/posthog";
+import { trackCampaignCta, useCampaignAnalytics } from "@/lib/posthog";
 
 interface Countdown {
   d: string;
@@ -19,6 +19,7 @@ const UTM_URL =
 
 const CampanhaAgentsCopa50 = () => {
   useRdStationLoader();
+  useCampaignAnalytics();
   const [countdown, setCountdown] = useState<Countdown>({
     d: "00",
     h: "00",

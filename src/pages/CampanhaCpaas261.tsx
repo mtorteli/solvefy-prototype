@@ -4,7 +4,7 @@ import "./CampanhaCpaas261.css";
 import logoCpaas from "@/assets/logos/solvefy-cpaas.png";
 import heroImg from "@/assets/cpaas261-hero.webp";
 import { useRdStationLoader } from "@/lib/rdStation";
-import { trackCampaignCta } from "@/lib/posthog";
+import { trackCampaignCta, useCampaignAnalytics } from "@/lib/posthog";
 
 const CAMPAIGN = "cpaas_261";
 const FORM_URL = "https://solvefy.rds.land/sfy-formulario?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-de-solvefy-cpaas";
@@ -53,6 +53,7 @@ const Arrow = ({ s = 18 }: { s?: number }) => (
 
 export default function CampanhaCpaas261() {
   useRdStationLoader();
+  useCampaignAnalytics();
   const [cd, setCd] = useState(getCountdown());
 
   useEffect(() => {
