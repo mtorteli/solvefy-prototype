@@ -6,6 +6,10 @@ import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // Projeto pessoal de portfólio publicado em GitHub Pages sob
+  // https://mtorteli.github.io/solvefy-prototype/ — precisa do base path
+  // do repo em produção; em dev continua servindo da raiz.
+  base: mode === "production" ? "/solvefy-prototype/" : "/",
   server: {
     host: "127.0.0.1",
     port: 3000,
