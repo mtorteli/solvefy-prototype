@@ -1,0 +1,383 @@
+import re
+
+with open('C:/Users/mtort/solvefy-site/public/termos-e-politicas/index.html', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+termos_new = '''      <!-- ================= TERMOS DE USO ================= -->
+      <article id="termos-de-uso" class="scroll-mt-[180px]">
+        <div class="mb-10 pb-6 border-b border-solve-border">
+          <h2 class="font-pacaembu font-black text-[28px] md:text-[40px] leading-[1.15] text-solve-black">
+            Termos de Uso do Website Institucional
+          </h2>
+          <p class="mt-3 text-sm text-black/60">Última atualização em: 26 de maio de 2026</p>
+        </div>
+
+        <p>Os presentes Termos de Uso do Website Institucional ("Termos do Website") regulam o acesso, a navegação e a utilização do website institucional disponibilizado por <strong>DISPARO PRO S/A</strong>, sociedade anônima de direito privado, inscrita no CNPJ/MF sob o n.º 35.693.806/0001-97, com sede na Rua Caldas Novas, n.º 50, Conjunto 85, Condomínio B Trade, Bethaville I, Barueri/SP, CEP 06404-301 ("Solvefy"), no domínio solvefy.com e respectivos subdomínios ("Website").</p>
+
+        <p><strong>Distinção em relação aos Termos Gerais da Plataforma.</strong> Os presentes Termos do Website disciplinam exclusivamente a navegação e a interação no Website institucional, não se confundindo com os Termos Gerais de Uso da Plataforma Solvefy, instrumento contratual aplicável aos Clientes cadastrados no ecossistema, nem com os instrumentos próprios de cada produto.</p>
+
+        <p>O acesso ao Website pressupõe a leitura, a compreensão e a aceitação integral destes Termos do Website, da Política de Privacidade Institucional Solvefy e da Política de Cookies e Tecnologias de Rastreamento. O Visitante que não concorde com qualquer disposição destes Termos do Website deverá abster-se de navegar pelo Website.</p>
+
+        <h3>1. Definições</h3>
+        <p>Para os fins destes Termos do Website, os termos abaixo, quando iniciados em maiúscula, terão os seguintes significados:</p>
+        <ul>
+          <li><strong>"Conteúdo do Website":</strong> textos, imagens, vídeos, infográficos, áudios, marcas, logotipos, layout, design, código-fonte, materiais informativos, posts de blog, e-books, whitepapers, estudos de caso e demais elementos disponibilizados no Website pela Solvefy.</li>
+          <li><strong>"Visitante":</strong> qualquer pessoa natural que acesse, navegue ou interaja com o Website, na condição de usuário não cadastrado, prospect, jornalista, candidato a vaga, parceiro comercial em prospecção ou mero curioso.</li>
+          <li><strong>"Formulário":</strong> campos de captação de dados disponibilizados ao longo do Website, tais como formulários de contato comercial, solicitação de demonstração, inscrição em newsletter, candidatura a vagas e demais interações que envolvam o envio voluntário de informações pelo Visitante.</li>
+          <li><strong>"Solvefy":</strong> marca institucional operada pela DISPARO PRO S/A, sob o endosso "Solvefy powered by Disparo Pro", titular do Website.</li>
+        </ul>
+
+        <h3>2. Objeto e Finalidade do Website</h3>
+        <p>2.1. O Website tem finalidade institucional, informativa e comercial, destinando-se a (i) apresentar a marca Solvefy e o respectivo portfólio de produtos e soluções; (ii) divulgar conteúdos informativos, educacionais e de marketing; (iii) viabilizar a aproximação comercial com prospects, parceiros e fornecedores; (iv) disponibilizar canais de contato; (v) divulgar oportunidades profissionais e receber candidaturas; e (vi) demais finalidades correlatas à atividade institucional da Solvefy.</p>
+        <p>2.2. O Website não constitui canal de prestação dos serviços contratualmente disponibilizados aos Clientes do ecossistema, os quais são acessados em ambientes próprios, mediante cadastro institucional e onboarding por produto, regidos por instrumentos contratuais específicos.</p>
+        <p>2.3. As informações disponibilizadas no Website possuem caráter geral e informativo, não constituindo proposta vinculante, oferta contratual definitiva, aconselhamento profissional, consultoria técnica, jurídica, contábil, médica, financeira ou de qualquer outra atividade regulamentada, salvo quando expressamente indicado.</p>
+
+        <h3>3. Condições de Acesso e Navegação</h3>
+        <p>3.1. O acesso ao Website é, em regra, livre, gratuito e independente de cadastro, ressalvadas áreas restritas que possam ser eventualmente disponibilizadas, com regras próprias.</p>
+        <p>3.2. O Visitante compromete-se a utilizar o Website em conformidade com (i) a legislação aplicável; (ii) os presentes Termos do Website; (iii) a Política de Privacidade Institucional Solvefy; (iv) a Política de Cookies e Tecnologias de Rastreamento; e (v) os bons costumes.</p>
+        <p>3.3. É vedado ao Visitante:</p>
+        <ul>
+          <li>Utilizar o Website para finalidades ilícitas, fraudulentas, abusivas, atentatórias a direitos de terceiros ou contrárias à moral e aos bons costumes.</li>
+          <li>Realizar engenharia reversa, descompilar, copiar, reproduzir, modificar, distribuir, sublicenciar, comercializar ou criar obras derivadas a partir do Conteúdo do Website ou de seu código-fonte.</li>
+          <li>Empregar técnicas automatizadas de coleta de dados (scraping, crawling, robôs, scripts) sem autorização prévia e expressa da Solvefy, ressalvado o uso por mecanismos de busca legítimos respeitando o arquivo robots.txt.</li>
+          <li>Comprometer a segurança, a integridade, a disponibilidade ou a confidencialidade do Website ou dos sistemas a ele relacionados, incluindo tentativas de invasão, exploração de vulnerabilidades, ataques de negação de serviço (DoS/DDoS), introdução de códigos maliciosos ou interferência indevida em sua operação.</li>
+          <li>Fornecer informações falsas, incompletas ou enganosas nos Formulários, sobretudo quanto à identidade, à pessoa jurídica representada ou ao interesse comercial alegado.</li>
+          <li>Personificar terceiros, utilizar identidades falsas ou induzir a Solvefy ou outros Visitantes a erro.</li>
+          <li>Veicular, por intermédio dos Formulários ou de quaisquer outras funcionalidades de interação, conteúdo ilícito, ofensivo, discriminatório, calunioso, difamatório, injurioso, obsceno, pornográfico, atentatório à dignidade humana ou que viole direitos de terceiros.</li>
+        </ul>
+        <p>3.4. O Visitante reconhece que a Solvefy poderá, a seu exclusivo critério e independentemente de aviso prévio, restringir, suspender ou bloquear o acesso ao Website em caso de violação destes Termos do Website ou de indícios de uso abusivo, sem prejuízo das demais providências cabíveis.</p>
+
+        <h3>4. Conteúdo do Website e Propriedade Intelectual</h3>
+        <p>4.1. Todo o Conteúdo do Website — incluindo, sem limitação, textos, imagens, vídeos, áudios, ilustrações, infográficos, marcas, logotipos, identidade visual, layout, design, código-fonte, arquitetura, base de dados e demais elementos — é de titularidade exclusiva da Solvefy ou de seus licenciantes, estando protegido pelas Leis n.º 9.279/1996 (Propriedade Industrial), 9.609/1998 (Software) e 9.610/1998 (Direitos Autorais), bem como pelas demais normas brasileiras e internacionais aplicáveis.</p>
+        <p>4.2. O acesso ao Website não confere ao Visitante qualquer direito, licença ou autorização de uso, exploração ou reprodução do Conteúdo do Website, salvo:</p>
+        <ul>
+          <li>Visualização pessoal e não comercial, no curso normal da navegação.</li>
+          <li>Compartilhamento dos endereços (URLs) das páginas do Website em redes sociais e demais canais, preservada a integridade do conteúdo original.</li>
+          <li>Citação de trechos, com indicação expressa da fonte e do autor, para fins jornalísticos, acadêmicos ou de crítica, observados os arts. 46 e 47 da Lei n.º 9.610/1998.</li>
+        </ul>
+        <p>4.3. É vedado ao Visitante remover, ocultar ou alterar avisos de titularidade, créditos, marcas d\'água ou demais indicações de propriedade intelectual presentes no Conteúdo do Website.</p>
+        <p>4.4. Materiais ricos disponibilizados pela Solvefy (e-books, whitepapers, infográficos, estudos), quando obtidos mediante preenchimento de Formulário, são licenciados ao Visitante para uso pessoal ou interno na pessoa jurídica representada, sendo vedada a redistribuição comercial, salvo autorização escrita específica.</p>
+        <p>4.5. Eventuais conteúdos de terceiros, devidamente identificados, permanecem sob a titularidade dos respectivos detentores, sendo veiculados no Website sob licença ou em conformidade com a legislação aplicável.</p>
+
+        <h3>5. Coleta de Dados Pessoais por Meio do Website</h3>
+        <p>5.1. A coleta e o tratamento de Dados Pessoais por meio do Website — incluindo dados fornecidos voluntariamente em Formulários e dados coletados automaticamente por cookies e tecnologias correlatas — são regidos pela Política de Privacidade Institucional Solvefy e pela Política de Cookies e Tecnologias de Rastreamento, partes integrantes destes Termos do Website para todos os fins de direito.</p>
+        <p>5.2. O Visitante que utilizar Formulários do Website declara que (i) as informações fornecidas são verdadeiras, completas, exatas e atualizadas; (ii) quando atuar em representação de pessoa jurídica, possui poderes para tanto; (iii) leu e compreendeu as referidas Políticas; e (iv) consente ou reconhece a base legal aplicável ao tratamento, conforme indicado em cada Formulário.</p>
+        <p>5.3. O Visitante pode, a qualquer tempo, exercer os direitos previstos no art. 18 da Lei n.º 13.709/2018 (LGPD), mediante contato com o Encarregado pelo Tratamento de Dados Pessoais, na forma da Política de Privacidade Institucional.</p>
+        <p>5.4. O Website utiliza cookies e tecnologias de rastreamento para finalidades técnicas, analíticas e, eventualmente, publicitárias, com gestão granular de preferências disponibilizada por banner próprio, em conformidade com a Resolução CD/ANPD n.º 15/2024.</p>
+
+        <h3>6. Disponibilidade, Continuidade e Manutenção</h3>
+        <p>6.1. A Solvefy envidará esforços razoáveis para manter o Website disponível, sem, contudo, garantir disponibilidade ininterrupta, integral ou ausência de erros.</p>
+        <p>6.2. A Solvefy poderá, a qualquer tempo, realizar manutenções programadas, ajustes, atualizações, evoluções, suspensões parciais ou descontinuação total ou parcial do Website, de seu Conteúdo, de seus Formulários ou de quaisquer funcionalidades, mediante comunicação prévia razoável, sempre que possível, ressalvadas hipóteses de urgência ou de imposição legal ou regulatória.</p>
+        <p>6.3. Eventuais interrupções decorrentes de força maior, caso fortuito, falhas em provedores de infraestrutura, ataques cibernéticos não imputáveis à Solvefy, atos de terceiros, intervenções regulatórias ou comportamentos abusivos de Visitantes não constituem descumprimento destes Termos do Website.</p>
+
+        <h3>7. Links e Conteúdos de Terceiros</h3>
+        <p>7.1. O Website poderá conter links, referências, redirecionamentos ou integrações para conteúdos, serviços ou sites de terceiros, disponibilizados a título exclusivamente informativo ou de conveniência ao Visitante.</p>
+        <p>7.2. A Solvefy não exerce controle editorial, técnico ou operacional sobre os conteúdos de terceiros referenciados, não respondendo por sua veracidade, exatidão, atualidade, disponibilidade, segurança ou conformidade legal. O acesso a tais conteúdos ocorre por conta e risco exclusivos do Visitante.</p>
+        <p>7.3. Eventuais links externos para o Website disponibilizados por terceiros não pressupõem qualquer vínculo, endosso, patrocínio ou parceria entre tais terceiros e a Solvefy, salvo quando expressamente indicado em comunicado oficial.</p>
+
+        <h3>8. Comunicações e Interações</h3>
+        <p>8.1. As comunicações da Solvefy com o Visitante poderão ocorrer pelos canais por este fornecidos no Website, observada a base legal aplicável e respeitada a possibilidade de oposição (opt-out) a comunicações comerciais a qualquer tempo.</p>
+        <p>8.2. Sugestões, críticas, ideias, comentários, propostas e quaisquer outras manifestações voluntariamente encaminhadas pelo Visitante à Solvefy por meio do Website ou de seus Formulários poderão ser livremente utilizadas pela Solvefy, sem qualquer contrapartida financeira, ressalvados os limites legais aplicáveis.</p>
+
+        <h3>9. Isenção de Garantias e Limitação de Responsabilidade</h3>
+        <p>9.1. O Conteúdo do Website é disponibilizado em caráter informativo e "tal como se encontra" (as-is), sem garantias de qualquer natureza, expressas ou implícitas, quanto à exatidão, atualidade, completude, adequação a finalidades específicas, comerciabilidade, ausência de erros ou ausência de interrupções.</p>
+        <p>9.2. A Solvefy não responderá por:</p>
+        <ul>
+          <li>Decisões adotadas pelo Visitante com base em informações disponíveis no Website.</li>
+          <li>Conteúdos de terceiros referenciados, vinculados ou indexados no Website.</li>
+          <li>Indisponibilidades decorrentes de força maior, caso fortuito, falhas em provedores de infraestrutura, ataques cibernéticos não imputáveis à Solvefy, atos de terceiros, intervenções regulatórias ou comportamentos abusivos de Visitantes.</li>
+          <li>Danos decorrentes do uso indevido do Website pelo Visitante.</li>
+          <li>Eventuais danos indiretos, lucros cessantes, perda de oportunidades de negócio ou prejuízos imateriais, ainda que previsíveis.</li>
+        </ul>
+        <p>9.3. O Visitante compromete-se a manter a Solvefy indene de quaisquer reclamações, demandas, ações ou prejuízos decorrentes (i) de uso indevido do Website; (ii) de violação destes Termos do Website ou da legislação aplicável; (iii) de inserção de conteúdo ilícito ou inverídico em Formulários; ou (iv) da utilização do Conteúdo do Website em desacordo com os limites destes Termos do Website.</p>
+
+        <h3>10. Cumprimento de Determinações e Cooperação</h3>
+        <p>10.1. A Solvefy poderá fornecer informações, registros de acesso e demais dados relacionados ao uso do Website mediante requisição de autoridades competentes, observados os arts. 10 a 22 da Lei n.º 12.965/2014 (Marco Civil da Internet) e a Lei n.º 13.709/2018 (LGPD).</p>
+        <p>10.2. Os registros de acesso à aplicação de internet serão mantidos pelo prazo mínimo de 6 (seis) meses, em ambiente controlado e seguro, nos termos do art. 15 do Marco Civil da Internet.</p>
+
+        <h3>11. Alterações destes Termos do Website</h3>
+        <p>11.1. A Solvefy poderá alterar, complementar ou atualizar estes Termos do Website a qualquer tempo, mediante publicação da nova versão no próprio Website, com indicação da respectiva data de atualização.</p>
+        <p>11.2. A continuidade do acesso ao Website após a vigência das alterações implica concordância tácita do Visitante com a nova versão. Caso o Visitante não concorde com qualquer alteração, deverá abster-se de continuar utilizando o Website.</p>
+
+        <h3>12. Identificação do Encarregado pelo Tratamento de Dados Pessoais</h3>
+        <p>12.1. A Solvefy nomeou <strong>Larissa Lopes</strong> como Encarregado pelo Tratamento de Dados Pessoais (DPO), em atendimento ao art. 41 da Lei n.º 13.709/2018.</p>
+        <p>12.2. O Encarregado pode ser contatado pelo e-mail <a href="mailto:dpo@solvefy.com">dpo@solvefy.com</a> ou pelo endereço postal Rua Caldas Novas, n.º 50, Conjunto 85, Condomínio B Trade, Bethaville I, Barueri/SP, CEP 06404-301.</p>
+
+        <h3>13. Disposições Gerais</h3>
+        <p>13.1. Estes Termos do Website constituem a totalidade do acordo entre a Solvefy e o Visitante quanto ao acesso e à utilização do Website, prevalecendo sobre quaisquer entendimentos, propostas ou comunicações anteriores.</p>
+        <p>13.2. A eventual tolerância da Solvefy quanto ao descumprimento de qualquer disposição destes Termos do Website não constituirá novação, renúncia ou alteração das obrigações pactuadas.</p>
+        <p>13.3. Caso qualquer disposição destes Termos do Website seja considerada inválida, ilegal ou inexequível, as demais disposições permanecerão em pleno vigor.</p>
+        <p>13.4. Os títulos das cláusulas têm finalidade exclusivamente referencial, não influenciando a interpretação dos respectivos textos.</p>
+
+        <h3>14. Foro e Legislação Aplicável</h3>
+        <p>14.1. Estes Termos do Website são regidos pelas leis da República Federativa do Brasil.</p>
+        <p>14.2. Fica eleito o foro da Comarca de Barueri/SP para dirimir quaisquer controvérsias decorrentes destes Termos do Website, com renúncia a qualquer outro, por mais privilegiado que seja, ressalvada a competência absoluta prevista em lei.</p>
+      </article>'''
+
+privacidade_new = '''      <!-- ================= POLÍTICA DE PRIVACIDADE ================= -->
+      <article id="politica-de-privacidade" class="scroll-mt-[180px] mt-24">
+        <div class="mb-10 pb-6 border-b border-solve-border">
+          <h2 class="font-pacaembu font-black text-[28px] md:text-[40px] leading-[1.15] text-solve-black">
+            Política de Privacidade Institucional
+          </h2>
+          <p class="mt-3 text-sm text-black/60">Última atualização em: 26 de maio de 2026</p>
+        </div>
+
+        <p>A presente Política de Privacidade Institucional descreve as práticas adotadas por <strong>DISPARO PRO S/A</strong>, sociedade anônima de direito privado, inscrita no CNPJ/MF sob o n.º 35.693.806/0001-97, com sede na Rua Caldas Novas, n.º 50, Conjunto 85, Condomínio B Trade, Bethaville I, Barueri/SP, CEP 06404-301, sociedade controladora da marca Solvefy e responsável pelas atividades de tratamento de dados pessoais realizadas no website institucional, nos canais de comunicação corporativos e nas interações comerciais e administrativas mantidas com visitantes, prospects, parceiros, fornecedores e candidatos a vagas ("Política").</p>
+        <p>Esta Política observa as disposições da Lei n.º 13.709/2018 — Lei Geral de Proteção de Dados Pessoais ("LGPD"), do Marco Civil da Internet (Lei n.º 12.965/2014), do Decreto n.º 8.771/2016 e das demais normas aplicáveis ao tratamento de dados pessoais no Brasil.</p>
+
+        <h3>1. Definições</h3>
+        <p>Para os fins desta Política, os termos abaixo, quando iniciados em maiúscula, terão os seguintes significados:</p>
+        <ul>
+          <li><strong>"ANPD":</strong> Autoridade Nacional de Proteção de Dados, autarquia federal responsável por zelar pela proteção dos dados pessoais e por fiscalizar e aplicar sanções em caso de descumprimento da LGPD.</li>
+          <li><strong>"Controlador":</strong> DISPARO PRO S/A, pessoa jurídica responsável pelas decisões referentes ao tratamento de dados pessoais objeto desta Política, operadora da marca Solvefy.</li>
+          <li><strong>"Dados Pessoais":</strong> qualquer informação relacionada a pessoa natural identificada ou identificável.</li>
+          <li><strong>"Dados Pessoais Sensíveis":</strong> dados pessoais sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculados a uma pessoa natural.</li>
+          <li><strong>"Encarregado" ou "DPO":</strong> pessoa indicada pelo Controlador para atuar como canal de comunicação entre a Solvefy, os Titulares e a ANPD.</li>
+          <li><strong>"Operador":</strong> pessoa natural ou jurídica que realiza o tratamento de dados pessoais em nome do Controlador.</li>
+          <li><strong>"Solvefy":</strong> marca institucional operada pela DISPARO PRO S/A, sob o endosso "Solvefy powered by Disparo Pro", abrangendo as soluções Solvefy/Agents, Solvefy/Ads, Solvefy/MKT, Solvefy/CPaaS e Solvefy/Cloud.</li>
+          <li><strong>"Titular":</strong> pessoa natural a quem se referem os Dados Pessoais objeto de tratamento.</li>
+          <li><strong>"Tratamento":</strong> toda operação realizada com Dados Pessoais, como as que se referem a coleta, produção, recepção, classificação, utilização, acesso, reprodução, transmissão, distribuição, processamento, arquivamento, armazenamento, eliminação, avaliação ou controle da informação, modificação, comunicação, transferência, difusão ou extração.</li>
+        </ul>
+
+        <h3>2. Abrangência e Escopo</h3>
+        <p>2.1. Esta Política aplica-se ao tratamento de Dados Pessoais realizado pela Solvefy no contexto do website institucional, das interações comerciais pré-contratuais, do recrutamento e seleção de profissionais, da gestão de fornecedores e parceiros e das demais atividades acessórias à operação corporativa.</p>
+        <p>2.2. Os produtos comercializados pela Solvefy — notadamente Solvefy/Agents, Solvefy/Ads, Solvefy/MKT, Solvefy/CPaaS e Solvefy/Cloud — possuem políticas de privacidade próprias, específicas a cada solução, as quais prevalecem sobre esta Política no que se refere ao tratamento de dados realizado no contexto da prestação dos respectivos serviços.</p>
+        <p>2.3. Esta Política não regula o tratamento de dados pessoais realizado por terceiros, ainda que acessíveis a partir de links presentes nos canais da Solvefy. Recomenda-se aos Titulares a consulta às políticas próprias de tais terceiros.</p>
+
+        <h3>3. Dados Pessoais Tratados</h3>
+        <p>3.1. A Solvefy poderá realizar o tratamento das seguintes categorias de Dados Pessoais, conforme a finalidade aplicável:</p>
+        <ul>
+          <li><strong>Dados de identificação:</strong> nome completo, CPF ou documento equivalente, data de nascimento, gênero, nacionalidade.</li>
+          <li><strong>Dados de contato:</strong> endereço de e-mail, número de telefone fixo e móvel, endereço postal e endereço profissional.</li>
+          <li><strong>Dados profissionais:</strong> cargo, função, empresa de vinculação, área de atuação, tempo de experiência, formação acadêmica, currículo, certificações.</li>
+          <li><strong>Dados de navegação:</strong> endereço IP, identificadores de dispositivo, tipo e versão de navegador, sistema operacional, páginas visitadas, tempo de permanência, origem do acesso (referrer), dados oriundos de cookies e tecnologias similares, na forma da Política de Cookies.</li>
+          <li><strong>Dados de relacionamento comercial:</strong> histórico de interações com o time comercial, conteúdo de mensagens trocadas, registros de reuniões, propostas comerciais e demais informações pertinentes ao processo de venda.</li>
+          <li><strong>Dados de fornecedores e parceiros:</strong> informações de pessoas naturais representantes ou contatos das pessoas jurídicas com as quais a Solvefy mantém relacionamento contratual ou pré-contratual.</li>
+        </ul>
+        <p>3.2. A Solvefy não solicita, deliberadamente, Dados Pessoais Sensíveis no contexto desta Política. Caso o Titular forneça espontaneamente informações dessa natureza, tais dados serão tratados nos estritos limites da finalidade declarada.</p>
+        <p>3.3. A Solvefy não direciona seus produtos institucionais a crianças e adolescentes. Eventual tratamento de dados de menores, quando inevitável, observará o disposto no art. 14 da LGPD.</p>
+
+        <h3>4. Finalidades e Bases Legais</h3>
+        <p>4.1. O tratamento de Dados Pessoais pela Solvefy observará, em todos os casos, finalidades legítimas, específicas, explícitas e informadas ao Titular, bem como será fundamentado em ao menos uma das hipóteses autorizativas previstas nos arts. 7º e 11 da LGPD.</p>
+        <p>4.2. As principais finalidades e respectivas bases legais aplicáveis ao tratamento são:</p>
+        <ul>
+          <li>Atendimento a solicitações de contato, demonstração de produto, orçamento ou esclarecimento de dúvidas — base legal: consentimento (art. 7º, I) ou execução de procedimentos preliminares relacionados a contrato (art. 7º, V).</li>
+          <li>Envio de comunicações comerciais, materiais informativos, convites para eventos e demais ações de relacionamento — base legal: consentimento (art. 7º, I) ou legítimo interesse (art. 7º, IX).</li>
+          <li>Recrutamento e seleção de candidatos a vagas — base legal: execução de procedimentos preliminares relacionados a contrato (art. 7º, V), com consentimento específico para retenção de currículos não selecionados (art. 7º, I).</li>
+          <li>Gestão de fornecedores, parceiros e prestadores de serviço — base legal: execução de contrato (art. 7º, V) e cumprimento de obrigação legal ou regulatória (art. 7º, II).</li>
+          <li>Cumprimento de obrigações legais, regulatórias, contábeis e fiscais — base legal: cumprimento de obrigação legal ou regulatória (art. 7º, II).</li>
+          <li>Exercício regular de direitos em processo judicial, administrativo ou arbitral — base legal: art. 7º, VI.</li>
+          <li>Realização de análises estatísticas, métricas de uso e melhoria contínua do website e dos canais institucionais — base legal: legítimo interesse (art. 7º, IX).</li>
+          <li>Manutenção de registros de logs, trilhas de auditoria e metadados operacionais para fins de segurança da informação, prevenção à fraude, integridade dos sistemas e rastreabilidade operacional — base legal: legítimo interesse (art. 7º, IX) e exercício regular de direitos (art. 7º, VI).</li>
+        </ul>
+        <p>4.3. A Solvefy poderá tratar Dados Pessoais para outras finalidades compatíveis com aquelas originalmente informadas, observados os parâmetros do art. 7º, § 4º, da LGPD.</p>
+        <p>4.4. O Titular poderá, a qualquer momento, solicitar o cancelamento do recebimento de comunicações comerciais e promocionais, por meio de mecanismo simplificado de descadastramento (\'unsubscribe\') ou mediante solicitação direta aos canais oficiais da Solvefy.</p>
+
+        <h3>5. Compartilhamento de Dados</h3>
+        <p>5.1. A Solvefy não comercializa Dados Pessoais e somente os compartilha quando estritamente necessário ao cumprimento das finalidades declaradas nesta Política ou ao atendimento de obrigação legal, regulatória ou judicial. O compartilhamento poderá ocorrer com:</p>
+        <ul>
+          <li>Operadores e prestadores de serviços contratados pela Solvefy, tais como provedores de infraestrutura em nuvem, plataformas de gestão de relacionamento com clientes, ferramentas de marketing, analytics e automação, serviços de e-mail transacional, processadores de pagamento, escritórios de advocacia, contabilidade e auditores, sempre mediante instrumento contratual que assegure padrões adequados de segurança e confidencialidade.</li>
+          <li>Sociedades pertencentes ao mesmo grupo econômico ou sob controle comum, para finalidades administrativas, comerciais e operacionais legítimas.</li>
+          <li>Autoridades públicas competentes, em cumprimento a obrigação legal, regulatória ou determinação judicial, mediante requisição formal.</li>
+          <li>Terceiros eventualmente envolvidos em operações societárias, reorganizações, alienação ou aquisição de ativos, mediante prévia adoção de medidas de confidencialidade.</li>
+        </ul>
+
+        <h3>6. Transferência Internacional de Dados</h3>
+        <p>6.1. Em razão da utilização de prestadores de serviços globais, especialmente provedores de infraestrutura em nuvem e ferramentas SaaS de mercado, parte do tratamento de Dados Pessoais poderá envolver transferência internacional de dados, observados os mecanismos, salvaguardas e hipóteses autorizadas pela LGPD e pelas regulamentações aplicáveis da ANPD, incluindo cláusulas contratuais específicas, normas corporativas globais e demais instrumentos juridicamente válidos.</p>
+        <p>6.2. O Titular poderá, a qualquer tempo, requisitar informações específicas sobre as transferências internacionais aplicáveis, mediante contato com o Encarregado.</p>
+
+        <h3>7. Retenção e Eliminação</h3>
+        <p>7.1. Os Dados Pessoais serão mantidos pelo prazo estritamente necessário ao atingimento das finalidades para as quais foram coletados, observados os prazos legais de guarda obrigatória, especialmente:</p>
+        <ul>
+          <li>Registros de acesso a aplicação de internet: pelo prazo mínimo de 6 (seis) meses, nos termos do art. 15 da Lei n.º 12.965/2014.</li>
+          <li>Documentos fiscais e contábeis: pelos prazos previstos na legislação tributária aplicável.</li>
+          <li>Dados de candidatos não selecionados: pelo prazo máximo de 12 meses, salvo consentimento específico para retenção por prazo superior, com vistas à participação em futuros processos seletivos.</li>
+          <li>Dados de relacionamento comercial pré-contratual: pelo prazo necessário à conclusão das tratativas e, em caso de não contratação, por até 24 meses, ressalvados os prazos prescricionais legais aplicáveis.</li>
+        </ul>
+        <p>7.2. Encerrados os prazos de retenção, os Dados Pessoais serão eliminados ou submetidos a procedimento de anonimização, salvo nas hipóteses do art. 16 da LGPD.</p>
+
+        <h3>8. Direitos do Titular</h3>
+        <p>8.1. O Titular poderá exercer, a qualquer tempo, os direitos previstos no art. 18 da LGPD, especialmente:</p>
+        <ul>
+          <li>Confirmação da existência de tratamento.</li>
+          <li>Acesso aos Dados Pessoais.</li>
+          <li>Correção de dados incompletos, inexatos ou desatualizados.</li>
+          <li>Anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com a LGPD.</li>
+          <li>Portabilidade dos dados a outro fornecedor de serviço ou produto.</li>
+          <li>Eliminação dos dados tratados com base no consentimento, ressalvadas as hipóteses do art. 16 da LGPD.</li>
+          <li>Informação das entidades públicas e privadas com as quais a Solvefy realizou uso compartilhado de dados.</li>
+          <li>Revogação do consentimento, nos termos do art. 8º, § 5º, da LGPD.</li>
+          <li>Oposição a tratamento realizado com fundamento em hipótese de dispensa de consentimento, em caso de descumprimento ao disposto na LGPD.</li>
+        </ul>
+        <p>8.2. As requisições deverão ser encaminhadas pelo canal eletrônico <a href="mailto:privacidade@solvefy.com">privacidade@solvefy.com</a> ou por outro meio indicado no website institucional. A Solvefy responderá às solicitações em prazo razoável, podendo solicitar informações adicionais para confirmação da identidade do Titular.</p>
+
+        <h3>9. Segurança da Informação</h3>
+        <p>9.1. A Solvefy adota medidas técnicas e administrativas aptas a proteger os Dados Pessoais de acessos não autorizados e de situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou difusão, incluindo, entre outras:</p>
+        <ul>
+          <li>Controles de acesso lógico, com gestão de identidades, segregação de funções e princípio do menor privilégio.</li>
+          <li>Criptografia de dados em trânsito e, quando aplicável, em repouso.</li>
+          <li>Política de gestão de incidentes de segurança, com procedimento específico de notificação à ANPD e ao Titular, quando cabível.</li>
+          <li>Treinamento periódico de colaboradores em proteção de dados e segurança da informação.</li>
+          <li>Acordos de confidencialidade com colaboradores, parceiros e fornecedores.</li>
+          <li>Monitoramento contínuo da infraestrutura tecnológica e gestão de vulnerabilidades.</li>
+        </ul>
+        <p>9.2. Em caso de incidente de segurança que possa acarretar risco ou dano relevante ao Titular, a Solvefy comunicará a ocorrência à ANPD e ao Titular afetado, nos termos do art. 48 da LGPD.</p>
+
+        <h3>10. Cookies e Tecnologias Similares</h3>
+        <p>10.1. O website institucional da Solvefy utiliza cookies e tecnologias similares para finalidades de funcionalidade, segurança, análise estatística e personalização de conteúdo. As categorias, finalidades, prazos e mecanismos de gestão de consentimento encontram-se detalhados na Política de Cookies específica, disponível no website institucional.</p>
+
+        <h3>11. Encarregado pelo Tratamento de Dados Pessoais</h3>
+        <p>11.1. A Solvefy nomeou <strong>Larissa Lopes</strong> como Encarregado pelo Tratamento de Dados Pessoais (DPO), em atendimento ao art. 41 da LGPD.</p>
+        <p>11.2. O Encarregado é o canal de comunicação entre a Solvefy, os Titulares e a ANPD, e pode ser contatado pelo e-mail <a href="mailto:dpo@solvefy.com">dpo@solvefy.com</a> ou pelo endereço postal Rua Caldas Novas, n.º 50, Conjunto 85, Condomínio B Trade, Bethaville I, Barueri/SP, CEP 06404-301.</p>
+
+        <h3>12. Atualizações desta Política</h3>
+        <p>12.1. A Solvefy poderá atualizar esta Política a qualquer tempo, com vistas à melhoria contínua, à adequação a novas práticas operacionais ou ao atendimento de modificações legislativas, regulatórias ou orientações da ANPD.</p>
+        <p>12.2. Versões anteriores poderão ser disponibilizadas mediante requisição. A data da última atualização constará no website institucional. A continuidade do uso dos canais Solvefy após a publicação da nova versão presume o conhecimento das alterações.</p>
+
+        <h3>13. Disposições Gerais</h3>
+        <p>13.1. Caso qualquer disposição desta Política seja considerada inválida ou inexequível, tal circunstância não afetará a validade e a exequibilidade das demais disposições, que permanecerão em pleno vigor.</p>
+        <p>13.2. Esta Política é regida pelas leis da República Federativa do Brasil. Fica eleito o foro da Comarca de Barueri/SP para dirimir quaisquer controvérsias decorrentes desta Política, com renúncia a qualquer outro, por mais privilegiado que seja, ressalvada a competência absoluta prevista em lei.</p>
+      </article>'''
+
+cookies_new = '''      <!-- ================= POLÍTICA DE COOKIES ================= -->
+      <article id="politica-de-cookies" class="scroll-mt-[180px] mt-24">
+        <div class="mb-10 pb-6 border-b border-solve-border">
+          <h2 class="font-pacaembu font-black text-[28px] md:text-[40px] leading-[1.15] text-solve-black">
+            Política de Cookies e Tecnologias de Rastreamento
+          </h2>
+          <p class="mt-3 text-sm text-black/60">Última atualização em: 26 de maio de 2026</p>
+        </div>
+
+        <p>A presente Política de Cookies e Tecnologias de Rastreamento ("Política de Cookies") descreve as práticas adotadas pela <strong>DISPARO PRO S/A</strong>, sociedade anônima de direito privado, inscrita no CNPJ/MF sob o n.º 35.693.806/0001-97, com sede na Rua Caldas Novas, n.º 50, Conjunto 85, Condomínio B Trade, Bethaville I, Barueri/SP, CEP 06404-301, operadora da marca Solvefy, com relação à utilização de cookies, web beacons, pixels, fingerprinting e demais tecnologias similares de coleta automatizada de dados no website institucional e em demais propriedades digitais.</p>
+        <p>Esta Política de Cookies integra a Política de Privacidade Institucional Solvefy e deve ser interpretada em conjunto com aquele documento. Observa as disposições da Lei n.º 13.709/2018 (LGPD), do Marco Civil da Internet (Lei n.º 12.965/2014) e das orientações editadas pela Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+        <h3>1. O que são Cookies e Tecnologias Similares</h3>
+        <p>1.1. "Cookies" são pequenos arquivos de texto armazenados pelo navegador do Titular ao acessar páginas da internet, contendo informações que permitem reconhecer o dispositivo, lembrar preferências, autenticar sessões e mensurar a utilização do website.</p>
+        <p>1.2. Outras tecnologias similares utilizadas pela Solvefy incluem, sem limitação:</p>
+        <ul>
+          <li><strong>Web beacons e pixels de rastreamento:</strong> pequenas imagens transparentes embarcadas em páginas e e-mails que sinalizam eventos de visualização.</li>
+          <li><strong>Local Storage e Session Storage (HTML5):</strong> mecanismos de armazenamento no navegador para dados de sessão e preferências.</li>
+          <li><strong>Fingerprinting:</strong> técnicas de identificação baseadas em características do dispositivo, navegador e configurações, utilizadas exclusivamente para prevenção a fraudes, segurança da informação, proteção contra acessos não autorizados e preservação da integridade do ambiente digital.</li>
+          <li><strong>Tags de gerenciamento (Tag Managers):</strong> ferramentas que orquestram a execução de scripts de terceiros conforme as preferências de consentimento do Titular.</li>
+        </ul>
+
+        <h3>2. Categorias de Cookies Utilizados</h3>
+        <p>2.1. A Solvefy utiliza as seguintes categorias de cookies, segundo as finalidades e bases legais aplicáveis:</p>
+        <div class="overflow-x-auto mt-4 mb-6">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-solve-black text-solve-sand">
+                <th class="px-4 py-3 text-left font-semibold border border-solve-border">Categoria</th>
+                <th class="px-4 py-3 text-left font-semibold border border-solve-border">Finalidade</th>
+                <th class="px-4 py-3 text-left font-semibold border border-solve-border">Base Legal</th>
+                <th class="px-4 py-3 text-left font-semibold border border-solve-border">Retenção</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white">
+                <td class="px-4 py-3 border border-solve-border font-medium">Estritamente Necessários</td>
+                <td class="px-4 py-3 border border-solve-border">Permitem o funcionamento básico do website, autenticação, segurança da sessão e prevenção a fraudes. Não podem ser desativados.</td>
+                <td class="px-4 py-3 border border-solve-border">Legítimo interesse (art. 7º, IX, LGPD) e execução de contrato (art. 7º, V)</td>
+                <td class="px-4 py-3 border border-solve-border">Sessão ou até 12 meses</td>
+              </tr>
+              <tr class="bg-solve-sand">
+                <td class="px-4 py-3 border border-solve-border font-medium">Funcionais e de Preferência</td>
+                <td class="px-4 py-3 border border-solve-border">Armazenam preferências do Titular (idioma, região, layout) para melhoria da experiência.</td>
+                <td class="px-4 py-3 border border-solve-border">Consentimento (art. 7º, I)</td>
+                <td class="px-4 py-3 border border-solve-border">Até 12 meses</td>
+              </tr>
+              <tr class="bg-white">
+                <td class="px-4 py-3 border border-solve-border font-medium">Analíticos e de Desempenho</td>
+                <td class="px-4 py-3 border border-solve-border">Permitem aferir uso do website, identificar páginas mais acessadas e diagnosticar problemas técnicos, em base agregada.</td>
+                <td class="px-4 py-3 border border-solve-border">Consentimento (art. 7º, I) ou legítimo interesse (art. 7º, IX) quando pseudonimizados</td>
+                <td class="px-4 py-3 border border-solve-border">Até 24 meses</td>
+              </tr>
+              <tr class="bg-solve-sand">
+                <td class="px-4 py-3 border border-solve-border font-medium">Marketing e Publicidade</td>
+                <td class="px-4 py-3 border border-solve-border">Permitem segmentação de comunicações comerciais, remarketing e medição de campanhas, inclusive por terceiros.</td>
+                <td class="px-4 py-3 border border-solve-border">Consentimento (art. 7º, I)</td>
+                <td class="px-4 py-3 border border-solve-border">Até 12 meses</td>
+              </tr>
+              <tr class="bg-white">
+                <td class="px-4 py-3 border border-solve-border font-medium">De Mídia Social</td>
+                <td class="px-4 py-3 border border-solve-border">Permitem integração com plataformas de terceiros e compartilhamento de conteúdo.</td>
+                <td class="px-4 py-3 border border-solve-border">Consentimento (art. 7º, I)</td>
+                <td class="px-4 py-3 border border-solve-border">Até 12 meses</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>2.2. A relação completa e atualizada dos cookies utilizados, incluindo nomes técnicos, provedores, finalidades específicas e prazos de retenção, encontra-se disponível no banner de consentimento exibido no primeiro acesso ao website e na central de preferências, acessível a qualquer tempo.</p>
+
+        <h3>3. Cookies de Primeira Parte e de Terceiros</h3>
+        <p>3.1. Cookies de primeira parte são definidos diretamente pelo domínio da Solvefy e processados por sua infraestrutura ou por seus Operadores.</p>
+        <p>3.2. Cookies de terceiros são definidos por domínios diversos do da Solvefy e operados por prestadores parceiros, especialmente para finalidades analíticas, publicitárias e de mídia social. Entre os principais terceiros eventualmente utilizados incluem-se, sem limitação, ferramentas de analytics, plataformas de mídia paga, redes sociais corporativas e serviços de comunicação transacional.</p>
+        <p>3.3. O tratamento de dados pessoais realizado pelos terceiros referenciados observa as respectivas políticas próprias de privacidade, cuja consulta direta é recomendada ao Titular.</p>
+
+        <h3>4. Consentimento e Gestão de Preferências</h3>
+        <p>4.1. No primeiro acesso ao website, será exibido banner de consentimento informando sobre a utilização de cookies e apresentando ao Titular as opções de (i) aceitar todos os cookies, (ii) recusar todos os cookies não essenciais, ou (iii) personalizar as preferências por categoria.</p>
+        <p>4.2. Cookies estritamente necessários são instalados independentemente de consentimento, por serem indispensáveis ao funcionamento do website e à prestação dos serviços essenciais solicitados pelo Titular.</p>
+        <p>4.3. Demais categorias de cookies somente serão instaladas mediante consentimento prévio, livre, informado, específico e inequívoco do Titular, podendo ser revogado a qualquer tempo, sem qualquer prejuízo à navegação geral.</p>
+        <p>4.4. O Titular poderá revisar suas escolhas a qualquer momento por meio (i) da central de preferências de cookies, acessível pelo link permanente no rodapé do website; ou (ii) das configurações de seu navegador, podendo bloquear, eliminar ou recusar cookies, observando-se que a recusa de cookies essenciais poderá comprometer funcionalidades do website.</p>
+        <p>4.5. A revogação do consentimento não invalida o tratamento realizado anteriormente com base no consentimento anteriormente concedido.</p>
+
+        <h3>5. Compartilhamento de Dados via Cookies</h3>
+        <p>5.1. Os dados coletados por meio de cookies poderão ser compartilhados com Operadores e terceiros estritamente para as finalidades declaradas nesta Política de Cookies e na Política de Privacidade Institucional Solvefy, especialmente:</p>
+        <ul>
+          <li>Provedores de analytics e medição de desempenho do website.</li>
+          <li>Plataformas de publicidade e marketing digital, exclusivamente quando houver consentimento específico.</li>
+          <li>Provedores de serviços de comunicação transacional e gerenciamento de relacionamento.</li>
+          <li>Sociedades pertencentes ao grupo econômico da Solvefy, para finalidades institucionais legítimas.</li>
+          <li>Autoridades públicas competentes, em cumprimento a obrigação legal ou regulatória.</li>
+        </ul>
+        <p>5.2. Eventual transferência internacional de dados realizada por terceiros observará as salvaguardas previstas no art. 33 da LGPD e nas orientações da ANPD.</p>
+
+        <h3>6. Como Gerenciar os Cookies em seu Navegador</h3>
+        <p>6.1. Os principais navegadores oferecem mecanismos próprios para visualização, controle e exclusão de cookies. Informações específicas sobre o procedimento aplicável a cada navegador podem ser consultadas nos respectivos centros de ajuda.</p>
+        <p>6.2. A configuração do navegador para bloqueio integral de cookies poderá comprometer funcionalidades do website ou impossibilitar o acesso a determinadas áreas. A Solvefy não se responsabiliza por limitações decorrentes dessa escolha pelo Titular.</p>
+
+        <h3>7. Direitos do Titular</h3>
+        <p>7.1. Em relação aos dados pessoais tratados por meio de cookies, são assegurados ao Titular os direitos previstos no art. 18 da LGPD, observado o procedimento estabelecido na Política de Privacidade Institucional Solvefy e no Procedimento de Atendimento a Titulares.</p>
+
+        <h3>8. Atualizações desta Política de Cookies</h3>
+        <p>8.1. Esta Política de Cookies poderá ser atualizada a qualquer tempo, em razão de evolução tecnológica, inclusão de novos provedores, alteração regulatória ou orientação da ANPD. A data da última atualização constará no documento.</p>
+        <p>8.2. Alterações relevantes, especialmente as que envolvam inclusão de novas categorias de cookies ou novos terceiros, serão comunicadas no banner de consentimento, oportunizando ao Titular a revisão de suas preferências.</p>
+
+        <h3>9. Contato</h3>
+        <p>9.1. Dúvidas sobre esta Política de Cookies poderão ser dirigidas ao Encarregado pelo Tratamento de Dados Pessoais, pelo e-mail <a href="mailto:dpo@solvefy.com">dpo@solvefy.com</a>.</p>
+      </article>'''
+
+content = re.sub(
+    r'      <!-- =================\s*TERMOS DE USO\s*================= -->.*?      </article>',
+    termos_new,
+    content,
+    flags=re.DOTALL
+)
+
+content = re.sub(
+    r'      <!-- =================\s*POLÍTICA DE PRIVACIDADE\s*================= -->.*?      </article>',
+    privacidade_new,
+    content,
+    flags=re.DOTALL
+)
+
+content = re.sub(
+    r'      <!-- =================\s*POLÍTICA DE COOKIES\s*================= -->.*?      </article>',
+    cookies_new,
+    content,
+    flags=re.DOTALL
+)
+
+with open('C:/Users/mtort/solvefy-site/public/termos-e-politicas/index.html', 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print("Done!")
+with open('C:/Users/mtort/solvefy-site/public/termos-e-politicas/index.html', 'r', encoding='utf-8') as f:
+    nc = f.read()
+print(f"File size: {len(nc)} chars")
+for marker in ['termos-de-uso', 'politica-de-privacidade', 'politica-de-cookies', 'politica-de-moderacao']:
+    print(f"  {marker}: {nc.count(f'id=\"{marker}\"')} occurrence(s)")
+print("Title checks:")
+for title in ['Termos de Uso do Website Institucional', 'Política de Privacidade Institucional', 'Política de Cookies e Tecnologias de Rastreamento']:
+    print(f"  '{title}': {nc.count(title)} occurrence(s)")

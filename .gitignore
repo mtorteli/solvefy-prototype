@@ -29,3 +29,6 @@ Portfólio Técnico Solvefy Cloud.pdf
 
 # Claude Code worktrees e cache local
 .claude/worktrees/
+
+# Backups locais grandes (excede limite de 100MB do GitHub)
+solvefy-site.rar
