@@ -52,7 +52,7 @@ export function SEO({
   const ctx = useLocale();
   const locale = localeProp ?? ctx.locale;
 
-  const fullTitle = `${title} | ${SITE_NAME}`;
+  const fullTitle = `${SITE_NAME} — ${title}`;
   const canonicalPath = canonical ?? "/";
   const localizedCanonical = localizePath(canonicalPath, locale);
   const url = `${BASE_URL}${localizedCanonical}`;

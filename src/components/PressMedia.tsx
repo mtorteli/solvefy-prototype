@@ -1,23 +1,18 @@
-import { ArrowUpRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-// Manchetes ficam em PT em todas as versões — são links externos
-// para matérias publicadas em português.
+// Protótipo de portfólio: manchetes ilustrativas, sem links externos.
 const articles = [
   {
-    portal: "Acontecendo Aqui",
+    portal: "Portal de Notícias",
     title: "Solvefy investe em IA para integrar operações digitais",
-    href: "https://acontecendoaqui.com.br/inovacao/solvefy-investe-em-ia-para-integrar-operacoes-digitais/",
   },
   {
-    portal: "Mobile Time",
-    title: "Ativos Capital incrementa Disparo Pro com APIs de WhatsApp e RCS",
-    href: "https://www.mobiletime.com.br/noticias/19/09/2025/ativos-capital-incrementa-disparo-pro-com-apis-de-whatsapp-e-rcs/",
+    portal: "Portal de Notícias",
+    title: "Plataforma incrementa disparos com APIs de WhatsApp e RCS",
   },
   {
-    portal: "Mobile Time",
-    title: "Ativos Capital projeta receita de R$ 350 milhões no biênio 2026/27",
-    href: "https://www.mobiletime.com.br/noticias/09/02/2026/ativos-capital-receita/",
+    portal: "Portal de Notícias",
+    title: "Comunicação multicanal em alta entre empresas B2B",
   },
 ];
 
@@ -31,13 +26,10 @@ export const PressMedia = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {articles.map((a) => (
-            <a
-              key={a.href}
-              href={a.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex flex-col justify-between rounded-2xl bg-black p-6 md:p-7 min-h-[200px] transition-colors duration-300 hover:bg-black/90"
+          {articles.map((a, i) => (
+            <div
+              key={i}
+              className="relative flex flex-col justify-between rounded-2xl bg-black p-6 md:p-7 min-h-[200px]"
             >
               <div>
                 <span className="text-xs font-normal uppercase tracking-[0.18em] text-[#f8fafc99]">
@@ -47,11 +39,7 @@ export const PressMedia = () => {
                   {a.title}
                 </h3>
               </div>
-
-              <div className="mt-6 flex items-center justify-end">
-                <ArrowUpRight className="h-5 w-5 text-[hsl(var(--solve-green))] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
