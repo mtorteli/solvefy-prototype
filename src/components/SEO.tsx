@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 import {
@@ -52,8 +53,17 @@ export function SEO({
   const ctx = useLocale();
   const locale = localeProp ?? ctx.locale;
 
-  const fullTitle = `${SITE_NAME} — ${title}`;
   const canonicalPath = canonical ?? "/";
+  // Home (canonical "/"): só "Protótipo Solvefy". Demais páginas: prefixo
+  // com "Protótipo Solvefy —" para a palavra "Protótipo" aparecer primeiro.
+  const fullTitle = canonicalPath === "/" ? SITE_NAME : `${SITE_NAME} — ${title}`;
+
+  // As páginas internas são lazy-loaded e o react-helmet-async nem sempre
+  // atualiza o document.title nesse cenário (HashRouter + Suspense). Garantimos
+  // o título imperativamente para que toda aba comece com "Protótipo Solvefy".
+  useEffect(() => {
+    document.title = fullTitle;
+  }, [fullTitle]);
   const localizedCanonical = localizePath(canonicalPath, locale);
   const url = `${BASE_URL}${localizedCanonical}`;
   const rawImage = ogImage ?? DEFAULT_OG_IMAGE;
