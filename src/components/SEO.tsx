@@ -35,7 +35,7 @@ interface SEOProps {
 
 const BASE_URL = "https://mtorteli.github.io/solvefy-prototype";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og/og-default.jpg`;
-const SITE_NAME = "Solvefy";
+const SITE_NAME = "Protótipo Solvefy";
 const TWITTER_HANDLE = "@Solvefy";
 
 export function SEO({
