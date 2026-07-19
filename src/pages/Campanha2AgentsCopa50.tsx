@@ -9,7 +9,7 @@ import { trackCampaignCta, useCampaignAnalytics } from "@/lib/posthog";
 
 const CAMPAIGN = "agents_copa50_v2";
 const UTM_URL =
-  "https://agents.solvefy.com/cadastro?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-agents-copa&utm_content=campannhacopa50";
+  "#/contato";
 
 const TARGET = new Date("2026-07-19T23:59:59-03:00").getTime();
 
@@ -84,7 +84,7 @@ export default function Campanha2AgentsCopa50() {
       {/* ════════════ TOP BAR ════════════ */}
       <header className="topbar">
         <div className="topbar__in">
-          <a href="https://solvefy.com" target="_blank" rel="noopener noreferrer" className="topbar__logo-link">
+          <a href="#/" target="_blank" rel="noopener noreferrer" className="topbar__logo-link">
             <img src={logoSolvefy} alt="Solvefy" className="topbar__logo" />
           </a>
           <span className="topbar__tag">Oferta de lançamento · 90% OFF</span>

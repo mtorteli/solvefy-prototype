@@ -8,7 +8,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
 import { LocaleLayout } from "@/i18n/LocaleLayout";
-import { CookieBanner } from "@/components/CookieBanner";
 
 // Carregado imediatamente — é a entrada do site
 import Index from "./pages/Index.tsx";
@@ -21,9 +20,7 @@ const Marketing = lazy(() => import("./pages/Marketing.tsx"));
 const Crm = lazy(() => import("./pages/Crm.tsx"));
 const Agents = lazy(() => import("./pages/Agents.tsx"));
 const Cloud = lazy(() => import("./pages/Cloud.tsx"));
-const QuemSomos = lazy(() => import("./pages/QuemSomos.tsx"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex.tsx"));
-const BlogPost = lazy(() => import("./pages/BlogPost.tsx"));
 const BlogCategory = lazy(() => import("./pages/BlogCategory.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
 const AdsEmpreendeBrasil = lazy(() => import("./pages/AdsEmpreendeBrasil.tsx"));
@@ -47,12 +44,10 @@ const AppRoutes = () => (
     <Route path="crm" element={<Crm />} />
     <Route path="agents" element={<Agents />} />
     <Route path="cloud" element={<Cloud />} />
-    <Route path="quem-somos" element={<QuemSomos />} />
     <Route path="contato" element={<Contact />} />
 
-    {/* Blog Routes */}
+    {/* Blog: só índice e categorias — protótipo sem páginas de post individuais */}
     <Route path="blog" element={<BlogIndex />} />
-    <Route path="blog/:slug" element={<BlogPost />} />
     <Route path="blog/categoria/:category" element={<BlogCategory />} />
 
     {/* Landing Pages */}
@@ -81,7 +76,6 @@ const App = () => {
         <HashRouter>
           <SkipLink />
           <ScrollToTop />
-          <CookieBanner />
           <Suspense fallback={<div className="min-h-screen bg-background" />}>
             <Routes>
               <Route

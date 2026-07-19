@@ -1,10 +1,9 @@
-import { Instagram, Linkedin, ArrowRight, Award } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logoFooter from "@/assets/logo-solvefy-footer.png";
 import { useLocale } from "@/i18n/useLocale";
-import { openCookiePreferences } from "@/components/CookieBanner";
 
 type FooterLink = {
   name: string;
@@ -32,16 +31,6 @@ export const Footer = () => {
       title: t("footer.groups.resources"),
       links: [
         { name: t("footer.links.blog"), to: localizedPath("/blog") },
-        { name: t("footer.links.helpCenter"), to: localizedPath("/") },
-        { name: t("footer.links.docs"), to: localizedPath("/") },
-        { name: t("footer.links.apiRef"), to: localizedPath("/") },
-      ],
-    },
-    {
-      title: t("footer.groups.company"),
-      links: [
-        { name: t("footer.links.about"), to: localizedPath("/quem-somos") },
-        { name: t("footer.links.careers"), to: "https://solvefy.rhgestor.com.br/" },
       ],
     },
   ];
@@ -78,27 +67,6 @@ export const Footer = () => {
                 <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
-
-            <div className="mt-8 flex items-center gap-3">
-              <a
-                href="https://www.instagram.com/solvefy__"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-dark-muted hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
-                aria-label={t("footer.instagramAria")}
-              >
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/brasilfonetelecom/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-dark-muted hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
-                aria-label={t("footer.linkedinAria")}
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-            </div>
           </div>
 
           {/* Link columns */}
@@ -136,7 +104,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Bloco institucional — ajuda LLMs a montar perfil consistente da empresa */}
+        {/* Aviso de protótipo — respaldo de que isto é uma demonstração de portfólio */}
         <div className="mt-14 pt-8 border-t border-[#F8FaFC99]">
           <p className="text-sm text-dark-foreground/60 leading-relaxed max-w-3xl">
             <Trans
@@ -152,41 +120,6 @@ export const Footer = () => {
           <p className="text-xs text-dark-foreground/50">
             {t("footer.copyright", { year: new Date().getFullYear() })}
           </p>
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-4 text-xs text-dark-foreground/50">
-              <a
-                href="/termos-e-politicas"
-                className="hover:text-primary transition-colors"
-              >
-                {t("footer.legal.termsAndPolicies")}
-              </a>
-              <a
-                href="https://solvefy.com/termos-e-politicas/#politica-de-cookies"
-                className="hover:text-primary transition-colors"
-              >
-                {t("footer.legal.lgpd")}
-              </a>
-              <button
-                type="button"
-                onClick={openCookiePreferences}
-                className="bg-transparent border-none p-0 cursor-pointer text-xs text-dark-foreground/50 hover:text-primary transition-colors"
-              >
-                {t("footer.legal.cookiePrefs")}
-              </button>
-            </div>
-            {/* ACATE seal */}
-            <div className="flex items-center gap-2 rounded-lg border border-[#F8FAFC99] bg-[#F8FAFC99] px-4 py-2.5">
-              <Award className="h-5 w-5 text-primary" />
-              <div className="leading-tight">
-                <div className="text-[10px] uppercase tracking-wider text-dark-foreground/50">
-                  {t("footer.seal.label")}
-                </div>
-                <div className="text-xs font-bold text-dark-foreground">
-                  {t("footer.seal.name")}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </footer>

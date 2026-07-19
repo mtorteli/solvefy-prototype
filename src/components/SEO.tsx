@@ -33,7 +33,7 @@ interface SEOProps {
   locale?: Locale;
 }
 
-const BASE_URL = "https://solvefy.com";
+const BASE_URL = "https://mtorteli.github.io/solvefy-prototype";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og/og-default.jpg`;
 const SITE_NAME = "Solvefy";
 const TWITTER_HANDLE = "@Solvefy";

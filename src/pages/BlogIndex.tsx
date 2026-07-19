@@ -7,9 +7,8 @@ import { Header } from "@/components/Header";
 import { SEO } from "@/components/SEO";
 import { breadcrumbSchema } from "@/lib/schemas";
 import { Footer } from "@/components/Footer";
-import { Search, ChevronLeft, ChevronRight, ArrowRight, User, Calendar } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, User, Calendar } from "lucide-react";
 import { BlogCard } from "@/components/BlogCard";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useReveal } from "@/hooks/useReveal";
 import { useLocale } from "@/i18n/useLocale";
@@ -57,7 +56,7 @@ const buildResult = (all: any[], page: number, pageSize: number) => {
 
 export default function BlogIndex() {
   const { t, i18n } = useTranslation("blog");
-  const { locale, localizedPath } = useLocale();
+  const { locale } = useLocale();
   const [page, setPage] = useState(0);
   const [search, setSearch] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
@@ -145,8 +144,7 @@ export default function BlogIndex() {
               transition={{ duration: 0.55 }}
               className="group rounded-2xl border border-border overflow-hidden flex flex-col md:flex-row bg-card mb-12"
             >
-              <Link
-                to={localizedPath(`/blog/${featuredPost.slug}`)}
+              <div
                 className="relative w-full md:w-1/2 aspect-video md:aspect-auto overflow-hidden block shrink-0"
                 style={{ minHeight: "320px" }}
               >
@@ -166,7 +164,7 @@ export default function BlogIndex() {
                     {t("index.featuredBadge")}
                   </span>
                 </div>
-              </Link>
+              </div>
 
               <div className="flex flex-col justify-center p-8 md:p-12 flex-1 gap-4">
                 {featuredCategory && (
@@ -175,11 +173,11 @@ export default function BlogIndex() {
                   </span>
                 )}
 
-                <Link to={localizedPath(`/blog/${featuredPost.slug}`)} className="block">
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-foreground hover:text-primary transition-colors">
+                <div className="block">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-foreground">
                     {featuredPost.title}
                   </h2>
-                </Link>
+                </div>
 
                 {featuredPost.excerpt && (
                   <p className="text-muted-foreground leading-relaxed line-clamp-3 text-base">
@@ -198,13 +196,6 @@ export default function BlogIndex() {
                       {new Date(featuredPost.created_at).toLocaleDateString(i18n.language)}
                     </span>
                   </div>
-                  <Link
-                    to={localizedPath(`/blog/${featuredPost.slug}`)}
-                    className="flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline shrink-0 ml-4"
-                  >
-                    {t("index.readArticle")}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
                 </div>
               </div>
             </motion.article>

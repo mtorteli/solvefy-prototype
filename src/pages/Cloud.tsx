@@ -169,7 +169,7 @@ const Cloud = () => {
           applicationCategory: "BusinessApplication",
           description: t("meta.description"),
           operatingSystem: "Web",
-          url: "https://solvefy.com/cloud",
+          url: "https://mtorteli.github.io/solvefy-prototype/cloud",
           offers: {
             "@type": "AggregateOffer",
             lowPrice: "990",

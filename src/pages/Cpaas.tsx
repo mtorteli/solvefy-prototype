@@ -77,7 +77,7 @@ const Cpaas = () => {
           applicationCategory: "BusinessApplication",
           description: t("meta.description"),
           operatingSystem: "Web",
-          url: `https://solvefy.com${locale === "pt-BR" ? "/cpaas" : `/${locale === "en" ? "en" : "es"}/cpaas`}`,
+          url: `https://mtorteli.github.io/solvefy-prototype${locale === "pt-BR" ? "/cpaas" : `/${locale === "en" ? "en" : "es"}/cpaas`}`,
           offers: {
             "@type": "Offer",
             priceCurrency: "BRL",

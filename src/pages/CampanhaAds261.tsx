@@ -73,7 +73,7 @@ export default function CampanhaAds261() {
 
       {/* ===== NAV ===== */}
       <nav className="a261-nav">
-        <a href="https://solvefy.com" target="_blank" rel="noopener noreferrer" className="a261-nav__logo">
+        <a href="#/" target="_blank" rel="noopener noreferrer" className="a261-nav__logo">
           <img src={logoAds} alt="Solvefy/Ads" />
         </a>
         <div className="a261-nav__right">

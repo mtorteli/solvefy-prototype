@@ -73,7 +73,7 @@ export default function CampanhaCpaas261() {
 
       {/* ===== NAV ===== */}
       <nav className="c261-nav">
-        <a href="https://solvefy.com" target="_blank" rel="noopener noreferrer" className="c261-nav__logo">
+        <a href="#/" target="_blank" rel="noopener noreferrer" className="c261-nav__logo">
           <img src={logoCpaas} alt="Solvefy/CPaaS" />
         </a>
         <div className="c261-nav__right">

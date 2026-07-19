@@ -18,7 +18,7 @@ import {
   localizePath,
 } from "@/i18n/locales";
 
-export const SITE_URL = "https://solvefy.com";
+export const SITE_URL = "https://mtorteli.github.io/solvefy-prototype";
 
 const DESCRIPTIONS: Record<Locale, string> = {
   "pt-BR":
@@ -39,23 +39,20 @@ const AREA_SERVED: Record<Locale, string> = {
   es: "Brasil",
 };
 
+// Protótipo de portfólio: dados cadastrais reais (CNPJ, endereço, redes
+// sociais) foram removidos. Mantido apenas o nome de marca fictício exibido.
 export const SOLVEFY_ORG = {
   name: "Solvefy",
   legalName: "Solvefy",
   url: SITE_URL,
   logoUrl: `${SITE_URL}/favicon-512x512.png`,
-  /** CNPJ público do rodapé. */
-  taxID: "35.693.806/0001-97",
-  /** Endereço da sede. */
-  streetAddress: "Rua Manoel de Oliveira Ramos, 205",
-  addressLocality: "Estreito",
-  addressRegion: "SC",
+  taxID: "",
+  streetAddress: "",
+  addressLocality: "",
+  addressRegion: "",
   addressCountry: "BR",
-  addressArea: "Florianópolis",
-  sameAs: [
-    "https://www.instagram.com/solvefy__",
-    "https://www.linkedin.com/company/brasilfonetelecom/",
-  ] as string[],
+  addressArea: "",
+  sameAs: [] as string[],
 } as const;
 
 const ORG_ID = `${SITE_URL}/#organization`;

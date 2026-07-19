@@ -15,7 +15,7 @@ interface Countdown {
 
 const CAMPAIGN = "agents_copa50";
 const UTM_URL =
-  "https://agents.solvefy.com/cadastro?utm_source=outro&utm_medium=cpc&utm_campaign=campanha-agents-copa&utm_content=campannhacopa50";
+  "#/contato";
 
 const CampanhaAgentsCopa50 = () => {
   useRdStationLoader();
@@ -85,7 +85,7 @@ const CampanhaAgentsCopa50 = () => {
       <header className="topbar">
         <div className="topbar__in">
           <a
-            href="https://solvefy.com"
+            href="#/"
             target="_blank"
             rel="noopener noreferrer"
             className="topbar__logo-link"

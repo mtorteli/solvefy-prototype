@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
@@ -5,7 +6,6 @@ import { SEO } from "@/components/SEO";
 import { breadcrumbSchema } from "@/lib/schemas";
 import { Footer } from "@/components/Footer";
 import { useLocale } from "@/i18n/useLocale";
-import { RD_FORM_ID, useRdStationForm } from "@/lib/rdStation";
 import { useReveal } from "@/hooks/useReveal";
 
 const Contact = () => {
@@ -13,7 +13,8 @@ const Contact = () => {
   const { locale } = useLocale();
   const reveal = useReveal();
 
-  useRdStationForm(true);
+  // Formulário de protótipo: não envia dados para lugar nenhum.
+  const [sent, setSent] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -71,7 +72,48 @@ const Contact = () => {
                 <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="relative z-10">
-                  <div role="main" id={RD_FORM_ID}></div>
+                  {sent ? (
+                    <div className="text-center py-10">
+                      <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-primary text-2xl">✓</div>
+                      <h2 className="text-xl font-bold mb-2">Mensagem registrada!</h2>
+                      <p className="text-muted-foreground text-sm">
+                        Este é um protótipo de demonstração — nenhum dado foi enviado ou armazenado.
+                      </p>
+                    </div>
+                  ) : (
+                    <form
+                      onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+                      className="flex flex-col gap-4"
+                    >
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <label className="flex flex-col gap-1.5 text-sm font-medium">
+                          Nome
+                          <input required type="text" className="rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/30" />
+                        </label>
+                        <label className="flex flex-col gap-1.5 text-sm font-medium">
+                          E-mail
+                          <input required type="email" className="rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/30" />
+                        </label>
+                      </div>
+                      <label className="flex flex-col gap-1.5 text-sm font-medium">
+                        Empresa
+                        <input type="text" className="rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/30" />
+                      </label>
+                      <label className="flex flex-col gap-1.5 text-sm font-medium">
+                        Como podemos ajudar?
+                        <textarea rows={4} className="rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/30 resize-none" />
+                      </label>
+                      <button
+                        type="submit"
+                        className="mt-2 inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-black hover:bg-primary/90 transition-colors"
+                      >
+                        Enviar
+                      </button>
+                      <p className="text-xs text-muted-foreground text-center">
+                        Formulário de protótipo — não envia nem armazena dados.
+                      </p>
+                    </form>
+                  )}
                 </div>
               </motion.div>
             </div>

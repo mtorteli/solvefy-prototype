@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X, Building2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { usePostHog } from "@posthog/react";
@@ -162,14 +162,10 @@ export const Header = () => {
     to: localizedPath(solutionImages[key].to),
   }));
 
+  // Protótipo de portfólio: só o Blog permanece navegável em "Recursos"
+  // (Central de Ajuda removida). "Institucional" vira rótulo não-clicável.
   const resourceLinks = [
     { name: t("header.resources.blog"), to: localizedPath("/blog") },
-    { name: t("header.resources.helpCenter"), to: "https://intercom.help/Solvefy/pt-BR" },
-  ];
-
-  const companyLinks = [
-    { name: t("header.company.about"), to: localizedPath("/quem-somos") },
-    { name: t("header.company.careers"), to: "https://solvefy.rhgestor.com.br/" },
   ];
 
   return (
@@ -188,14 +184,6 @@ export const Header = () => {
           >
             {t("header.topBar.contact")}
           </Link>
-          <a
-            href="https://auth.solvefy.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-md bg-white px-3 py-1 text-xs font-semibold text-black hover:bg-white/90 transition-colors"
-          >
-            {t("header.topBar.login")}
-          </a>
         </div>
       </div>
 
@@ -221,7 +209,14 @@ export const Header = () => {
               solutions={solutionLinks}
             />
             <NavDropdown label={t("header.nav.resources")} items={resourceLinks} />
-            <NavDropdown label={t("header.nav.company")} items={companyLinks} />
+            {/* Institucional: presente no menu, porém não-clicável (protótipo) */}
+            <span
+              className="flex items-center gap-1.5 text-sm font-medium text-foreground/40 py-2 cursor-default select-none"
+              aria-disabled="true"
+            >
+              <Building2 className="h-4 w-4" />
+              {t("header.nav.company")}
+            </span>
           </nav>
 
           <div className="hidden lg:flex items-center">
@@ -275,9 +270,11 @@ export const Header = () => {
               <Link to={localizedPath("/blog")} className="block px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium">
                 {t("header.nav.resources")}
               </Link>
-              <Link to={localizedPath("/quem-somos")} className="block px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium">
+              {/* Institucional: não-clicável no protótipo */}
+              <span className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-foreground/40 cursor-default select-none" aria-disabled="true">
+                <Building2 className="h-4 w-4" />
                 {t("header.nav.company")}
-              </Link>
+              </span>
               <div className="px-3 pt-2">
                 <Button variant="hero" className="w-full group">
                   {t("header.ctaSolutions")}

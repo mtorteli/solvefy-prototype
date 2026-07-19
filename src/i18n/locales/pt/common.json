@@ -57,8 +57,8 @@
       "about": "Quem Somos",
       "careers": "Seja um Solver"
     },
-    "institutional": "A <strong>Solvefy</strong> é uma empresa brasileira de tecnologia sediada em Florianópolis/SC, especializada em comunicação multicanal B2B, automação de marketing, CRM, agentes de IA e infraestrutura em nuvem. Atende empresas em todo o Brasil que precisam escalar atendimento e vendas integrando WhatsApp, SMS, RCS, voz e e-mail em um único fluxo operacional.",
-    "copyright": "© {{year}} Solvefy. Todos os direitos reservados. CNPJ 35.693.806/0001-97",
+    "institutional": "Este é um <strong>protótipo navegável</strong>, criado por Mateus Torteli exclusivamente para fins de demonstração de portfólio de UX/UI. Não representa uma empresa real, não coleta dados pessoais e não realiza vendas, cadastros ou atendimento. Marcas, nomes e conteúdos eventualmente exibidos pertencem aos seus respectivos titulares e são usados apenas de forma ilustrativa.",
+    "copyright": "Protótipo de demonstração para portfólio — sem vínculo comercial. © {{year}} Mateus Torteli.",
     "legal": {
       "privacy": "Privacidade",
       "terms": "Termos",

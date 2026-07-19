@@ -102,7 +102,7 @@ const Marketing = () => {
           applicationCategory: "BusinessApplication",
           description: t("meta.description"),
           operatingSystem: "Web",
-          url: "https://solvefy.com/marketing",
+          url: "https://mtorteli.github.io/solvefy-prototype/marketing",
           offers: {
             "@type": "AggregateOffer",
             lowPrice: "197",
@@ -128,7 +128,7 @@ const Marketing = () => {
           }
           subtitle={t("hero.subtitle")}
           ctaText={t("hero.cta")}
-          ctaHref="https://disparopro.com.br/cadastro"
+          ctaHref="#/contato"
           trustItems={[t("hero.trust1"), t("hero.trust2"), t("hero.trust3")]}
           right={<MarketingChannelCarousel />}
         />
@@ -346,7 +346,7 @@ const Marketing = () => {
                   </p>
 
                   <a
-                    href="https://disparopro.com.br/cadastro"
+                    href="#/contato"
                     className="w-full font-semibold mt-auto flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-sm text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
                     style={{ backgroundColor: ACCENT }}
                   >

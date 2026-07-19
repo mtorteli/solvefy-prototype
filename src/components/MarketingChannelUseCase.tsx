@@ -292,7 +292,7 @@ export function MarketingChannelUseCase({ accent = "#E64499" }: MarketingChannel
             })}
 
             <a
-              href="https://disparopro.com.br/cadastro"
+              href="#/contato"
               className="inline-flex items-center gap-2 self-start mt-4 ml-4 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
               style={{ backgroundColor: accent }}
             >

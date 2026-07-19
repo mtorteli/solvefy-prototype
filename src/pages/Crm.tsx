@@ -80,7 +80,7 @@ const Crm = () => {
           applicationCategory: "BusinessApplication",
           description: t("meta.description"),
           operatingSystem: "Web",
-          url: "https://solvefy.com/crm",
+          url: "https://mtorteli.github.io/solvefy-prototype/crm",
           offers: {
             "@type": "AggregateOffer",
             lowPrice: "47",

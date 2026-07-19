@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { User, Calendar } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useLocale } from "@/i18n/useLocale";
 import { useReveal } from "@/hooks/useReveal";
 
 interface BlogCardProps {
@@ -12,7 +10,6 @@ interface BlogCardProps {
 
 export const BlogCard = ({ post, index }: BlogCardProps) => {
   const { t, i18n } = useTranslation("blog");
-  const { localizedPath } = useLocale();
   const reveal = useReveal();
 
   const category =
@@ -26,8 +23,7 @@ export const BlogCard = ({ post, index }: BlogCardProps) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group rounded-2xl bg-background border border-border overflow-hidden flex flex-col transition-all duration-300"
     >
-      <Link
-        to={localizedPath(`/blog/${post.slug}`)}
+      <div
         className="relative aspect-video overflow-hidden rounded-t-2xl block"
       >
         {post.og_image || post.cover_image ? (
@@ -53,13 +49,13 @@ export const BlogCard = ({ post, index }: BlogCardProps) => {
             </span>
           </div>
         )}
-      </Link>
+      </div>
       <div className="p-6 md:p-7 flex flex-col flex-1">
-        <Link to={localizedPath(`/blog/${post.slug}`)} className="block mb-3">
+        <div className="block mb-3">
           <h3 className="text-lg md:text-xl font-regular tracking-tight leading-tight text-[#000000] transition-colors text-balance">
             {post.title}
           </h3>
-        </Link>
+        </div>
         <div className="mt-auto pt-4 flex items-center gap-4 text-xs text-muted-foreground">
           <span className="flex items-center gap-1.5">
             <User className="h-3.5 w-3.5" />

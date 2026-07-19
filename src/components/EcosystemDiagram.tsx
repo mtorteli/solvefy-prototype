@@ -46,7 +46,7 @@ export const EcosystemDiagram = ({ accent = "#00de71" }: { accent?: string }) =>
         >
           <iframe
             ref={iframeRef}
-            src="/ecosystem-diagram.html"
+            src={`${import.meta.env.BASE_URL}ecosystem-diagram.html`}
             title="Ecossistema Solvefy"
             onLoad={handleLoad}
             scrolling="no"

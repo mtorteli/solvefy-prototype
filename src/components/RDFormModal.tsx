@@ -3,29 +3,25 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
-import {
-  RD_FORM_ID,
-  RD_SCRIPT_ID,
-  RD_SCRIPT_SRC,
-  useRdStationForm,
-} from "@/lib/rdStation";
-
-export { RD_FORM_ID, RD_SCRIPT_ID, RD_SCRIPT_SRC };
 
 interface RDFormModalProps {
   open: boolean;
   onClose: () => void;
 }
 
+// Protótipo de portfólio: o formulário real do RD Station foi removido.
 export const RDFormModal = ({ open, onClose }: RDFormModalProps) => {
-  useRdStationForm(open);
-
   return (
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
-      <DialogContent className="max-w-xl w-full p-0 overflow-hidden rounded-2xl">
+      <DialogContent className="max-w-md w-full p-0 overflow-hidden rounded-2xl">
         <DialogTitle className="sr-only">Formulário de Contato</DialogTitle>
-        <div className="overflow-y-auto max-h-[90vh] p-6 md:p-10">
-          <div role="main" id={RD_FORM_ID} />
+        <div className="p-8 md:p-10 text-center">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-primary text-2xl">✦</div>
+          <h2 className="text-xl font-bold mb-2">Protótipo de demonstração</h2>
+          <p className="text-muted-foreground text-sm">
+            Esta é uma tela de portfólio. O formulário de contato não está ativo aqui —
+            nenhum dado é coletado ou enviado.
+          </p>
         </div>
       </DialogContent>
     </Dialog>

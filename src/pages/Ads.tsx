@@ -18,7 +18,7 @@ import { breadcrumbSchema, serviceSchema } from "@/lib/schemas";
 import { ProductHero } from "@/components/ProductHero";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { RDFormModal, RD_SCRIPT_ID, RD_SCRIPT_SRC } from "@/components/RDFormModal";
+import { RDFormModal } from "@/components/RDFormModal";
 import iconAds from "@/assets/icons/ads.svg";
 import logoAds from "@/assets/logos/solvefy-ads.png";
 import { EcosystemDiagram } from "@/components/EcosystemDiagram";
@@ -49,17 +49,6 @@ const Ads = () => {
   useRdStationLoader();
   const { locale } = useLocale();
   const [modalOpen, setModalOpen] = useState(false);
-
-  // Pré-carrega o script da RD Station assim que a página monta,
-  // para que o formulário abra instantaneamente quando o usuário clicar.
-  useEffect(() => {
-    if (document.getElementById(RD_SCRIPT_ID)) return;
-    const script = document.createElement("script");
-    script.id = RD_SCRIPT_ID;
-    script.src = RD_SCRIPT_SRC;
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -93,7 +82,7 @@ const Ads = () => {
           applicationCategory: "BusinessApplication",
           description: t("meta.description"),
           operatingSystem: "Web",
-          url: "https://solvefy.com/ads",
+          url: "https://mtorteli.github.io/solvefy-prototype/ads",
         }}
       />
       <Header />

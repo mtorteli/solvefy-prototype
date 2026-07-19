@@ -57,8 +57,8 @@
       "about": "About Us",
       "careers": "Become a Solver"
     },
-    "institutional": "<strong>Solvefy</strong> is a Brazilian technology company headquartered in Florianópolis/SC, specialized in B2B multichannel communication, marketing automation, CRM, AI agents and cloud infrastructure. We serve companies across Brazil that need to scale customer service and sales by integrating WhatsApp, SMS, RCS, voice and email into a single operational flow.",
-    "copyright": "© {{year}} Solvefy. All rights reserved. CNPJ 35.693.806/0001-97",
+    "institutional": "This is a <strong>navigable prototype</strong>, created by Mateus Torteli solely for UX/UI portfolio demonstration purposes. It does not represent a real company, does not collect personal data and does not perform sales, sign-ups or customer service. Any brands, names and content shown belong to their respective owners and are used for illustrative purposes only.",
+    "copyright": "Demonstration prototype for portfolio — no commercial affiliation. © {{year}} Mateus Torteli.",
     "legal": {
       "privacy": "Privacy",
       "terms": "Terms",
