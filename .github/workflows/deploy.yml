@@ -23,7 +23,8 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - run: npm run build:no-prerender
+      # Protótipo: build direto do Vite, sem gerar sitemap/llms (não indexável).
+      - run: npx vite build
         env:
           NODE_ENV: production
       - uses: actions/upload-pages-artifact@v3

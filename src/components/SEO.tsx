@@ -91,14 +91,9 @@ export function SEO({
         href={`${BASE_URL}${localizePath(canonicalPath, DEFAULT_LOCALE) || "/"}`}
       />
 
-      <meta
-        name="robots"
-        content={
-          noindex
-            ? "noindex, nofollow"
-            : "index, follow, max-image-preview:large, max-snippet:-1"
-        }
-      />
+      {/* Protótipo de portfólio: nunca indexar em buscadores. */}
+      <meta name="robots" content="noindex, nofollow" />
+      <meta name="googlebot" content="noindex, nofollow" />
 
       {keywords && keywords.length > 0 && (
         <meta name="keywords" content={keywords.join(", ")} />
